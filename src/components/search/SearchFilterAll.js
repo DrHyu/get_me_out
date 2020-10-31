@@ -6,9 +6,9 @@ import FilterDescriptor from "./filters/SearchFilterDescriptor";
 function SearchFilterAll(props) {
   /* Configure filters available with the FilterDescription class */
   const [filters, setfilters] = useState([
-    FilterDescriptor.radio_filter("People", [1, 2, 3, 4]),
-    FilterDescriptor.radio_filter("Stars", [1, 2, 3, 4, 5]),
-    FilterDescriptor.slider_filter("Rating", 1, 100),
+    // FilterDescriptor.radio_filter("People", [1, 2, 3, 4]),
+    // FilterDescriptor.radio_filter("Stars", [1, 2, 3, 4, 5]),
+    // FilterDescriptor.slider_filter("Rating", 1, 100),
   ]);
 
   /* 'Inflate' the components based on the contents of each FilterDescription obj */
