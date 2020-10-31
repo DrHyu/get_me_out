@@ -1,6 +1,6 @@
 import React from "react";
 
-import FilterSearch from "../components/search/SearchFilterSearch";
+import FilterSearch from "../components/search/SearchFilterAll";
 import ShowResults from "../components/search/SearchShowResults";
 
 export default function Search() {
