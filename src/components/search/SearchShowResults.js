@@ -5,14 +5,15 @@ import SearchResult from "./SearchResult";
 import { fetchData } from "../../store/actions/searchActions";
 
 const SearchShowResults = () => {
-  const results = useSelector((state) => state.search.searchResults);
+  const searchResults = useSelector((state) => state.search.searchResults);
   const isValid = useSelector((state) => state.search.isValid);
   const isFetching = useSelector((state) => state.search.isFetching);
+  const activeFitlers = useSelector((state) => state.search.activeFilters);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, []);
+    dispatch(fetchData(activeFitlers));
+  }, [activeFitlers]);
 
   if (isFetching) {
     return (
@@ -23,7 +24,7 @@ const SearchShowResults = () => {
   } else if (isValid) {
     return (
       <div>
-        {results.map((result) => (
+        {searchResults.map((result) => (
           <SearchResult result={result} key={result.id} />
         ))}
       </div>

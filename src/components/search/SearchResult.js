@@ -12,8 +12,11 @@ export default function SearchResult(props) {
         <div className="col-8">
           <div className="container">
             <div className="row">
-              <div className="col-4">{props.result.rating}/100</div>
-              <div className="col-8">{props.result.name}</div>
+              <div className="col-3">{props.result.rating}/100</div>
+              <div className="col-7">{props.result.name}</div>
+              <div className="col-2">
+                {props.result.open ? "Open" : "Closed"}
+              </div>
             </div>
           </div>
           <div className="row">
