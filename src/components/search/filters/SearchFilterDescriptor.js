@@ -1,15 +1,18 @@
-import SearchFilterRadio from "./SearchFilterRadio";
-import SearchFilterSlider from "./SearchFilterSlider";
+import RadioFilter from "./SearchFilterRadioFilter";
+import SliderFilter from "./SearchFilterSliderFilter";
+import MultChoiceFilter from "./SearchFilterMultChoiceFilter";
 
 import { cloneDeep, remove } from "lodash";
 
 export const RANGE_FILTER = "RANGE_FILTER";
 export const CHOICE_FILTER = "CHOICE_FILTER";
 export const DATE_FILTER = "DATE_FILTER";
+export const MULT_CHOICE_FILTER = "MULT_CHOICE_FILTER";
 
 export const filterKindToComponent = {
-  RANGE_FILTER: SearchFilterSlider,
-  CHOICE_FILTER: SearchFilterRadio,
+  RANGE_FILTER: SliderFilter,
+  CHOICE_FILTER: RadioFilter,
+  MULT_CHOICE_FILTER: MultChoiceFilter,
 };
 
 export const filterData = (activeFilters, data) => {
@@ -22,23 +25,43 @@ export const filterData = (activeFilters, data) => {
     return data;
   }
 
-  activeFilters.forEach((filter) => {
+  activeFilters.forEach((fltr) => {
+    if (typeof fltr.filterAttr == "undefined") {
+      return; // a.k.a continue
+    }
     remove(outData, (d) => {
-      if (!(filter.filterAttr in d)) {
+      if (!(fltr.filterAttr in d)) {
         /* Exclude */
         return true;
       } else if (
-        filter.kind === RANGE_FILTER &&
-        d[filter.filterAttr] < filter.value
+        fltr.kind === RANGE_FILTER &&
+        d[fltr.filterAttr] < fltr.value
       ) {
         /* Exclude */
         return true;
       } else if (
-        filter.kind === CHOICE_FILTER &&
-        d[filter.filterAttr] !== filter.optionsToAttrMapping[filter.value]
+        fltr.kind === CHOICE_FILTER &&
+        d[fltr.filterAttr] !== fltr.optionsToAttrMapping[fltr.value]
       ) {
         /* Exclude */
         return true;
+      } else if (fltr.kind === MULT_CHOICE_FILTER) {
+        /* Inclusive - must match at least one of the fields */
+        let tgtAttr = d[fltr.filterAttr];
+        /* We are only looking for the fields which are checked (value===True) */
+        let valuesSearched = fltr.optionsToAttrMapping.filter(
+          (_, idx) => fltr.value[idx]
+        );
+
+        if (fltr.optionsToAttrMappingMode === "OR") {
+          /* Keep the data if tgtAttr matches some of valuesSearched */
+          let found = valuesSearched.map((search) => search === tgtAttr);
+          return !found.some((_) => _);
+          /* Exclusive - must match ALL of the fields */
+        } else if (fltr.optionsToAttrMappingMode === "AND") {
+          /* TODO - Target would have to be an array */
+          return false;
+        }
       } else {
         /* Keep the value */
         return false;
@@ -47,32 +70,3 @@ export const filterData = (activeFilters, data) => {
   });
   return outData;
 };
-
-class SearchFilterDescriptor {
-  constructor(params) {
-    const { react_component, ...settings } = params;
-    this.react_component = react_component;
-    this.settings = settings;
-  }
-
-  static radio_filter(title, values) {
-    const params = {
-      react_component: SearchFilterRadio,
-      title: title,
-      values: values,
-    };
-    return new SearchFilterDescriptor(params);
-  }
-
-  static slider_filter(title, min, max) {
-    const params = {
-      react_component: SearchFilterSlider,
-      title: title,
-      min: min,
-      max: max,
-    };
-    return new SearchFilterDescriptor(params);
-  }
-}
-
-export default SearchFilterDescriptor;

@@ -36,8 +36,14 @@ export const fetchData = (activeFilters) => {
     */
     return axios("https://5f9c1201856f4c00168c5e7c.mockapi.io/name").then(
       (json) => {
+        /* Add in difictuly data since couldn't get it in mockapi */
+        let difLvls = ["easy", "medium", "hard"];
+        const data = json.data.map((elem) => ({
+          ...elem,
+          difficulty: difLvls[Math.floor(Math.random() * 3)],
+        }));
         /* Theoretically this will be done server side */
-        const filteredData = filterData(activeFilters, json.data);
+        const filteredData = filterData(activeFilters, data);
         dispatch(receiveData(filteredData));
       }
     );
@@ -46,12 +52,13 @@ export const fetchData = (activeFilters) => {
 
 /* Filter actions */
 
-export const updateFilterValue = (id, value) => {
+export const updateFilterValue = (id, value, option = -1) => {
   return {
     type: actions.UPDATE_FILTER_VALUE,
     payload: {
       id,
       value,
+      option,
     },
   };
 };

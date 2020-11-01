@@ -1,25 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { filterKindToComponent } from "./filters/SearchFilterDescriptor";
 
 import { updateFilterValue } from "../../store/actions/searchActions";
 
-function SearchFilterAll(props) {
-  /* Configure filters available with the FilterDescription class */
+import FilterWrapper from "./filters/SearchFilterWrapper";
 
+import "./filter.css";
+
+function SearchFilterAll(props) {
   const activeFilters = useSelector((state) => state.search.activeFilters);
   const dispatch = useDispatch();
   /* Transform from filter descriptor to react component */
   return (
-    <div>
+    <div className="filter-all">
       {activeFilters.map((filter) => {
-        const TempComponent = filterKindToComponent[filter.kind];
         return (
-          <TempComponent
+          <FilterWrapper
             key={filter.id + "_" + filter.name}
-            settings={filter}
-            onChangeCallback={(value) => {
-              dispatch(updateFilterValue(filter.id, value));
+            filter={filter}
+            onChangeCallback={(value, option = -1) => {
+              dispatch(updateFilterValue(filter.id, value, option));
             }}
           />
         );
