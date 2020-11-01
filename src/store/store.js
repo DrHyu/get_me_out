@@ -4,13 +4,13 @@ import { searchReducer } from "./reducers/searchReducers";
 
 import thunk from "redux-thunk";
 
-const INITIAL_STATE = {};
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
     search: searchReducer,
   }),
-  INITIAL_STATE,
-  compose(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 export default store;

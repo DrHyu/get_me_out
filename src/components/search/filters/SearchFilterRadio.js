@@ -3,15 +3,21 @@ import React from "react";
 export default function SearchFilterRadio(props) {
   return (
     <div>
-      {props.settings.title}
-      {props.settings.values.map((option, idx) => (
-        <div>
+      <div>{props.settings.name}</div>
+      {props.settings.options.map((option, idx) => (
+        <div key={`${props.settings.name}_${option}_${idx}`}>
           <input
             type="radio"
-            name={props.settings.title}
-            id={option + props.settings.title}
+            name={props.settings.name}
+            id={`${props.settings.name}_${option}_${idx}`}
+            checked={props.settings.value === idx ? true : false}
+            onChange={() => {
+              return props.onChangeCallback(idx);
+            }}
           />
-          <label htmlFor={option}>{option}</label>
+          <label htmlFor={`${props.settings.name}_${option}_${idx}`}>
+            {option}
+          </label>
         </div>
       ))}
     </div>
