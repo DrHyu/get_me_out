@@ -1,7 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class search_page extends Component {
-  render() {
-    return <div>Hello Wrold</div>;
-  }
+import FilterSearch from "../components/search/SearchFilterAll";
+import ShowResults from "../components/search/SearchShowResults";
+
+export default function Search() {
+  return (
+    <div>
+      <div className="container">
+        <div className="row">
+          <div className="col-2">
+            <FilterSearch />
+          </div>
+          <div className="col-10">
+            <ShowResults />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
