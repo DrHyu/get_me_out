@@ -2,3 +2,4 @@ venv/
 *.pyc
 gmo_backend/static/*
 *db.sqlite3
+**/migrations/*
