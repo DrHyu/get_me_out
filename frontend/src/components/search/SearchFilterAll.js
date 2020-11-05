@@ -8,6 +8,7 @@ import FilterWrapper from "./filters/SearchFilterWrapper";
 import "./filter.css";
 
 function SearchFilterAll(props) {
+
   const activeFilters = useSelector((state) => state.search.activeFilters);
   const dispatch = useDispatch();
   /* Transform from filter descriptor to react component */
@@ -20,6 +21,7 @@ function SearchFilterAll(props) {
             filter={filter}
             onChangeCallback={(value, option = -1) => {
               dispatch(updateFilterValue(filter.id, value, option));
+
             }}
           />
         );

@@ -44,6 +44,7 @@ export const fetchData = (activeFilters) => {
         }));
         /* Theoretically this will be done server side */
         const filteredData = filterData(activeFilters, data);
+
         dispatch(receiveData(filteredData));
       }
     );
@@ -53,6 +54,7 @@ export const fetchData = (activeFilters) => {
 /* Filter actions */
 
 export const updateFilterValue = (id, value, option = -1) => {
+
   return {
     type: actions.UPDATE_FILTER_VALUE,
     payload: {

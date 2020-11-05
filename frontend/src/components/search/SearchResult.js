@@ -24,6 +24,7 @@ export default function SearchResult(props) {
               <div className="col">{props.result.name}</div>
               <div className="col">{props.result.difficulty}</div>
               <div className="col">{props.result.open ? "Open" : "Closed"}</div>
+
             </div>
           </div>
           <div className="row">

@@ -1,6 +1,8 @@
+
 import RadioFilter from "./SearchFilterRadioFilter";
 import SliderFilter from "./SearchFilterSliderFilter";
 import MultChoiceFilter from "./SearchFilterMultChoiceFilter";
+
 
 import { cloneDeep, remove } from "lodash";
 
@@ -13,6 +15,7 @@ export const filterKindToComponent = {
   RANGE_FILTER: SliderFilter,
   CHOICE_FILTER: RadioFilter,
   MULT_CHOICE_FILTER: MultChoiceFilter,
+
 };
 
 export const filterData = (activeFilters, data) => {
@@ -24,7 +27,6 @@ export const filterData = (activeFilters, data) => {
   if (typeof activeFilters === "undefined" || activeFilters.length === 0) {
     return data;
   }
-
   activeFilters.forEach((fltr) => {
     if (typeof fltr.filterAttr == "undefined") {
       return; // a.k.a continue
@@ -36,6 +38,7 @@ export const filterData = (activeFilters, data) => {
       } else if (
         fltr.kind === RANGE_FILTER &&
         d[fltr.filterAttr] < fltr.value
+
       ) {
         /* Exclude */
         return true;
@@ -62,6 +65,7 @@ export const filterData = (activeFilters, data) => {
           /* TODO - Target would have to be an array */
           return false;
         }
+
       } else {
         /* Keep the value */
         return false;
