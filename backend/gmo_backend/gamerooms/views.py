@@ -47,7 +47,7 @@ class GameRoomVisitorRecomendationsView(APIView):
             country = get_object(model=self.model, pk=country_id)
             game_rooms = gamerooms_models.objects.all()
 
-            response = RResponse(game_rooms)
+            response = Response(game_rooms)
         else:
             response = Response(status=status.HTTP_400_BAD_REQUEST)
 
