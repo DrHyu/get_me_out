@@ -13,3 +13,7 @@ class GameRoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = gamerooms_models.GameRoom
         fields = '__all__'
+
+
+class GameRoomVisitorRecomendationsSerializer(serializers.Serializer):
+    country_id = serializers.IntegerField()
