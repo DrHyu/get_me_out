@@ -7,6 +7,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
+from base.functions import get_object
 
 # Project Imports
 from gamerooms.serializers import GameRoomSerializer, GameRoomVisitorRecomendationsSerializer
@@ -41,7 +42,12 @@ class GameRoomVisitorRecomendationsView(APIView):
         serializer = GameRoomVisitorRecomendationsSerializer(data=request.data)
 
         if serializer.is_valid():
-            response = Response(status=status.HTTP_400_BAD_REQUEST)
+            country_id = serializer.validated_data['country_id']
+
+            country = get_object(model=self.model, pk=country_id)
+            game_rooms = gamerooms_models.objects.all()
+
+            response = RResponse(game_rooms)
         else:
             response = Response(status=status.HTTP_400_BAD_REQUEST)
 
