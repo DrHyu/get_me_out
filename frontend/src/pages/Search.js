@@ -2,10 +2,11 @@ import React from "react";
 
 import FilterSearch from "../components/search/SearchFilterAll";
 import ShowResults from "../components/search/SearchShowResults";
+import Layout from "../components/layout";
 
-export default function Search() {
+const SearchPage = () => {
   return (
-    <div>
+    <Layout>
       <div className="container">
         <div className="row">
           <div className="col-2">
@@ -16,6 +17,8 @@ export default function Search() {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
-}
+};
+
+export default SearchPage;
