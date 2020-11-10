@@ -31,7 +31,6 @@ export const dashboardReducer = (state = INITIAL_STATE, action) => {
       return { ...state, isFetching: true };
 
     case actions.LANDING_PAGE_RECEIVE_DATA:
-      console.log(action);
       return {
         ...state,
         roomSuggestions: action.payload.roomSuggestions,

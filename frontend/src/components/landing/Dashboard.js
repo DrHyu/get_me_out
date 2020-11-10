@@ -8,17 +8,20 @@ import { fetchRoomSuggestions } from "../../store/actions/dashboardActions";
 function Dashboard() {
   const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
   const roomSuggestions = useSelector((state) => {
-    console.log(state);
     return state.dashboard.roomSuggestions;
   });
   const dispatch = useDispatch();
-  console.log(roomSuggestions);
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  console.log(isAuthenticated);
+
+  // const userLinks = <LoggedIn />;
+
+  // const guestLinks = <Login />;
 
   useEffect(() => {
     dispatch(fetchRoomSuggestions());
   }, []);
-
-  console.log(roomSuggestions);
 
   return (
     <Container fluid>
