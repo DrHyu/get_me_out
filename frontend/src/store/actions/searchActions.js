@@ -6,13 +6,13 @@ import { filterData } from "../../components/search/filters/SearchFilterDescript
 /* Search actions */
 export const requestData = () => {
   return {
-    type: actions.REQUEST_DATA,
+    type: actions.SEARCH_PAGE_REQUEST_DATA,
   };
 };
 
 export const receiveData = (data) => {
   return {
-    type: actions.RECEIVE_DATA,
+    type: actions.SEARCH_PAGE_RECEIVE_DATA,
     payload: {
       searchResults: data.map((hit) => hit),
     },
@@ -21,7 +21,7 @@ export const receiveData = (data) => {
 
 export const invalidateData = () => {
   return {
-    type: actions.INVALIDATE_DATA,
+    type: actions.SEARCH_PAGE_INVALIDATE_DATA,
   };
 };
 
@@ -54,9 +54,8 @@ export const fetchData = (activeFilters) => {
 /* Filter actions */
 
 export const updateFilterValue = (id, value, option = -1) => {
-
   return {
-    type: actions.UPDATE_FILTER_VALUE,
+    type: actions.SEARCH_PAGE_UPDATE_FILTER_VALUE,
     payload: {
       id,
       value,

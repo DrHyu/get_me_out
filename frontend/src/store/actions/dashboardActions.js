@@ -3,13 +3,13 @@ import axios from "axios";
 
 export const requestData = () => {
   return {
-    type: actions.REQUEST_DATA,
+    type: actions.LANDING_PAGE_REQUEST_DATA,
   };
 };
 
 export const receiveData = (data) => {
   return {
-    type: actions.RECEIVE_DATA,
+    type: actions.LANDING_PAGE_RECEIVE_DATA,
     payload: {
       roomSuggestions: data.map((hit) => hit),
     },
@@ -18,7 +18,7 @@ export const receiveData = (data) => {
 
 export const invalidateData = () => {
   return {
-    type: actions.INVALIDATE_DATA,
+    type: actions.LANDING_PAGE_INVALIDATE_DATA,
   };
 };
 

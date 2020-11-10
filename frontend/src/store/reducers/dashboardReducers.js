@@ -24,13 +24,14 @@ const INITIAL_STATE = {
 
 export const dashboardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case actions.INVALIDATE_DATA:
+    case actions.LANDING_PAGE_INVALIDATE_DATA:
       return { ...state, isValid: false };
 
-    case actions.REQUEST_DATA:
+    case actions.LANDING_PAGE_REQUEST_DATA:
       return { ...state, isFetching: true };
 
-    case actions.RECEIVE_DATA:
+    case actions.LANDING_PAGE_RECEIVE_DATA:
+      console.log(action);
       return {
         ...state,
         roomSuggestions: action.payload.roomSuggestions,

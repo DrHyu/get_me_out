@@ -43,13 +43,13 @@ const INITIAL_STATE = {
 
 export const searchReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case actions.INVALIDATE_DATA:
+    case actions.SEARCH_PAGE_INVALIDATE_DATA:
       return { ...state, isValid: false };
 
-    case actions.REQUEST_DATA:
+    case actions.SEARCH_PAGE_REQUEST_DATA:
       return { ...state, isFetching: true };
 
-    case actions.RECEIVE_DATA:
+    case actions.SEARCH_PAGE_RECEIVE_DATA:
       return {
         ...state,
         searchResults: action.payload.searchResults,
@@ -57,7 +57,7 @@ export const searchReducer = (state = INITIAL_STATE, action) => {
         isValid: true,
       };
 
-    case actions.UPDATE_FILTER_VALUE:
+    case actions.SEARCH_PAGE_UPDATE_FILTER_VALUE:
       return {
         ...state,
         /* All of state except activeFilters */
