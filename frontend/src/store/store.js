@@ -7,6 +7,7 @@ import {
 
 import { searchReducer } from "./reducers/searchReducers";
 import { dashboardReducer } from "./reducers/dashboardReducers";
+import { authReducer } from "./reducers/authReducer";
 
 import thunk from "redux-thunk";
 
@@ -20,6 +21,7 @@ const createStore = () =>
     combineReducers({
       dashboard: dashboardReducer,
       search: searchReducer,
+      auth: authReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
