@@ -1,4 +1,4 @@
-.search-result {
+.room-suggestion {
   border: 1px outset;
   /* border-style: ; */
   margin: 2px;
@@ -6,24 +6,24 @@
   background-color: ghostwhite;
 }
 
-.search-result-img-container {
+.room-suggestion-img-container {
   padding: 0;
   margin: 0;
 }
 
-.search-result-room-stats-container {
+.room-suggestion-room-stats-container {
   padding: 4px;
 
   box-sizing: border-box;
 }
 
-.search-result-room-description-container {
+.room-suggestion-room-description-container {
   padding: 4px;
 
   box-sizing: border-box;
 }
 
-.search-result img {
+.room-suggestion img {
   max-width: 100%;
   height: auto;
   margin: 0px;
