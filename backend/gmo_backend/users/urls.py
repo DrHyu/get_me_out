@@ -9,5 +9,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('auth', authviews.obtain_auth_token),
+    path('auth/login', authviews.obtain_auth_token),
 ]

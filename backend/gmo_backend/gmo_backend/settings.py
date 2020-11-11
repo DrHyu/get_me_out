@@ -41,7 +41,33 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'gamerooms',
+    'drf_yasg',
 ]
+
+REST_FRAMEWORK = {
+    #'DEFAULT_FILTER_BACKENDS': (
+    #    'django_filters.rest_framework.DjangoFilterBackend',
+    #),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'
+    ),
+    "LOGIN_URL": "users/auth/",
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.JSONParser',
+    ],
+}
+
+
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

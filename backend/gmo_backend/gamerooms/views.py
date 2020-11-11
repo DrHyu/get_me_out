@@ -7,7 +7,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
-from base.functions import get_object
+from django.http import Http404
+
 
 # Project Imports
 from gamerooms.serializers import GameRoomSerializer, GameRoomVisitorRecomendationsSerializer
@@ -32,6 +33,14 @@ class GameRoomUserRecomendationsView(APIView):
         user = request.user
         game_rooms = gamerooms_models.objects.all()
         return Response(game_rooms)
+
+
+def get_object(model, pk):
+    try:
+        object_ = model.objects.get(pk=pk)
+    except model.DoesNotExist:
+        raise Http404
+    return object_
 
 
 class GameRoomVisitorRecomendationsView(APIView):
