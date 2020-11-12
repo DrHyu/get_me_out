@@ -6,6 +6,7 @@ import "./landing.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
+import RoomStats from "./DashboardRoomStats";
 const placeHolder =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=";
 
@@ -21,14 +22,7 @@ const RoomSuggestion = ({ room }) => {
           />
         </div>
         <div className="col-3 room-suggestion-room-stats-container">
-          <div className="container">
-            <div className="row">
-              <div className="col">{room.rating}/100</div>
-              <div className="col">{room.difficulty}</div>
-              <div className="col">{room.open ? "Open" : "Closed"}</div>
-              <FontAwesomeIcon icon={faCoffee} />
-            </div>
-          </div>
+          <RoomStats room={room} />
         </div>
         <div className="col-6 room-suggestion-room-description-container">
           <div className="container">

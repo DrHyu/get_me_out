@@ -3,8 +3,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import "./search.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const placeHolder =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=";
@@ -26,7 +26,7 @@ export default function SearchResult({ result }) {
               <div className="col">{result.rating}/100</div>
               <div className="col">{result.difficulty}</div>
               <div className="col">{result.open ? "Open" : "Closed"}</div>
-              <FontAwesomeIcon icon={faCoffee} />
+              {/* <FontAwesomeIcon icon={faCoffee} /> */}
             </div>
           </div>
         </div>
