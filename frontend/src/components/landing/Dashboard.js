@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-import RoomSuggestion from "./DashboardRoomSuggestion";
+import RoomEntry from "../shared/RoomEntry";
+import styled from "styled-components";
 
 import { fetchRoomSuggestions } from "../../store/actions/dashboardActions";
 
@@ -13,11 +14,6 @@ function Dashboard() {
   const dispatch = useDispatch();
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  console.log(isAuthenticated);
-
-  // const userLinks = <LoggedIn />;
-
-  // const guestLinks = <Login />;
 
   useEffect(() => {
     dispatch(fetchRoomSuggestions());
@@ -52,7 +48,7 @@ function Dashboard() {
           <h2>Suggested rooms:</h2>
           <div>
             {roomSuggestions.map((roomSuggestion, idx) => (
-              <RoomSuggestion room={roomSuggestion} key={idx} />
+              <RoomEntry room={roomSuggestion} key={idx} />
             ))}
           </div>
         </Col>

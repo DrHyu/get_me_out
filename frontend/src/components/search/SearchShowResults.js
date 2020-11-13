@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import SearchResult from "./SearchResult";
+import RoomEntry from "../shared/RoomEntry";
 
 import { fetchData } from "../../store/actions/searchActions";
 
@@ -25,7 +25,7 @@ const SearchShowResults = () => {
     return (
       <div>
         {searchResults.map((result) => (
-          <SearchResult result={result} key={result.id} />
+          <RoomEntry room={result} key={result.id} />
         ))}
       </div>
     );
