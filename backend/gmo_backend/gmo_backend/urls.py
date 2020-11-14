@@ -20,7 +20,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.conf.urls import url
-...
+from django.views.generic import RedirectView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -43,4 +43,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('gamerooms/', include('gamerooms.urls')),
     path('users/', include('users.urls')),
+    url(r'^.*$', RedirectView.as_view(url='/swagger/', permanent=False))
 ]

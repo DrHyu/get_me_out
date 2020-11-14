@@ -65,8 +65,8 @@ REST_FRAMEWORK = {
 }
 
 
-LOGIN_URL = 'rest_framework:login'
-LOGOUT_URL = 'rest_framework:logout'
+LOGIN_URL = 'auth/login'
+LOGOUT_URL = 'auth/logout'
 
 
 MIDDLEWARE = [
