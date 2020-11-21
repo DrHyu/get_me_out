@@ -1,29 +1,49 @@
-import {
-  createStore as reduxCreateStore,
-  applyMiddleware,
-  compose,
-  combineReducers,
-} from "redux";
+import { useMemo } from "react";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
 
-import { searchReducer } from "./reducers/searchReducers";
-import { dashboardReducer } from "./reducers/dashboardReducers";
-import { authReducer } from "./reducers/authReducer";
+import { searchReducer } from "./search/reducers";
+import { dashboardReducer } from "./dashboard/reducers";
+import { authReducer } from "./auth/reducers";
 
-import thunk from "redux-thunk";
+let store;
 
-const composeEnhancers =
-  (typeof window !== `undefined` &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-const createStore = () =>
-  reduxCreateStore(
+function initStore(initialState) {
+  return createStore(
     combineReducers({
       dashboard: dashboardReducer,
       search: searchReducer,
       auth: authReducer,
     }),
-    composeEnhancers(applyMiddleware(thunk))
+    initialState,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
   );
+}
 
-export default createStore;
+export const initializeStore = (preloadedState) => {
+  let _store = store ?? initStore(preloadedState);
+
+  // After navigating to a page with an initial Redux state, merge that state
+  // with the current state in the store, and create a new store
+  if (preloadedState && store) {
+    _store = initStore({
+      ...store.getState(),
+      ...preloadedState,
+    });
+    // Reset the current store
+    store = undefined;
+  }
+
+  // For SSG and SSR always create a new store
+  if (typeof window === "undefined") return _store;
+  // Create the store once in the client
+  if (!store) store = _store;
+
+  return _store;
+};
+
+export function useStore(initialState) {
+  const store = useMemo(() => initializeStore(initialState), [initialState]);
+  return store;
+}

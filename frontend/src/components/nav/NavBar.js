@@ -1,37 +1,40 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
+
+import NavBarLogIn from "../login/NavBarLogIn";
+
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
 const mainNavigation = (props) => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="#">
-      Get me OUT
-    </a>
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <div className="nav-item">
-          <NavLink to="./" className="nav-link">
-            To My House
-          </NavLink>
-        </div>
-        <div className="nav-item">
-          <NavLink to="./search" className="nav-link">
-            To Your House
-          </NavLink>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <Navbar bg="light" variant="light">
+    <Link href="/" passHref>
+      <Navbar.Brand>Get me Out</Navbar.Brand>
+    </Link>
+    <Nav className="mr-auto">
+      <Link href="/search" passHref>
+        <Nav.Link>Search</Nav.Link>
+      </Link>
+      <Link href="/" passHref>
+        <Nav.Link>Features</Nav.Link>
+      </Link>
+      <Link href="/" passHref>
+        <Nav.Link>Pricing</Nav.Link>
+      </Link>
+    </Nav>
+    <NavBarLogIn />
+    {/* <Form inline>
+      <FormControl type="text" placeholder="Username" className="mr-sm-2" />
+      <FormControl type="password" placeholder="Password" className="mr-sm-2" />
+      <Button variant="outline-success">Log In</Button>
+    </Form> */}
+  </Navbar>
 );
 
 export default mainNavigation;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import RoomEntry from "../shared/RoomEntry";
 
-import { fetchData } from "../../store/actions/searchActions";
+import { fetchData } from "../../store/search/actions";
 
 const SearchShowResults = () => {
   const searchResults = useSelector((state) => state.search.searchResults);

@@ -4,7 +4,7 @@ import { Container, Row, Col, Carousel } from "react-bootstrap";
 import RoomEntry from "../shared/RoomEntry";
 import styled from "styled-components";
 
-import { fetchRoomSuggestions } from "../../store/actions/dashboardActions";
+import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
 function Dashboard() {
   const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
