@@ -23,7 +23,7 @@ const AvatarPlaceholder = styled.div`
 
 const AchievementsPlaceholder = styled.div`
   /* width: 300px; */
-  height: 600px;
+  height: 800px;
   /* background-color: purple;
   margin-bottom: 10px;
   margin-top: 10px; */
