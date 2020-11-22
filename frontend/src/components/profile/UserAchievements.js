@@ -75,10 +75,12 @@ const MedalContainer = styled.div`
 const Medal = styled.div`
   padding: 5px 0px 5px 0px;
 
+  width: 100px !important;
+
   img {
     border-radius: 50%;
-    height: 100px !important;
-    width: 100px !important;
+    width: 100%;
+    height: auto;
   }
 
   span {
@@ -86,6 +88,16 @@ const Medal = styled.div`
     text-align: center;
     font-weight: bold;
   }
+`;
+
+/* Used as a spacer in the end of the flex container so that
+  the justify-content: space-arround does not 'space-arround' 
+  the last elements in the container, but rather are kept to 
+  the side.    
+*/
+const SpacerMedal = styled(Medal)`
+  visibility: hidden;
+  height: 0px !important;
 `;
 
 function UserAchievements() {
@@ -98,7 +110,7 @@ function UserAchievements() {
     "slice6",
     "slice7",
     "slice8",
-    // "slice9",
+    "slice9",
     // "slice10",
     // "slice11",
     // "slice12",
@@ -109,7 +121,7 @@ function UserAchievements() {
     // "slice17",
     // "slice18",
     // "slice19",
-    // "slice20",
+    "slice20",
   ];
 
   const generatePopover = (src) => {
@@ -170,6 +182,10 @@ function UserAchievements() {
             </Medal>
           </OverlayTrigger>
         ))}
+        <SpacerMedal />
+        <SpacerMedal />
+        <SpacerMedal />
+        <SpacerMedal />
       </MedalContainer>
     </div>
   );

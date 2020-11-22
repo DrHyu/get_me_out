@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../src/components/layout/Layout";
 import UserAvatar from "../src/components/profile/UserAvatar";
 import UserAchievements from "../src/components/profile/UserAchievements";
+import UserRecentActivity from "../src/components/profile/UserRecentActivity";
 
 import { Row, Col } from "react-bootstrap";
 
@@ -23,7 +24,7 @@ const AvatarPlaceholder = styled.div`
 
 const AchievementsPlaceholder = styled.div`
   /* width: 300px; */
-  height: 800px;
+  /* height: 800px; */
   /* background-color: purple;
   margin-bottom: 10px;
   margin-top: 10px; */
@@ -57,7 +58,7 @@ function Profile() {
         <HeadSpace></HeadSpace>
       </Row>
       <Row>
-        <Col xs={3}>
+        <Col sm={12} lg={4}>
           <AvatarPlaceholder>
             <UserAvatar />
           </AvatarPlaceholder>
@@ -65,8 +66,10 @@ function Profile() {
             <UserAchievements />
           </AchievementsPlaceholder>
         </Col>
-        <Col xs={9}>
-          <RecentActivityPlaceholder></RecentActivityPlaceholder>
+        <Col sm={12} lg={8}>
+          <RecentActivityPlaceholder>
+            <UserRecentActivity></UserRecentActivity>
+          </RecentActivityPlaceholder>
           <StatsPlaceholder></StatsPlaceholder>
         </Col>
       </Row>
