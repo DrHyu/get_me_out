@@ -31,8 +31,8 @@ const AchievementsPlaceholder = styled.div`
 `;
 
 const RecentActivityPlaceholder = styled.div`
-  height: 600px;
-  background-color: rebeccapurple;
+  /* height: 600px;
+  background-color: rebeccapurple; */
   margin-bottom: 10px;
   margin-top: 10px;
 `;
