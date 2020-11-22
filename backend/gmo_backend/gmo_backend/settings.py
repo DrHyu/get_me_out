@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'gamerooms',
+    'users',
     'drf_yasg',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 REST_FRAMEWORK = {
     #'DEFAULT_FILTER_BACKENDS': (

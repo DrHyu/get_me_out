@@ -11,18 +11,35 @@ from django.http import Http404
 
 
 # Project Imports
-from gamerooms.serializers import GameRoomSerializer, GameRoomVisitorRecomendationsSerializer
+from gamerooms import serializers as gamerooms_serializers
 from gamerooms import models as gamerooms_models
 
 
 class GameRoomListView(ListAPIView):
     '''
-        GameRoom List Endpoint
+        GameRooms List Endpoint
     '''
-    serializer_class = GameRoomSerializer
+    serializer_class = gamerooms_serializers.GameRoomSerializer
     model = serializer_class.Meta.model
     queryset = model.objects.all()
 
+
+class GameCenterListView(ListAPIView):
+    '''
+        GameCenters List Endpoint
+    '''
+    serializer_class = gamerooms_serializers.GameCenterSerializer
+    model = serializer_class.Meta.model
+    queryset = model.objects.all()
+
+
+class CompanyListView(ListAPIView):
+    '''
+        Companies List Endpoint
+    '''
+    serializer_class = gamerooms_serializers.CompanySerializer
+    model = serializer_class.Meta.model
+    queryset = model.objects.all()
 
 class GameRoomUserRecomendationsView(APIView):
     """
@@ -48,7 +65,7 @@ class GameRoomVisitorRecomendationsView(APIView):
     """
 
     def get(self, request, format=None):
-        serializer = GameRoomVisitorRecomendationsSerializer(data=request.data)
+        serializer = gamerooms_serializers.GameRoomVisitorRecomendationsSerializer(data=request.data)
 
         if serializer.is_valid():
             country_id = serializer.validated_data['country_id']

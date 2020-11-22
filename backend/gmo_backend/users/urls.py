@@ -10,5 +10,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('auth/login', authviews.obtain_auth_token),
+    path('public/auth/', authviews.obtain_auth_token),
 ]
