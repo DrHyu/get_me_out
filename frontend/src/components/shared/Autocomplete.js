@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Downshift from "downshift";
+import { useCombobox } from "downshift";
 
 import styled from "styled-components";
+
+import cities from "../../utils/cities";
 
 const ListItem = styled.li`
   background-color: ${({ highlited }) => (highlited ? "gray" : "white")};
   font-weight: ${({ selected }) => (selected ? "bold" : "normal")};
 `;
 
-const filterOptions = (options, inputValue) => {
-  return options.filter(
-    (item) => !inputValue || item.value.includes(inputValue)
-  );
+const cityItems = cities.map((city, idx) => ({ name: city, id: idx }));
+const itemToString = (item) => (item ? item.name : "");
+
+const composeItems = (rooms, places) => {
+  return [
+    { name: "Roomscapes ---", separator: true },
+    ...rooms,
+    { name: "Places ---", separator: true },
+    ...places,
+  ];
 };
-
-const itemToString = (item) => (item ? item.value : "");
-
-const onSelectionChange = () => {};
 
 const Autocomplete = () => {
   const [suggestions, setSuggestions] = useState([]);
+  const [inputValue, setinputValue] = useState("");
 
   const fetchInitialSuggestions = (search) => {
     const roomSearchEndpoint = `https://5f9c1201856f4c00168c5e7c.mockapi.io/romnames`;
     axios.get(roomSearchEndpoint).then((response) => {
       const data = response.data.map((item) => item);
-      setSuggestions(data);
+      setSuggestions(composeItems(data, cityItems));
     });
   };
 
@@ -34,12 +39,17 @@ const Autocomplete = () => {
     const roomSearchEndpoint = `https://5f9c1201856f4c00168c5e7c.mockapi.io/romnames?search=${search}`;
     axios.get(roomSearchEndpoint).then((response) => {
       const data = response.data.map((item) => item);
-      setSuggestions(data);
+
+      const filteredCities = cityItems.filter((item) =>
+        item.name.toLowerCase().startsWith(search.toLowerCase())
+      );
+
+      setSuggestions(composeItems(data, filteredCities));
     });
   };
 
-  const onInputChange = (inputValue, other) => {
-    console.log(inputValue);
+  const onInputValueChange = ({ inputValue }) => {
+    setinputValue(inputValue);
     updateSuggestions(inputValue);
   };
 
@@ -47,42 +57,53 @@ const Autocomplete = () => {
     fetchInitialSuggestions();
   }, []);
 
+  const {
+    isOpen,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+    highlightedIndex,
+    selectedItem,
+    getItemProps,
+  } = useCombobox({
+    items: suggestions,
+    onInputValueChange,
+    onStateChange: (e) => console.log(e),
+    itemToString,
+    inputValue /* We control the input value field */,
+  });
+
   return (
     <div>
-      <Downshift
-        onChange={onSelectionChange}
-        itemToString={itemToString}
-        onInputValueChange={onInputChange}
-      >
-        {(ds) => (
-          <div>
-            <label {...ds.getLabelProps()}>Enter a fruit</label>
-            <div
-              // style={{ display: "inline-block" }}
-              {...ds.getRootProps({}, { suppressRefError: true })}
+      <label {...getLabelProps()}>Choose an element:</label>
+      <div {...getComboboxProps()}>
+        <input {...getInputProps()} />
+        <button
+          type="button"
+          {...getToggleButtonProps()}
+          aria-label="toggle menu"
+        >
+          &#8595;
+        </button>
+      </div>
+      <ul {...getMenuProps()}>
+        {isOpen &&
+          suggestions.map((item, index) => (
+            <ListItem
+              {...getItemProps({
+                key: item.name,
+                index,
+                item,
+                selected: selectedItem === item,
+                highlited: highlightedIndex === index,
+              })}
             >
-              <input {...ds.getInputProps()} />
-            </div>
-            <ul {...ds.getMenuProps()}>
-              {ds.isOpen
-                ? suggestions.map((item, index) => (
-                    <ListItem
-                      {...ds.getItemProps({
-                        key: item.name,
-                        index,
-                        item,
-                        selected: ds.selectedItem === item,
-                        highlited: ds.highlightedIndex === index,
-                      })}
-                    >
-                      {item.name}
-                    </ListItem>
-                  ))
-                : null}
-            </ul>
-          </div>
-        )}
-      </Downshift>
+              {item.name}
+            </ListItem>
+          ))}
+      </ul>
     </div>
   );
 };

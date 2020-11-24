@@ -7,7 +7,7 @@ import DashboardSearchBar from "./DashboardSearchBar";
 import DashboardCarousel from "./DashboardCarousel";
 import RoomEntry from "../shared/RoomEntry";
 
-import { fetchRoomSuggestions } from "../../store/actions/dashboardActions";
+import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
 function Dashboard() {
   const roomSuggestions = useSelector((state) => {

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import styled from "styled-components";
 
-import { fetchRoomSuggestions } from "../../store/actions/dashboardActions";
+import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
 function DashboardCarousel() {
   const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
