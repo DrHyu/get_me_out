@@ -18,8 +18,8 @@ WORKDIR /usr/src/app
 # Install dependencies
 RUN yum install -y gcc openssl-devel bzip2-devel libffi-devel tar wget gzip make python37 && \
     wget https://kojipkgs.fedoraproject.org//packages/sqlite/3.8.11/1.fc21/x86_64/sqlite-3.8.11-1.fc21.x86_64.rpm && \
-    yum install -y sqlite-3.8.11-1.fc21.x86_64.rpm  && /
-    rm sqlite-3.8.11-1.fc21.x86_64.rp
+    yum install -y sqlite-3.8.11-1.fc21.x86_64.rpm  && \
+    rm sqlite-3.8.11-1.fc21.x86_64.rpm
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py \
     && python3 get-pip.py --user \
