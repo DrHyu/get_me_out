@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import Link from "next/link";
+
 import validateInput from "../../validations/login";
 import { login, logout } from "../../store/auth/actions";
 
@@ -16,7 +18,8 @@ import {
 
 function Login() {
   const user = useSelector((state) => state.auth.user);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthenticated = true;
+  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const [isLoading, setisLoading] = useState(false);
   const [identifier, setidentifier] = useState("");
@@ -77,14 +80,23 @@ function Login() {
     );
   } else {
     return (
-      <Row>
-        <Col>
-          <h2>Welcome {user.name}</h2>
-        </Col>
-        <Col>
-          <Button onClick={() => dispatch(logout())}>Log Out</Button>
-        </Col>
-      </Row>
+      <Form>
+        <Form.Row className="align-items-center">
+          <Col>
+            <label className="mb-0">Welcome {user.user}</label>
+          </Col>
+          <Col>
+            <Button className="text-nowrap" onClick={() => dispatch(logout())}>
+              Log Out
+            </Button>
+          </Col>
+          <Col>
+            <Link href="/profile" passHref>
+              <a className="btn btn-outline-success">Profile</a>
+            </Link>
+          </Col>
+        </Form.Row>
+      </Form>
     );
   }
 }
