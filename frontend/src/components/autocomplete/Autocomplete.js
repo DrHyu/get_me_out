@@ -11,17 +11,26 @@ import { Button, InputGroup } from "react-bootstrap";
 import { GiPositionMarker } from "react-icons/gi";
 import { BsCalendar } from "react-icons/bs";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 const AutocompleteStyle = styled.div`
+  margin-top: 30px;
+
   svg {
     width: 25px;
     height: auto;
   }
+
+  .react-datepicker-wrapper {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+  }
 `;
 
-const DatePickerStyle = styled.div`
-  /* display: block;
-  width: 100%; */
-`;
+const DatePickerStyle = styled.div``;
 
 const ResultContainer = styled.div`
   display: block;
@@ -98,14 +107,14 @@ const Autocomplete = () => {
   return (
     <AutocompleteStyle as="form">
       <div
-        // {...ds.getComboboxProps()}
+        {...ds.getComboboxProps()}
         className="row align-items-center justify-content-center"
       >
         {/* <label {...ds.getLabelProps()}>Choose an element:</label> */}
 
-        <div className="input-group col-sm-7 px-0">
+        <div className="input-group col-lg-7 col-sm-12 px-0">
           <div className="input-group-prepend">
-            <span class="input-group-text">
+            <span className="input-group-text">
               <GiPositionMarker />
             </span>
           </div>
@@ -131,23 +140,23 @@ const Autocomplete = () => {
           </ResultContainer>
         </div>
 
-        <div className="input-group col-sm-4 px-0">
+        <div className="input-group col px-0">
           <div className="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend">
+            <span className="input-group-text" id="inputGroupPrepend">
               <BsCalendar />
             </span>
           </div>
-          <input className="form-control form-control-lg" />
-          {/* <DatePicker
+          {/* <input className="form-control form-control-lg" /> */}
+          <DatePicker
             // className="form-control form-control-lg"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             // customInput={<input className="form-control form-control-lg" />}
-            // className="form-control form-control-lg"
-          /> */}
+            className="form-control form-control-lg"
+          />
         </div>
 
-        <div className="col-md-auto px-0">
+        <div className="col-auto pull-right px-0">
           <button
             type="button"
             className="btn btn-primary btn-lg"
