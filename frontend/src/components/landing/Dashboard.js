@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-import RoomEntry from "../shared/RoomEntry";
 import styled from "styled-components";
+
+import DashboardSearchBar from "./DashboardSearchBar";
+import DashboardCarousel from "./DashboardCarousel";
+import RoomEntry from "../shared/RoomEntry";
 
 import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
-function Dashboard() {
-  const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
+function Dashboard({ initialSearcBoxData }) {
   const roomSuggestions = useSelector((state) => {
     return state.dashboard.roomSuggestions;
   });
@@ -23,24 +25,12 @@ function Dashboard() {
     <Container fluid>
       <Row>
         <Col>
-          <h1>Helo !</h1>
-          <Carousel>
-            {carouselInfo.map((carousel, idx) => (
-              <Carousel.Item key={idx}>
-                <img
-                  src={carousel.img}
-                  alt="slide"
-                  width="100%"
-                  height="auto"
-                />
-                {carousel.text && (
-                  <Carousel.Caption>
-                    <h3>{carousel.text}</h3>
-                  </Carousel.Caption>
-                )}
-              </Carousel.Item>
-            ))}
-          </Carousel>
+          <DashboardSearchBar initialSearcBoxData={initialSearcBoxData} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <DashboardCarousel />
         </Col>
       </Row>
       <Row>
