@@ -60,7 +60,6 @@ const composeSuggesitons = (sugg) => {
   if (isEmpty(sugg)) return [];
 
   const composedSuggestions = sugg.reduce((acc, suggestionGrp) => {
-    console.log(suggestionGrp);
     return [
       ...acc,
       { name: suggestionGrp.name, category: "SEPARATOR" },
@@ -71,7 +70,6 @@ const composeSuggesitons = (sugg) => {
   return composedSuggestions;
 };
 const updateSuggestions = (initSugg, key) => {
-  console.log(initSugg);
   if (isEmpty(initSugg)) return {};
   const updatedSuggestions = initSugg.map((suggestionGrp) => {
     return {
@@ -177,10 +175,8 @@ const Autocomplete = () => {
           </div>
           {/* <input className="form-control form-control-lg" /> */}
           <DatePicker
-            // className="form-control form-control-lg"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            // customInput={<input className="form-control form-control-lg" />}
             className="form-control form-control-lg"
           />
         </div>
