@@ -2,10 +2,12 @@ import React, { useState, useEffect, isValidElement } from "react";
 import { useCombobox } from "downshift";
 import DatePicker from "react-datepicker";
 import ListItem from "./AutocompleteListItem";
-
 import styled from "styled-components";
 
-import { fetchInitialSuggestions, updateSuggestions } from "./api";
+import { isEmpty } from "lodash";
+
+import { matchSorter } from "match-sorter";
+import { fetchSuggestionData } from "./api";
 
 import { Button, InputGroup } from "react-bootstrap";
 import { GiPositionMarker } from "react-icons/gi";
@@ -15,6 +17,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const AutocompleteStyle = styled.div`
   margin-top: 30px;
+  margin-bottom: 30px;
 
   svg {
     width: 25px;
@@ -53,29 +56,53 @@ const ResultContainer = styled.div`
 
 const itemToString = (item) => (item ? item.name : "");
 
+const composeSuggesitons = (sugg) => {
+  if (isEmpty(sugg)) return [];
+
+  const composedSuggestions = sugg.reduce((acc, suggestionGrp) => {
+    console.log(suggestionGrp);
+    return [
+      ...acc,
+      { name: suggestionGrp.name, category: "SEPARATOR" },
+      ...suggestionGrp.data,
+    ];
+  }, []);
+
+  return composedSuggestions;
+};
+const updateSuggestions = (initSugg, key) => {
+  console.log(initSugg);
+  if (isEmpty(initSugg)) return {};
+  const updatedSuggestions = initSugg.map((suggestionGrp) => {
+    return {
+      ...suggestionGrp,
+      data: matchSorter(suggestionGrp.data, key, { keys: ["name"] }),
+    };
+  });
+  return composeSuggesitons(updatedSuggestions);
+};
+
 const Autocomplete = () => {
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestionData, setsuggestionData] = useState({});
+
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
-    fetchInitialSuggestions().then((initialData) => {
+    fetchSuggestionData().then((initialData) => {
       console.log(initialData);
-      if (initialData) setSuggestions(initialData);
+      setsuggestionData(initialData);
+      console.log(suggestionData);
     });
   }, []);
 
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
 
-    console.log(type);
     switch (type) {
       // On input change
-      case useCombobox.stateChangeTypes.InputChange:
-        /* Fetch new suggestions based on the new inputValue */
-        updateSuggestions(changes.inputValue).then((newSuggestions) =>
-          setSuggestions(newSuggestions)
-        );
-        return changes;
+      // case useCombobox.stateChangeTypes.InputChange:
+      //   /* Fetch new suggestions based on the new inputValue */
+      //   return changes;
 
       // On selection.
       case useCombobox.stateChangeTypes.ItemClick:
@@ -83,6 +110,7 @@ const Autocomplete = () => {
         /* Ensure that the 'separator' items cannot be selected */
         if (
           changes.selectedItem &&
+          changes.selectedItem.category &&
           changes.selectedItem.category === "SEPARATOR"
         ) {
           /* Return state -> as if no action had been taken */
@@ -99,7 +127,7 @@ const Autocomplete = () => {
   }
 
   const ds = useCombobox({
-    items: suggestions,
+    items: composeSuggesitons(suggestionData),
     itemToString,
     stateReducer,
   });
@@ -125,17 +153,19 @@ const Autocomplete = () => {
           <ResultContainer>
             <ul {...ds.getMenuProps()}>
               {ds.isOpen &&
-                suggestions.map((item, index) => {
-                  return ListItem(
-                    item /* Ref to item */,
-                    ds.selectItem === item /* selected ? */,
-                    ds.highlightedIndex === index /* highlighted ? */,
-                    ds.getItemProps({
-                      key: item.name,
-                      index,
-                    })
-                  );
-                })}
+                updateSuggestions(suggestionData, ds.inputValue).map(
+                  (item, index) => {
+                    return ListItem(
+                      item /* Ref to item */,
+                      ds.selectItem === item /* selected ? */,
+                      ds.highlightedIndex === index /* highlighted ? */,
+                      ds.getItemProps({
+                        key: item.name,
+                        index,
+                      })
+                    );
+                  }
+                )}
             </ul>
           </ResultContainer>
         </div>

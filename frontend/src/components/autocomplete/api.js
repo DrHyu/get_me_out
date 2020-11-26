@@ -7,21 +7,17 @@ const cityItems = cities.map((city, idx) => ({
   category: "LOCATION",
 }));
 
-const composeSuggestions = (rooms, places) => {
-  return [
-    { name: "Roomscapes", category: "SEPARATOR" },
-    ...rooms,
-    { name: "Places", category: "SEPARATOR" },
-    ...places,
-  ];
-};
-
-export const fetchInitialSuggestions = async (search) => {
+export const fetchSuggestionData = async (search) => {
   console.log("start");
   const roomSearchEndpoint = `https://5f9c1201856f4c00168c5e7c.mockapi.io/romnames`;
   const response = await axios.get(roomSearchEndpoint);
   const data = response.data.map((item) => ({ ...item, category: "ROOM" }));
-  return composeSuggestions(data, cityItems);
+  const result = [
+    { name: "Room Escapes", data: data },
+    { name: "Locations", data: cityItems },
+  ];
+  console.log(result);
+  return result;
 };
 
 export const updateSuggestions = async (search) => {

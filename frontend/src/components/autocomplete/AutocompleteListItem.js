@@ -14,8 +14,8 @@ const SeparatorLIStyle = styled.li`
   background-color: white;
 `;
 
-function SeparatorListItem({ renderProps, selected, highlighted, item }) {
-  return <SeparatorLIStyle {...renderProps}>{item.name}</SeparatorLIStyle>;
+function SeparatorListItem({ renderprops, selected, highlighted, item }) {
+  return <SeparatorLIStyle {...renderprops}>{item.name}</SeparatorLIStyle>;
 }
 
 const BaselineStyle = styled.div`
@@ -36,17 +36,17 @@ const HighlightedRoomItemStyle = styled(RoomItemStyle)`
   background-color: lightgray;
 `;
 
-function RoomListItem({ renderProps, selected, highlighted, item }) {
-  if (highlighted) {
+function RoomListItem({ renderprops, selected, highlighted, item }) {
+  if (highlighted === "true") {
     return (
-      <HighlightedRoomItemStyle {...renderProps}>
+      <HighlightedRoomItemStyle {...renderprops}>
         <BsBoundingBoxCircles />
         {item.name}
       </HighlightedRoomItemStyle>
     );
   } else {
     return (
-      <RoomItemStyle {...renderProps}>
+      <RoomItemStyle {...renderprops}>
         <BsBoundingBoxCircles />
         {item.name}
       </RoomItemStyle>
@@ -63,17 +63,17 @@ const HighlightedLocationItemStyle = styled(LocationItemStyle)`
   background-color: lightgray;
 `;
 
-function LocationListItem({ renderProps, selected, highlighted, item }) {
-  if (highlighted) {
+function LocationListItem({ renderprops, selected, highlighted, item }) {
+  if (highlighted === "true") {
     return (
-      <HighlightedLocationItemStyle {...renderProps}>
+      <HighlightedLocationItemStyle {...renderprops}>
         <GiPositionMarker />
         {item.name}
       </HighlightedLocationItemStyle>
     );
   } else {
     return (
-      <LocationItemStyle {...renderProps}>
+      <LocationItemStyle {...renderprops}>
         <GiPositionMarker />
         {item.name}
       </LocationItemStyle>
@@ -81,13 +81,13 @@ function LocationListItem({ renderProps, selected, highlighted, item }) {
   }
 }
 
-function AutocompleteListItem(item, selected, highlighted, renderProps) {
+function AutocompleteListItem(item, selected, highlighted, renderprops) {
   const props = {
-    renderProps,
-    selected,
-    highlighted,
+    renderprops,
+    selected: selected ? "true" : undefined,
+    highlighted: highlighted ? "true" : undefined,
     item,
-    key: renderProps.key,
+    key: renderprops.key,
   };
 
   switch (item.category) {
