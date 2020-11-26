@@ -2,6 +2,7 @@
 
 # Third Party Libraries
 from rest_framework.authtoken import views as authviews
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
 # Project Imports
@@ -9,5 +10,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('auth', authviews.obtain_auth_token),
+    path('public/auth/', authviews.obtain_auth_token),
 ]

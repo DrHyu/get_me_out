@@ -1,21 +1,34 @@
-# pull official base image
-FROM python:3.8
+# Pull official base image
+FROM amazonlinux:latest
 
-# copy project
+# Set environment variables
+ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+ENV LC_MESSAGES en_US.UTF-8
+
+
+# Copy project
 COPY ./gmo_backend /usr/src/app
 
-# set work directory
+# Set work directory
 WORKDIR /usr/src/app
 
-# set environment variables
+# Install dependencies
+RUN yum install -y gcc openssl-devel bzip2-devel libffi-devel tar wget gzip make python37 && \
+    wget https://kojipkgs.fedoraproject.org//packages/sqlite/3.8.11/1.fc21/x86_64/sqlite-3.8.11-1.fc21.x86_64.rpm && \
+    yum install -y sqlite-3.8.11-1.fc21.x86_64.rpm  && \
+    rm sqlite-3.8.11-1.fc21.x86_64.rpm
 
-# install dependencies
-RUN apt-get -y update  &&  apt-get install -y python3-dev
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python manage.py makemigrations
-RUN python manage.py migrate --run-syncdb
-RUN python3 manage.py collectstatic --noinput
-EXPOSE 8000
+RUN curl -O https://bootstrap.pypa.io/get-pip.py \
+    && python3 get-pip.py --user \
+    && python3 -m pip install -r requirements.txt
 
-CMD exec gunicorn gmo_backend.wsgi:application --bind 0.0.0.0:8000 --workers 3
+
+# Add Entrypoint
+COPY script/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 8080
+ENTRYPOINT ["/entrypoint.sh"]
