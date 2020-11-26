@@ -1,8 +1,21 @@
 version: '3'
 
 services:
-  web:
-    container_name: django
+# db:
+#   image: postgres
+#    environment:
+#      - POSTGRES_DB=postgres
+#      - POSTGRES_USER=admin
+#      - POSTGRES_PASSWORD=yolo
+  backend_api:
+    container_name: backend_api
     build: backend/
     ports:
       - 8080:8080
+#    depends_on:
+#      - db
+  front:
+    container_name: web
+    build: frontend/
+    ports:
+      - 3000:3000
