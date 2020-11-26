@@ -9,7 +9,7 @@ import RoomEntry from "../shared/RoomEntry";
 
 import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
-function Dashboard() {
+function Dashboard({ initialSearcBoxData }) {
   const roomSuggestions = useSelector((state) => {
     return state.dashboard.roomSuggestions;
   });
@@ -25,7 +25,7 @@ function Dashboard() {
     <Container fluid>
       <Row>
         <Col>
-          <DashboardSearchBar />
+          <DashboardSearchBar initialSearcBoxData={initialSearcBoxData} />
         </Col>
       </Row>
       <Row>

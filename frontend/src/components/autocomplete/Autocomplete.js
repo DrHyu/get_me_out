@@ -80,18 +80,21 @@ const updateSuggestions = (initSugg, key) => {
   return composeSuggesitons(updatedSuggestions);
 };
 
-const Autocomplete = () => {
-  const [suggestionData, setsuggestionData] = useState({});
-  const [suggestions, setSuggestions] = useState([]);
+const Autocomplete = ({ initialSearcBoxData }) => {
+  console.log(initialSearcBoxData);
+  const [suggestionData, setsuggestionData] = useState(initialSearcBoxData);
+  const [suggestions, setSuggestions] = useState(
+    composeSuggesitons(initialSearcBoxData)
+  );
   const [startDate, setStartDate] = useState(new Date());
 
-  useEffect(() => {
-    fetchSuggestionData().then((initialData) => {
-      console.log(initialData);
-      setsuggestionData(initialData);
-      setSuggestions(composeSuggesitons(initialData));
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetchSuggestionData().then((initialData) => {
+  //     console.log(initialData);
+  //     setsuggestionData(initialData);
+  //     setSuggestions(composeSuggesitons(initialData));
+  //   });
+  // }, []);
 
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
