@@ -84,14 +84,14 @@ const updateSuggestions = (initSugg, key) => {
 
 const Autocomplete = () => {
   const [suggestionData, setsuggestionData] = useState({});
-
+  const [suggestions, setSuggestions] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     fetchSuggestionData().then((initialData) => {
       console.log(initialData);
       setsuggestionData(initialData);
-      console.log(suggestionData);
+      setSuggestions(composeSuggesitons(initialData));
     });
   }, []);
 
@@ -100,9 +100,10 @@ const Autocomplete = () => {
 
     switch (type) {
       // On input change
-      // case useCombobox.stateChangeTypes.InputChange:
-      //   /* Fetch new suggestions based on the new inputValue */
-      //   return changes;
+      case useCombobox.stateChangeTypes.InputChange:
+        /* Fetch new suggestions based on the new inputValue */
+        setSuggestions(updateSuggestions(suggestionData, ds.inputValue));
+        return changes;
 
       // On selection.
       case useCombobox.stateChangeTypes.ItemClick:
@@ -127,7 +128,7 @@ const Autocomplete = () => {
   }
 
   const ds = useCombobox({
-    items: composeSuggesitons(suggestionData),
+    items: suggestions,
     itemToString,
     stateReducer,
   });
@@ -153,19 +154,17 @@ const Autocomplete = () => {
           <ResultContainer>
             <ul {...ds.getMenuProps()}>
               {ds.isOpen &&
-                updateSuggestions(suggestionData, ds.inputValue).map(
-                  (item, index) => {
-                    return ListItem(
-                      item /* Ref to item */,
-                      ds.selectItem === item /* selected ? */,
-                      ds.highlightedIndex === index /* highlighted ? */,
-                      ds.getItemProps({
-                        key: item.name,
-                        index,
-                      })
-                    );
-                  }
-                )}
+                suggestions.map((item, index) => {
+                  return ListItem(
+                    item /* Ref to item */,
+                    ds.selectItem === item /* selected ? */,
+                    ds.highlightedIndex === index /* highlighted ? */,
+                    ds.getItemProps({
+                      key: item.name,
+                      index,
+                    })
+                  );
+                })}
             </ul>
           </ResultContainer>
         </div>
