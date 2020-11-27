@@ -1,0 +1,2 @@
+# Ensure SH files are checked out with EOL=LF even in windows (needed for docker)
+*.sh		text eol=lf 
