@@ -3,7 +3,13 @@ import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
-const AvatarContainer = styled.div`
+import Box from "../shared/Box";
+
+const UserAvatarContainer = styled.div`
+  background-color: white;
+`;
+
+const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
@@ -35,8 +41,8 @@ const UserName = styled.div`
 
 function UserAvatar() {
   return (
-    <div>
-      <AvatarContainer>
+    <Box>
+      <ImgContainer>
         <AvatarImage
           as={Image}
           src="/default_avatar.png"
@@ -44,11 +50,11 @@ function UserAvatar() {
           height={200}
           alt="User avatar"
         />
-      </AvatarContainer>
+      </ImgContainer>
       <UserName>
         <span className="pl-2">John Dough</span>
       </UserName>
-    </div>
+    </Box>
   );
 }
 

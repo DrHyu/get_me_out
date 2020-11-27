@@ -6,14 +6,12 @@ import styled from "styled-components";
 
 import { Popover, Tooltip, OverlayTrigger, ProgressBar } from "react-bootstrap";
 
+import Box from "../shared/Box";
+
 const LevelTrackingContainer = styled.div`
-  height: 200px;
-
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border: 1px solid gray;
-
   padding: 30px;
+
+  align-self: stretch;
 
   .level-badge-container-layout {
     display: flex;
@@ -56,20 +54,9 @@ const NumberCircle = styled.div`
 `;
 
 const MedalContainer = styled.div`
-  height: 100%;
-
-  padding: 10px;
-
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-around;
-
-  overflow: hidden;
-
-  border: 1px solid gray;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
 `;
 
 const Medal = styled.div`
@@ -137,57 +124,61 @@ function UserAchievements() {
   };
 
   return (
-    <div>
-      <LevelTrackingContainer>
-        <div className="level-badge-container-layout">
-          <div className="level-badge">
-            <NumberCircle>29</NumberCircle>
-            <span>Level 29</span>
+    <>
+      <Box title="Level" no_gutters>
+        <LevelTrackingContainer>
+          <div className="level-badge-container-layout">
+            <div className="level-badge">
+              <NumberCircle>29</NumberCircle>
+              <span>Level 29</span>
+            </div>
+            <div className="level-badge">
+              <NumberCircle>30</NumberCircle>
+              <span>Level 30</span>
+            </div>
           </div>
-          <div className="level-badge">
-            <NumberCircle>30</NumberCircle>
-            <span>Level 30</span>
+          <div className="level-progrssion-bar-container">
+            <ProgressBar
+              striped
+              animated
+              variant="success"
+              min={0}
+              max={1000}
+              now={200}
+            />
+            <div className="level-progression-bar-label">
+              <span className="-bold">200/1000</span> for next level !
+            </div>
           </div>
-        </div>
-        <div className="level-progrssion-bar-container">
-          <ProgressBar
-            striped
-            animated
-            variant="success"
-            min={0}
-            max={1000}
-            now={200}
-          />
-          <div className="level-progression-bar-label">
-            <span className="-bold">200/1000</span> for next level !
-          </div>
-        </div>
-      </LevelTrackingContainer>
-      <MedalContainer>
-        {badges.map((src, idx) => (
-          <OverlayTrigger
-            key={idx}
-            trigger={["focus", "hover"]}
-            placement="auto"
-            overlay={generatePopover(src)}
-          >
-            <Medal>
-              <img
-                src={`/badges/${src}.jpg`}
-                width={80}
-                height={80}
-                alt="User avatar"
-              />
-              <span>{src}</span>
-            </Medal>
-          </OverlayTrigger>
-        ))}
-        <SpacerMedal />
-        <SpacerMedal />
-        <SpacerMedal />
-        <SpacerMedal />
-      </MedalContainer>
-    </div>
+        </LevelTrackingContainer>
+      </Box>
+      <Box title="Badges" no_gutters>
+        <MedalContainer>
+          {badges.map((src, idx) => (
+            <OverlayTrigger
+              key={idx}
+              trigger={["focus", "hover"]}
+              placement="auto"
+              overlay={generatePopover(src)}
+            >
+              <Medal>
+                <img
+                  src={`/badges/${src}.jpg`}
+                  width={80}
+                  height={80}
+                  alt="User avatar"
+                />
+                <span>{src}</span>
+              </Medal>
+            </OverlayTrigger>
+          ))}
+          <SpacerMedal />
+          <SpacerMedal />
+          <SpacerMedal />
+          <SpacerMedal />
+        </MedalContainer>
+      </Box>
+    </>
   );
 }
 
