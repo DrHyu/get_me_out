@@ -2,14 +2,19 @@ import Link from "next/link";
 import Head from "next/head";
 import NavBar from "../nav/NavBar";
 
+import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+
+const MainStyle = styled.div`
+  background-color: #f5f6f7;
+`;
 
 export default function Layout({
   children,
   title = "This is the default title",
 }) {
   return (
-    <div>
+    <MainStyle>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -19,6 +24,6 @@ export default function Layout({
       <Container>{children}</Container>
 
       <footer>{"I`m here to stay"}</footer>
-    </div>
+    </MainStyle>
   );
 }
