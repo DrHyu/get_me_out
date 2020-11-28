@@ -21,12 +21,6 @@ const mainNavigation = (props) => (
       <Link href="/search" passHref>
         <Nav.Link>Search</Nav.Link>
       </Link>
-      <Link href="/" passHref>
-        <Nav.Link>Features</Nav.Link>
-      </Link>
-      <Link href="/" passHref>
-        <Nav.Link>Pricing</Nav.Link>
-      </Link>
     </Nav>
     <NavBarLogIn />
     {/* <Form inline>

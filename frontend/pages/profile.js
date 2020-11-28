@@ -1,9 +1,12 @@
 import React from "react";
+
 import Layout from "../src/components/layout/Layout";
 import UserAvatar from "../src/components/profile/UserAvatar";
 import UserAchievements from "../src/components/profile/UserAchievements";
 import UserRecentActivity from "../src/components/profile/UserRecentActivity";
 import UserStatsPlot from "../src/components/profile/UserStatsPlot";
+
+import AuthRequired from "../src/components/shared/AuthRequired";
 
 import { Row, Col } from "react-bootstrap";
 import Box from "../src/components/shared/Box";
@@ -23,23 +26,25 @@ const SuggestionsPlaceholder = styled.div`
 
 function Profile() {
   return (
-    <Layout>
-      <Row>
-        <HeadSpace></HeadSpace>
-      </Row>
-      <Row>
-        <Col sm={12} lg={4}>
-          <UserAvatar />
-          <UserAchievements />
-        </Col>
-        <Col sm={12} lg={8}>
-          <UserRecentActivity />
-          <UserStatsPlot />
-          <Box title="Placeholder1" />
-          <Box title="Placeholder2" />
-        </Col>
-      </Row>
-    </Layout>
+    <AuthRequired>
+      <Layout>
+        <Row>
+          <HeadSpace></HeadSpace>
+        </Row>
+        <Row>
+          <Col sm={12} lg={4}>
+            <UserAvatar />
+            <UserAchievements />
+          </Col>
+          <Col sm={12} lg={8}>
+            <UserRecentActivity />
+            <UserStatsPlot />
+            <Box title="Placeholder1" />
+            <Box title="Placeholder2" />
+          </Col>
+        </Row>
+      </Layout>
+    </AuthRequired>
   );
 }
 
