@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import Link from "next/link";
+import styled from "styled-components";
 
 import validateInput from "../../validations/login";
 import { login, logout } from "../../store/auth/actions";
+
+import LoggedInDropDown from "./LoggedInDropDown";
 
 import {
   Form,
@@ -14,12 +16,23 @@ import {
   Container,
   Row,
   Col,
+  NavDropdown,
+  Dropdown,
 } from "react-bootstrap";
+
+const DisplayUserName = styled.div`
+  white-space: nowrap;
+  text-transform: capitalize;
+
+  font-weight: bold;
+  font-size: 1.5em;
+`;
 
 function Login() {
   const user = useSelector((state) => state.auth.user);
-  const isAuthenticated = true;
-  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  // const isAuthenticated = true;
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const [isLoading, setisLoading] = useState(false);
   const [identifier, setidentifier] = useState("");
@@ -43,10 +56,13 @@ function Login() {
     if (isValid()) {
       /* dispatch action */
       setisLoading(true);
-      dispatch(login({ identifier, password })).then(null, (err) => {
-        setisLoading(false);
-        setErrors(err);
-      });
+      dispatch(login({ identifier, password })).then(
+        () => setisLoading(false),
+        (err) => {
+          setisLoading(false);
+          setErrors(err);
+        }
+      );
     }
   };
 
@@ -79,25 +95,7 @@ function Login() {
       </Form>
     );
   } else {
-    return (
-      <Form>
-        <Form.Row className="align-items-center">
-          <Col>
-            <label className="mb-0">Welcome {user.user}</label>
-          </Col>
-          <Col>
-            <Button className="text-nowrap" onClick={() => dispatch(logout())}>
-              Log Out
-            </Button>
-          </Col>
-          <Col>
-            <Link href="/profile" passHref>
-              <a className="btn btn-outline-success">Profile</a>
-            </Link>
-          </Col>
-        </Form.Row>
-      </Form>
-    );
+    return <LoggedInDropDown />;
   }
 }
 

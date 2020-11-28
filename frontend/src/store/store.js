@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import { searchReducer } from "./search/reducers";
 import { dashboardReducer } from "./dashboard/reducers";
@@ -9,12 +11,18 @@ import { authReducer } from "./auth/reducers";
 
 let store;
 
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["isAuthenticated"], // place to select which state you want to persist
+};
+
 function initStore(initialState) {
   return createStore(
     combineReducers({
       dashboard: dashboardReducer,
       search: searchReducer,
-      auth: authReducer,
+      auth: persistReducer(authPersistConfig, authReducer),
     }),
     initialState,
     composeWithDevTools(applyMiddleware(thunkMiddleware))
