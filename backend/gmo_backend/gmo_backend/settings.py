@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'gamerooms',
-    'users',
+    #'users',
     'drf_yasg',
 ]
 
-AUTH_USER_MODEL = 'users.User'
+#AUTH_USER_MODEL = 'users.User'
 
 REST_FRAMEWORK = {
     #'DEFAULT_FILTER_BACKENDS': (
@@ -82,6 +82,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'gmo_backend.urls'

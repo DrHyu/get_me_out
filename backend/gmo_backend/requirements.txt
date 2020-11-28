@@ -33,3 +33,4 @@ sqlparse==0.4.1
 swagger-spec-validator==2.7.3
 uritemplate==3.0.1
 urllib3==1.26.1
+whitenoise==5.2.0

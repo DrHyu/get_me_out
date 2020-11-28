@@ -1,6 +1,7 @@
 from django.db import models
 
-from users import models as users_models
+from django.contrib.auth.models import User
+#from users import models as users_models
 # Create your models here.
 
 
@@ -38,7 +39,7 @@ class GameRoom (models.Model):
     rating = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).")
     open = models.BooleanField(default=True, help_text="Rating of the GameRoom (Integer).")
     game_center = models.ForeignKey(GameCenter, on_delete=models.CASCADE)
-    completions = models.ManyToManyField(users_models.User, through='Completion')
+    completions = models.ManyToManyField(User, through='Completion')
 
     def __str__(self):
         """Returns the model as a string."""
@@ -47,6 +48,6 @@ class GameRoom (models.Model):
 
 class Completion (models.Model):
     gameroom = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
-    user = models.ForeignKey(users_models.User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     review_text = models.CharField(max_length=256, blank=True, null=False, default="", help_text="Text of the review.")
     general_score = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer) made by the user.")
