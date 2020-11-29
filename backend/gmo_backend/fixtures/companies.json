@@ -1,0 +1,11 @@
+[
+  {
+    "model": "gamerooms.Company",
+    "fields": {
+      "company_id": 1,
+      "name": "Game Masters",
+      "description": "Monopoly",
+      "telephone": 666666666
+    }
+  }
+]
