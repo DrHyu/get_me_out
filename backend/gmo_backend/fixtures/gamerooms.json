@@ -1,0 +1,122 @@
+[
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 1,
+      "img": "http://lorempixel.com/640/480/nature",
+      "name": "Ankunding - Ernser",
+      "description": "Synergized value-added product",
+      "rating": 95,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 2,
+      "img": "http://lorempixel.com/640/480/animals",
+      "name": "Cartwright, Ankunding and Pouros",
+      "description": "Business-focused grid-enabled leverage",
+      "rating": 23,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 3,
+      "img": "http://lorempixel.com/640/480/city",
+      "name": "Fadel, Waters and Bahringer",
+      "description": "Open-source systemic structure",
+      "rating": 45,
+      "open": true,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 4,
+      "img": "http://lorempixel.com/640/480/city",
+      "name": "Mann Inc",
+      "description": "Open-source systemic structure",
+      "rating": 67,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 5,
+      "img": "http://lorempixel.com/640/480/transport",
+      "name": "Rohan Group",
+      "description": "Switchable asymmetric local area network",
+      "rating": 2,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 6,
+      "img": "http://lorempixel.com/640/480/nature",
+      "name": "Schoen - Kuhn",
+      "description": "Front-line scalable functionalities",
+      "rating": 48,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 7,
+      "img": "http://lorempixel.com/640/480/cats",
+      "name": "Metz, Hintz and Russel",
+      "description": "Team-oriented eco-centric interface",
+      "rating": 48,
+      "open": true,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 8,
+      "img": "http://lorempixel.com/640/480/nature",
+      "name": "Ankunding - Hodkiewicz",
+      "description": "Proactive holistic emulation",
+      "rating": 54,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 9,
+      "img": "http://lorempixel.com/640/480/people",
+      "name": "Pfeffer and Sons",
+      "description": "Intuitive local attitude",
+      "rating": 3,
+      "open": false,
+      "game_center": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameRoom",
+    "fields": {
+      "id": 10,
+      "img": "http://lorempixel.com/640/480/people",
+      "name": "Bernhard Inc",
+      "description": "User-friendly didactic concept",
+      "rating": 100,
+      "open": false,
+      "game_center": 1
+    }
+  }
+]

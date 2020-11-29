@@ -1,0 +1,11 @@
+[
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 1,
+      "company": 1,
+      "description": "Yolo center",
+      "location": "Plaza A"
+    }
+  }
+]
