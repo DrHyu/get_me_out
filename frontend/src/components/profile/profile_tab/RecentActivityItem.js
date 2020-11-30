@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { Row, Col } from "react-bootstrap";
 
-import StarRatingComponent from "../shared/StarRating";
+import StarRatingComponent from "../../shared/StarRating";
 import { GiBattleAxe, GiThumbUp, GiSandsOfTime } from "react-icons/gi";
 
 const RecentActivity = styled.div`

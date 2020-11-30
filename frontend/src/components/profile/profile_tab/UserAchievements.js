@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 import { Popover, Tooltip, OverlayTrigger, ProgressBar } from "react-bootstrap";
 
-import Box from "../shared/Box";
+import Box from "../../shared/Box";
 
 const LevelTrackingContainer = styled.div`
   padding: 30px;

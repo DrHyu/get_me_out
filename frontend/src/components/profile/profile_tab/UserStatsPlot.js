@@ -9,7 +9,7 @@ import {
   PolarRadiusAxis,
 } from "recharts";
 
-import Box from "../shared/Box";
+import Box from "../../shared/Box";
 
 const StatsPlotContainer = styled.div``;
 

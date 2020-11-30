@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import RecentActivityItem from "./RecentActivityItem";
-import Box from "../shared/Box";
-import { fetchRoomSuggestions } from "../../store/dashboard/actions";
+import Box from "../../shared/Box";
+import { fetchRoomSuggestions } from "../../../store/dashboard/actions";
 
 const RecentActivityWrapper = styled.div`
   background-color: white;
