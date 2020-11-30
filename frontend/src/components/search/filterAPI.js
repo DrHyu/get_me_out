@@ -1,26 +1,16 @@
-
-import RadioFilter from "./SearchFilterRadioFilter";
-import SliderFilter from "./SearchFilterSliderFilter";
-import MultChoiceFilter from "./SearchFilterMultChoiceFilter";
-
-
 import { cloneDeep, remove } from "lodash";
 
-export const RANGE_FILTER = "RANGE_FILTER";
-export const CHOICE_FILTER = "CHOICE_FILTER";
-export const DATE_FILTER = "DATE_FILTER";
-export const MULT_CHOICE_FILTER = "MULT_CHOICE_FILTER";
-
-export const filterKindToComponent = {
-  RANGE_FILTER: SliderFilter,
-  CHOICE_FILTER: RadioFilter,
-  MULT_CHOICE_FILTER: MultChoiceFilter,
-
-};
+import {
+  RANGE_FILTER,
+  CHOICE_FILTER,
+  DATE_FILTER,
+  MULT_CHOICE_FILTER,
+} from "./Filters";
 
 export const filterData = (activeFilters, data) => {
   const outData = cloneDeep(data);
 
+  return outData;
   if (typeof data === "undefined" || data.length === 0) {
     return [];
   }
@@ -38,17 +28,13 @@ export const filterData = (activeFilters, data) => {
       } else if (
         fltr.kind === RANGE_FILTER &&
         d[fltr.filterAttr] < fltr.value
-
       ) {
         /* Exclude */
         return true;
       } else if (
-        fltr.kind === CHOICE_FILTER &&
-        d[fltr.filterAttr] !== fltr.optionsToAttrMapping[fltr.value]
+        fltr.kind === CHOICE_FILTER ||
+        fltr.kind === MULT_CHOICE_FILTER
       ) {
-        /* Exclude */
-        return true;
-      } else if (fltr.kind === MULT_CHOICE_FILTER) {
         /* Inclusive - must match at least one of the fields */
         let tgtAttr = d[fltr.filterAttr];
         /* We are only looking for the fields which are checked (value===True) */
@@ -65,7 +51,6 @@ export const filterData = (activeFilters, data) => {
           /* TODO - Target would have to be an array */
           return false;
         }
-
       } else {
         /* Keep the value */
         return false;

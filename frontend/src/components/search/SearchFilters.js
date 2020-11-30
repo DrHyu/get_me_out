@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { updateFilterValue } from "../../store/search/actions";
 
-import FilterWrapper from "./filters/SearchFilterWrapper";
+import { BaseFilter } from "./Filters";
 
 function SearchFilterAll(props) {
   const activeFilters = useSelector((state) => state.search.activeFilters);
@@ -13,11 +13,11 @@ function SearchFilterAll(props) {
     <div>
       {activeFilters.map((filter) => {
         return (
-          <FilterWrapper
+          <BaseFilter
             key={filter.id + "_" + filter.name}
             filter={filter}
-            onChangeCallback={(value, option = -1) => {
-              dispatch(updateFilterValue(filter.id, value, option));
+            onChangeCallback={(value) => {
+              dispatch(updateFilterValue(filter.id, value));
             }}
           />
         );

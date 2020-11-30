@@ -4,56 +4,132 @@ import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Container, Row, Col, Image } from "react-bootstrap";
 
-import RoomStats from "./RoomStats";
+import { BsStar } from "react-icons/bs";
+import { GiTerror } from "react-icons/gi";
 
-const SuggestionContainer = styled.div`
-  border: 2px outset;
-  margin: 2px;
-  padding: 0px;
-  /* background-color: lightgray; */
-  border-radius: 0px 5px 5px 0px;
+const RoomEntryContainer = styled.div`
+  margin: 2px 0px;
+  max-height: 110px;
+  border: 1px solid gray;
+
+  display: flex;
+  flex-direction: row;
 `;
 
-const SuggestionRow = styled(Row)``;
+const ImageContainer = styled.div`
+  flex-basis: 40%;
 
-const SuggestionCol = styled(Col)`
-  height: 200px;
-`;
+  overflow: hidden;
+  display: flex;
 
-const RattingsCol = styled(SuggestionCol)`
-  padding: 4px;
-  max-width: 200px;
-
-  :after {
-    /* Separation line */
-    content: "";
-    background: black;
-    position: absolute;
-    top: 10%;
-    right: 0;
-    height: 80%;
-    width: 1px;
+  img {
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 `;
 
-const DescriptionCol = styled(SuggestionCol)`
-  padding: 4px 4px 4px 30px;
-`;
+const InfoWrapper = styled.div`
+  flex-basis: 60%;
 
-const ImageCol = styled(SuggestionCol)`
-  overflow: hidden;
-  img {
-    margin: 0px;
+  padding: 10px 10px 2px 20px;
+  font-size: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr;
+
+  align-items: center;
+
+  .room-title {
+    grid-column: 1 / 10;
+
+    font-size: 1em;
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: black;
+    }
+    a:hover {
+      color: darkgoldenrod;
+    }
+  }
+
+  .room-ratings {
+    grid-column: 10/-1;
+
+    font-size: 24px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    .rating-group {
+      display: flex;
+      align-items: center;
+      padding: 0px 0.125em;
+
+      svg {
+        width: 0.8em;
+        height: auto;
+        margin: 0px 0.25em 0px 0px;
+      }
+
+      .rating-star {
+        color: goldenrod;
+      }
+      .rating-terror {
+        color: rebeccapurple;
+      }
+
+      .score {
+      }
+
+      .no-score {
+        padding: 0px 0.25em 0px 0px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .room-owner {
+    grid-column: 2/7;
+    align-self: start;
+    font-size: 0.8em;
+  }
+
+  .room-location {
+    grid-column: 7/10;
+    align-self: start;
+    font-size: 0.8em;
   }
 `;
 
 const RoomEntry = ({ room }) => {
   return (
-    <SuggestionContainer>
-      <SuggestionRow>
-        <ImageCol xs="4">
-          <img src={room.img} alt="Some stuff" />
-        </ImageCol>
+    <RoomEntryContainer>
+      <ImageContainer>
+        <img src={room.img} alt="Some stuff" />
+      </ImageContainer>
+      <InfoWrapper>
+        <div className="room-title">
+          <a href="">{room.name} </a>
+        </div>
+        <div className="room-ratings">
+          <div className="rating-group">
+            <BsStar className="rating-star" />
+            <span>{room.rating / 10}</span>
+          </div>
+          <div className="rating-group">
+            <GiTerror className="rating-terror" />
+            <span className="no-score">--</span>
+          </div>
+        </div>
+        <div className="room-owner">{room.owner}</div>
+        <div className="room-location">{room.location}</div>
+      </InfoWrapper>
+      {/* <SuggestionRow>
         <RattingsCol>
           <RoomStats room={room} />
         </RattingsCol>
@@ -61,8 +137,8 @@ const RoomEntry = ({ room }) => {
           <h2>{room.name}</h2>
           <p>{room.description}</p>
         </DescriptionCol>
-      </SuggestionRow>
-    </SuggestionContainer>
+      </SuggestionRow> */}
+    </RoomEntryContainer>
   );
 };
 
