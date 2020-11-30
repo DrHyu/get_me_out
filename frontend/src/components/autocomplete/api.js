@@ -8,9 +8,10 @@ const cityItems = cities.map((city, idx) => ({
 }));
 
 export const fetchSuggestionData = async (search) => {
-  console.log("start");
-  const roomSearchEndpoint = `https://5f9c1201856f4c00168c5e7c.mockapi.io/romnames`;
+  const roomSearchEndpoint = `http://localhost:8080/gamerooms/public/gamerooms`;
+
   const response = await axios.get(roomSearchEndpoint);
+
   const data = response.data.map((item) => ({ ...item, category: "ROOM" }));
   const result = [
     { name: "Room Escapes", data: data },

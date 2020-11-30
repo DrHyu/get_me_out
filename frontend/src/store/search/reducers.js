@@ -3,7 +3,7 @@ import {
   RANGE_FILTER,
   CHOICE_FILTER,
   MULT_CHOICE_FILTER,
-} from "../../components/search/filters/SearchFilterDescriptor";
+} from "../../components/search/Filters";
 
 const INITIAL_STATE = {
   searchResults: [],
@@ -23,8 +23,9 @@ const INITIAL_STATE = {
       filterAttr: "open",
       id: 2,
       options: ["open", "closed"],
-      optionsToAttrMapping: [true, false],
-      value: 0,
+      optionsToAttrMapping: [false, true],
+      optionsToAttrMappingMode: "OR",
+      value: [true, false],
     },
     {
       kind: MULT_CHOICE_FILTER,
@@ -35,6 +36,22 @@ const INITIAL_STATE = {
       optionsToAttrMapping: ["easy", "medium", "hard"],
       optionsToAttrMappingMode: "OR", // vs AND
       value: [true, true, false],
+    },
+    {
+      kind: MULT_CHOICE_FILTER,
+      name: "Category",
+      id: 4,
+      options: ["Action", "Adventure", "Sci-Fi", "Terror", "Mistery"],
+      filterAttr: "difficulty",
+      optionsToAttrMapping: [
+        "Action",
+        "Adventure",
+        "Sci-Fi",
+        "Terror",
+        "Mistery",
+      ],
+      optionsToAttrMappingMode: "OR", // vs AND
+      value: [true, true, false, true, false],
     },
   ],
   isFetching: false,
@@ -64,16 +81,7 @@ export const searchReducer = (state = INITIAL_STATE, action) => {
         activeFilters: state.activeFilters.map((filter) =>
           /* Update filter.value of the filter matching action.payload.id */
           filter.id === action.payload.id
-            ? {
-                ...filter,
-                value: Array.isArray(filter.value)
-                  ? /* If value is an array update option'nth' item in the array */
-                    filter.value.map((val, idx) =>
-                      idx === action.payload.option ? action.payload.value : val
-                    )
-                  : /* If value is not an 'array' then simply override value */
-                    action.payload.value,
-              }
+            ? { ...filter, value: action.payload.value }
             : filter
         ),
       };

@@ -1,7 +1,7 @@
 import * as actions from "../actionTypes";
 import axios from "axios";
 
-import { filterData } from "../../components/search/filters/SearchFilterDescriptor";
+import { filterData } from "../../components/search/filterAPI";
 
 /* Search actions */
 export const requestData = () => {
@@ -53,13 +53,12 @@ export const fetchData = (activeFilters) => {
 
 /* Filter actions */
 
-export const updateFilterValue = (id, value, option = -1) => {
+export const updateFilterValue = (id, value) => {
   return {
     type: actions.SEARCH_PAGE_UPDATE_FILTER_VALUE,
     payload: {
       id,
       value,
-      option,
     },
   };
 };
