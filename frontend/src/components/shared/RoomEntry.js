@@ -30,38 +30,79 @@ const ImageContainer = styled.div`
 
 const InfoWrapper = styled.div`
   flex-basis: 60%;
+
   padding: 10px 10px 2px 20px;
+  font-size: 20px;
 
-  font-size: 24px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  align-items: center;
 
   .room-title {
+    grid-column: 1 / 10;
+
     font-size: 1em;
-    padding: 0px 1em;
+
     a {
       text-decoration: none;
       font-weight: bold;
-      text-transform: capitalize;
+      text-transform: uppercase;
       color: black;
     }
     a:hover {
-      color: gray;
+      color: darkgoldenrod;
     }
   }
 
   .room-ratings {
+    grid-column: 10/-1;
+
+    font-size: 24px;
+
     display: flex;
-    flex-direction: row;
-    align-items: start;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    .rating-group {
+      display: flex;
+      align-items: center;
+      padding: 0px 0.125em;
+
+      svg {
+        width: 0.8em;
+        height: auto;
+        margin: 0px 0.25em 0px 0px;
+      }
+
+      .rating-star {
+        color: goldenrod;
+      }
+      .rating-terror {
+        color: rebeccapurple;
+      }
+
+      .score {
+      }
+
+      .no-score {
+        padding: 0px 0.25em 0px 0px;
+        white-space: nowrap;
+      }
+    }
   }
 
-  .rating-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  .room-owner {
+    grid-column: 2/7;
+    align-self: start;
+    font-size: 0.8em;
+  }
+
+  .room-location {
+    grid-column: 7/10;
+    align-self: start;
+    font-size: 0.8em;
   }
 `;
 
@@ -73,18 +114,20 @@ const RoomEntry = ({ room }) => {
       </ImageContainer>
       <InfoWrapper>
         <div className="room-title">
-          <a href="">Cool and engaging name !</a>
+          <a href="">{room.name} </a>
         </div>
         <div className="room-ratings">
           <div className="rating-group">
-            <span>{room.rating / 10}</span>
             <BsStar className="rating-star" />
+            <span>{room.rating / 10}</span>
           </div>
           <div className="rating-group">
-            <span>-</span>
-            <GiTerror className="rating-star" />
+            <GiTerror className="rating-terror" />
+            <span className="no-score">--</span>
           </div>
         </div>
+        <div className="room-owner">{room.owner}</div>
+        <div className="room-location">{room.location}</div>
       </InfoWrapper>
       {/* <SuggestionRow>
         <RattingsCol>
