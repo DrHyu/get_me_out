@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Layout from "../src/components/layout/Layout";
-import UserAvatar from "../src/components/profile/UserAvatar";
-import UserAchievements from "../src/components/profile/UserAchievements";
-import UserRecentActivity from "../src/components/profile/UserRecentActivity";
-import UserStatsPlot from "../src/components/profile/UserStatsPlot";
+
+import ProfileTab from "../src/components/profile/profile_tab";
+import BadgesTab from "../src/components/profile/badges_tab";
+import RoutesTab from "../src/components/profile/routes_tab";
 
 import AuthRequired from "../src/components/shared/AuthRequired";
 
-import { Row, Col } from "react-bootstrap";
-import Box from "../src/components/shared/Box";
+import { Row, Col, Tabs, Tab } from "react-bootstrap";
 
 import styled from "styled-components";
-
-const HeadSpace = styled.div`
-  height: 50px;
-`;
 
 const SuggestionsPlaceholder = styled.div`
   height: 300px;
@@ -25,24 +20,26 @@ const SuggestionsPlaceholder = styled.div`
 `;
 
 function Profile() {
+  const [key, setKey] = useState("profile");
+
   return (
     <AuthRequired>
       <Layout>
-        <Row>
-          <HeadSpace></HeadSpace>
-        </Row>
-        <Row>
-          <Col sm={12} lg={4}>
-            <UserAvatar />
-            <UserAchievements />
-          </Col>
-          <Col sm={12} lg={8}>
-            <UserRecentActivity />
-            <UserStatsPlot />
-            <Box title="Placeholder1" />
-            <Box title="Placeholder2" />
-          </Col>
-        </Row>
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+        >
+          <Tab eventKey="profile" title="Profile">
+            <ProfileTab />
+          </Tab>
+          <Tab eventKey="badges" title="Badges">
+            <BadgesTab />
+          </Tab>
+          <Tab eventKey="routes" title="Routes">
+            <RoutesTab />
+          </Tab>
+        </Tabs>
       </Layout>
     </AuthRequired>
   );
