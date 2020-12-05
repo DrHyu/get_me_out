@@ -7,22 +7,18 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { logout } from "../../store/auth/actions";
 import { useSelector, useDispatch } from "react-redux";
+import Image from "next/image";
 
 const TogglStyled = styled.div`
   display: flex;
   flex-direction: row;
 
   img {
-    width: 36px;
-    height: 36px;
-    max-width: 36px;
-    max-height: 36px;
-    border: 1px solid black;
-    border-radius: 50%;
     overflow: hidden;
-
     background-color: #f5f6f7;
-    border: 3px solid white;
+
+    border-radius: 50%;
+    border: 3px solid white !important;
   }
 
   .svg-container {
@@ -51,7 +47,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
       }}
       open={isOpen}
     >
-      <img src="./default_avatar.png" alt="" />
+      <Image src="/default_avatar.png" alt="" width="36" height="36" />
       <div className="svg-container">
         <MdKeyboardArrowDown />
       </div>
