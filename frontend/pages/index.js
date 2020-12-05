@@ -1,7 +1,7 @@
 import Layout from "../src/components/layout/Layout";
 import Dashboard from "../src/components/landing/Dashboard";
 
-import { fetchSuggestionData } from "../src/components/autocomplete/api";
+import { fetchSuggestionData } from "../src/server_side_api";
 
 const Index = ({ initialSearcBoxData }) => {
   return (
@@ -12,16 +12,16 @@ const Index = ({ initialSearcBoxData }) => {
 };
 
 export async function getStaticProps(context) {
-  const initialSearcBoxData = await fetchSuggestionData();
+  const initialSearchBoxData = await fetchSuggestionData();
 
-  if (!initialSearcBoxData) {
+  if (!initialSearchBoxData) {
     return {
       notFound: true,
     };
   }
 
   return {
-    props: { initialSearcBoxData }, // will be passed to the page component as props
+    props: { initialSearchBoxData }, // will be passed to the page component as props
   };
 }
 

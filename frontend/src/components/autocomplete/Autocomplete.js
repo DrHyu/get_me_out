@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { isEmpty } from "lodash";
 
 import { matchSorter } from "match-sorter";
-import { fetchSuggestionData } from "./api";
+// import { fetchSuggestionData } from "./api";
 
 import { Button, InputGroup } from "react-bootstrap";
 import { GiPositionMarker } from "react-icons/gi";
