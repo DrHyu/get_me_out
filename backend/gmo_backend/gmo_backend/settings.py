@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'gamerooms',
     'users',
     'drf_yasg',
+    'django_filters',
+    'graphene_django',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -64,6 +66,11 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.JSONParser',
     ],
+}
+
+
+GRAPHENE = {
+    'SCHEMA': 'gmo_backend.schema.schema'
 }
 
 
