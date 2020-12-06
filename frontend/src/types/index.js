@@ -11,12 +11,10 @@ export const roomType = shape({
   owner: string,
 });
 
-export const searchBarItemType = shape({
-  room: roomType.isRequired,
-  category: string.isRequired,
-});
-
-export const searchBarData = shape({
-  groupName: string,
-  data: arrayOf(searchBarItemType),
-});
+export const searchBarData = arrayOf(
+  shape({
+    groupName: string,
+    category: string,
+    data: arrayOf(roomType),
+  })
+);

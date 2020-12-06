@@ -55,21 +55,27 @@ const composeSuggesitons = (sugg) => {
   if (isEmpty(sugg)) return [];
 
   const composedSuggestions = sugg.reduce(
-    (acc, suggestionGrp) => [
-      ...acc,
+    (acumulator, suggestionGrp) => [
+      ...acumulator,
       { name: suggestionGrp.name, category: "SEPARATOR" },
-      ...suggestionGrp.data,
+      ...suggestionGrp.data.map((room) => ({
+        ...room,
+        category: suggestionGrp.category,
+      })),
     ],
     []
   );
 
   return composedSuggestions;
 };
+
 const updateSuggestions = (initSugg, key) => {
   if (isEmpty(initSugg)) return {};
   const updatedSuggestions = initSugg.map((suggestionGrp) => ({
     ...suggestionGrp,
-    data: matchSorter(suggestionGrp.data, key, { keys: ["name"] }),
+    data: matchSorter(suggestionGrp.data, key, {
+      keys: [(d) => d.name],
+    }),
   }));
   return composeSuggesitons(updatedSuggestions);
 };

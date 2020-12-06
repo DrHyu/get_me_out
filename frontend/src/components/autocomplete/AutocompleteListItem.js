@@ -6,6 +6,8 @@ import { GiPositionMarker } from "react-icons/gi";
 
 import { BsBoundingBoxCircles } from "react-icons/bs";
 
+import { roomType } from "../../types";
+
 const SeparatorLIStyle = styled.li`
   font-weight: bold;
   font-size: 1.5em;
@@ -37,7 +39,7 @@ const HighlightedRoomItemStyle = styled(RoomItemStyle)`
 `;
 
 function RoomListItem({ renderprops, highlighted, item }) {
-  if (highlighted === "true") {
+  if (highlighted) {
     return (
       <HighlightedRoomItemStyle {...renderprops}>
         <BsBoundingBoxCircles />
@@ -63,7 +65,7 @@ const HighlightedLocationItemStyle = styled(LocationItemStyle)`
 `;
 
 function LocationListItem({ renderprops, highlighted, item }) {
-  if (highlighted === "true") {
+  if (highlighted) {
     return (
       <HighlightedLocationItemStyle {...renderprops}>
         <GiPositionMarker />
@@ -82,8 +84,7 @@ function LocationListItem({ renderprops, highlighted, item }) {
 function AutocompleteListItem(item, selected, highlighted, renderprops) {
   const props = {
     renderprops,
-    selected: selected ? "true" : undefined,
-    highlighted: highlighted ? "true" : undefined,
+    highlighted,
     item,
     key: renderprops.key,
   };
@@ -96,29 +97,31 @@ function AutocompleteListItem(item, selected, highlighted, renderprops) {
     case "LOCATION":
       return <LocationListItem {...props} />;
     default:
-      return <li {...props}>{props.item.name}</li>;
+      return <li {...props}>{item.name}</li>;
   }
 }
 
-const propTypes = {
+const separatorType = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  category: PropTypes.oneOf(["SEPARATOR"]).isRequired,
+});
+
+SeparatorListItem.propTypes = {
   renderprops: PropTypes.shape({}).isRequired,
-  selected: PropTypes.string,
-  highlighted: PropTypes.string,
-  item: PropTypes.shape({ name: PropTypes.string }).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
 };
 
-const defautValues = {
-  selected: false,
-  highlighted: false,
+RoomListItem.propTypes = {
+  renderprops: PropTypes.shape({}).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
 };
 
-SeparatorListItem.propTypes = propTypes;
-SeparatorListItem.defautValues = defautValues;
-
-RoomListItem.propTypes = propTypes;
-RoomListItem.defautValues = defautValues;
-
-LocationListItem.propTypes = propTypes;
-LocationListItem.defautValues = defautValues;
+LocationListItem.propTypes = {
+  renderprops: PropTypes.shape({}).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+};
 
 export default AutocompleteListItem;
