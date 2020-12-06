@@ -1,17 +1,14 @@
-import React, { useState, useEffect, isValidElement } from "react";
+import React, { useState } from "react";
 import { useCombobox } from "downshift";
 import DatePicker from "react-datepicker";
-import ListItem from "./AutocompleteListItem";
 import styled from "styled-components";
-
 import { isEmpty } from "lodash";
-
 import { matchSorter } from "match-sorter";
-// import { fetchSuggestionData } from "./api";
-
-import { Button, InputGroup } from "react-bootstrap";
 import { GiPositionMarker } from "react-icons/gi";
 import { BsCalendar } from "react-icons/bs";
+
+import ListItem from "./AutocompleteListItem";
+import { searchBarData } from "../../types";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -32,8 +29,6 @@ const AutocompleteStyle = styled.div`
     margin-bottom: 0;
   }
 `;
-
-const DatePickerStyle = styled.div``;
 
 const ResultContainer = styled.div`
   display: block;
@@ -59,42 +54,32 @@ const itemToString = (item) => (item ? item.name : "");
 const composeSuggesitons = (sugg) => {
   if (isEmpty(sugg)) return [];
 
-  const composedSuggestions = sugg.reduce((acc, suggestionGrp) => {
-    return [
+  const composedSuggestions = sugg.reduce(
+    (acc, suggestionGrp) => [
       ...acc,
       { name: suggestionGrp.name, category: "SEPARATOR" },
       ...suggestionGrp.data,
-    ];
-  }, []);
+    ],
+    []
+  );
 
   return composedSuggestions;
 };
 const updateSuggestions = (initSugg, key) => {
   if (isEmpty(initSugg)) return {};
-  const updatedSuggestions = initSugg.map((suggestionGrp) => {
-    return {
-      ...suggestionGrp,
-      data: matchSorter(suggestionGrp.data, key, { keys: ["name"] }),
-    };
-  });
+  const updatedSuggestions = initSugg.map((suggestionGrp) => ({
+    ...suggestionGrp,
+    data: matchSorter(suggestionGrp.data, key, { keys: ["name"] }),
+  }));
   return composeSuggesitons(updatedSuggestions);
 };
 
-const Autocomplete = ({ initialSearcBoxData }) => {
-  console.log(initialSearcBoxData);
-  const [suggestionData, setsuggestionData] = useState(initialSearcBoxData);
+const Autocomplete = ({ initialSearchBoxData }) => {
+  const [suggestionData] = useState(initialSearchBoxData);
   const [suggestions, setSuggestions] = useState(
-    composeSuggesitons(initialSearcBoxData)
+    composeSuggesitons(initialSearchBoxData)
   );
   const [startDate, setStartDate] = useState(new Date());
-
-  // useEffect(() => {
-  //   fetchSuggestionData().then((initialData) => {
-  //     console.log(initialData);
-  //     setsuggestionData(initialData);
-  //     setSuggestions(composeSuggesitons(initialData));
-  //   });
-  // }, []);
 
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
@@ -103,7 +88,7 @@ const Autocomplete = ({ initialSearcBoxData }) => {
       // On input change
       case useCombobox.stateChangeTypes.InputChange:
         /* Fetch new suggestions based on the new inputValue */
-        setSuggestions(updateSuggestions(suggestionData, ds.inputValue));
+        setSuggestions(updateSuggestions(suggestionData, changes.inputValue));
         return changes;
 
       // On selection.
@@ -117,9 +102,9 @@ const Autocomplete = ({ initialSearcBoxData }) => {
         ) {
           /* Return state -> as if no action had been taken */
           return state;
-        } else {
-          return changes;
         }
+        return changes;
+
       case useCombobox.stateChangeTypes.InputBlur:
         return state;
 
@@ -155,8 +140,8 @@ const Autocomplete = ({ initialSearcBoxData }) => {
           <ResultContainer>
             <ul {...ds.getMenuProps()}>
               {ds.isOpen &&
-                suggestions.map((item, index) => {
-                  return ListItem(
+                suggestions.map((item, index) =>
+                  ListItem(
                     item /* Ref to item */,
                     ds.selectItem === item /* selected ? */,
                     ds.highlightedIndex === index /* highlighted ? */,
@@ -164,8 +149,8 @@ const Autocomplete = ({ initialSearcBoxData }) => {
                       key: item.name,
                       index,
                     })
-                  );
-                })}
+                  )
+                )}
             </ul>
           </ResultContainer>
         </div>
@@ -198,5 +183,10 @@ const Autocomplete = ({ initialSearcBoxData }) => {
     </AutocompleteStyle>
   );
 };
+
+Autocomplete.propTypes = {
+  initialSearchBoxData: searchBarData.isRequired,
+};
+Autocomplete.defaultProps = {};
 
 export default Autocomplete;

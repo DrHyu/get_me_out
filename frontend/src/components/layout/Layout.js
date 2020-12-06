@@ -1,18 +1,15 @@
-import Link from "next/link";
 import Head from "next/head";
-import NavBar from "../nav/NavBar";
-
+import { Container } from "react-bootstrap";
 import styled from "styled-components";
-import { Container, Row, Col } from "react-bootstrap";
+
+import PropTypes from "prop-types";
+import NavBar from "../nav/NavBar";
 
 const MainStyle = styled.div`
   background-color: #f5f6f7;
 `;
 
-export default function Layout({
-  children,
-  title = "This is the default title",
-}) {
+export default function Layout({ children, title }) {
   return (
     <MainStyle>
       <Head>
@@ -23,7 +20,16 @@ export default function Layout({
       <NavBar />
       <Container>{children}</Container>
 
-      <footer>{"I`m here to stay"}</footer>
+      <footer>I`m here to stay</footer>
     </MainStyle>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  title: "",
+};

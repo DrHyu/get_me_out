@@ -3,13 +3,11 @@ import Dashboard from "../src/components/landing/Dashboard";
 
 import { fetchSuggestionData } from "../src/server_side_api";
 
-const Index = ({ initialSearcBoxData }) => {
-  return (
-    <Layout>
-      <Dashboard initialSearcBoxData={initialSearcBoxData} />
-    </Layout>
-  );
-};
+const Index = ({ initialSearchBoxData }) => (
+  <Layout>
+    <Dashboard initialSearchBoxData={initialSearchBoxData} />
+  </Layout>
+);
 
 export async function getStaticProps(context) {
   const initialSearchBoxData = await fetchSuggestionData();

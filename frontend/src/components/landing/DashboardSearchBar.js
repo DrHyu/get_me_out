@@ -15,8 +15,8 @@ const Icon = styled.div`
   border-right: 0 !important;
 `;
 
-const DashboardSearchBar = ({ initialSearcBoxData }) => {
-  return <AutocompleteBar initialSearcBoxData={initialSearcBoxData} />;
-};
+const DashboardSearchBar = ({ initialSearchBoxData }) => (
+  <AutocompleteBar initialSearchBoxData={initialSearchBoxData} />
+);
 
 export default DashboardSearchBar;
