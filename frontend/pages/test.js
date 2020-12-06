@@ -1,8 +1,7 @@
 import React from "react";
 
-import Autocomplete from "../src/components/autocomplete/Autocomplete";
-
 import styled from "styled-components";
+import Autocomplete from "../src/components/autocomplete/Autocomplete";
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,14 +12,12 @@ const Wrapper2 = styled.div`
   width: 600px;
 `;
 
-const test = () => {
-  return (
-    <Wrapper>
-      <Wrapper2>
-        <Autocomplete />
-      </Wrapper2>
-    </Wrapper>
-  );
-};
+const test = () => (
+  <Wrapper>
+    <Wrapper2>
+      <Autocomplete />
+    </Wrapper2>
+  </Wrapper>
+);
 
 export default test;

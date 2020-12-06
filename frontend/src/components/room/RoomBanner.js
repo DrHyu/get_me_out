@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { roomType } from "../../types";
+
 const RoomBannerWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -22,5 +24,7 @@ function RoomBanner({ room }) {
     </RoomBannerWrapper>
   );
 }
+
+RoomBanner.propTypes = { room: roomType.isRequired };
 
 export default RoomBanner;

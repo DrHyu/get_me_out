@@ -1,18 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
+import { Navbar, Nav } from "react-bootstrap";
 import NavBarLogIn from "../login/NavBarLogIn";
 
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
-
-const mainNavigation = (props) => (
+const mainNavigation = () => (
   <Navbar bg="light" variant="light">
     <Link href="/" passHref>
       <Navbar.Brand>Get me Out</Navbar.Brand>

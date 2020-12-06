@@ -1,54 +1,29 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Link from "next/link";
-import styled from "styled-components";
 
+import { Form, Button, Col } from "react-bootstrap";
+import { login } from "../../store/auth/actions";
 import validateInput from "../../validations/login";
-import { login, logout } from "../../store/auth/actions";
-
 import LoggedInDropDown from "./LoggedInDropDown";
 
-import {
-  Form,
-  FormControl,
-  InputGroup,
-  Button,
-  Container,
-  Row,
-  Col,
-  NavDropdown,
-  Dropdown,
-} from "react-bootstrap";
-
-const DisplayUserName = styled.div`
-  white-space: nowrap;
-  text-transform: capitalize;
-
-  font-weight: bold;
-  font-size: 1.5em;
-`;
-
 function Login() {
-  const user = useSelector((state) => state.auth.user);
-
-  // const isAuthenticated = true;
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const [isLoading, setisLoading] = useState(false);
   const [identifier, setidentifier] = useState("");
   const [password, setpassword] = useState("");
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
 
   const isValid = () => {
-    const { errors, isValid } = validateInput({ identifier, password });
+    const { errors, isValidated } = validateInput({ identifier, password });
 
-    if (!isValid) {
-      setErrors(errors);
+    if (!isValidated) {
+      // setErrors(errors);
       console.log("Empty fields", errors);
     }
-    return isValid;
+    return isValidated;
   };
 
   const onSubmit = (e) => {
@@ -60,7 +35,8 @@ function Login() {
         () => setisLoading(false),
         (err) => {
           setisLoading(false);
-          setErrors(err);
+          // setErrors(err);
+          console.log(err);
         }
       );
     }
@@ -94,9 +70,8 @@ function Login() {
         </Form.Row>
       </Form>
     );
-  } else {
-    return <LoggedInDropDown />;
   }
+  return <LoggedInDropDown />;
 }
 
 export default Login;

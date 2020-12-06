@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Popover, Tooltip, OverlayTrigger, ProgressBar } from "react-bootstrap";
-
-import Box from "../../shared/Box";
-
+import { Popover, OverlayTrigger } from "react-bootstrap";
 import {
   Gi3DHammer,
   Gi3DMeeple,
@@ -30,6 +27,8 @@ import {
   GiHouseKeys,
   GiJesterHat,
 } from "react-icons/gi";
+
+import Box from "../../shared/Box";
 
 const BadgesGrid = styled.div`
   display: grid !important;
@@ -130,17 +129,16 @@ const medals = [
   GiJesterHat,
 ];
 
-const generatePopover = (src) => {
-  return (
-    <Popover id="popover-basic">
-      <Popover.Title as="h3">Awesome title ! {src}</Popover.Title>
-      <Popover.Content>
-        Obtained after doing some <strong>amazing</strong> roomscapes. It's very
-        engaging. right?
-      </Popover.Content>
-    </Popover>
-  );
-};
+const generatePopover = (src) => (
+  <Popover id="popover-basic">
+    <Popover.Title as="h3">{`Awesome title !${src}`}</Popover.Title>
+    <Popover.Content>
+      Obtained after doing some
+      <strong>amazing</strong>
+      roomscapes. Its very engaging. right?
+    </Popover.Content>
+  </Popover>
+);
 
 function BadgesTab() {
   return (
@@ -149,6 +147,7 @@ function BadgesTab() {
         <BadgesGrid>
           {badges.map((src, idx) => (
             <OverlayTrigger
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
               trigger={["focus", "hover"]}
               placement="auto"
@@ -171,6 +170,7 @@ function BadgesTab() {
         <BadgesGrid>
           {medals.map((MedalSVG, idx) => (
             <OverlayTrigger
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
               trigger={["focus", "hover"]}
               placement="auto"
@@ -180,7 +180,7 @@ function BadgesTab() {
                 <div className="medal-shield-mask">
                   <MedalSVG />
                 </div>
-                <span>{"random_text"}</span>
+                <span>random_text</span>
               </Medal>
             </OverlayTrigger>
           ))}

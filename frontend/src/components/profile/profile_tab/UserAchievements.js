@@ -1,10 +1,8 @@
 import React from "react";
 
-import Image from "next/image";
-import { range } from "lodash";
 import styled from "styled-components";
 
-import { Popover, Tooltip, OverlayTrigger, ProgressBar } from "react-bootstrap";
+import { Popover, OverlayTrigger, ProgressBar } from "react-bootstrap";
 
 import Box from "../../shared/Box";
 
@@ -111,17 +109,16 @@ function UserAchievements() {
     "slice20",
   ];
 
-  const generatePopover = (src) => {
-    return (
-      <Popover id="popover-basic">
-        <Popover.Title as="h3">Awesome title ! {src}</Popover.Title>
-        <Popover.Content>
-          Obtained after doing some <strong>amazing</strong> roomscapes. It's
-          very engaging. right?
-        </Popover.Content>
-      </Popover>
-    );
-  };
+  const generatePopover = (src) => (
+    <Popover id="popover-basic">
+      <Popover.Title as="h3">{`Awesome title !${src}`}</Popover.Title>
+      <Popover.Content>
+        Obtained after doing some
+        <strong>amazing</strong>
+        roomscapes. Its very engaging. right?
+      </Popover.Content>
+    </Popover>
+  );
 
   return (
     <>
@@ -147,7 +144,8 @@ function UserAchievements() {
               now={200}
             />
             <div className="level-progression-bar-label">
-              <span className="-bold">200/1000</span> for next level !
+              <span className="-bold">200/1000</span>
+              for next level !
             </div>
           </div>
         </LevelTrackingContainer>
@@ -156,6 +154,7 @@ function UserAchievements() {
         <MedalContainer>
           {badges.map((src, idx) => (
             <OverlayTrigger
+              // eslint-disable-next-line react/no-array-index-key
               key={idx}
               trigger={["focus", "hover"]}
               placement="auto"

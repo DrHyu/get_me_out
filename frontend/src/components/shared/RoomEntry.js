@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Container, Row, Col, Image } from "react-bootstrap";
-
 import { BsStar } from "react-icons/bs";
 import { GiTerror } from "react-icons/gi";
+
+import { roomType } from "../../types";
 
 const RoomEntryContainer = styled.div`
   margin: 2px 0px;
@@ -106,30 +105,29 @@ const InfoWrapper = styled.div`
   }
 `;
 
-const RoomEntry = ({ room }) => {
-  return (
-    <RoomEntryContainer>
-      <ImageContainer>
-        <img src={room.img} alt="Some stuff" />
-      </ImageContainer>
-      <InfoWrapper>
-        <div className="room-title">
-          <a href="">{room.name} </a>
+const RoomEntry = ({ room }) => (
+  <RoomEntryContainer>
+    <ImageContainer>
+      <img src={room.img} alt="Some stuff" />
+    </ImageContainer>
+    <InfoWrapper>
+      <div className="room-title">
+        <a href="/">{room.name}</a>
+      </div>
+      <div className="room-ratings">
+        <div className="rating-group">
+          <BsStar className="rating-star" />
+          <span>{room.rating / 10}</span>
         </div>
-        <div className="room-ratings">
-          <div className="rating-group">
-            <BsStar className="rating-star" />
-            <span>{room.rating / 10}</span>
-          </div>
-          <div className="rating-group">
-            <GiTerror className="rating-terror" />
-            <span className="no-score">--</span>
-          </div>
+        <div className="rating-group">
+          <GiTerror className="rating-terror" />
+          <span className="no-score">--</span>
         </div>
-        <div className="room-owner">{room.owner}</div>
-        <div className="room-location">{room.location}</div>
-      </InfoWrapper>
-      {/* <SuggestionRow>
+      </div>
+      <div className="room-owner">{room.owner}</div>
+      <div className="room-location">{room.location}</div>
+    </InfoWrapper>
+    {/* <SuggestionRow>
         <RattingsCol>
           <RoomStats room={room} />
         </RattingsCol>
@@ -138,8 +136,11 @@ const RoomEntry = ({ room }) => {
           <p>{room.description}</p>
         </DescriptionCol>
       </SuggestionRow> */}
-    </RoomEntryContainer>
-  );
+  </RoomEntryContainer>
+);
+
+RoomEntry.propTypes = {
+  room: roomType.isRequired,
 };
 
 export default RoomEntry;

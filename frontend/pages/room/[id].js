@@ -1,10 +1,12 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { isEmpty, isNull } from "lodash";
 
 import styled from "styled-components";
 
 import Layout from "../../src/components/layout/Layout";
 import { fetchGamerooms, fetchGameroom } from "../../src/server_side_api";
+
+import { roomType } from "../../src/types";
 
 import RoomTitle from "../../src/components/room/RoomTitle";
 import RoomBanner from "../../src/components/room/RoomBanner";
@@ -41,32 +43,32 @@ const Reviews = styled(Base)`
   grid-area: 5 / 1 / 5 / -1;
 `;
 
-const RoomPage = ({ room }) => {
-  const router = useRouter();
-  const { id } = router.query;
+const RoomPage = ({ room }) => (
+  // const router = useRouter();
+  // const { id } = router.query;
 
-  return (
-    <Layout>
-      <RoomPageLayout>
-        <Title>
-          <RoomTitle room={room} />
-        </Title>
-        <Banner>
-          <RoomBanner room={room} />
-        </Banner>
-        <Attributes>Attributes</Attributes>
-        <Calendar>Calendar/Description</Calendar>
-        <Reviews>Reviews</Reviews>
-      </RoomPageLayout>
-    </Layout>
-  );
-};
-
+  <Layout>
+    <RoomPageLayout>
+      <Title>
+        <RoomTitle room={room} />
+      </Title>
+      <Banner>
+        <RoomBanner room={room} />
+      </Banner>
+      <Attributes>Attributes</Attributes>
+      <Calendar>Calendar/Description</Calendar>
+      <Reviews>Reviews</Reviews>
+    </RoomPageLayout>
+  </Layout>
+);
 export default RoomPage;
+
+RoomPage.propTypes = {
+  room: roomType.isRequired,
+};
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  console.log("Building page for room:", params.id);
   const room = await fetchGameroom(Number(params.id));
 
   if (isNull(room) || isEmpty(room)) {

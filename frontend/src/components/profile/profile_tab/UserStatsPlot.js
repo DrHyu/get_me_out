@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import {
   Radar,
   RadarChart,
   PolarGrid,
-  Legend,
   PolarAngleAxis,
   PolarRadiusAxis,
 } from "recharts";
 
 import Box from "../../shared/Box";
-
-const StatsPlotContainer = styled.div``;
 
 const categories = ["SPEED", "TEAMWORK", "BRAIN", "BRAVE", "LEAD"];
 
@@ -21,8 +17,6 @@ const initialData = categories.map((cat) => ({
 }));
 
 function UserStatsPlot() {
-  const [data, setdata] = useState(initialData);
-
   return (
     <Box title="User Stats">
       <RadarChart
@@ -31,7 +25,7 @@ function UserStatsPlot() {
         outerRadius={100}
         width={600}
         height={300}
-        data={data}
+        data={initialData}
       >
         <PolarGrid />
         <PolarAngleAxis dataKey="category" />

@@ -1,64 +1,54 @@
-import * as actions from "../actionTypes";
 import axios from "axios";
+import * as actions from "../actionTypes";
 
 import { filterData } from "../../components/search/filterAPI";
 
 /* Search actions */
-export const requestData = () => {
-  return {
-    type: actions.SEARCH_PAGE_REQUEST_DATA,
-  };
-};
+export const requestData = () => ({
+  type: actions.SEARCH_PAGE_REQUEST_DATA,
+});
 
-export const receiveData = (data) => {
-  return {
-    type: actions.SEARCH_PAGE_RECEIVE_DATA,
-    payload: {
-      searchResults: data.map((hit) => hit),
-    },
-  };
-};
+export const receiveData = (data) => ({
+  type: actions.SEARCH_PAGE_RECEIVE_DATA,
+  payload: {
+    searchResults: data.map((hit) => hit),
+  },
+});
 
-export const invalidateData = () => {
-  return {
-    type: actions.SEARCH_PAGE_INVALIDATE_DATA,
-  };
-};
+export const invalidateData = () => ({
+  type: actions.SEARCH_PAGE_INVALIDATE_DATA,
+});
 
-export const fetchData = (activeFilters) => {
-  return (dispatch) => {
-    /* Mark request ongoing */
-    dispatch(requestData());
+export const fetchData = (activeFilters) => (dispatch) => {
+  /* Mark request ongoing */
+  dispatch(requestData());
 
-    /* Request data from server */
-    /* If filtering is done in the server here we would 
+  /* Request data from server */
+  /* If filtering is done in the server here we would 
       pass the filter parameters through some POST/GET
     */
-    return axios("https://5f9c1201856f4c00168c5e7c.mockapi.io/name").then(
-      (json) => {
-        /* Add in difictuly data since couldn't get it in mockapi */
-        let difLvls = ["easy", "medium", "hard"];
-        const data = json.data.map((elem) => ({
-          ...elem,
-          difficulty: difLvls[Math.floor(Math.random() * 3)],
-        }));
-        /* Theoretically this will be done server side */
-        const filteredData = filterData(activeFilters, data);
+  return axios("https://5f9c1201856f4c00168c5e7c.mockapi.io/name").then(
+    (json) => {
+      /* Add in difictuly data since couldn't get it in mockapi */
+      const difLvls = ["easy", "medium", "hard"];
+      const data = json.data.map((elem) => ({
+        ...elem,
+        difficulty: difLvls[Math.floor(Math.random() * 3)],
+      }));
+      /* Theoretically this will be done server side */
+      const filteredData = filterData(activeFilters, data);
 
-        dispatch(receiveData(filteredData));
-      }
-    );
-  };
+      dispatch(receiveData(filteredData));
+    }
+  );
 };
 
 /* Filter actions */
 
-export const updateFilterValue = (id, value) => {
-  return {
-    type: actions.SEARCH_PAGE_UPDATE_FILTER_VALUE,
-    payload: {
-      id,
-      value,
-    },
-  };
-};
+export const updateFilterValue = (id, value) => ({
+  type: actions.SEARCH_PAGE_UPDATE_FILTER_VALUE,
+  payload: {
+    id,
+    value,
+  },
+});

@@ -5,9 +5,9 @@ import thunkMiddleware from "redux-thunk";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import { searchReducer } from "./search/reducers";
-import { dashboardReducer } from "./dashboard/reducers";
-import { authReducer } from "./auth/reducers";
+import searchReducer from "./search/reducers";
+import dashboardReducer from "./dashboard/reducers";
+import authReducer from "./auth/reducers";
 
 let store;
 
@@ -30,6 +30,8 @@ function initStore(initialState) {
 }
 
 export const initializeStore = (preloadedState) => {
+  // Copied from example
+  // eslint-disable-next-line no-underscore-dangle
   let _store = store ?? initStore(preloadedState);
 
   // After navigating to a page with an initial Redux state, merge that state
@@ -52,6 +54,8 @@ export const initializeStore = (preloadedState) => {
 };
 
 export function useStore(initialState) {
+  // Copied from example
+  // eslint-disable-next-line no-shadow
   const store = useMemo(() => initializeStore(initialState), [initialState]);
   return store;
 }
