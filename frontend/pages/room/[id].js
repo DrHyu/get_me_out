@@ -83,7 +83,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const gameRooms = await fetchGamerooms();
-
   // Get the paths we want to pre-render based on rooms
   const paths = gameRooms.map((room) => ({
     params: { id: room.id.toString() },

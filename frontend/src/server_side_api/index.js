@@ -2,18 +2,57 @@ import axios from "axios";
 import { isEmpty } from "lodash";
 import cities from "../utils/cities";
 
-export const fetchGameroom = async (id) => {
-  const roomSearchEndpoint = `http://localhost:8080/gamerooms/public/gamerooms`;
-  const response = await axios.get(roomSearchEndpoint);
+const token =
+  "glNhAoV9ZrjNCtSH9TKIVdK9s6PKxObpzMe790OeqZhDovqDsY4RLmux7bvllXGc";
 
-  const gameRooms = response.data.filter((item) => item.id === id);
-  return isEmpty(gameRooms) ? {} : gameRooms[0];
+const simpleGraphQlQuerry = async (query, variables = {}) => {
+  const response = await axios("http://localhost:8080/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "X-CSRFToken": token,
+      cookie: `csrftoken=${token}`,
+    },
+    data: { query, variables },
+  });
+
+  if ("data" in response.data) {
+    return response.data.data;
+  }
+  return {};
+};
+
+export const fetchGameroom = async (id) => {
+  const gameRoom = await simpleGraphQlQuerry(
+    `query getRooms {
+      gameRoom {
+        id
+        name
+        description
+        img
+        rating
+      }
+    }`
+  );
+  const rooms = gameRoom.gameRoom.filter((item) => item.id === id);
+
+  return isEmpty(rooms) ? {} : rooms[0];
 };
 
 export const fetchGamerooms = async () => {
-  const roomSearchEndpoint = `http://localhost:8080/gamerooms/public/gamerooms`;
-  const response = await axios.get(roomSearchEndpoint);
-  return response.data;
+  const gameRooms = await simpleGraphQlQuerry(
+    `query getRooms {
+      gameRoom {
+        id
+        name
+        description
+        img
+        rating
+      }
+    }`
+  );
+  return gameRooms.gameRoom;
 };
 
 export const fetchLocations = async () =>
@@ -23,14 +62,25 @@ export const fetchLocations = async () =>
   }));
 
 export const fetchSuggestionData = async () => {
-  const gameRooms = await fetchGamerooms();
+  const gameRooms = await simpleGraphQlQuerry(
+    `query getRooms {
+      gameRoom {
+        id
+        name
+        description
+        img
+        rating
+      }
+    }`
+  );
+
   const locations = await fetchLocations();
 
   const result = [
     {
       name: "Room Escapes",
       category: "ROOM",
-      data: gameRooms,
+      data: gameRooms.gameRoom,
     },
     {
       name: "Locations",
