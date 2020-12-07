@@ -21,6 +21,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.conf.urls import url
 from django.views.generic import RedirectView
+from graphene_django.views import GraphQLView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -40,6 +41,7 @@ urlpatterns = [
     url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path("graphql", GraphQLView.as_view(graphiql=True)),
     path('admin/', admin.site.urls),
     path('gamerooms/', include('gamerooms.urls')),
     path('users/', include('users.urls')),
