@@ -4,7 +4,7 @@ import styled from "styled-components";
 const RoomResumeWrapper = styled.div``;
 
 function RoomResume() {
-  return <RoomResumeWrapper></RoomResumeWrapper>;
+  return <RoomResumeWrapper />;
 }
 
 export default RoomResume;

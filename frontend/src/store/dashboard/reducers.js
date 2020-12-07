@@ -22,7 +22,7 @@ const INITIAL_STATE = {
   isValid: true,
 };
 
-export const dashboardReducer = (state = INITIAL_STATE, action) => {
+const dashboardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actions.LANDING_PAGE_INVALIDATE_DATA:
       return { ...state, isValid: false };
@@ -63,3 +63,5 @@ export const dashboardReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default dashboardReducer;

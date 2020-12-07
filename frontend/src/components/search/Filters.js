@@ -1,17 +1,14 @@
-import { element } from "prop-types";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+
+import PT from "prop-types";
+
+import { filterType } from "../../types";
 
 export const RANGE_FILTER = "RANGE_FILTER";
 export const CHOICE_FILTER = "CHOICE_FILTER";
 export const DATE_FILTER = "DATE_FILTER";
 export const MULT_CHOICE_FILTER = "MULT_CHOICE_FILTER";
-
-export const filterKindToComponent = {
-  RANGE_FILTER: SliderFilter,
-  CHOICE_FILTER: RadioFilter,
-  MULT_CHOICE_FILTER: MultipleChoiceFilter,
-};
 
 const FilterBoxStyle = styled.div`
   border: 1px solid black;
@@ -62,21 +59,6 @@ const FilterBoxStyle = styled.div`
   }
 `;
 
-export function BaseFilter({ filter, onChangeCallback }) {
-  const SomeFilterComponent = filterKindToComponent[filter.kind];
-  return (
-    <FilterBoxStyle>
-      <span className="title">{filter.name}</span>
-      <div>
-        <SomeFilterComponent
-          filter={filter}
-          onChangeCallback={onChangeCallback}
-        />
-      </div>
-    </FilterBoxStyle>
-  );
-}
-
 export function MultipleChoiceFilter({ filter, onChangeCallback }) {
   const [isChecked, setIsChecked] = useState(filter.value);
 
@@ -88,6 +70,7 @@ export function MultipleChoiceFilter({ filter, onChangeCallback }) {
   return (
     <ul className="options-container">
       {filter.options.map((option, idx) => (
+        // eslint-disable-next-line react/no-array-index-key
         <li className="options-items" key={idx}>
           <input
             type="checkbox"
@@ -116,6 +99,7 @@ export function RadioFilter({ filter, onChangeCallback }) {
   return (
     <ul className="options-container">
       {filter.options.map((option, idx) => (
+        // eslint-disable-next-line react/no-array-index-key
         <li key={idx}>
           <input
             type="checkbox"
@@ -139,11 +123,40 @@ export function SliderFilter({ filter, onChangeCallback }) {
         name={filter.name}
         min={filter.min}
         max={filter.max}
-        onMouseUp={(e) => {
-          return onChangeCallback(e.target.value);
-        }}
+        onMouseUp={(e) => onChangeCallback(e.target.value)}
         key={`${filter.name}_${filter.id}`}
       />
     </div>
   );
 }
+
+export const filterKindToComponent = {
+  RANGE_FILTER: SliderFilter,
+  CHOICE_FILTER: RadioFilter,
+  MULT_CHOICE_FILTER: MultipleChoiceFilter,
+};
+
+export function BaseFilter({ filter, onChangeCallback }) {
+  const SomeFilterComponent = filterKindToComponent[filter.kind];
+  return (
+    <FilterBoxStyle>
+      <span className="title">{filter.name}</span>
+      <div>
+        <SomeFilterComponent
+          filter={filter}
+          onChangeCallback={onChangeCallback}
+        />
+      </div>
+    </FilterBoxStyle>
+  );
+}
+
+const propTypes = {
+  filter: filterType.isRequired,
+  onChangeCallback: PT.func.isRequired,
+};
+
+BaseFilter.propTypes = propTypes;
+MultipleChoiceFilter.propTypes = propTypes;
+RadioFilter.propTypes = propTypes;
+SliderFilter.propTypes = propTypes;

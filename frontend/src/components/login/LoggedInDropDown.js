@@ -2,12 +2,13 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 import { Dropdown, FormControl } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { logout } from "../../store/auth/actions";
-import { useSelector, useDispatch } from "react-redux";
 import Image from "next/image";
+import PropTypes from "prop-types";
+import { logout } from "../../store/auth/actions";
 
 const TogglStyled = styled.div`
   display: flex;
@@ -31,11 +32,10 @@ const TogglStyled = styled.div`
     transform: ${(props) => (props.open ? "rotate(180deg)" : "rotate(0deg)")};
   }
 `;
-const DropDownItemStyled = styled.div``;
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
-const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
+const CustomToggle = React.forwardRef(({ /* children, */ onClick }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -54,6 +54,10 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     </TogglStyled>
   );
 });
+
+CustomToggle.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 // forwardRef again here!
 // Dropdown needs access to the DOM of the Menu to measure it
@@ -85,6 +89,19 @@ const CustomMenu = React.forwardRef(
     );
   }
 );
+
+CustomMenu.propTypes = {
+  children: PropTypes.node.isRequired,
+  style: PropTypes.shape({}),
+  className: PropTypes.string,
+  "aria-labelledby": PropTypes.string,
+};
+
+CustomMenu.defaultProps = {
+  style: undefined,
+  className: undefined,
+  "aria-labelledby": undefined,
+};
 
 function LoggedInDropDown() {
   const dispatch = useDispatch();

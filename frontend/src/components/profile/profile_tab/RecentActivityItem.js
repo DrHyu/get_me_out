@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import styled from "styled-components";
+import PT from "prop-types";
 
 import { Row, Col } from "react-bootstrap";
-
+import { GiBattleAxe, GiSandsOfTime } from "react-icons/gi";
+import { roomType } from "../../../types";
 import StarRatingComponent from "../../shared/StarRating";
-import { GiBattleAxe, GiThumbUp, GiSandsOfTime } from "react-icons/gi";
 
 const RecentActivity = styled.div`
   border: 1px solid #ccc;
@@ -58,8 +59,8 @@ function RecentActivityItem({ room, idx }) {
             </Col>
             <Col xs={6} md={4}>
               <div className="room-completion-time">
-                <GiSandsOfTime /> {((idx + 1) * 34) % 60}:
-                {((idx + 1) * 23) % 60}
+                <GiSandsOfTime />
+                {`${((idx + 1) * 34) % 60}:${((idx + 1) * 23) % 60}`}
               </div>
             </Col>
             <Col xs={6}>
@@ -69,7 +70,7 @@ function RecentActivityItem({ room, idx }) {
                   key={idx}
                   total={5}
                   renderStarIcon={() => <GiBattleAxe />}
-                ></StarRatingComponent>
+                />
               </div>
             </Col>
           </Row>
@@ -78,5 +79,10 @@ function RecentActivityItem({ room, idx }) {
     </RecentActivity>
   );
 }
+
+RecentActivityItem.propTypes = {
+  room: roomType.isRequired,
+  idx: PT.number.isRequired,
+};
 
 export default RecentActivityItem;

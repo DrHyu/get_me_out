@@ -21,7 +21,8 @@ const SearchShowResults = () => {
         <span className="sr-only">Loading...</span>
       </div>
     );
-  } else if (isValid) {
+  }
+  if (isValid) {
     return (
       <div>
         {searchResults.map((result) => (
@@ -29,9 +30,8 @@ const SearchShowResults = () => {
         ))}
       </div>
     );
-  } else {
-    return <div>Invalid</div>;
   }
+  return <div>Invalid</div>;
 };
 
 export default SearchShowResults;

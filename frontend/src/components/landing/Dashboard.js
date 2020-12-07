@@ -1,21 +1,20 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Row, Col, Carousel } from "react-bootstrap";
-import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
 
 import DashboardSearchBar from "./DashboardSearchBar";
 import DashboardCarousel from "./DashboardCarousel";
 import RoomEntry from "../shared/RoomEntry";
 
+import { searchBarData } from "../../types";
+
 import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
-function Dashboard({ initialSearcBoxData }) {
-  const roomSuggestions = useSelector((state) => {
-    return state.dashboard.roomSuggestions;
-  });
+function Dashboard({ initialSearchBoxData }) {
+  const roomSuggestions = useSelector(
+    (state) => state.dashboard.roomSuggestions
+  );
   const dispatch = useDispatch();
-
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     dispatch(fetchRoomSuggestions());
@@ -25,7 +24,7 @@ function Dashboard({ initialSearcBoxData }) {
     <Container fluid>
       <Row>
         <Col>
-          <DashboardSearchBar initialSearcBoxData={initialSearcBoxData} />
+          <DashboardSearchBar initialSearchBoxData={initialSearchBoxData} />
         </Col>
       </Row>
       <Row>
@@ -37,8 +36,8 @@ function Dashboard({ initialSearcBoxData }) {
         <Col>
           <h2>Suggested rooms:</h2>
           <div>
-            {roomSuggestions.map((roomSuggestion, idx) => (
-              <RoomEntry room={roomSuggestion} key={idx} />
+            {roomSuggestions.map((roomSuggestion) => (
+              <RoomEntry room={roomSuggestion} key={roomSuggestion.id} />
             ))}
           </div>
         </Col>
@@ -46,5 +45,8 @@ function Dashboard({ initialSearcBoxData }) {
     </Container>
   );
 }
+
+Dashboard.propTypes = { initialSearchBoxData: searchBarData.isRequired };
+Dashboard.defaultProps = {};
 
 export default Dashboard;

@@ -14,7 +14,7 @@ const routes = [
 ];
 
 function RoutesTab() {
-  return routes.map((route) => <Box title={route}></Box>);
+  return routes.map((route) => <Box title={route} key={route} />);
 }
 
 export default RoutesTab;

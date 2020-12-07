@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { GiPositionMarker, GiJigsawBox } from "react-icons/gi";
+import { GiPositionMarker } from "react-icons/gi";
 
-import { AiOutlineScan } from "react-icons/ai";
 import { BsBoundingBoxCircles } from "react-icons/bs";
+
+import { roomType } from "../../types";
 
 const SeparatorLIStyle = styled.li`
   font-weight: bold;
@@ -14,7 +16,7 @@ const SeparatorLIStyle = styled.li`
   background-color: white;
 `;
 
-function SeparatorListItem({ renderprops, selected, highlighted, item }) {
+function SeparatorListItem({ renderprops, item }) {
   return <SeparatorLIStyle {...renderprops}>{item.name}</SeparatorLIStyle>;
 }
 
@@ -36,22 +38,21 @@ const HighlightedRoomItemStyle = styled(RoomItemStyle)`
   background-color: lightgray;
 `;
 
-function RoomListItem({ renderprops, selected, highlighted, item }) {
-  if (highlighted === "true") {
+function RoomListItem({ renderprops, highlighted, item }) {
+  if (highlighted) {
     return (
       <HighlightedRoomItemStyle {...renderprops}>
         <BsBoundingBoxCircles />
         {item.name}
       </HighlightedRoomItemStyle>
     );
-  } else {
-    return (
-      <RoomItemStyle {...renderprops}>
-        <BsBoundingBoxCircles />
-        {item.name}
-      </RoomItemStyle>
-    );
   }
+  return (
+    <RoomItemStyle {...renderprops}>
+      <BsBoundingBoxCircles />
+      {item.name}
+    </RoomItemStyle>
+  );
 }
 
 const LocationItemStyle = styled(BaselineStyle)`
@@ -63,29 +64,27 @@ const HighlightedLocationItemStyle = styled(LocationItemStyle)`
   background-color: lightgray;
 `;
 
-function LocationListItem({ renderprops, selected, highlighted, item }) {
-  if (highlighted === "true") {
+function LocationListItem({ renderprops, highlighted, item }) {
+  if (highlighted) {
     return (
       <HighlightedLocationItemStyle {...renderprops}>
         <GiPositionMarker />
         {item.name}
       </HighlightedLocationItemStyle>
     );
-  } else {
-    return (
-      <LocationItemStyle {...renderprops}>
-        <GiPositionMarker />
-        {item.name}
-      </LocationItemStyle>
-    );
   }
+  return (
+    <LocationItemStyle {...renderprops}>
+      <GiPositionMarker />
+      {item.name}
+    </LocationItemStyle>
+  );
 }
 
 function AutocompleteListItem(item, selected, highlighted, renderprops) {
   const props = {
     renderprops,
-    selected: selected ? "true" : undefined,
-    highlighted: highlighted ? "true" : undefined,
+    highlighted,
     item,
     key: renderprops.key,
   };
@@ -93,17 +92,36 @@ function AutocompleteListItem(item, selected, highlighted, renderprops) {
   switch (item.category) {
     case "SEPARATOR":
       return <SeparatorListItem {...props} />;
-      break;
     case "ROOM":
       return <RoomListItem {...props} />;
-      break;
     case "LOCATION":
       return <LocationListItem {...props} />;
-      break;
     default:
-      return <li {...props}>{props.item.name}</li>;
-      break;
+      return <li {...props}>{item.name}</li>;
   }
 }
+
+const separatorType = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  category: PropTypes.oneOf(["SEPARATOR"]).isRequired,
+});
+
+SeparatorListItem.propTypes = {
+  renderprops: PropTypes.shape({}).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+};
+
+RoomListItem.propTypes = {
+  renderprops: PropTypes.shape({}).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+};
+
+LocationListItem.propTypes = {
+  renderprops: PropTypes.shape({}).isRequired,
+  highlighted: PropTypes.bool.isRequired,
+  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+};
 
 export default AutocompleteListItem;

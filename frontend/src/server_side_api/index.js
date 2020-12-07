@@ -1,7 +1,6 @@
 import axios from "axios";
-import cities from "../utils/cities";
-
 import { isEmpty } from "lodash";
+import cities from "../utils/cities";
 
 export const fetchGameroom = async (id) => {
   const roomSearchEndpoint = `http://localhost:8080/gamerooms/public/gamerooms`;
@@ -17,27 +16,27 @@ export const fetchGamerooms = async () => {
   return response.data;
 };
 
-export const fetchLocations = async () => {
-  return cities.map((city, idx) => ({
+export const fetchLocations = async () =>
+  cities.map((city, idx) => ({
     name: city,
     id: idx,
   }));
-};
 
-export const fetchSuggestionData = async (search) => {
+export const fetchSuggestionData = async () => {
   const gameRooms = await fetchGamerooms();
   const locations = await fetchLocations();
 
   const result = [
     {
       name: "Room Escapes",
-      data: gameRooms.map((item) => ({ ...item, category: "ROOM" })),
+      category: "ROOM",
+      data: gameRooms,
     },
     {
       name: "Locations",
-      data: locations.map((item) => ({ ...item, category: "LOCATION" })),
+      category: "LOCATION",
+      data: locations,
     },
   ];
-  console.log(result);
   return result;
 };

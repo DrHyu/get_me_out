@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Row, Col, Carousel } from "react-bootstrap";
-import styled from "styled-components";
-
-import { fetchRoomSuggestions } from "../../store/dashboard/actions";
+import { Carousel } from "react-bootstrap";
 
 function DashboardCarousel() {
   const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
@@ -12,8 +9,8 @@ function DashboardCarousel() {
     <div>
       <h1>Helo !</h1>
       <Carousel>
-        {carouselInfo.map((carousel, idx) => (
-          <Carousel.Item key={idx}>
+        {carouselInfo.map((carousel) => (
+          <Carousel.Item key={`${carousel.img}`}>
             <img src={carousel.img} alt="slide" width="100%" height="auto" />
             {carousel.text && (
               <Carousel.Caption>

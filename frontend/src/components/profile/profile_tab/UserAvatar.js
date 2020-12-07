@@ -5,10 +5,6 @@ import styled from "styled-components";
 
 import Box from "../../shared/Box";
 
-const UserAvatarContainer = styled.div`
-  background-color: white;
-`;
-
 const ImgContainer = styled.div`
   display: flex;
   justify-content: center;

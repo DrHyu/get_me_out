@@ -58,7 +58,7 @@ const INITIAL_STATE = {
   isValid: true,
 };
 
-export const searchReducer = (state = INITIAL_STATE, action) => {
+const searchReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actions.SEARCH_PAGE_INVALIDATE_DATA:
       return { ...state, isValid: false };
@@ -90,3 +90,5 @@ export const searchReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default searchReducer;
