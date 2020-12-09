@@ -7,6 +7,8 @@ import { matchSorter } from "match-sorter";
 import { GiPositionMarker } from "react-icons/gi";
 import { BsCalendar } from "react-icons/bs";
 
+import Router from "next/router";
+
 import ListItem from "./AutocompleteListItem";
 import { searchBarData } from "../../types";
 
@@ -179,8 +181,14 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            {...ds.getToggleButtonProps()}
-            aria-label="toggle menu"
+            // {...ds.getToggleButtonProps()}
+            // aria-label="toggle menu"
+            onClick={(e) => {
+              e.preventDefault();
+              if (ds.selectedItem) {
+                Router.push(`/room/${ds.selectedItem.id}`);
+              }
+            }}
           >
             GO
           </button>

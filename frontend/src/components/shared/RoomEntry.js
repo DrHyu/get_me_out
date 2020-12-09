@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import Link from "next/link";
+
 import { BsStar } from "react-icons/bs";
 import { GiTerror } from "react-icons/gi";
 
@@ -112,7 +114,9 @@ const RoomEntry = ({ room }) => (
     </ImageContainer>
     <InfoWrapper>
       <div className="room-title">
-        <a href="/">{room.name}</a>
+        <Link href={`/room/${room.id}`} passHref>
+          {room.name}
+        </Link>
       </div>
       <div className="room-ratings">
         <div className="rating-group">
