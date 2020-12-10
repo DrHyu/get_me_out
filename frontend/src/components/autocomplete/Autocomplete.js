@@ -4,31 +4,137 @@ import DatePicker from "react-datepicker";
 import styled from "styled-components";
 import { isEmpty } from "lodash";
 import { matchSorter } from "match-sorter";
-import { GiPositionMarker } from "react-icons/gi";
-import { BsCalendar } from "react-icons/bs";
+// import { GiPositionMarker } from "react-icons/gi";
+// import { BsCalendar } from "react-icons/bs";
 
 import Router from "next/router";
 
+import PT from "prop-types";
+
+import { BsSearch } from "react-icons/bs";
 import ListItem from "./AutocompleteListItem";
 import { searchBarData } from "../../types";
 
 import "react-datepicker/dist/react-datepicker.css";
+// .react-datepicker-wrapper {
+//   position: relative;
+//   flex: 1 1 auto;
+//   width: 1%;
+//   min-width: 0;
+//   margin-bottom: 0;
+// }
+const AutoCompleteStyle = styled.div`
+  display: flex;
+  justify-content: center;
 
-const AutocompleteStyle = styled.div`
-  margin-top: 30px;
-  margin-bottom: 30px;
+  .wrapper {
+    background-color: white;
 
-  svg {
-    width: 25px;
-    height: auto;
-  }
+    display: flex;
+    justify-content: center;
+    border-radius: 32px;
 
-  .react-datepicker-wrapper {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    min-width: 0;
-    margin-bottom: 0;
+    .item {
+      height: 64px;
+      padding: 14px 32px;
+      /* flex: 1 0 0%;
+      width: 0px; */
+
+      /* overflow: hidden; */
+      position: relative;
+      z-index: 1;
+
+      background-clip: padding-box;
+    }
+
+    /* HIGHLIGHT */
+    /* hightlight style no bg color here yet */
+    .item::after {
+      content: "" !important;
+
+      background-clip: padding-box !important;
+
+      /* border: 1px solid transparent !important; */
+      border-radius: 32px !important;
+
+      position: absolute !important;
+      bottom: 0px !important;
+      left: 0px !important;
+      right: 0px !important;
+      top: 0px !important;
+
+      z-index: -1 !important;
+    }
+    /* set bg color on hover to "enable" hightlighting */
+    .item:hover::after {
+      background-color: #ebebeb !important;
+    }
+
+    /* SEPARATOR */
+    .item::before {
+      content: "" !important;
+      top: 30%;
+      bottom: 30%;
+      left: 0px;
+      position: absolute;
+      border-right: 1px solid #dddddd;
+    }
+    /* first elem doesnt need a separator */
+    .item:first-child::before {
+      border: none;
+    }
+    /* Remove neightbouring separators on hover */
+    /* before of item next to item which is hovered */
+    .item:hover + .item::before {
+      border: none;
+    }
+    /* item beeing hovered */
+    .item:hover::before {
+      border: none;
+    }
+
+    .search-field {
+      display: flex;
+      align-items: center;
+      input {
+        border: none;
+        padding: 0px;
+      }
+    }
+
+    .date-field {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .submit-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding-right: 12px;
+      padding-left: 12px;
+
+      button {
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        border: none;
+        background-color: #ff385c;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button:hover {
+        background-color: #ff005c;
+      }
+
+      svg {
+        color: white;
+      }
+    }
   }
 `;
 
@@ -82,6 +188,17 @@ const updateSuggestions = (initSugg, key) => {
   return composeSuggesitons(updatedSuggestions);
 };
 
+const ExampleCustomInput = ({ value, onClick }) => (
+  <button className="example-custom-input" onClick={onClick}>
+    {value}
+  </button>
+);
+
+ExampleCustomInput.propTypes = {
+  value: PT.string.isRequired,
+  onClick: PT.func.isRequired,
+};
+
 const Autocomplete = ({ initialSearchBoxData }) => {
   const [suggestionData] = useState(initialSearchBoxData);
   const [suggestions, setSuggestions] = useState(
@@ -128,23 +245,11 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   });
 
   return (
-    <AutocompleteStyle as="form">
-      <div
-        {...ds.getComboboxProps()}
-        className="row align-items-center justify-content-center"
-      >
-        {/* <label {...ds.getLabelProps()}>Choose an element:</label> */}
-
-        <div className="input-group col-lg-7 col-sm-12 px-0">
-          <div className="input-group-prepend">
-            <span className="input-group-text">
-              <GiPositionMarker />
-            </span>
-          </div>
-          <input
-            className="form-control form-control-lg"
-            {...ds.getInputProps()}
-          />
+    <AutoCompleteStyle {...ds.getComboboxProps()} className="">
+      <div className="wrapper">
+        <div className="item search-field">
+          <span className="item-title">Room/Location</span>
+          <input className="" {...ds.getInputProps()} />
           <ResultContainer>
             <ul {...ds.getMenuProps()}>
               {ds.isOpen &&
@@ -163,26 +268,19 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           </ResultContainer>
         </div>
 
-        <div className="input-group col px-0">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroupPrepend">
-              <BsCalendar />
-            </span>
-          </div>
-          {/* <input className="form-control form-control-lg" /> */}
+        <div className="item date-field">
           <DatePicker
+            customInput={<ExampleCustomInput />}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            className="form-control form-control-lg"
+            className=""
           />
         </div>
 
-        <div className="col-auto pull-right px-0">
+        <div className="item submit-button">
           <button
             type="button"
-            className="btn btn-primary btn-lg"
-            // {...ds.getToggleButtonProps()}
-            // aria-label="toggle menu"
+            className=""
             onClick={(e) => {
               e.preventDefault();
               if (ds.selectedItem) {
@@ -190,11 +288,12 @@ const Autocomplete = ({ initialSearchBoxData }) => {
               }
             }}
           >
-            GO
+            <BsSearch />
           </button>
+          {/* </div> */}
         </div>
       </div>
-    </AutocompleteStyle>
+    </AutoCompleteStyle>
   );
 };
 

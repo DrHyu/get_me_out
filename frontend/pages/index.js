@@ -17,7 +17,8 @@ export async function getStaticProps() {
 
   if (!initialSearchBoxData) {
     return {
-      notFound: true,
+      // notFound: true,
+      props: { initialSearchBoxData: [] },
     };
   }
 
