@@ -68,7 +68,11 @@ const AutoCompleteStyle = styled.div`
     /* set bg color on hover to "enable" hightlighting */
     .item:hover::after {
       background-color: #ebebeb !important;
+      box-shadow: ${(isActive) =>
+        isActive ? "rgba(0, 0, 0, 0.2) 0px 6px 20px !important" : "none"};
     }
+
+    .item:h
 
     /* SEPARATOR */
     .item::before {
@@ -96,9 +100,18 @@ const AutoCompleteStyle = styled.div`
     .search-field {
       display: flex;
       align-items: center;
+
       input {
         border: none;
         padding: 0px;
+
+        background: transparent;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
       }
     }
 
@@ -133,6 +146,28 @@ const AutoCompleteStyle = styled.div`
 
       svg {
         color: white;
+      }
+    }
+
+    .item-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .item-header {
+        flex-basis: 100%;
+
+        font-size: 12px;
+        font-weight: bold;
+        color: #222222;
+      }
+
+      .item-text {
+        flex-basis: 100%;
+        font-size: 14px;
+        /* font-weight: bold; */
+        color: #717171;
       }
     }
   }
@@ -188,17 +223,6 @@ const updateSuggestions = (initSugg, key) => {
   return composeSuggesitons(updatedSuggestions);
 };
 
-const ExampleCustomInput = ({ value, onClick }) => (
-  <button className="example-custom-input" onClick={onClick}>
-    {value}
-  </button>
-);
-
-ExampleCustomInput.propTypes = {
-  value: PT.string.isRequired,
-  onClick: PT.func.isRequired,
-};
-
 const Autocomplete = ({ initialSearchBoxData }) => {
   const [suggestionData] = useState(initialSearchBoxData);
   const [suggestions, setSuggestions] = useState(
@@ -206,11 +230,22 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   );
   const [startDate, setStartDate] = useState(new Date());
 
+  const [isOpenSearchBox, setisOpenSearchBox] = useState(false);
+  const [isOPenDatePicker, setIsOPenDatePicker] = useState(false);
+
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
 
+    /* Special Case -> Tansitioning from isOpen to isClosed */
+
+    if (state.isOpen && !changes.isOpen) {
+      console.log("Closing");
+    } else if (!state.isOpen && changes.isOpen) {
+      // Opening
+      // Close Date Picker
+      if (isOPenDatePicker) setIsOPenDatePicker(false);
+    }
     switch (type) {
-      // On input change
       case useCombobox.stateChangeTypes.InputChange:
         /* Fetch new suggestions based on the new inputValue */
         setSuggestions(updateSuggestions(suggestionData, changes.inputValue));
@@ -248,32 +283,43 @@ const Autocomplete = ({ initialSearchBoxData }) => {
     <AutoCompleteStyle {...ds.getComboboxProps()} className="">
       <div className="wrapper">
         <div className="item search-field">
-          <span className="item-title">Room/Location</span>
-          <input className="" {...ds.getInputProps()} />
-          <ResultContainer>
-            <ul {...ds.getMenuProps()}>
-              {ds.isOpen &&
-                suggestions.map((item, index) =>
-                  ListItem(
-                    item /* Ref to item */,
-                    ds.selectItem === item /* selected ? */,
-                    ds.highlightedIndex === index /* highlighted ? */,
-                    ds.getItemProps({
-                      key: item.name,
-                      index,
-                    })
-                  )
-                )}
-            </ul>
-          </ResultContainer>
+          <div className="item-inner">
+            <span className="item-header">Room Escape or City</span>
+            <input
+              className="item-text"
+              placeholder="Where are you going ?"
+              {...ds.getInputProps()}
+            />
+            <ResultContainer>
+              <ul {...ds.getMenuProps()}>
+                {ds.isOpen &&
+                  suggestions.map((item, index) =>
+                    ListItem(
+                      item /* Ref to item */,
+                      ds.selectItem === item /* selected ? */,
+                      ds.highlightedIndex === index /* highlighted ? */,
+                      ds.getItemProps({
+                        key: item.name,
+                        index,
+                      })
+                    )
+                  )}
+              </ul>
+            </ResultContainer>
+          </div>
         </div>
 
         <div className="item date-field">
           <DatePicker
-            customInput={<ExampleCustomInput />}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            className=""
+            customInput={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <div className="item-inner">
+                <span className="item-header">When ?</span>
+                <span className="item-text">Add dates</span>
+              </div>
+            }
           />
         </div>
 
@@ -290,7 +336,6 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           >
             <BsSearch />
           </button>
-          {/* </div> */}
         </div>
       </div>
     </AutoCompleteStyle>
