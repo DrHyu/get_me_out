@@ -31,6 +31,8 @@ const AutoCompleteStyle = styled.div`
   .wrapper {
     background-color: white;
 
+    width: 800px;
+
     display: flex;
     justify-content: center;
     border-radius: 32px;
@@ -43,8 +45,6 @@ const Item = styled.div`
   & {
     height: 64px;
     padding: 14px 32px;
-    /* flex: 1 0 0%;
-      width: 0px; */
 
     /* overflow: hidden; */
     position: relative;
@@ -89,7 +89,8 @@ const Item = styled.div`
     bottom: 30%;
     left: 0px;
     position: absolute;
-    border-right: 1px solid #dddddd;
+    border-right: ${({ isWidgetOpen, isNeighbourOpen }) =>
+      isNeighbourOpen || isWidgetOpen ? "none" : "1px solid #dddddd"};
   }
   /* first elem doesnt need a separator */
   &:first-child::before {
@@ -132,7 +133,9 @@ const Item = styled.div`
 
 const SearchField = styled(Item)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
+  flex: 2 0 0%;
 
   input {
     border: none;
@@ -149,8 +152,10 @@ const SearchField = styled(Item)`
 `;
 
 const DateField = styled(Item)`
+  flex: 1 0 0%;
+
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
@@ -309,7 +314,11 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   return (
     <AutoCompleteStyle {...ds.getComboboxProps()} className="">
       <div className="wrapper">
-        <SearchField isWidgetOpen={ds.isOpen} onClick={() => ds.openMenu()}>
+        <SearchField
+          isWidgetOpen={ds.isOpen}
+          isNeighbourOpen={false}
+          onClick={() => ds.openMenu()}
+        >
           <div className="item-inner">
             <label {...ds.getLabelProps()} className="item-header">
               Room Escape or City
@@ -338,7 +347,7 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           </div>
         </SearchField>
 
-        <DateField isWidgetOpen={isOPenDatePicker}>
+        <DateField isWidgetOpen={isOPenDatePicker} isNeighbourOpen={ds.isOpen}>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
