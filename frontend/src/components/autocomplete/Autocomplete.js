@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
 import { useCombobox } from "downshift";
 import DatePicker from "react-datepicker";
@@ -34,141 +35,172 @@ const AutoCompleteStyle = styled.div`
     justify-content: center;
     border-radius: 32px;
 
-    .item {
-      height: 64px;
-      padding: 14px 32px;
-      /* flex: 1 0 0%;
+    /* overflow: hidden; */
+  }
+`;
+
+const Item = styled.div`
+  & {
+    height: 64px;
+    padding: 14px 32px;
+    /* flex: 1 0 0%;
       width: 0px; */
 
-      /* overflow: hidden; */
-      position: relative;
-      z-index: 1;
+    /* overflow: hidden; */
+    position: relative;
+    z-index: 1;
 
-      background-clip: padding-box;
+    background-clip: padding-box;
+  }
+
+  /* HIGHLIGHT */
+  /* hightlight style no bg color here yet */
+  &::after {
+    content: "" !important;
+
+    background-clip: padding-box !important;
+
+    /* border: 1px solid transparent !important; */
+    border-radius: 32px !important;
+
+    position: absolute !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    top: 0px !important;
+
+    z-index: -1 !important;
+
+    box-shadow: ${({ isWidgetOpen }) =>
+      isWidgetOpen ? " 0px 6px 20px rgba(0, 0, 0, 0.2) !important" : "none"};
+
+    background-color: ${({ isWidgetOpen }) =>
+      isWidgetOpen ? "white !important" : "none"};
+  }
+  /* set bg color on hover to "enable" hightlighting */
+  &:hover::after {
+    background-color: #ebebeb;
+  }
+
+  /* SEPARATOR */
+  &::before {
+    content: "" !important;
+    top: 30%;
+    bottom: 30%;
+    left: 0px;
+    position: absolute;
+    border-right: 1px solid #dddddd;
+  }
+  /* first elem doesnt need a separator */
+  &:first-child::before {
+    border: none;
+  }
+  /* Remove neightbouring separators on hover */
+  /* before of item next to item which is hovered */
+  &:hover + &::before {
+    border: none;
+  }
+  /* item beeing hovered */
+  &:hover::before {
+    border: none;
+  }
+
+  .item-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .item-header {
+      flex-basis: 100%;
+
+      font-size: 12px;
+      font-weight: bold;
+      color: #222222;
+
+      margin: 0px;
     }
 
-    /* HIGHLIGHT */
-    /* hightlight style no bg color here yet */
-    .item::after {
-      content: "" !important;
-
-      background-clip: padding-box !important;
-
-      /* border: 1px solid transparent !important; */
-      border-radius: 32px !important;
-
-      position: absolute !important;
-      bottom: 0px !important;
-      left: 0px !important;
-      right: 0px !important;
-      top: 0px !important;
-
-      z-index: -1 !important;
+    .item-text {
+      flex-basis: 100%;
+      font-size: 14px;
+      /* font-weight: bold; */
+      color: #717171;
     }
-    /* set bg color on hover to "enable" hightlighting */
-    .item:hover::after {
-      background-color: #ebebeb !important;
-      box-shadow: ${(isActive) =>
-        isActive ? "rgba(0, 0, 0, 0.2) 0px 6px 20px !important" : "none"};
-    }
+  }
+`;
 
-    .item:h
+const SearchField = styled(Item)`
+  display: flex;
+  align-items: center;
 
-    /* SEPARATOR */
-    .item::before {
-      content: "" !important;
-      top: 30%;
-      bottom: 30%;
-      left: 0px;
-      position: absolute;
-      border-right: 1px solid #dddddd;
-    }
-    /* first elem doesnt need a separator */
-    .item:first-child::before {
-      border: none;
-    }
-    /* Remove neightbouring separators on hover */
-    /* before of item next to item which is hovered */
-    .item:hover + .item::before {
-      border: none;
-    }
-    /* item beeing hovered */
-    .item:hover::before {
-      border: none;
-    }
+  input {
+    border: none;
+    padding: 0px;
 
-    .search-field {
-      display: flex;
-      align-items: center;
+    background: transparent;
+  }
 
-      input {
-        border: none;
-        padding: 0px;
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+`;
 
-        background: transparent;
-      }
+const DateField = styled(Item)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-      input:focus,
-      textarea:focus,
-      select:focus {
-        outline: none;
-      }
-    }
+const SubmitButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .date-field {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  padding-right: 12px;
+  padding-left: 12px;
+
+  button {
+    padding: 16px;
+
+    height: 48px;
+    width: ${({ isExtended }) => (!isExtended ? "48px;" : "110px;")};
+    transition: 0.2s width ease-out !important;
+    transition-delay: 0.2s !important;
+
+    border-radius: 24px;
+    border: none;
+    background-color: #ff385c;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  button:hover {
+    background-color: #ff005c;
+  }
+
+  button div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      color: white;
     }
 
-    .submit-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    span {
+      color: white;
+      margin-left: 12px;
+      opacity: ${({ isExtended }) => (isExtended ? "1" : "0")} !important;
+      transition: 0.1s opacity cubic-bezier(0.35, 0, 0.65, 1) !important;
+      transition-delay: 0.1s !important;
 
-      padding-right: 12px;
-      padding-left: 12px;
-
-      button {
-        border-radius: 50%;
-        height: 48px;
-        width: 48px;
-        border: none;
-        background-color: #ff385c;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      button:hover {
-        background-color: #ff005c;
-      }
-
-      svg {
-        color: white;
-      }
-    }
-
-    .item-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      .item-header {
-        flex-basis: 100%;
-
-        font-size: 12px;
-        font-weight: bold;
-        color: #222222;
-      }
-
-      .item-text {
-        flex-basis: 100%;
-        font-size: 14px;
-        /* font-weight: bold; */
-        color: #717171;
-      }
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 16px !important;
     }
   }
 `;
@@ -230,19 +262,12 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   );
   const [startDate, setStartDate] = useState(new Date());
 
-  const [isOpenSearchBox, setisOpenSearchBox] = useState(false);
   const [isOPenDatePicker, setIsOPenDatePicker] = useState(false);
 
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
 
-    /* Special Case -> Tansitioning from isOpen to isClosed */
-
-    if (state.isOpen && !changes.isOpen) {
-      console.log("Closing");
-    } else if (!state.isOpen && changes.isOpen) {
-      // Opening
-      // Close Date Picker
+    if (!state.isOpen && changes.isOpen) {
       if (isOPenDatePicker) setIsOPenDatePicker(false);
     }
     switch (type) {
@@ -261,12 +286,14 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           changes.selectedItem.category === "SEPARATOR"
         ) {
           /* Return state -> as if no action had been taken */
+          /* Open the Date Picker */
           return state;
         }
+        setIsOPenDatePicker(true);
         return changes;
 
-      case useCombobox.stateChangeTypes.InputBlur:
-        return state;
+      // case useCombobox.stateChangeTypes.InputBlur:
+      //   return state;
 
       default:
         return changes; // otherwise business as usual.
@@ -282,9 +309,11 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   return (
     <AutoCompleteStyle {...ds.getComboboxProps()} className="">
       <div className="wrapper">
-        <div className="item search-field">
+        <SearchField isWidgetOpen={ds.isOpen} onClick={() => ds.openMenu()}>
           <div className="item-inner">
-            <span className="item-header">Room Escape or City</span>
+            <label {...ds.getLabelProps()} className="item-header">
+              Room Escape or City
+            </label>
             <input
               className="item-text"
               placeholder="Where are you going ?"
@@ -307,9 +336,9 @@ const Autocomplete = ({ initialSearchBoxData }) => {
               </ul>
             </ResultContainer>
           </div>
-        </div>
+        </SearchField>
 
-        <div className="item date-field">
+        <DateField isWidgetOpen={isOPenDatePicker}>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -320,10 +349,15 @@ const Autocomplete = ({ initialSearchBoxData }) => {
                 <span className="item-text">Add dates</span>
               </div>
             }
+            onCalendarClose={() => setIsOPenDatePicker(false)}
+            onCalendarOpen={() => {
+              if (ds.isOpen) ds.closeMenu();
+              setIsOPenDatePicker(true);
+            }}
           />
-        </div>
+        </DateField>
 
-        <div className="item submit-button">
+        <SubmitButton isExtended={ds.isOpen || isOPenDatePicker}>
           <button
             type="button"
             className=""
@@ -334,9 +368,12 @@ const Autocomplete = ({ initialSearchBoxData }) => {
               }
             }}
           >
-            <BsSearch />
+            <div>
+              <BsSearch />
+              <span>Search</span>
+            </div>
           </button>
-        </div>
+        </SubmitButton>
       </div>
     </AutoCompleteStyle>
   );
