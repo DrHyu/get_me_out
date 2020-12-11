@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useCombobox } from "downshift";
 import DatePicker from "react-datepicker";
 import styled from "styled-components";
@@ -45,6 +45,7 @@ const Item = styled.div`
   & {
     height: 64px;
     padding: 14px 32px;
+    margin: 0px;
 
     /* overflow: hidden; */
     position: relative;
@@ -210,22 +211,55 @@ const SubmitButton = styled.div`
   }
 `;
 
-const ResultContainer = styled.div`
-  display: block;
-
-  max-height: 300px;
-  width: 100%;
-
-  top: 100%;
-  left: 0%;
-  overflow-y: scroll;
+const ResultsWindow = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
+
+  top: 96px;
+  left: 0%;
   z-index: 5;
 
+  height: 300px;
+  width: 100%;
+
+  padding: 32px;
+  box-sizing: border-box;
+  border-radius: 32px;
+  background-color: white;
+
+  .overflow-wrapper {
+    height: 100%;
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+      background-color: #f5f5f5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #555;
+    }
+  }
+
+  .test2 {
+  }
+
   ul {
+    /* overflow: hidden; */
     list-style: none;
     margin: 0px;
     padding: 0px;
+    text-decoration: none;
+  }
+  li {
   }
 `;
 
@@ -268,13 +302,15 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   const [isOPenDatePicker, setIsOPenDatePicker] = useState(false);
+  const datePickerRef = useRef();
+
+  useEffect(() => {
+    datePickerRef.current.setOpen(isOPenDatePicker);
+  }, [isOPenDatePicker]);
 
   function stateReducer(state, actionAndChanges) {
     const { type, changes } = actionAndChanges;
 
-    if (!state.isOpen && changes.isOpen) {
-      if (isOPenDatePicker) setIsOPenDatePicker(false);
-    }
     switch (type) {
       case useCombobox.stateChangeTypes.InputChange:
         /* Fetch new suggestions based on the new inputValue */
@@ -297,9 +333,6 @@ const Autocomplete = ({ initialSearchBoxData }) => {
         setIsOPenDatePicker(true);
         return changes;
 
-      // case useCombobox.stateChangeTypes.InputBlur:
-      //   return state;
-
       default:
         return changes; // otherwise business as usual.
     }
@@ -313,42 +346,52 @@ const Autocomplete = ({ initialSearchBoxData }) => {
 
   return (
     <AutoCompleteStyle {...ds.getComboboxProps()} className="">
-      <div className="wrapper">
+      <div className="wrapper open-search-on-click">
         <SearchField
+          className="open-search-on-click"
           isWidgetOpen={ds.isOpen}
           isNeighbourOpen={false}
-          onClick={() => ds.openMenu()}
+          onClick={(e) => {
+            if (e.target.classList.contains("open-search-on-click"))
+              ds.openMenu();
+          }}
         >
-          <div className="item-inner">
-            <label {...ds.getLabelProps()} className="item-header">
+          <div className="item-inner open-search-on-click">
+            <label
+              {...ds.getLabelProps()}
+              className="item-header open-search-on-click"
+            >
               Room Escape or City
             </label>
             <input
-              className="item-text"
+              className="item-text open-search-on-click"
               placeholder="Where are you going ?"
               {...ds.getInputProps()}
             />
-            <ResultContainer>
-              <ul {...ds.getMenuProps()}>
-                {ds.isOpen &&
-                  suggestions.map((item, index) =>
-                    ListItem(
-                      item /* Ref to item */,
-                      ds.selectItem === item /* selected ? */,
-                      ds.highlightedIndex === index /* highlighted ? */,
-                      ds.getItemProps({
-                        key: item.name,
-                        index,
-                      })
-                    )
-                  )}
-              </ul>
-            </ResultContainer>
+            <ResultsWindow isOpen={ds.isOpen}>
+              <div className="overflow-wrapper ">
+                <ul {...ds.getMenuProps()}>
+                  {ds.isOpen &&
+                    suggestions.map((item, index) =>
+                      ListItem(
+                        item /* Ref to item */,
+                        ds.selectItem === item /* selected ? */,
+                        ds.highlightedIndex === index /* highlighted ? */,
+                        ds.getItemProps({
+                          key: item.name,
+                          index,
+                        })
+                      )
+                    )}
+                </ul>
+              </div>
+            </ResultsWindow>
           </div>
         </SearchField>
 
         <DateField isWidgetOpen={isOPenDatePicker} isNeighbourOpen={ds.isOpen}>
           <DatePicker
+            ref={datePickerRef}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             customInput={
