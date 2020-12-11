@@ -29,7 +29,7 @@ class GameCenter (models.Model):
 
 class GameRoom (models.Model):
     """Describes a GameRoom."""
-    id = models.PositiveIntegerField(primary_key=True,
+    game_room_id = models.PositiveIntegerField(primary_key=True,
                                      help_text="Identifier of the GameRoom (Integer).")
     name = models.CharField(max_length=128, blank=False, null=False, default="",
                             help_text="Name of the GameRoom.")

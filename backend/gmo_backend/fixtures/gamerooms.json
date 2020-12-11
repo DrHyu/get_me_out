@@ -1,122 +1,4622 @@
 [
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 1,
-      "img": "http://lorempixel.com/640/480/nature",
-      "name": "Ankunding - Ernser",
-      "description": "Synergized value-added product",
-      "rating": 95,
-      "open": false,
-      "game_center": 1
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 0,
+            "img": "https://www.escaperadar.com/img/salas/2236/grid/2236_grid.jpg?vc=20200308125622",
+            "name": "HOTEL OVERLOOK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 1,
+            "img": "https://www.escaperadar.com/img/salas/1123/grid/1123_grid.jpg?vc=20201010210628",
+            "name": "ATRINCHERADOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 2,
+            "img": "https://www.escaperadar.com/img/salas/758/grid/758_grid.jpg?vc=20200731232749",
+            "name": "CATACUMBAS (EN BUSCA DE LA PIEDRA ALQU\u00cdMICA)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 3,
+            "img": "https://www.escaperadar.com/img/salas/1726/grid/1726_grid.jpg?vc=20200308124407",
+            "name": "LA NAVE DEL CIENT\u00cdFICO LOCO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 4,
+            "img": "https://www.escaperadar.com/img/salas/971/grid/971_grid.jpg?vc=20200114075031",
+            "name": "NAVE ULYSSES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 5,
+            "img": "https://www.escaperadar.com/img/salas/646/grid/646_grid.jpg?vc=20200114075322",
+            "name": "LA MAZMORRA: LA \u00daLTIMA PARTIDA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 6,
+            "img": "",
+            "name": "GANGSTERS: DINERO, ARMAS Y ALCOHOL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 7,
+            "img": "",
+            "name": "HOSPITAL ABANDONADO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 8,
+            "img": "",
+            "name": "ARCANUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 9,
+            "img": "",
+            "name": "SHERLOCK HOLMES CONTRA EL DIABLO LONDINENSE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 10,
+            "img": "",
+            "name": "\u00a1MALDITA FAMA!",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 11,
+            "img": "",
+            "name": "MONASTERIUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 12,
+            "img": "",
+            "name": "PRISIONEROS DE ALKAB\u00c1N",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 13,
+            "img": "https://www.escaperadar.com/img/salas/2221/grid/2221_grid.jpg?vc=20200703034645",
+            "name": "LA CALLE DE LA MAGIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 14,
+            "img": "https://www.escaperadar.com/img/salas/1805/grid/1805_grid.jpg?vc=20201001074849",
+            "name": "MUTANT X-PERIENCE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 15,
+            "img": "https://www.escaperadar.com/img/salas/822/grid/822_grid.jpg?vc=20200114075153",
+            "name": "REFUGIO 27",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 16,
+            "img": "https://www.escaperadar.com/img/salas/53/grid/53_grid.jpg?vc=20200513115548",
+            "name": "ABDUCTION 1 LA CA\u00cdDA DEL R\u00c9GIMEN NAZI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 17,
+            "img": "https://www.escaperadar.com/img/salas/1120/grid/1120_grid.jpg?vc=20190312094022",
+            "name": "PROTOCOLO STRANGER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 18,
+            "img": "https://www.escaperadar.com/img/salas/568/grid/568_grid.jpg?vc=20191230011319",
+            "name": "EL CASO LAZFER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 19,
+            "img": "https://www.escaperadar.com/img/salas/1700/grid/1700_grid.jpg?vc=20190504152241",
+            "name": "APOPHIS ESCAPE EXPERIENCE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 20,
+            "img": "https://www.escaperadar.com/img/salas/2171/grid/2171_grid.jpg?vc=20200809175318",
+            "name": "LA RESIDENCIA DE LOS RIDDLE - RANDALL'S PARTY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 21,
+            "img": "https://www.escaperadar.com/img/salas/553/grid/553_grid.jpg?vc=20200513114005",
+            "name": "EL VIAJE CONTINUA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 22,
+            "img": "https://www.escaperadar.com/img/salas/1728/grid/1728_grid.jpg?vc=20201127171155",
+            "name": "ABDUCTION 4 ENTERPRISES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 23,
+            "img": "https://www.escaperadar.com/img/salas/1526/grid/1526_grid.jpg?vc=20190320130555",
+            "name": "CHERNOBYL 1986",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 24,
+            "img": "https://www.escaperadar.com/img/salas/555/grid/555_grid.jpg?vc=20200823191838",
+            "name": "ABDUCTION 2 EL ORFANATO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 25,
+            "img": "https://www.escaperadar.com/img/salas/1696/grid/1696_grid.jpg?vc=20200501130121",
+            "name": "CASA DE CARAMELOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 26,
+            "img": "https://www.escaperadar.com/img/salas/2244/grid/2244_grid.jpg?vc=20200119210909",
+            "name": "PROFANA ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 27,
+            "img": "https://www.escaperadar.com/img/salas/1141/grid/1141_grid.jpg?vc=20201020123812",
+            "name": "LA C\u00daPULA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 28,
+            "img": "https://www.escaperadar.com/img/salas/717/grid/717_grid.jpg?vc=20201122145001",
+            "name": "THE DARKNESS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 29,
+            "img": "https://www.escaperadar.com/img/salas/1525/grid/1525_grid.jpg?vc=20200125214730",
+            "name": "GORDON'S FACTORY - RATAS DE CLOACA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 30,
+            "img": "https://www.escaperadar.com/img/salas/234/grid/234_grid.jpg?vc=20190322152550",
+            "name": "OPERACI\u00d3N ORPHEUS XXL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 31,
+            "img": "https://www.escaperadar.com/img/salas/561/grid/561_grid.jpg?vc=20200625113701",
+            "name": "ORIENT EXPRESS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 32,
+            "img": "https://www.escaperadar.com/img/salas/132/grid/132_grid.jpg?vc=20201122144458",
+            "name": "OUIJA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 33,
+            "img": "https://www.escaperadar.com/img/salas/121/grid/121_grid.jpg?vc=20200611112353",
+            "name": "ZOMBIE OUTBREAK ROOM ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 34,
+            "img": "https://www.escaperadar.com/img/salas/109/grid/109_grid.jpg?vc=20200519160425",
+            "name": "GLADIADORES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 35,
+            "img": "https://www.escaperadar.com/img/salas/1291/grid/1291_grid.jpg?vc=20200610233020",
+            "name": "PURIFICATIO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 36,
+            "img": "https://www.escaperadar.com/img/salas/239/grid/239_grid.jpg?vc=20201028120001",
+            "name": "LANZADERA ALIEN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 37,
+            "img": "https://www.escaperadar.com/img/salas/138/grid/138_grid.jpg?vc=20200620205228",
+            "name": "PARTE 3 - CAMPING",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 38,
+            "img": "https://www.escaperadar.com/img/salas/1486/grid/1486_grid.jpg?vc=20200517200215",
+            "name": "OPERACI\u00d3N: C\u00d3DIGO ROJO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 39,
+            "img": "https://www.escaperadar.com/img/salas/226/grid/226_grid.jpg?vc=20200611145015",
+            "name": "BRUJERIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 40,
+            "img": "https://www.escaperadar.com/img/salas/1519/grid/1519_grid.jpg?vc=20200515090126",
+            "name": "HEIRLOOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 41,
+            "img": "https://www.escaperadar.com/img/salas/1307/grid/1307_grid.jpg?vc=20201115171834",
+            "name": "ROOMANJI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 42,
+            "img": "https://www.escaperadar.com/img/salas/131/grid/131_grid.jpg?vc=20201122144407",
+            "name": "JIGSAW",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 43,
+            "img": "https://www.escaperadar.com/img/salas/2351/grid/2351_grid.jpg?vc=20200821134048",
+            "name": "BAJO SEGUNDA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 44,
+            "img": "https://www.escaperadar.com/img/salas/2178/grid/2178_grid.jpg?vc=20190816135220",
+            "name": "SULACO ESTELAR TREK ADVENTURE ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 45,
+            "img": "https://www.escaperadar.com/img/salas/1833/grid/1833_grid.jpg?vc=20200701000951",
+            "name": "ARTIFICIERO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 46,
+            "img": "https://www.escaperadar.com/img/salas/169/grid/169_grid.jpg?vc=20200223130834",
+            "name": "MISI\u00d3N S.W.A.T.",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 47,
+            "img": "https://www.escaperadar.com/img/salas/992/grid/992_grid.jpg?vc=20200727103300",
+            "name": "LA HISTORIA DE CHARLOTTE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 48,
+            "img": "https://www.escaperadar.com/img/salas/999/grid/999_grid.jpg?vc=20200908170834",
+            "name": "THE NARCOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 49,
+            "img": "https://www.escaperadar.com/img/salas/147/grid/147_grid.jpg?vc=20200703165640",
+            "name": "LA CAIXA DE PANDORA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 50,
+            "img": "https://www.escaperadar.com/img/salas/1124/grid/1124_grid.jpg?vc=20200515090355",
+            "name": "LA FORTUNA DE LOS ADDAMS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 51,
+            "img": "https://www.escaperadar.com/img/salas/1009/grid/1009_grid.jpg?vc=20201008200731",
+            "name": "AEGIS - LA PESADILLA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 52,
+            "img": "https://www.escaperadar.com/img/salas/1916/grid/1916_grid.jpg?vc=20200719173619",
+            "name": "LA RESIDENCIA DE LOS RIDDLE - EL INVERNADERO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 53,
+            "img": "https://www.escaperadar.com/img/salas/137/grid/137_grid.jpg?vc=20200620205003",
+            "name": "PARTE 2 - XPERIMENT",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 54,
+            "img": "https://www.escaperadar.com/img/salas/751/grid/751_grid.jpg?vc=20190718223604",
+            "name": "LA MANSI\u00d3N ODISEA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 55,
+            "img": "https://www.escaperadar.com/img/salas/895/grid/895_grid.jpg?vc=20201020132551",
+            "name": "BARUM DUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 56,
+            "img": "https://www.escaperadar.com/img/salas/1715/grid/1715_grid.jpg?vc=20200515090437",
+            "name": "KATHARSIS LA HORA DE LAS BESTIAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 57,
+            "img": "https://www.escaperadar.com/img/salas/240/grid/240_grid.jpg?vc=20191217210234",
+            "name": "LA JUGUETER\u00cdA MALDITA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 58,
+            "img": "https://www.escaperadar.com/img/salas/139/grid/139_grid.jpg?vc=20191221182000",
+            "name": "PETIT PIAF HOTEL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 59,
+            "img": "https://www.escaperadar.com/img/salas/2036/grid/2036_grid.jpg?vc=20200602113047",
+            "name": "TOMB HUNTER: LA LEYENDA DE AKASHA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 60,
+            "img": "https://www.escaperadar.com/img/salas/2120/grid/2120_grid.jpg?vc=20200719023225",
+            "name": "LA CERVESERIA ESCAPE ROOM ESTRELLA DAMM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 61,
+            "img": "https://www.escaperadar.com/img/salas/566/grid/566_grid.jpg?vc=20200908170753",
+            "name": "LA MINA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 62,
+            "img": "https://www.escaperadar.com/img/salas/1524/grid/1524_grid.jpg?vc=20200518152100",
+            "name": "FUGITIVOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 63,
+            "img": "https://www.escaperadar.com/img/salas/1697/grid/1697_grid.jpg?vc=20200825135755",
+            "name": "CINDY ESCAPE BOX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 64,
+            "img": "https://www.escaperadar.com/img/salas/596/grid/596_grid.jpg?vc=20200822180644",
+            "name": "EL ORFANATO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 65,
+            "img": "https://www.escaperadar.com/img/salas/79/grid/79_grid.jpg?vc=20190426155129",
+            "name": "EL SECUESTRO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 66,
+            "img": "https://www.escaperadar.com/img/salas/774/grid/774_grid.jpg?vc=20200602112355",
+            "name": "ALIEN EL ORIGEN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 67,
+            "img": "https://www.escaperadar.com/img/salas/894/grid/894_grid.jpg?vc=20200702025500",
+            "name": "FUTURA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 68,
+            "img": "https://www.escaperadar.com/img/salas/1720/grid/1720_grid.jpg?vc=20201117224002",
+            "name": "EXPEDICI\u00d3N ZERO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 69,
+            "img": "https://www.escaperadar.com/img/salas/105/grid/105_grid.jpg?vc=20200602112847",
+            "name": "JURASSIC LAND",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 70,
+            "img": "https://www.escaperadar.com/img/salas/1893/grid/1893_grid.jpg?vc=20200517194216",
+            "name": "VIKINGOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 71,
+            "img": "https://www.escaperadar.com/img/salas/1364/grid/1364_grid.jpg?vc=20190816131837",
+            "name": "LA CREACI\u00d3N (2018)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 72,
+            "img": "https://www.escaperadar.com/img/salas/185/grid/185_grid.jpg?vc=20200604115807",
+            "name": "VENGANZA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 73,
+            "img": "https://www.escaperadar.com/img/salas/1214/grid/1214_grid.jpg?vc=20200620210530",
+            "name": "LA CASA ESCAPE HOUSE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 74,
+            "img": "https://www.escaperadar.com/img/salas/188/grid/188_grid.jpg?vc=20190322152532",
+            "name": "FRANKY RESURRECTION",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 75,
+            "img": "https://www.escaperadar.com/img/salas/1022/grid/1022_grid.jpg?vc=20200702024128",
+            "name": "DIA D",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 76,
+            "img": "https://www.escaperadar.com/img/salas/1205/grid/1205_grid.jpg?vc=20200714035623",
+            "name": "ELLEBANNA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 77,
+            "img": "https://www.escaperadar.com/img/salas/2132/grid/2132_grid.jpg?vc=20191219104820",
+            "name": "CAZADORES DE BRUJAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 78,
+            "img": "https://www.escaperadar.com/img/salas/1163/grid/1163_grid.jpg?vc=20200119102332",
+            "name": "SWAT COUNTDOWN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 79,
+            "img": "https://www.escaperadar.com/img/salas/1778/grid/1778_grid.jpg?vc=20191021011803",
+            "name": "AWAKEN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 80,
+            "img": "https://www.escaperadar.com/img/salas/588/grid/588_grid.jpg?vc=20200125183307",
+            "name": "CATALEPSIA EXTREME ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 81,
+            "img": "https://www.escaperadar.com/img/salas/88/grid/88_grid.jpg?vc=20200407124623",
+            "name": "MINDHUNTERS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 82,
+            "img": "https://www.escaperadar.com/img/salas/1528/grid/1528_grid.jpg?vc=20200513114847",
+            "name": "ABDUCTION 3 THE EXAM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 83,
+            "img": "https://www.escaperadar.com/img/salas/970/grid/970_grid.jpg?vc=20200702031918",
+            "name": "OSCURIDAD",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 84,
+            "img": "https://www.escaperadar.com/img/salas/1511/grid/1511_grid.jpg?vc=20201122145245",
+            "name": "EL DIAMANTE DE ALMAS ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 85,
+            "img": "https://www.escaperadar.com/img/salas/740/grid/740_grid.jpg?vc=20180919163209",
+            "name": "SALA 2 - HOUDINI & DOYLE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 86,
+            "img": "https://www.escaperadar.com/img/salas/2212/grid/2212_grid.jpg?vc=20190910090148",
+            "name": "INFRAMUNDO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 87,
+            "img": "https://www.escaperadar.com/img/salas/589/grid/589_grid.jpg?vc=20200717001922",
+            "name": "CAZA FANTASMAS (THE MYSTERIOUS ROOM)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 88,
+            "img": "https://www.escaperadar.com/img/salas/2265/grid/2265_grid.jpg?vc=20200130221901",
+            "name": "LA INICIATIVA ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 89,
+            "img": "https://www.escaperadar.com/img/salas/587/grid/587_grid.jpg?vc=20200702200416",
+            "name": "INMORTUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 90,
+            "img": "https://www.escaperadar.com/img/salas/598/grid/598_grid.jpg?vc=20201008200728",
+            "name": "AEGIS - EL SUE\u00d1O",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 91,
+            "img": "https://www.escaperadar.com/img/salas/1439/grid/1439_grid.jpg?vc=20191001004911",
+            "name": "LA TREMENTINAIRE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 92,
+            "img": "https://www.escaperadar.com/img/salas/148/grid/148_grid.jpg?vc=20200703165759",
+            "name": "UNTIL DAWN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 93,
+            "img": "https://www.escaperadar.com/img/salas/536/grid/536_grid.jpg?vc=20200702031643",
+            "name": "CIRCUS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 94,
+            "img": "https://www.escaperadar.com/img/salas/2256/grid/2256_grid.jpg?vc=20200825130443",
+            "name": "LA TOMA DE CONTROL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 95,
+            "img": "https://www.escaperadar.com/img/salas/597/grid/597_grid.jpg?vc=20201117222827",
+            "name": "BAJO ZERO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 96,
+            "img": "https://www.escaperadar.com/img/salas/1693/grid/1693_grid.jpg?vc=20191221125529",
+            "name": "CREDO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 97,
+            "img": "https://www.escaperadar.com/img/salas/1209/grid/1209_grid.jpg?vc=20181210111638",
+            "name": "MONKKEY ABBEY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 98,
+            "img": "https://www.escaperadar.com/img/salas/127/grid/127_grid.jpg?vc=20200113113847",
+            "name": "BANDIDOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 99,
+            "img": "https://www.escaperadar.com/img/salas/58/grid/58_grid.jpg?vc=20200125221732",
+            "name": "LA MASIA MALDITA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 100,
+            "img": "https://www.escaperadar.com/img/salas/77/grid/77_grid.jpg?vc=20190426154258",
+            "name": "LA ENTREVISTA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 101,
+            "img": "https://www.escaperadar.com/img/salas/136/grid/136_grid.jpg?vc=20200620204741",
+            "name": "PARTE 1 - EL C\u00d3CTEL DEL DOCTOR",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 102,
+            "img": "https://www.escaperadar.com/img/salas/142/grid/142_grid.jpg?vc=20200713192057",
+            "name": "KIDNAPPED IN BCN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 103,
+            "img": "https://www.escaperadar.com/img/salas/2259/grid/2259_grid.jpg?vc=20200703185754",
+            "name": "ENDURANCE II",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 104,
+            "img": "https://www.escaperadar.com/img/salas/1107/grid/1107_grid.jpg?vc=20200702032826",
+            "name": "EL POU (EL POZO)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 105,
+            "img": "https://www.escaperadar.com/img/salas/2255/grid/2255_grid.jpg?vc=20200825130427",
+            "name": "EL FINAL DEL T\u00daNEL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 106,
+            "img": "https://www.escaperadar.com/img/salas/1142/grid/1142_grid.jpg?vc=20201122145139",
+            "name": "SEVEN THE GAME",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 107,
+            "img": "https://www.escaperadar.com/img/salas/2030/grid/2030_grid.jpg?vc=20191005153357",
+            "name": "HORRORLAND 2019 - ELEVATOR EXPRESS ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 108,
+            "img": "https://www.escaperadar.com/img/salas/84/grid/84_grid.jpg?vc=20200111122800",
+            "name": "HOSPITALITZATS (AVENTURES)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 109,
+            "img": "https://www.escaperadar.com/img/salas/343/grid/343_grid.jpg?vc=20190924123435",
+            "name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 2)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 110,
+            "img": "https://www.escaperadar.com/img/salas/965/grid/965_grid.jpg?vc=20191215174419",
+            "name": "SINNER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 111,
+            "img": "https://www.escaperadar.com/img/salas/1440/grid/1440_grid.jpg?vc=20200203125923",
+            "name": "ESCAPE ROOM LA CATA (EL TAST)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 112,
+            "img": "https://www.escaperadar.com/img/salas/155/grid/155_grid.jpg?vc=20190216103327",
+            "name": "TESORO AZTECA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 113,
+            "img": "https://www.escaperadar.com/img/salas/2233/grid/2233_grid.jpg?vc=20191005153917",
+            "name": "MALUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 114,
+            "img": "https://www.escaperadar.com/img/salas/1643/grid/1643_grid.jpg?vc=20190430235619",
+            "name": "EL RESCAT DE LA CORONA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 115,
+            "img": "https://www.escaperadar.com/img/salas/107/grid/107_grid.jpg?vc=20180716220413",
+            "name": "SALA 1 - EL APRENDIZ DE HOUDINI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 116,
+            "img": "https://www.escaperadar.com/img/salas/83/grid/83_grid.jpg?vc=20200111122802",
+            "name": "HOSPITALITZATS (MISTERI)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 117,
+            "img": "https://www.escaperadar.com/img/salas/2267/grid/2267_grid.jpg?vc=20191024123907",
+            "name": "ATMOSFERA 0",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 118,
+            "img": "https://www.escaperadar.com/img/salas/1427/grid/1427_grid.jpg?vc=20200203125909",
+            "name": "THE THINKING ROOM MISI\u00d3N 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 119,
+            "img": "https://www.escaperadar.com/img/salas/2247/grid/2247_grid.jpg?vc=20191022105158",
+            "name": "SALVA LA REBELI\u00d3N",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 120,
+            "img": "https://www.escaperadar.com/img/salas/677/grid/677_grid.jpg?vc=20190910083414",
+            "name": "SHERLOCK: LA HORA FINAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 121,
+            "img": "https://www.escaperadar.com/img/salas/2282/grid/2282_grid.jpg?vc=20200501125921",
+            "name": "OPERACI\u00d3N DIAMANTE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 122,
+            "img": "https://www.escaperadar.com/img/salas/166/grid/166_grid.jpg?vc=20201201143346",
+            "name": "ROBO AL BANK OF THAQAR (MODO INFANTIL)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 123,
+            "img": "https://www.escaperadar.com/img/salas/609/grid/609_grid.jpg?vc=20200129234942",
+            "name": "LA PUERTA M\u00c1GICA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 124,
+            "img": "https://www.escaperadar.com/img/salas/1024/grid/1024_grid.jpg?vc=20201028140239",
+            "name": "LA GUARIDA SECRETA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 125,
+            "img": "https://www.escaperadar.com/img/salas/591/grid/591_grid.jpg?vc=20200531201241",
+            "name": "LA PIR\u00c1MIDE (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 126,
+            "img": "https://www.escaperadar.com/img/salas/1789/grid/1789_grid.jpg?vc=20190518191952",
+            "name": "EXPEDICI\u00d3N ZERO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 127,
+            "img": "https://www.escaperadar.com/img/salas/1028/grid/1028_grid.jpg?vc=20200131214905",
+            "name": "SPEEDNIGMA - THE EXAM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 128,
+            "img": "https://www.escaperadar.com/img/salas/2409/grid/2409_grid.jpg?vc=20200812101511",
+            "name": "LA EVASI\u00d3N DEL CAMPO 14",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 129,
+            "img": "https://www.escaperadar.com/img/salas/193/grid/193_grid.jpg?vc=20190327211921",
+            "name": "LAS ESTANCIAS DE LA AMA DE LLAVES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 130,
+            "img": "https://www.escaperadar.com/img/salas/167/grid/167_grid.jpg?vc=20190924123444",
+            "name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 1)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 131,
+            "img": "https://www.escaperadar.com/img/salas/2368/grid/2368_grid.jpg?vc=20200308125625",
+            "name": "CYBERPUNK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 132,
+            "img": "https://www.escaperadar.com/img/salas/726/grid/726_grid.jpg?vc=20180919162649",
+            "name": "LA PLAYA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 133,
+            "img": "https://www.escaperadar.com/img/salas/548/grid/548_grid.jpg?vc=20180903201349",
+            "name": "EL POLIZ\u00d3N",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 134,
+            "img": "https://www.escaperadar.com/img/salas/1572/grid/1572_grid.jpg?vc=20190622195611",
+            "name": "SALVA LA FIESTA - SALA HAWAIANA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 135,
+            "img": "https://www.escaperadar.com/img/salas/1656/grid/1656_grid.jpg?vc=20200713172529",
+            "name": "PSIC\u00d3PATAS AN\u00d3NIMOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 136,
+            "img": "https://www.escaperadar.com/img/salas/179/grid/179_grid.jpg?vc=20190426130805",
+            "name": "LA CELDA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 137,
+            "img": "https://www.escaperadar.com/img/salas/1287/grid/1287_grid.jpg?vc=20201201142612",
+            "name": "WOLF",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 138,
+            "img": "https://www.escaperadar.com/img/salas/1571/grid/1571_grid.jpg?vc=20201029121441",
+            "name": "EL MISTERI DE LA CASA COLL I REG\u00c0S",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 139,
+            "img": "https://www.escaperadar.com/img/salas/190/grid/190_grid.jpg?vc=20190322152540",
+            "name": "BOOM ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 140,
+            "img": "https://www.escaperadar.com/img/salas/2499/grid/2499_grid.jpg?vc=20201201134159",
+            "name": "OUTLINE (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 141,
+            "img": "https://www.escaperadar.com/img/salas/1573/grid/1573_grid.jpg?vc=20190622195616",
+            "name": "EL TRONO - SALA MEDIEVAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 142,
+            "img": "https://www.escaperadar.com/img/salas/1491/grid/1491_grid.jpg?vc=20191215174349",
+            "name": "RECLUTAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 143,
+            "img": "https://www.escaperadar.com/img/salas/110/grid/110_grid.jpg?vc=20200519161810",
+            "name": "LA CATA ESCAPE BOX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 144,
+            "img": "https://www.escaperadar.com/img/salas/1474/grid/1474_grid.jpg?vc=20181210134453",
+            "name": "CSI BARCELONA ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 145,
+            "img": "https://www.escaperadar.com/img/salas/2430/grid/2430_grid.jpg?vc=20200719182119",
+            "name": "LA RESIDENCIA DE LOS RIDDLE - EL PADRE (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 146,
+            "img": "https://www.escaperadar.com/img/salas/547/grid/547_grid.jpg?vc=20180903201258",
+            "name": "HORROR MOVIE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 147,
+            "img": "https://www.escaperadar.com/img/salas/235/grid/235_grid.jpg?vc=20190401232003",
+            "name": "EL MISTERIO DE GAUD\u00cd 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 148,
+            "img": "https://www.escaperadar.com/img/salas/1569/grid/1569_grid.jpg?vc=20200222140837",
+            "name": "ACADEMIA DE MAGIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 149,
+            "img": "https://www.escaperadar.com/img/salas/1103/grid/1103_grid.jpg?vc=20201110150459",
+            "name": "PESADILLAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 150,
+            "img": "https://www.escaperadar.com/img/salas/1475/grid/1475_grid.jpg?vc=20181210134504",
+            "name": "TALES OF ESCAPE - COLD AS ICE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 151,
+            "img": "https://www.escaperadar.com/img/salas/564/grid/564_grid.jpg?vc=20200701000914",
+            "name": "IMMERSION ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 152,
+            "img": "https://www.escaperadar.com/img/salas/2252/grid/2252_grid.jpg?vc=20191227130635",
+            "name": "HORROR SUMMER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 153,
+            "img": "https://www.escaperadar.com/img/salas/206/grid/206_grid.jpg?vc=20190317100508",
+            "name": "EPIDEMIA Z",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 154,
+            "img": "https://www.escaperadar.com/img/salas/1788/grid/1788_grid.jpg?vc=20201029125332",
+            "name": "AVENTURA MEDIEVAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 155,
+            "img": "https://www.escaperadar.com/img/salas/146/grid/146_grid.jpg?vc=20180717200412",
+            "name": "LA BARCELONETA PECADORA (SIETE PLACERES DEL PECADO)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 156,
+            "img": "https://www.escaperadar.com/img/salas/1827/grid/1827_grid.jpg?vc=20190212134507",
+            "name": "MISI\u00d3N EN EL MUSEO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 157,
+            "img": "https://www.escaperadar.com/img/salas/2130/grid/2130_grid.jpg?vc=20191213101547",
+            "name": "BREAKING ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 158,
+            "img": "https://www.escaperadar.com/img/salas/2441/grid/2441_grid.jpg?vc=20201010202218",
+            "name": "WILLY EL TUERTO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 159,
+            "img": "https://www.escaperadar.com/img/salas/1562/grid/1562_grid.jpg?vc=20180610192855",
+            "name": "EL PODER DEL FUTURO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 160,
+            "img": "https://www.escaperadar.com/img/salas/2219/grid/2219_grid.jpg?vc=20190917190728",
+            "name": "LA C\u00c1MARA ACORAZADA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 161,
+            "img": "https://www.escaperadar.com/img/salas/154/grid/154_grid.jpg?vc=20190216103311",
+            "name": "MISI\u00d3N GAUD\u00cd",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 162,
+            "img": "https://www.escaperadar.com/img/salas/2500/grid/2500_grid.jpg?vc=20201127123942",
+            "name": "NATHAEL (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 163,
+            "img": "https://www.escaperadar.com/img/salas/204/grid/204_grid.jpg?vc=20190317100440",
+            "name": "LA CASA PARANORMAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 164,
+            "img": "https://www.escaperadar.com/img/salas/145/grid/145_grid.jpg?vc=20180717200203",
+            "name": "CASTILLO SANT ANGELO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 165,
+            "img": "https://www.escaperadar.com/img/salas/162/grid/162_grid.jpg?vc=20190904104915",
+            "name": "ESCAPA DE LA MAGIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 166,
+            "img": "https://www.escaperadar.com/img/salas/1371/grid/1371_grid.jpg?vc=20181210130022",
+            "name": "EL NIGROMANT (EL NIGROMANTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 167,
+            "img": "https://www.escaperadar.com/img/salas/2411/grid/2411_grid.jpg?vc=20200703235221",
+            "name": "CASINO CLANDESTINO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 168,
+            "img": "https://www.escaperadar.com/img/salas/2287/grid/2287_grid.jpg?vc=20200519161347",
+            "name": "LAS RELIQUIAS M\u00c1GICAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 169,
+            "img": "https://www.escaperadar.com/img/salas/2363/grid/2363_grid.jpg?vc=20200810171326",
+            "name": "SIMIOS (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 170,
+            "img": "https://www.escaperadar.com/img/salas/1741/grid/1741_grid.jpg?vc=20181117230251",
+            "name": "SUPER MUSHROOM ESCAPE (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 171,
+            "img": "https://www.escaperadar.com/img/salas/1218/grid/1218_grid.jpg?vc=20181210112102",
+            "name": "V\u00cdCTIMA 17",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 172,
+            "img": "https://www.escaperadar.com/img/salas/450/grid/450_grid.jpg?vc=20201015133351",
+            "name": "MISI\u00d3N EUROPA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 173,
+            "img": "https://www.escaperadar.com/img/salas/1164/grid/1164_grid.jpg?vc=20200119160811",
+            "name": "GAUD\u00cd (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 174,
+            "img": "https://www.escaperadar.com/img/salas/1825/grid/1825_grid.jpg?vc=20190212134444",
+            "name": "PATENTE J.E.",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 175,
+            "img": "https://www.escaperadar.com/img/salas/176/grid/176_grid.jpg?vc=20190122195509",
+            "name": "EL \u00daLTIMO ROBO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 176,
+            "img": "https://www.escaperadar.com/img/salas/187/grid/187_grid.jpg?vc=20190322152527",
+            "name": "OPERACI\u00d3N ORPHEUS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 177,
+            "img": "https://www.escaperadar.com/img/salas/977/grid/977_grid.jpg?vc=20181205105210",
+            "name": "EL CELLER 1890",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 178,
+            "img": "https://www.escaperadar.com/img/salas/2223/grid/2223_grid.jpg?vc=20200825184733",
+            "name": "LA HABITACI\u00d3N DE LOS CINCO SENTIDOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 179,
+            "img": "https://www.escaperadar.com/img/salas/1748/grid/1748_grid.jpg?vc=20200430203443",
+            "name": "GAME BOX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 180,
+            "img": "https://www.escaperadar.com/img/salas/963/grid/963_grid.jpg?vc=20191215174405",
+            "name": "ATTRACTIONS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 181,
+            "img": "https://www.escaperadar.com/img/salas/1977/grid/1977_grid.jpg?vc=20201025181459",
+            "name": "TAO ROOM ESCAPE JAPANESE MASSAGE CENTER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 182,
+            "img": "https://www.escaperadar.com/img/salas/229/grid/229_grid.jpg?vc=20180717213358",
+            "name": "PLAYGROUND",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 183,
+            "img": "https://www.escaperadar.com/img/salas/1999/grid/1999_grid.jpg?vc=20200501130050",
+            "name": "WINNERS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 184,
+            "img": "https://www.escaperadar.com/img/salas/1829/grid/1829_grid.jpg?vc=20190212134530",
+            "name": "BROKERX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 185,
+            "img": "https://www.escaperadar.com/img/salas/1959/grid/1959_grid.jpg?vc=20190401222854",
+            "name": "LA BIBLIOTECA M\u00c1GICA (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 186,
+            "img": "https://www.escaperadar.com/img/salas/1738/grid/1738_grid.jpg?vc=20181117225552",
+            "name": "TORTUGAS MUTANTES ESCAPE ROOM (NO PIZZA, NO NINJA) (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 187,
+            "img": "https://www.escaperadar.com/img/salas/1832/grid/1832_grid.jpg?vc=20190212134603",
+            "name": "LA LLAMADA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 188,
+            "img": "https://www.escaperadar.com/img/salas/2257/grid/2257_grid.jpg?vc=20191019124051",
+            "name": "EL SORTEO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 189,
+            "img": "https://www.escaperadar.com/img/salas/2222/grid/2222_grid.jpg?vc=20191030122058",
+            "name": "ATLANTIS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 190,
+            "img": "https://www.escaperadar.com/img/salas/1765/grid/1765_grid.jpg?vc=20181206001547",
+            "name": "ESCAPE HALL TV (PROXIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 191,
+            "img": "https://www.escaperadar.com/img/salas/806/grid/806_grid.jpg?vc=20180924145908",
+            "name": "EL RESCAT DEL DIAMANT",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 192,
+            "img": "https://www.escaperadar.com/img/salas/159/grid/159_grid.jpg?vc=20200401081904",
+            "name": "ALICIA EN EL PA\u00cdS DE LAS MARAVILLAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 193,
+            "img": "https://www.escaperadar.com/img/salas/227/grid/227_grid.jpg?vc=20180717213157",
+            "name": "INVITATION",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 194,
+            "img": "https://www.escaperadar.com/img/salas/1477/grid/1477_grid.jpg?vc=20181210134530",
+            "name": "TALES OF ESCAPE - THE MINE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 195,
+            "img": "https://www.escaperadar.com/img/salas/1723/grid/1723_grid.jpg?vc=20181211102734",
+            "name": "HIDDEN HILL HOTEL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 196,
+            "img": "https://www.escaperadar.com/img/salas/606/grid/606_grid.jpg?vc=20190216123722",
+            "name": "PESADILLA EN LA CALLE DIPUTACI\u00d3",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 197,
+            "img": "https://www.escaperadar.com/img/salas/2135/grid/2135_grid.jpg?vc=20190628103818",
+            "name": "EN TU FIESTA ME COL\u00c9 (SALA 2)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 198,
+            "img": "https://www.escaperadar.com/img/salas/1879/grid/1879_grid.jpg?vc=20190212121054",
+            "name": "DOCUMENTS SECRETS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 199,
+            "img": "https://www.escaperadar.com/img/salas/956/grid/956_grid.jpg?vc=20181204173544",
+            "name": "EL RAPTO DE DO\u00d1A ALMODIS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 200,
+            "img": "https://www.escaperadar.com/img/salas/2276/grid/2276_grid.jpg?vc=20200519161527",
+            "name": "TNT ESCAPE BOX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 201,
+            "img": "https://www.escaperadar.com/img/salas/237/grid/237_grid.jpg?vc=20190401232307",
+            "name": "ESCUELA DE LADRONES 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 202,
+            "img": "https://www.escaperadar.com/img/salas/182/grid/182_grid.jpg?vc=20180717205509",
+            "name": "EL CAPIT\u00c1N DEL PUERTO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 203,
+            "img": "https://www.escaperadar.com/img/salas/2116/grid/2116_grid.jpg?vc=20200604115228",
+            "name": "RED RIBBON",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 204,
+            "img": "https://www.escaperadar.com/img/salas/151/grid/151_grid.jpg?vc=20200127204054",
+            "name": "CODICIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 205,
+            "img": "https://www.escaperadar.com/img/salas/221/grid/221_grid.jpg?vc=20191215174500",
+            "name": "LA LEY SECA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 206,
+            "img": "https://www.escaperadar.com/img/salas/1925/grid/1925_grid.jpg?vc=20190322183957",
+            "name": "AIRBICI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 207,
+            "img": "https://www.escaperadar.com/img/salas/1476/grid/1476_grid.jpg?vc=20181210134519",
+            "name": "TALES OF ESCAPE - ILLUSION",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 208,
+            "img": "https://www.escaperadar.com/img/salas/964/grid/964_grid.jpg?vc=20191215174413",
+            "name": "TIME (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 209,
+            "img": "https://www.escaperadar.com/img/salas/89/grid/89_grid.jpg?vc=20200129232032",
+            "name": "JUEGO ENIGMA - EL VIRUS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 210,
+            "img": "https://www.escaperadar.com/img/salas/2231/grid/2231_grid.jpg?vc=20191103155458",
+            "name": "\u00daNETE A LA VENDETTA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 211,
+            "img": "https://www.escaperadar.com/img/salas/209/grid/209_grid.jpg?vc=20190401231932",
+            "name": "LA VAMPIRA DE BARCELONA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 212,
+            "img": "https://www.escaperadar.com/img/salas/786/grid/786_grid.jpg?vc=20180924144716",
+            "name": "EL JOYERO (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 213,
+            "img": "https://www.escaperadar.com/img/salas/897/grid/897_grid.jpg?vc=20190322135556",
+            "name": "SANATORIO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 214,
+            "img": "https://www.escaperadar.com/img/salas/1203/grid/1203_grid.jpg?vc=20200125211323",
+            "name": "WHITE COLLAR: EL TRAIDOR",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 215,
+            "img": "https://www.escaperadar.com/img/salas/607/grid/607_grid.jpg?vc=20190216123720",
+            "name": "REBELI\u00d3N DE LAS M\u00c1QUINAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 216,
+            "img": "https://www.escaperadar.com/img/salas/233/grid/233_grid.jpg?vc=20180909120700",
+            "name": "EL DIARIO DE MIKO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 217,
+            "img": "https://www.escaperadar.com/img/salas/1752/grid/1752_grid.jpg?vc=20200129224159",
+            "name": "ALKATRAZ CLASSIC",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 218,
+            "img": "https://www.escaperadar.com/img/salas/150/grid/150_grid.jpg?vc=20180717201412",
+            "name": "LA SOGA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 219,
+            "img": "https://www.escaperadar.com/img/salas/1136/grid/1136_grid.jpg?vc=20200730153742",
+            "name": "ALIENIGMA ESCAPE BOX",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 220,
+            "img": "https://www.escaperadar.com/img/salas/1591/grid/1591_grid.jpg?vc=20201117223354",
+            "name": "LA TORRE DE BABEL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 221,
+            "img": "https://www.escaperadar.com/img/salas/1370/grid/1370_grid.jpg?vc=20201015123031",
+            "name": "VIRUS - CAN FARIGOLA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 222,
+            "img": "https://www.escaperadar.com/img/salas/785/grid/785_grid.jpg?vc=20180924144652",
+            "name": "ESCAPE AL FUTURO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 223,
+            "img": "https://www.escaperadar.com/img/salas/559/grid/559_grid.jpg?vc=20200303103759",
+            "name": "DESTINY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 224,
+            "img": "https://www.escaperadar.com/img/salas/1431/grid/1431_grid.jpg?vc=20190322152555",
+            "name": "FRANKY RESURRECTION INFANTIL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 225,
+            "img": "https://www.escaperadar.com/img/salas/181/grid/181_grid.jpg?vc=20190426130816",
+            "name": "CABARET",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 226,
+            "img": "https://www.escaperadar.com/img/salas/1056/grid/1056_grid.jpg?vc=20190628095538",
+            "name": "ATRAPA EL ESP\u00cdA (SALA 1)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 227,
+            "img": "https://www.escaperadar.com/img/salas/2370/grid/2370_grid.jpg?vc=20200308125630",
+            "name": "MISSION SIGMA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 228,
+            "img": "https://www.escaperadar.com/img/salas/825/grid/825_grid.jpg?vc=20181203171513",
+            "name": "CASINO ROYAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 229,
+            "img": "https://www.escaperadar.com/img/salas/220/grid/220_grid.jpg?vc=20190216110928",
+            "name": "TOLOK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 230,
+            "img": "https://www.escaperadar.com/img/salas/51/grid/51_grid.jpg?vc=20200408101313",
+            "name": "LOS INFILTRADOS 1",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 231,
+            "img": "https://www.escaperadar.com/img/salas/115/grid/115_grid.jpg?vc=20201117222810",
+            "name": "LA SOSPECHA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 232,
+            "img": "https://www.escaperadar.com/img/salas/586/grid/586_grid.jpg?vc=20191205184012",
+            "name": "TRAS EL ESPEJO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 233,
+            "img": "https://www.escaperadar.com/img/salas/2436/grid/2436_grid.jpg?vc=20200727170911",
+            "name": "STOKER 2.0 EL MANUSCRITO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 234,
+            "img": "https://www.escaperadar.com/img/salas/1165/grid/1165_grid.jpg?vc=20200119102329",
+            "name": "CLUEDO - EL TESTAMENTO DE MR COLLINS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 235,
+            "img": "https://www.escaperadar.com/img/salas/123/grid/123_grid.jpg?vc=20200702032821",
+            "name": "EL SECRETO DE SANT JORDI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 236,
+            "img": "https://www.escaperadar.com/img/salas/2134/grid/2134_grid.jpg?vc=20190628103821",
+            "name": "EN TU FIESTA ME COL\u00c9 (SALA 1)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 237,
+            "img": "https://www.escaperadar.com/img/salas/108/grid/108_grid.jpg?vc=20200519160554",
+            "name": "EL SUBMARINO SOVI\u00c9TICO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 238,
+            "img": "https://www.escaperadar.com/img/salas/1690/grid/1690_grid.jpg?vc=20200725133344",
+            "name": "LA RECEPTA SECRETA (LA RECETA SECRETA)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 239,
+            "img": "https://www.escaperadar.com/img/salas/160/grid/160_grid.jpg?vc=20200222140820",
+            "name": "EL QUEST VIRTUAL SECUESTRO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 240,
+            "img": "https://www.escaperadar.com/img/salas/1108/grid/1108_grid.jpg?vc=20200111022902",
+            "name": "BANDIDOS - SALA 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 241,
+            "img": "https://www.escaperadar.com/img/salas/1632/grid/1632_grid.jpg?vc=20181210165620",
+            "name": "EL ANT\u00cdDOTO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 242,
+            "img": "https://www.escaperadar.com/img/salas/157/grid/157_grid.jpg?vc=20200222140707",
+            "name": "EL QUEST VIRTUAL COSMOS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 243,
+            "img": "https://www.escaperadar.com/img/salas/344/grid/344_grid.jpg?vc=20190924123431",
+            "name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 3)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 244,
+            "img": "https://www.escaperadar.com/img/salas/1321/grid/1321_grid.jpg?vc=20200531124255",
+            "name": "PROYECTO C",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 245,
+            "img": "https://www.escaperadar.com/img/salas/213/grid/213_grid.jpg?vc=20190215205951",
+            "name": "WHITE & BLACK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 246,
+            "img": "https://www.escaperadar.com/img/salas/1897/grid/1897_grid.jpg?vc=20190219114111",
+            "name": "BEERNIGMA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 247,
+            "img": "https://www.escaperadar.com/img/salas/1452/grid/1452_grid.jpg?vc=20200203125949",
+            "name": "CAVA ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 248,
+            "img": "https://www.escaperadar.com/img/salas/1995/grid/1995_grid.jpg?vc=20200902165528",
+            "name": "BLASPHEMIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 249,
+            "img": "https://www.escaperadar.com/img/salas/1225/grid/1225_grid.jpg?vc=20200222140830",
+            "name": "ALICIA KIDS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 250,
+            "img": "https://www.escaperadar.com/img/salas/584/grid/584_grid.jpg?vc=20191205193043",
+            "name": "CASANOVA: LA FUGA DE BARCELONA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 251,
+            "img": "https://www.escaperadar.com/img/salas/2395/grid/2395_grid.jpg?vc=20200601112523",
+            "name": "SYNERGYK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 252,
+            "img": "https://www.escaperadar.com/img/salas/1497/grid/1497_grid.jpg?vc=20190211165600",
+            "name": "L'AMN\u00c8SIA (LA AMNESIA)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 253,
+            "img": "https://www.escaperadar.com/img/salas/156/grid/156_grid.jpg?vc=20190216103457",
+            "name": "AFTER-PARTY (DESPU\u00c9S DE LA FIESTA)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 254,
+            "img": "https://www.escaperadar.com/img/salas/2449/grid/2449_grid.jpg?vc=20201030154158",
+            "name": "BERMUDAS, EL SECRETO JAM\u00c1S REVELADO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 255,
+            "img": "https://www.escaperadar.com/img/salas/1608/grid/1608_grid.jpg?vc=20201125094910",
+            "name": "EXORCISMO ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 256,
+            "img": "https://www.escaperadar.com/img/salas/1703/grid/1703_grid.jpg?vc=20191215174514",
+            "name": "LA OFRENDA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 257,
+            "img": "https://www.escaperadar.com/img/salas/55/grid/55_grid.jpg?vc=20200204185001",
+            "name": "GAUD\u00cd VS ORWELL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 258,
+            "img": "https://www.escaperadar.com/img/salas/1441/grid/1441_grid.jpg?vc=20200120192154",
+            "name": "VALHALLA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 259,
+            "img": "https://www.escaperadar.com/img/salas/1830/grid/1830_grid.jpg?vc=20190212134544",
+            "name": "CIBERATAQUE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 260,
+            "img": "https://www.escaperadar.com/img/salas/567/grid/567_grid.jpg?vc=20200120190941",
+            "name": "VICTUS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 261,
+            "img": "https://www.escaperadar.com/img/salas/1998/grid/1998_grid.jpg?vc=20190504233327",
+            "name": "EL GRAN \u00c9XITO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 262,
+            "img": "https://www.escaperadar.com/img/salas/1773/grid/1773_grid.jpg?vc=20191205183330",
+            "name": "EL ARCA DE DAL\u00cd",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 263,
+            "img": "https://www.escaperadar.com/img/salas/1027/grid/1027_grid.jpg?vc=20181205161846",
+            "name": "THE CODE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 264,
+            "img": "https://www.escaperadar.com/img/salas/180/grid/180_grid.jpg?vc=20190426130810",
+            "name": "EL CAPIT\u00c1N PESSOA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 265,
+            "img": "https://www.escaperadar.com/img/salas/537/grid/537_grid.jpg?vc=20191025114554",
+            "name": "TOYS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 266,
+            "img": "https://www.escaperadar.com/img/salas/1026/grid/1026_grid.jpg?vc=20200131214724",
+            "name": "BOOOMBA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 267,
+            "img": "https://www.escaperadar.com/img/salas/1563/grid/1563_grid.jpg?vc=20180610193429",
+            "name": "EL RESCATE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 268,
+            "img": "https://www.escaperadar.com/img/salas/2032/grid/2032_grid.jpg?vc=20191005153408",
+            "name": "HORRORLAND 2019 - FREAK SHOW EXPRESS ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 269,
+            "img": "https://www.escaperadar.com/img/salas/982/grid/982_grid.jpg?vc=20181205105538",
+            "name": "OLIVIA FARMER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 270,
+            "img": "https://www.escaperadar.com/img/salas/214/grid/214_grid.jpg?vc=20190215205956",
+            "name": "THE HAUNTED PRISON",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 271,
+            "img": "https://www.escaperadar.com/img/salas/236/grid/236_grid.jpg?vc=20190401231941",
+            "name": "LA VAMPIRA DE BARCELONA 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 272,
+            "img": "https://www.escaperadar.com/img/salas/725/grid/725_grid.jpg?vc=20190318215748",
+            "name": "EL MISTERI DE LA LLUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 273,
+            "img": "https://www.escaperadar.com/img/salas/222/grid/222_grid.jpg?vc=20200128160149",
+            "name": "LAS PROFEC\u00cdAS DE EL BOSCO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 274,
+            "img": "https://www.escaperadar.com/img/salas/1493/grid/1493_grid.jpg?vc=20200203130032",
+            "name": "ENIGMA PUCCINI LICEU",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 275,
+            "img": "https://www.escaperadar.com/img/salas/565/grid/565_grid.jpg?vc=20180903203047",
+            "name": "LA INUNDACI\u00d3N DEL 62",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 276,
+            "img": "https://www.escaperadar.com/img/salas/183/grid/183_grid.jpg?vc=20180717205549",
+            "name": "EL COLECCIONISTA DE ARTE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 277,
+            "img": "https://www.escaperadar.com/img/salas/2501/grid/2501_grid.jpg?vc=20201202202644",
+            "name": "ABDUCTION RADIO HALL ESCAPE (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 278,
+            "img": "https://www.escaperadar.com/img/salas/1451/grid/1451_grid.jpg?vc=20181210133717",
+            "name": "FOREST ESCAPE GAME",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 279,
+            "img": "https://www.escaperadar.com/img/salas/2445/grid/2445_grid.jpg?vc=20201024120537",
+            "name": "VOODOO (ESCAPE HOUSE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 280,
+            "img": "https://www.escaperadar.com/img/salas/2033/grid/2033_grid.jpg?vc=20191005153415",
+            "name": "HORRORLAND 2019 - TORTURE EXPRESS ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 281,
+            "img": "https://www.escaperadar.com/img/salas/1007/grid/1007_grid.jpg?vc=20200531165014",
+            "name": "EL COLECCIONISTA DE ALMAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 282,
+            "img": "https://www.escaperadar.com/img/salas/1976/grid/1976_grid.jpg?vc=20201015123206",
+            "name": "VIRUS - CAN FARIGOLA KIDS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 283,
+            "img": "https://www.escaperadar.com/img/salas/1478/grid/1478_grid.jpg?vc=20181210134540",
+            "name": "TALES OF ESCAPE - SLEEPY HOLLOW",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 284,
+            "img": "https://www.escaperadar.com/img/salas/1749/grid/1749_grid.jpg?vc=20200430203713",
+            "name": "GAME BOX KIDS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 285,
+            "img": "https://www.escaperadar.com/img/salas/1226/grid/1226_grid.jpg?vc=20200222140833",
+            "name": "HOGWARTS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 286,
+            "img": "https://www.escaperadar.com/img/salas/152/grid/152_grid.jpg?vc=20200127204058",
+            "name": "HOPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 287,
+            "img": "https://www.escaperadar.com/img/salas/2358/grid/2358_grid.jpg?vc=20200202181651",
+            "name": "LAS MARAV\u00cdLLAS DE AGRABAH",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 288,
+            "img": "https://www.escaperadar.com/img/salas/957/grid/957_grid.jpg?vc=20181204173623",
+            "name": "EL ELIXIR DE LA ETERNA JUVENTUD",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 289,
+            "img": "https://www.escaperadar.com/img/salas/120/grid/120_grid.jpg?vc=20180717145753",
+            "name": "MISI\u00d3N ANIMALISTA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 290,
+            "img": "https://www.escaperadar.com/img/salas/64/grid/64_grid.jpg?vc=20190318223202",
+            "name": "PRISI\u00d3N 1",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 291,
+            "img": "https://www.escaperadar.com/img/salas/1642/grid/1642_grid.jpg?vc=20190404085628",
+            "name": "MANIACS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 292,
+            "img": "https://www.escaperadar.com/img/salas/61/grid/61_grid.jpg?vc=20190318223232",
+            "name": "MAFIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 293,
+            "img": "https://www.escaperadar.com/img/salas/199/grid/199_grid.jpg?vc=20200510232456",
+            "name": "EL MISTERIO DEL ARCHIVO ABANDONADO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 294,
+            "img": "https://www.escaperadar.com/img/salas/2362/grid/2362_grid.jpg?vc=20200928112437",
+            "name": "CRISYS (CRIME INVESTIGATION SYSTEM)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 295,
+            "img": "https://www.escaperadar.com/img/salas/805/grid/805_grid.jpg?vc=20190610105718",
+            "name": "EL CIRCO DE LOS EXTRA\u00d1OS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 296,
+            "img": "https://www.escaperadar.com/img/salas/2440/grid/2440_grid.jpg?vc=20201010193817",
+            "name": "KALINIKTA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 297,
+            "img": "https://www.escaperadar.com/img/salas/2379/grid/2379_grid.jpg?vc=20201117225706",
+            "name": "EL \u00daLTIMO VIKINGO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 298,
+            "img": "https://www.escaperadar.com/img/salas/1487/grid/1487_grid.jpg?vc=20200116153302",
+            "name": "ANDANA 24",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 299,
+            "img": "https://www.escaperadar.com/img/salas/2254/grid/2254_grid.jpg?vc=20200825130402",
+            "name": "LA DUCHA FR\u00cdA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 300,
+            "img": "https://www.escaperadar.com/img/salas/1764/grid/1764_grid.jpg?vc=20200402160450",
+            "name": "WIN OR LOSE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 301,
+            "img": "https://www.escaperadar.com/img/salas/967/grid/967_grid.jpg?vc=20200706232209",
+            "name": "LOS MUNDOS DE ALICIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 302,
+            "img": "https://www.escaperadar.com/img/salas/2455/grid/2455_grid.jpg?vc=20201102155622",
+            "name": "1961 LA LLAMADA (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 303,
+            "img": "https://www.escaperadar.com/img/salas/2406/grid/2406_grid.jpg?vc=20201115171314",
+            "name": "SOULBOUND",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 304,
+            "img": "https://www.escaperadar.com/img/salas/2031/grid/2031_grid.jpg?vc=20191005153402",
+            "name": "HORRORLAND 2019 - SUBWAY EXPRESS ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 305,
+            "img": "https://www.escaperadar.com/img/salas/82/grid/82_grid.jpg?vc=20201029122358",
+            "name": "OPERATIVO 'BOOM'",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 306,
+            "img": "https://www.escaperadar.com/img/salas/1774/grid/1774_grid.jpg?vc=20181208130409",
+            "name": "BOOM ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 307,
+            "img": "https://www.escaperadar.com/img/salas/1029/grid/1029_grid.jpg?vc=20181221185530",
+            "name": "VINIGMA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 308,
+            "img": "https://www.escaperadar.com/img/salas/1754/grid/1754_grid.jpg?vc=20201129142334",
+            "name": "ORIGEN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 309,
+            "img": "https://www.escaperadar.com/img/salas/2369/grid/2369_grid.jpg?vc=20200308125628",
+            "name": "CHRISTMAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 310,
+            "img": "https://www.escaperadar.com/img/salas/2359/grid/2359_grid.jpg?vc=20200710154416",
+            "name": "LA VIEJA CARNICER\u00cdA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 311,
+            "img": "https://www.escaperadar.com/img/salas/629/grid/629_grid.jpg?vc=20201028132453",
+            "name": "GOLDEN SILENCE APARTMENT",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 312,
+            "img": "https://www.escaperadar.com/img/salas/158/grid/158_grid.jpg?vc=20200222140714",
+            "name": "EPIDEMIA Z",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 313,
+            "img": "https://www.escaperadar.com/img/salas/165/grid/165_grid.jpg?vc=20201201143339",
+            "name": "ROBO AL BANK OF THAQAR",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 314,
+            "img": "https://www.escaperadar.com/img/salas/1820/grid/1820_grid.jpg?vc=20190401180253",
+            "name": "CLUB CRIMINAL (DESCUBRE AL ASESINO)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 315,
+            "img": "https://www.escaperadar.com/img/salas/2413/grid/2413_grid.jpg?vc=20200706232219",
+            "name": "NUNCA JAM\u00c1S (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 316,
+            "img": "https://www.escaperadar.com/img/salas/62/grid/62_grid.jpg?vc=20190318223223",
+            "name": "PSIQUIATRIA 1",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 317,
+            "img": "https://www.escaperadar.com/img/salas/225/grid/225_grid.jpg?vc=20200611144937",
+            "name": "AVENTURA PIRATA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 318,
+            "img": "https://www.escaperadar.com/img/salas/2000/grid/2000_grid.jpg?vc=20191018095113",
+            "name": "MAZEROOMER (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 319,
+            "img": "https://www.escaperadar.com/img/salas/1909/grid/1909_grid.jpg?vc=20200229133604",
+            "name": "RECORRIDO BARCELONA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 320,
+            "img": "https://www.escaperadar.com/img/salas/174/grid/174_grid.jpg?vc=20200707132315",
+            "name": "HABITACI\u00d3N N\u00daMERO 13",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 321,
+            "img": "https://www.escaperadar.com/img/salas/585/grid/585_grid.jpg?vc=20191205193501",
+            "name": "CASANOVA: LA FUGA DE BARCELONA (ROMBATE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 322,
+            "img": "https://www.escaperadar.com/img/salas/1831/grid/1831_grid.jpg?vc=20190212134552",
+            "name": "EL RITUAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 323,
+            "img": "https://www.escaperadar.com/img/salas/610/grid/610_grid.jpg?vc=20200129234951",
+            "name": "LA CABA\u00d1A DE SLUMACH",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 324,
+            "img": "https://www.escaperadar.com/img/salas/63/grid/63_grid.jpg?vc=20190318223214",
+            "name": "PSIQUIATRIA 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 325,
+            "img": "https://www.escaperadar.com/img/salas/554/grid/554_grid.jpg?vc=20200531171342",
+            "name": "ANDANA 9 3/4",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 326,
+            "img": "https://www.escaperadar.com/img/salas/1935/grid/1935_grid.jpg?vc=20190401204707",
+            "name": "\u00a1\u00bfY EL GATO?!",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 327,
+            "img": "https://www.escaperadar.com/img/salas/1561/grid/1561_grid.jpg?vc=20181210162724",
+            "name": "WEST",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 328,
+            "img": "https://www.escaperadar.com/img/salas/1276/grid/1276_grid.jpg?vc=20190503213814",
+            "name": "DELOREAN VAN - ROOM ESCAPE SITGES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 329,
+            "img": "https://www.escaperadar.com/img/salas/1800/grid/1800_grid.jpg?vc=20190225154824",
+            "name": "ESCAPE ROOM CASTELLGAL\u00cd EL FORAT",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 330,
+            "img": "https://www.escaperadar.com/img/salas/1880/grid/1880_grid.jpg?vc=20190405105154",
+            "name": "LA MAZMORRA DE HOOD",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 331,
+            "img": "https://www.escaperadar.com/img/salas/2371/grid/2371_grid.jpg?vc=20200308125633",
+            "name": "SANCTUM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 332,
+            "img": "https://www.escaperadar.com/img/salas/1344/grid/1344_grid.jpg?vc=20200129232043",
+            "name": "JUEGO ENIGMA - EL ASESINO DE KEYLOCK CITY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 333,
+            "img": "https://www.escaperadar.com/img/salas/2497/grid/2497_grid.jpg?vc=20201129141927",
+            "name": "CYBERCITY 2049 (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 334,
+            "img": "https://www.escaperadar.com/img/salas/2198/grid/2198_grid.jpg?vc=20200119140911",
+            "name": "\u00daLTIMA ESPERANZA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 335,
+            "img": "https://www.escaperadar.com/img/salas/1057/grid/1057_grid.jpg?vc=20190628095533",
+            "name": "ATRAPA EL ESP\u00cdA (SALA 2)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 336,
+            "img": "https://www.escaperadar.com/img/salas/824/grid/824_grid.jpg?vc=20190402163257",
+            "name": "GALER\u00cdA DE CAD\u00c1VERES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 337,
+            "img": "https://www.escaperadar.com/img/salas/1894/grid/1894_grid.jpg?vc=20190218015250",
+            "name": "LA MILI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 338,
+            "img": "https://www.escaperadar.com/img/salas/1902/grid/1902_grid.jpg?vc=20200310120104",
+            "name": "REANIMATION Z",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 339,
+            "img": "https://www.escaperadar.com/img/salas/1325/grid/1325_grid.jpg?vc=20181210122856",
+            "name": "STUDIO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 340,
+            "img": "https://www.escaperadar.com/img/salas/608/grid/608_grid.jpg?vc=20190216123718",
+            "name": "ESCAPE HOUDINI",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 341,
+            "img": "https://www.escaperadar.com/img/salas/81/grid/81_grid.jpg?vc=20180716210121",
+            "name": "DESPIDALIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 342,
+            "img": "https://www.escaperadar.com/img/salas/2356/grid/2356_grid.jpg?vc=20200131133219",
+            "name": "MISI\u00d3N MONTGR\u00d3S",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 343,
+            "img": "https://www.escaperadar.com/img/salas/140/grid/140_grid.jpg?vc=20190921150959",
+            "name": "KESSLER GALIMANY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 344,
+            "img": "https://www.escaperadar.com/img/salas/2373/grid/2373_grid.jpg?vc=20200308125638",
+            "name": "SIGNAL LOST",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 345,
+            "img": "https://www.escaperadar.com/img/salas/2443/grid/2443_grid.jpg?vc=20201020225348",
+            "name": "EL BAR (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 346,
+            "img": "https://www.escaperadar.com/img/salas/590/grid/590_grid.jpg?vc=20200531203413",
+            "name": "EL EQUIPO A (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 347,
+            "img": "https://www.escaperadar.com/img/salas/2372/grid/2372_grid.jpg?vc=20200308125635",
+            "name": "THE PRISON",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 348,
+            "img": "https://www.escaperadar.com/img/salas/241/grid/241_grid.jpg?vc=20180718205351",
+            "name": "EL CAPIT\u00c1N DEL PUERTO 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 349,
+            "img": "https://www.escaperadar.com/img/salas/2355/grid/2355_grid.jpg?vc=20200125212151",
+            "name": "LAS CAJAS NEGRAS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 350,
+            "img": "https://www.escaperadar.com/img/salas/184/grid/184_grid.jpg?vc=20191128160658",
+            "name": "LA GUARIDA DE LA MAFIA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 351,
+            "img": "https://www.escaperadar.com/img/salas/60/grid/60_grid.jpg?vc=20180716203757",
+            "name": "EL ASEDIO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 352,
+            "img": "https://www.escaperadar.com/img/salas/583/grid/583_grid.jpg?vc=20190401203944",
+            "name": "LA NUBE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 353,
+            "img": "https://www.escaperadar.com/img/salas/2412/grid/2412_grid.jpg?vc=20200706195539",
+            "name": "HECHIZADOS (MAGIC ESCAPE ROOM)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 354,
+            "img": "https://www.escaperadar.com/img/salas/2442/grid/2442_grid.jpg?vc=20201015181701",
+            "name": "BARCELONA SICARIO ESCAPE ROOM",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 355,
+            "img": "https://www.escaperadar.com/img/salas/192/grid/192_grid.jpg?vc=20190327212443",
+            "name": "EL MISTERI DE MONTSERRAT",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 356,
+            "img": "https://www.escaperadar.com/img/salas/2268/grid/2268_grid.jpg?vc=20191025141315",
+            "name": "MOORDER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 357,
+            "img": "https://www.escaperadar.com/img/salas/52/grid/52_grid.jpg?vc=20200528164550",
+            "name": "LOS INFILTRADOS 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 358,
+            "img": "https://www.escaperadar.com/img/salas/210/grid/210_grid.jpg?vc=20190401232220",
+            "name": "ESCUELA DE LADRONES",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 359,
+            "img": "https://www.escaperadar.com/img/salas/721/grid/721_grid.jpg?vc=20200704152107",
+            "name": "EL LEGADO DE ALBUS",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 360,
+            "img": "https://www.escaperadar.com/img/salas/2390/grid/2390_grid.jpg?vc=20200313110034",
+            "name": "DISTRITO 111 (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 361,
+            "img": "https://www.escaperadar.com/img/salas/1143/grid/1143_grid.jpg?vc=20181212124116",
+            "name": "IN ESCAPE ROOM (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 362,
+            "img": "https://www.escaperadar.com/img/salas/1058/grid/1058_grid.jpg?vc=20181205164318",
+            "name": "SPACE MONKEY",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 363,
+            "img": "https://www.escaperadar.com/img/salas/85/grid/85_grid.jpg?vc=20190328134645",
+            "name": "EL PROYECTO DE LA BRUJA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 364,
+            "img": "https://www.escaperadar.com/img/salas/94/grid/94_grid.jpg?vc=20200611193002",
+            "name": "THE NW6 BUNKER",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 365,
+            "img": "https://www.escaperadar.com/img/salas/2260/grid/2260_grid.jpg?vc=20191020191038",
+            "name": "WORM (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 366,
+            "img": "https://www.escaperadar.com/img/salas/1410/grid/1410_grid.jpg?vc=20181210131158",
+            "name": "BIG FAIF - WANTED",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 367,
+            "img": "https://www.escaperadar.com/img/salas/1957/grid/1957_grid.jpg?vc=20190430092806",
+            "name": "SPACE ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 368,
+            "img": "https://www.escaperadar.com/img/salas/966/grid/966_grid.jpg?vc=20190102201502",
+            "name": "EL JUEGO DE ARIEL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 369,
+            "img": "https://www.escaperadar.com/img/salas/1557/grid/1557_grid.jpg?vc=20191217162602",
+            "name": "RESIDENCE ROOM ESCAPE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 370,
+            "img": "https://www.escaperadar.com/img/salas/1777/grid/1777_grid.jpg?vc=20181209204636",
+            "name": "DRAGON WORLD ESCAPE ROOM (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 371,
+            "img": "https://www.escaperadar.com/img/salas/177/grid/177_grid.jpg?vc=20180717205238",
+            "name": "PRISON BREAK",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 372,
+            "img": "https://www.escaperadar.com/img/salas/205/grid/205_grid.jpg?vc=20190317100453",
+            "name": "CHERN\u00d3BIL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 373,
+            "img": "https://www.escaperadar.com/img/salas/2292/grid/2292_grid.jpg?vc=20201001074914",
+            "name": "LA \u00daLTIMA FUNCI\u00d3N",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 374,
+            "img": "https://www.escaperadar.com/img/salas/1828/grid/1828_grid.jpg?vc=20190212134517",
+            "name": "ESCENA DEL CRIMEN",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 375,
+            "img": "https://www.escaperadar.com/img/salas/1753/grid/1753_grid.jpg?vc=20200129224152",
+            "name": "ALKATRAZ MEDIEVAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 376,
+            "img": "https://www.escaperadar.com/img/salas/208/grid/208_grid.jpg?vc=20190401231959",
+            "name": "EL MISTERIO DE GAUD\u00cd",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 377,
+            "img": "https://www.escaperadar.com/img/salas/1878/grid/1878_grid.jpg?vc=20190212115740",
+            "name": "SINFONIA MORTAL",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 378,
+            "img": "https://www.escaperadar.com/img/salas/65/grid/65_grid.jpg?vc=20190318223154",
+            "name": "PRISI\u00d3N 2",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 379,
+            "img": "https://www.escaperadar.com/img/salas/991/grid/991_grid.jpg?vc=20200128160122",
+            "name": "G\u00c9NESIS, IN YOUR HEAD",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 380,
+            "img": "https://www.escaperadar.com/img/salas/2460/grid/2460_grid.jpg?vc=20201108203553",
+            "name": "SECRETOS DE LA ANTIGUA BARCELONA",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 381,
+            "img": "https://www.escaperadar.com/img/salas/1826/grid/1826_grid.jpg?vc=20190212134454",
+            "name": "AMOR ETERNO",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 382,
+            "img": "https://www.escaperadar.com/img/salas/178/grid/178_grid.jpg?vc=20180717205252",
+            "name": "SAW EXPERIENCE",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 383,
+            "img": "https://www.escaperadar.com/img/salas/1891/grid/1891_grid.jpg?vc=20200718152218",
+            "name": "LA CONSULTA (IBR MEDICAL)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "game_room_id": 384,
+            "img": "https://www.escaperadar.com/img/salas/720/grid/720_grid.jpg?vc=20191004110651",
+            "name": "KREMATORIUM (PR\u00d3XIMAMENTE)",
+            "description": "Very fun escape room.",
+            "rating": 5,
+            "open": false,
+            "game_center": 1
+        }
     }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 2,
-      "img": "http://lorempixel.com/640/480/animals",
-      "name": "Cartwright, Ankunding and Pouros",
-      "description": "Business-focused grid-enabled leverage",
-      "rating": 23,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 3,
-      "img": "http://lorempixel.com/640/480/city",
-      "name": "Fadel, Waters and Bahringer",
-      "description": "Open-source systemic structure",
-      "rating": 45,
-      "open": true,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 4,
-      "img": "http://lorempixel.com/640/480/city",
-      "name": "Mann Inc",
-      "description": "Open-source systemic structure",
-      "rating": 67,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 5,
-      "img": "http://lorempixel.com/640/480/transport",
-      "name": "Rohan Group",
-      "description": "Switchable asymmetric local area network",
-      "rating": 2,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 6,
-      "img": "http://lorempixel.com/640/480/nature",
-      "name": "Schoen - Kuhn",
-      "description": "Front-line scalable functionalities",
-      "rating": 48,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 7,
-      "img": "http://lorempixel.com/640/480/cats",
-      "name": "Metz, Hintz and Russel",
-      "description": "Team-oriented eco-centric interface",
-      "rating": 48,
-      "open": true,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 8,
-      "img": "http://lorempixel.com/640/480/nature",
-      "name": "Ankunding - Hodkiewicz",
-      "description": "Proactive holistic emulation",
-      "rating": 54,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 9,
-      "img": "http://lorempixel.com/640/480/people",
-      "name": "Pfeffer and Sons",
-      "description": "Intuitive local attitude",
-      "rating": 3,
-      "open": false,
-      "game_center": 1
-    }
-  },
-  {
-    "model": "gamerooms.GameRoom",
-    "fields": {
-      "id": 10,
-      "img": "http://lorempixel.com/640/480/people",
-      "name": "Bernhard Inc",
-      "description": "User-friendly didactic concept",
-      "rating": 100,
-      "open": false,
-      "game_center": 1
-    }
-  }
 ]

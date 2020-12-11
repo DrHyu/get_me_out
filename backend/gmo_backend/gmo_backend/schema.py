@@ -8,7 +8,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 # Project Imports
 from gamerooms import models as gamerooms_models
 
-
+'''
 class CompanyType(DjangoObjectType):
     class Meta:
         model = gamerooms_models.Company
@@ -36,7 +36,6 @@ class CompletionType(DjangoObjectType):
         model = gamerooms_models.Completion
         #fields = ("gameroom", "user", "review_text", "general_score")
 
-
 class Query(graphene.ObjectType):
     companies = graphene.List(CompanyType)
     game_center = graphene.List(GameCenterType)
@@ -51,6 +50,32 @@ class Query(graphene.ObjectType):
 
     def resolve_game_room(self, context, **kwargs):
         return gamerooms_models.GameRoom.objects.all()
+
+
+schema = graphene.Schema(query=Query)
+'''
+
+
+class GameCenterNode(DjangoObjectType):
+    class Meta:
+        model = gamerooms_models.GameCenter
+        filter_fields = ["center_id", "company", "description", "location"]
+        interfaces = (relay.Node, )
+
+
+class GameRoomNode(DjangoObjectType):
+    class Meta:
+        # Assume you have an Animal model defined with the following fields
+        model = gamerooms_models.GameRoom
+        filter_fields = ["game_room_id", "name", "description", "rating", "game_center"]
+        interfaces = (relay.Node, )
+
+
+class Query(ObjectType):
+    game_room = relay.Node.Field(GameRoomNode)
+    game_rooms = DjangoFilterConnectionField(GameRoomNode)
+    game_center = relay.Node.Field(GameCenterNode)
+    game_centers = DjangoFilterConnectionField(GameCenterNode)
 
 
 schema = graphene.Schema(query=Query)
