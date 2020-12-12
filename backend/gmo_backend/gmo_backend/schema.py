@@ -67,7 +67,7 @@ class GameRoomNode(DjangoObjectType):
     class Meta:
         # Assume you have an Animal model defined with the following fields
         model = gamerooms_models.GameRoom
-        filter_fields = ["game_room_id", "name", "description", "rating", "game_center"]
+        filter_fields = ["game_room_id", "name", "description", "img", "rating", "game_center"]
         interfaces = (relay.Node, )
 
 
