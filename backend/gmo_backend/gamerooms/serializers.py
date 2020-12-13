@@ -33,3 +33,11 @@ class CompanySerializer(serializers.ModelSerializer):
 
 class GameRoomVisitorRecomendationsSerializer(serializers.Serializer):
     country_id = serializers.IntegerField()
+
+
+class GameRoomRecomendationsSerializer(serializers.Serializer):
+    country_id = serializers.IntegerField()
+
+
+class GameRoomFilterSerializer(serializers.Serializer):
+    pass

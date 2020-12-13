@@ -78,3 +78,27 @@ class GameRoomVisitorRecomendationsView(APIView):
             response = Response(status=status.HTTP_400_BAD_REQUEST)
 
         return response
+
+
+class GameRoomRecomendationsView(APIView):
+    """
+    """
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = gamerooms_serializers.GameRoomRecomendationsSerializer
+
+    def get(self, request, format=None):
+        #user = request.user
+        game_rooms = gamerooms_models.objects.all()
+        return Response(game_rooms)
+
+
+class GameRoomFilterView(APIView):
+    """
+    """
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = gamerooms_serializers.GameRoomRecomendationsSerializer
+
+    def get(self, request, format=None):
+        #user = request.user
+        game_rooms = gamerooms_models.objects.all()
+        return Response(game_rooms)

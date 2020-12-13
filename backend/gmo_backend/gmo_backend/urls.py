@@ -22,6 +22,8 @@ from drf_yasg import openapi
 from django.conf.urls import url
 from django.views.generic import RedirectView
 from graphene_django.views import GraphQLView
+from django.conf import settings
+from django.conf.urls.static import static
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -44,6 +46,7 @@ urlpatterns = [
     path("graphql", GraphQLView.as_view(graphiql=True)),
     path('admin/', admin.site.urls),
     path('gamerooms/', include('gamerooms.urls')),
-    path('users/', include('users.urls')),
-    url(r'^.*$', RedirectView.as_view(url='/swagger/', permanent=False))
-]
+    path('users/', include('users.urls'))
+    #url(r'^.*$', RedirectView.as_view(url='/swagger/', permanent=False))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + [url(r'^.*$', RedirectView.as_view(url='/swagger/', permanent=False))]
