@@ -2,8 +2,10 @@
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import { ThemeProvider } from "styled-components";
 import { useStore } from "../src/store/store";
 
+import theme from "../src/utils/theme";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App({ Component, pageProps }) {
@@ -15,7 +17,9 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={<div>loading</div>} persistor={persistor}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   );
