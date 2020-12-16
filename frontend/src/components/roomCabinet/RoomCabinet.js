@@ -7,32 +7,85 @@ import ProgressRing from "../shared/ProgressRing";
 import { roomType } from "../../types";
 
 const Wrapper = styled.div`
-  display: grid;
+  padding: 32px;
 
-  grid-template-columns: minmax(100px, max-content) minmax(800px, max-content);
-  grid-template-rows: max-content;
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+
+  height: 500px;
+  width: 1000px;
+
+  border-radius: 16px;
+  /* border: 1px solid ${({ theme }) => theme.primary};*/
+  background-color: ${({ theme }) => theme.primaryDark};
+
+  display: grid;
+  grid-template-columns: max-content repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    transition: background-image 2s ease-in-out;
+    background-image: url(${({ bgImgUrl }) => bgImgUrl});
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    z-index: -1;
+  }
+
   /* grid-template-rows: repeat(10, 100px); */
 `;
 
-const IconCol = styled.div`
-  grid-column: 1;
-  grid-row: 1/-1;
+/*  ------------------------------------  */
+/*              ROOM HINT                 */
+/*  ------------------------------------  */
 
+const RoomHintsOverflowWrapper = styled.div`
+  grid-column: 1 / span 1;
+  grid-row: 1/-1;
   overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+
+  --separator-size: 1px;
+  --separator-space: 16px;
+
+  padding-right: calc(var(--separator-size) + var(--separator-space) * 2);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    right: var(--separator-space);
+    border-right: var(--separator-size) solid ${({ theme }) => theme.primary};
+  }
 `;
 
-const IconColWrapper = styled.div`
+const RoomHintsContainer = styled.div`
+  height: 100%;
+
   display: flex;
   flex-direction: column;
 
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-
-  border-right: 2px solid black;
 `;
 
-const RoomIcon = styled.div`
+const RoomHint = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+const RoomHintImgWrapper = styled.div`
   width: 100%;
   height: 100%;
 
@@ -43,30 +96,44 @@ const RoomIcon = styled.div`
     object-position: 50% 50%;
   }
 `;
+const RoomHintAbstract = styled.div`
+  display: flex;
+  flex-direction: column;
 
-const RoomShowcase = styled.div`
-  grid-column: 2/-1;
-  grid-row: 1/-1;
+  .room-hint-room-name {
+    color: white;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  border-radius: 32px 32px 32px 32px;
-  overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .room-hint-catch-phrase {
+    color: white;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  display: grid;
-
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+    font-size: 12px;
+    /* font-weight: bold; */
+  }
 `;
 
+/*  ------------------------------------  */
+/*              ROOM SHOWCASE             */
+/*  ------------------------------------  */
 const RoomShowCaseBgImage = styled.div`
-  grid-row: 1 / 9;
-  grid-column: 1/ 9;
-
-  width: 100%;
-  height: 100%;
+  grid-row: 2 / 7;
+  grid-column: 2/ -1;
 
   position: relative;
 
-  .full-degradation {
+  /* margin: -32px; */
+
+  /* .full-degradation {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -75,26 +142,40 @@ const RoomShowCaseBgImage = styled.div`
 
     z-index: 100;
     background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.05) 70%,
-        rgba(0, 0, 0, 0.1) 80%,
-        #000
+        to right,
+        ${({ theme }) => `${theme.surface}00`},
+        ${({ theme }) => `${theme.surface}08`} 90%,
+        ${({ theme }) => `${theme.surface}10`} 95%,
+        ${({ theme }) => `${theme.surface}ff`}
       ),
       linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.05) 70%,
-        rgba(0, 0, 0, 0.1) 80%,
-        #000
+        to left,
+        ${({ theme }) => `${theme.surface}00`},
+        ${({ theme }) => `${theme.surface}08`} 90%,
+        ${({ theme }) => `${theme.surface}10`} 95%,
+        ${({ theme }) => `${theme.surface}ff`}
+      ),
+      linear-gradient(
+        to top,
+        ${({ theme }) => `${theme.surface}00`},
+        ${({ theme }) => `${theme.surface}08`} 90%,
+        ${({ theme }) => `${theme.surface}10`} 95%,
+        ${({ theme }) => `${theme.surface}ff`}
+      ),
+      linear-gradient(
+        to bottom,
+        ${({ theme }) => `${theme.surface}00`},
+        ${({ theme }) => `${theme.surface}08`} 90%,
+        ${({ theme }) => `${theme.surface}10`} 95%,
+        ${({ theme }) => `${theme.surface}ff`}
       );
-  }
+  } */
 
   img {
-    z-index: -1;
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
+    /* object-fit: fit; */
   }
 `;
 
@@ -124,40 +205,47 @@ const RoomCabinet = ({ rooms }) => {
   const [selectedRoom, setselectedRoom] = useState(0);
 
   return (
-    <Wrapper>
-      <IconCol>
-        <IconColWrapper>
+    <Wrapper bgImgUrl={rooms[selectedRoom].img}>
+      <RoomHintsOverflowWrapper>
+        <RoomHintsContainer>
           {rooms.map((room, idx) => (
-            <ProgressRing
-              key={room.id}
-              radius={48}
-              stroke={4}
-              timerDuration={10000}
-              timerTickPercent={1}
-              isActive={idx === selectedRoom}
-              onClick={() => setselectedRoom(idx)}
-              onTimerEnd={() =>
-                setselectedRoom((selectedRoom + 1) % rooms.length)
-              }
-            >
-              <RoomIcon>
-                <img src={room.img} alt="" />
-              </RoomIcon>
-            </ProgressRing>
+            <RoomHint>
+              <ProgressRing
+                key={room.id}
+                radius={48}
+                stroke={4}
+                timerDuration={10000}
+                timerTickPercent={1}
+                isActive={idx === selectedRoom}
+                onClick={() => setselectedRoom(idx)}
+                onTimerEnd={() =>
+                  setselectedRoom((selectedRoom + 1) % rooms.length)
+                }
+              >
+                <RoomHintImgWrapper>
+                  <img src={room.img} alt="" />
+                </RoomHintImgWrapper>
+              </ProgressRing>
+              {/* <RoomHintAbstract>
+                <div className="room-hint-room-name">{room.name}</div>
+                <div className="room-hint-catch-phrase">
+                  Lorem ipsum dolor sit amet.
+                </div>
+              </RoomHintAbstract> */}
+            </RoomHint>
           ))}
-        </IconColWrapper>
-      </IconCol>
-      <RoomShowcase imgUrl={rooms[selectedRoom].img}>
-        <RoomShowCaseBgImage>
-          <img src={rooms[selectedRoom].img} alt="" />
-          {/* <div className="right-degradation" /> */}
-          <div className="full-degradation" />
-        </RoomShowCaseBgImage>
-        <RomShowCaseTitle>
-          <span>{rooms[selectedRoom].name}</span>
-        </RomShowCaseTitle>
-        <RoomShowFooter />
-      </RoomShowcase>
+        </RoomHintsContainer>
+      </RoomHintsOverflowWrapper>
+
+      {/* <RoomShowCaseBgImage>
+        <img src={rooms[selectedRoom].img} alt="" />
+
+        <div className="full-degradation" />
+      </RoomShowCaseBgImage> */}
+      {/* <RomShowCaseTitle>
+        <span>{rooms[selectedRoom].name}</span>
+      </RomShowCaseTitle>
+      <RoomShowFooter /> */}
     </Wrapper>
   );
 };

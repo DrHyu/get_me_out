@@ -98,7 +98,7 @@ export const fetchGamerooms = async () => {
     id: edge.node.gameRoomId,
     img: edge.node.img.replace(/.*\/(\d+)_grid.*/, "/room_img/room_$1.jpg"),
   }));
-  console.log(temp);
+
   return temp;
 };
 

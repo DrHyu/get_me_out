@@ -4,11 +4,19 @@ import PT from "prop-types";
 import styled, { ThemeContext } from "styled-components";
 
 const ProgressRingStyle = styled.div`
+  flex-shrink: 0;
+
   position: relative;
   z-index: 0;
 
   width: ${({ radius }) => radius * 2}px;
   height: ${({ radius }) => radius * 2}px;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &::after {
     content: "";
@@ -20,7 +28,8 @@ const ProgressRingStyle = styled.div`
 
     width: ${({ radius, stroke }) => radius * 2 - stroke * 3}px;
     height: ${({ radius, stroke }) => radius * 2 - stroke * 3}px;
-    border: ${({ stroke }) => stroke}px solid ${({ theme }) => theme.secondary};
+    border: ${({ stroke }) => stroke}px solid
+      ${({ theme }) => theme.primaryLight};
     border-radius: 50% 50% 50% 50%;
   }
 
@@ -64,10 +73,7 @@ function ProgressRing({
   children,
 }) {
   const [progress, setprogress] = useState(intialProgress);
-
   const themeContext = useContext(ThemeContext);
-
-  console.log("Current theme: ", themeContext);
 
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;

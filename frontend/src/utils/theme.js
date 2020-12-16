@@ -1,17 +1,18 @@
 const theme = {
-  primary: "#002b3d",
-  primaryVariant: "#315468",
-  secondary: "#78bcc4",
-  secondaryVariant: "#aaeff7",
+  primary: "#65a2af",
+  primaryLight: "#96d3e1",
+  primaryDark: "#347380",
+
   bg: "#F7F8F3",
-  surface: "#F7F8F3",
+  surface: "#ffffff",
   error: "#ff0000",
 
   /* Colors to display 'on top of' X */
   onPrimary: "#ffffff",
-  onSecondary: "#000000",
-  onBackground: "000000",
-  onSurface: "000000",
+  onLPrimary: "#ffffff",
+  onDPrimary: "#000000",
+  onBackground: "#000000",
+  onSurface: "#000000",
   onError: "#ffffff",
 };
 
