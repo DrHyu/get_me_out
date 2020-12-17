@@ -4,13 +4,14 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import DashboardSearchBar from "./DashboardSearchBar";
 import DashboardCarousel from "./DashboardCarousel";
+import RoomCabinet from "../roomCabinet/RoomCabinet";
 import RoomEntry from "../shared/RoomEntry";
 
 import { searchBarData } from "../../types";
 
 import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
-function Dashboard({ initialSearchBoxData }) {
+function Dashboard({ initialSearchBoxData, suggestedRooms }) {
   const roomSuggestions = useSelector(
     (state) => state.dashboard.roomSuggestions
   );
@@ -35,11 +36,7 @@ function Dashboard({ initialSearchBoxData }) {
       <Row>
         <Col>
           <h2>Suggested rooms:</h2>
-          <div>
-            {roomSuggestions.map((roomSuggestion) => (
-              <RoomEntry room={roomSuggestion} key={roomSuggestion.id} />
-            ))}
-          </div>
+          <RoomCabinet rooms={suggestedRooms.slice(0, 4)} />
         </Col>
       </Row>
     </Container>
