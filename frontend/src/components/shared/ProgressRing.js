@@ -70,9 +70,11 @@ function ProgressRing({
   timerDuration,
   onTimerEnd,
   onClick,
+  onHover,
   children,
 }) {
   const [progress, setprogress] = useState(intialProgress);
+  const [isPaused, setisPaused] = useState(false);
   const themeContext = useContext(ThemeContext);
 
   const normalizedRadius = radius - stroke * 2;
@@ -81,7 +83,7 @@ function ProgressRing({
 
   useEffect(() => {
     let interval = null;
-    if (isActive) {
+    if (isActive && !isPaused) {
       interval = setInterval(() => {
         if (progress + timerTickPercent > 100) {
           onTimerEnd();
@@ -96,7 +98,7 @@ function ProgressRing({
     return () => {
       clearInterval(interval);
     };
-  }, [isActive, progress]);
+  }, [isActive, progress, isPaused]);
 
   useEffect(
     () =>
@@ -113,6 +115,11 @@ function ProgressRing({
       stroke={stroke}
       tickTime={timerDuration / (100 / timerTickPercent)}
       onClick={onClick}
+      onMouseEnter={() => {
+        setisPaused(true);
+        onHover();
+      }}
+      onMouseLeave={() => setisPaused(false)}
     >
       {isActive && (
         <svg height={radius * 2} width={radius * 2}>
@@ -146,6 +153,7 @@ ProgressRing.propTypes = {
   onTimerEnd: PT.func,
   children: PT.node.isRequired,
   onClick: PT.func,
+  onHover: PT.func,
 };
 
 ProgressRing.defaultProps = {
@@ -155,6 +163,7 @@ ProgressRing.defaultProps = {
   timerTickPercent: 1,
   onTimerEnd: undefined,
   onClick: undefined,
+  onHover: undefined,
 };
 
 export default ProgressRing;

@@ -3,10 +3,15 @@ import styled from "styled-components";
 
 import Image from "next/image";
 import PT from "prop-types";
+import shortid from "shortid";
+import { BsStarFill } from "react-icons/bs";
+import { GiTerror } from "react-icons/gi";
 import ProgressRing from "../shared/ProgressRing";
 import { roomType } from "../../types";
 
 const Wrapper = styled.div`
+  --animation-duration: 1s;
+
   padding: 32px;
 
   z-index: 0;
@@ -17,30 +22,62 @@ const Wrapper = styled.div`
   width: 1000px;
 
   border-radius: 16px;
-  /* border: 1px solid ${({ theme }) => theme.primary};*/
-  background-color: ${({ theme }) => theme.primaryDark};
-
   display: grid;
   grid-template-columns: max-content repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
 
-  &::after {
-    content: "";
+  grid-gap: 16px;
+
+  .bg-div-static {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
 
     position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    transition: background-image 2s ease-in-out;
     background-image: url(${({ bgImgUrl }) => bgImgUrl});
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(3px);
-    z-index: -1;
-  }
 
-  /* grid-template-rows: repeat(10, 100px); */
+    transition: all calc(var(--animation-duration) / 1);
+
+    z-index: -11;
+  }
+  .bg-div-animated {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 2;
+
+    background-image: url(${({ bgImgUrl }) => bgImgUrl});
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation-name: grow;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+
+    @keyframes grow {
+      0% {
+        clip-path: circle(10% at 10% 50%);
+        filter: blur(5px);
+        opacity: 1;
+      }
+      100% {
+        clip-path: circle(100% at 50% 50%);
+        opacity: 0;
+        filter: blur(0px);
+      }
+    }
+  }
 `;
 
 /*  ------------------------------------  */
@@ -53,6 +90,8 @@ const RoomHintsOverflowWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+
+  z-index: 10;
 
   --separator-size: 1px;
   --separator-space: 16px;
@@ -125,7 +164,7 @@ const RoomHintAbstract = styled.div`
 /*  ------------------------------------  */
 /*              ROOM SHOWCASE             */
 /*  ------------------------------------  */
-const RoomShowCaseBgImage = styled.div`
+const RoomSCBgImage = styled.div`
   grid-row: 2 / 7;
   grid-column: 2/ -1;
 
@@ -179,26 +218,75 @@ const RoomShowCaseBgImage = styled.div`
   }
 `;
 
-const RomShowCaseTitle = styled.div`
-  grid-column: 9/ -1;
-  grid-row: 1 / 9;
+const RoomSCArea = styled.div`
+  grid-row: 7/-1;
+  grid-column: 2/10;
 
-  z-index: 100;
-  position: relative;
-  background-color: black;
+  background-color: ${({ theme }) => theme.primary};
 
-  span {
-    position: absolute;
+  border-radius: 16px;
 
-    left: -20%;
-    color: white;
-  }
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
-const RoomShowFooter = styled.div`
-  grid-column: 1/ -1;
-  grid-row: 9 / -1;
-  background-color: black;
+const RoomSCTitle = styled.div`
+  align-self: flex-start;
+
+  color: ${({ theme }) => theme.onPrimary};
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const RoomSCBy = styled.div`
+  align-self: flex-start;
+
+  color: ${({ theme }) => theme.onPrimary};
+  font-size: 16px;
+`;
+
+const RoomSCDescription = styled.div`
+  align-self: center;
+
+  color: ${({ theme }) => theme.onPrimary};
+  font-size: 12px;
+`;
+
+const RoomSCNumbers = styled.div`
+  grid-row: 7/-1;
+  grid-column: 10/ -1;
+
+  /* border: 4px solid ${({ theme }) => theme.primaryDark}; */
+  /* background-color: ${({ theme }) => theme.primary}; */
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+const RoomNumbersGroup = styled.div`
+  grid-row: span 1;
+  grid-column: span 1;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  span {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  svg {
+    width: 32px;
+    height: 32px;
+
+    color: ${({ theme }) => theme.primaryDark};
+  }
 `;
 
 const RoomCabinet = ({ rooms }) => {
@@ -209,7 +297,7 @@ const RoomCabinet = ({ rooms }) => {
       <RoomHintsOverflowWrapper>
         <RoomHintsContainer>
           {rooms.map((room, idx) => (
-            <RoomHint>
+            <RoomHint key={room.id}>
               <ProgressRing
                 key={room.id}
                 radius={48}
@@ -218,6 +306,7 @@ const RoomCabinet = ({ rooms }) => {
                 timerTickPercent={1}
                 isActive={idx === selectedRoom}
                 onClick={() => setselectedRoom(idx)}
+                onHover={() => setselectedRoom(idx)}
                 onTimerEnd={() =>
                   setselectedRoom((selectedRoom + 1) % rooms.length)
                 }
@@ -236,16 +325,48 @@ const RoomCabinet = ({ rooms }) => {
           ))}
         </RoomHintsContainer>
       </RoomHintsOverflowWrapper>
+      <RoomSCBgImage>
+        {/* <img src={rooms[selectedRoom].img} alt="" />
 
-      {/* <RoomShowCaseBgImage>
-        <img src={rooms[selectedRoom].img} alt="" />
-
-        <div className="full-degradation" />
-      </RoomShowCaseBgImage> */}
-      {/* <RomShowCaseTitle>
-        <span>{rooms[selectedRoom].name}</span>
-      </RomShowCaseTitle>
-      <RoomShowFooter /> */}
+        <div className="full-degradation" /> */}
+        <div className="bg-div-animated" key={shortid.generate()} />
+        <div className="bg-div-static" />
+      </RoomSCBgImage>
+      <RoomSCArea>
+        <RoomSCTitle>{rooms[selectedRoom].name}</RoomSCTitle>
+        <RoomSCBy>My Mom</RoomSCBy>
+        <RoomSCDescription>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et neque
+          necessitatibus facilis provident exercitationem aliquid vel eum
+          ducimus minima impedit?
+        </RoomSCDescription>
+      </RoomSCArea>
+      <RoomSCNumbers>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+        <RoomNumbersGroup>
+          <span>7/10</span>
+          <BsStarFill />
+        </RoomNumbersGroup>
+      </RoomSCNumbers>
     </Wrapper>
   );
 };

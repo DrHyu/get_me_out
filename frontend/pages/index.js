@@ -1,16 +1,24 @@
+import PT from "prop-types";
 import Layout from "../src/components/layout/Layout";
 import Dashboard from "../src/components/landing/Dashboard";
 
-import { searchBarData } from "../src/types";
-import { fetchSuggestionData } from "../src/server_side_api";
+import { searchBarData, roomType } from "../src/types";
 
-const Index = ({ initialSearchBoxData }) => (
+import { fetchSuggestionData, fetchGamerooms } from "../src/server_side_api";
+
+const Index = ({ initialSearchBoxData, suggestedRooms }) => (
   <Layout>
-    <Dashboard initialSearchBoxData={initialSearchBoxData} />
+    <Dashboard
+      initialSearchBoxData={initialSearchBoxData}
+      suggestedRooms={suggestedRooms}
+    />
   </Layout>
 );
 
-Index.propTypes = { initialSearchBoxData: searchBarData.isRequired };
+Index.propTypes = {
+  initialSearchBoxData: searchBarData.isRequired,
+  suggestedRooms: PT.arrayOf(roomType).isRequired,
+};
 
 export async function getStaticProps() {
   const initialSearchBoxData = await fetchSuggestionData();
@@ -21,8 +29,16 @@ export async function getStaticProps() {
     };
   }
 
+  const suggestedRooms = await fetchGamerooms();
+
+  if (!suggestedRooms) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
-    props: { initialSearchBoxData }, // will be passed to the page component as props
+    props: { initialSearchBoxData, suggestedRooms }, // will be passed to the page component as props
   };
 }
 
