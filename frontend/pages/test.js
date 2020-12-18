@@ -2,20 +2,39 @@ import styled from "styled-components";
 import PT from "prop-types";
 import Layout from "../src/components/layout/Layout";
 import RoomCabinet from "../src/components/roomCabinet/RoomCabinet";
-
+import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
 import { roomType } from "../src/types";
 import { fetchGamerooms } from "../src/server_side_api";
+
+import Torch from "../src/components/uifx/Torch";
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+  height: 1000px;
 `;
 
-const Index = ({ rooms }) => (
+const HiddenElement = styled.div`
+  width: 30%;
+  height: 30%;
+
+  top: 0%;
+  left: 0%;
+
+  background-color: red;
+
+  .surpise {
+    font-size: 50px;
+  }
+`;
+
+const Index = () => (
   <Layout>
     <Wrapper>
-      <RoomCabinet rooms={rooms.slice(0, 4)} />
+      <Torch />
     </Wrapper>
   </Layout>
 );
