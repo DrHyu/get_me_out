@@ -9,10 +9,11 @@ import { fetchGamerooms } from "../src/server_side_api";
 import Torch from "../src/components/uifx/Torch";
 
 const Wrapper = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
+  background-color: gray;
   width: 100%;
   height: 1000px;
 `;

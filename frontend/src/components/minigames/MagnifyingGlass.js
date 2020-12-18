@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { BsSearch } from "react-icons/bs";
 import { GiPrimitiveTorch } from "react-icons/gi";
+import Torch from "../uifx/Torch";
 
 const MagnifyingGlassWrapper = styled.div`
   width: 100%;
@@ -51,16 +52,6 @@ const SearchedItem = styled.div`
 
 const MagnifyingGlassSVG = styled.div`
   position: absolute;
-  top: 0px;
-  left: 0px;
-
-  width: 10%;
-  height: 10%;
-
-  svg {
-    width: ${({ glassSize }) => glassSize * 2.7}px;
-    height: ${({ glassSize }) => glassSize * 2.7}px;
-  }
 
   z-index: 4;
 `;
@@ -89,7 +80,7 @@ function MagnifyingGlass({ glassSize = "40", children }) {
       // Move the magnifying glass svg so that it is surrounding the clpi-path
       magGlass.current.style.setProperty(
         "transform",
-        `translate(${x - glassSize * 1.1}px, ${y - glassSize * 1.1}px)`
+        `translate(${x - glassSize}px, ${y - glassSize}px)`
       );
     } else {
       const centerX =
@@ -109,9 +100,7 @@ function MagnifyingGlass({ glassSize = "40", children }) {
       // Move the magnifying glass svg so that it is surrounding the clpi-path
       magGlass.current.style.setProperty(
         "transform",
-        `translate(${centerX - glassSize * 1.1}px, ${
-          centerY - glassSize * 1.1
-        }px)`
+        `translate(${centerX}px, ${centerY}px)`
       );
     }
   };
@@ -119,7 +108,7 @@ function MagnifyingGlass({ glassSize = "40", children }) {
     <MagnifyingGlassWrapper onMouseMove={HandleMouseMove} ref={parent}>
       <DarkBg />
       <MagnifyingGlassSVG ref={magGlass} glassSize={glassSize}>
-        <BsSearch />
+        <Torch glowCircle={glassSize * 2} />
       </MagnifyingGlassSVG>
       <HiddenContentWrapper ref={hidden}>{children}</HiddenContentWrapper>
     </MagnifyingGlassWrapper>

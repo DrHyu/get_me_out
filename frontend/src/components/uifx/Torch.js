@@ -9,25 +9,36 @@ const animationtime = "1s";
 
 const TorchSyle = styled.div`
   position: relative;
-  top: 0%;
-  left: 0%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: ${({ glowCircle }) => glowCircle}px;
+  height: ${({ glowCircle }) => glowCircle}px;
+
+  /* transform: translate(-50%, -50%); */
 `;
 
-const HiltContainer = styled.div``;
+const HiltContainer = styled.div`
+  position: absolute;
+
+  top: ${({ glowCircle }) => glowCircle * 0.75}px;
+  left: ${({ glowCircle }) => glowCircle / 2}px;
+
+  transform: translateX(-50%);
+  z-index: 10000;
+  svg {
+    height: ${({ size }) => size * 0.5}px;
+    width: auto;
+  }
+`;
 const FlameContainer = styled.div`
-  --flame-width: 100px;
+  position: absolute;
 
-  position: relative;
-  height: 200px;
-  width: var(--flame-width);
+  top: ${({ glowCircle }) => glowCircle * 0.5}px;
+  left: ${({ glowCircle }) => glowCircle / 2}px;
 
-  top: 0px;
-  left: 0px;
+  height: ${({ glowCircle }) => glowCircle * 0.25}px;
+  width: ${({ glowCircle }) => glowCircle * 0.125}px;
+
+  transform: translateX(-50%);
 `;
 const Flame = styled.svg`
   position: absolute;
@@ -220,10 +231,31 @@ const Flame = styled.svg`
   }
 `;
 
-function Torch() {
+const FlameGlow = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  /* transform: translate(-50%, 25%); */
+  width: ${({ glowCircle }) => glowCircle}px;
+  height: ${({ glowCircle }) => glowCircle}px;
+
+  border-radius: 50%;
+  background: rgb(255, 133, 0);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 133, 0, 0.5) 2%,
+    rgba(255, 217, 177, 0.5) 100%
+  );
+
+  z-index: 5000;
+`;
+
+function Torch({ size = 300, glowCircle = 400 }) {
   return (
     <TorchSyle>
-      <FlameContainer>
+      <FlameGlow glowCircle={glowCircle} />
+      <FlameContainer size={size} glowCircle={glowCircle}>
         <Flame
           width="80"
           height="108"
@@ -261,7 +293,7 @@ function Torch() {
           <path d="M1.28378e-06 40.2685C-1.04973e-07 36.2576 1.60634 32.4137 4.46024 29.5954L29.4598 4.90801C35.302 -0.861234 44.6969 -0.8613 50.5392 4.90786L75.5396 29.5954C78.3936 32.4137 80 36.2576 80 40.2686L80 67.7867C80 71.765 78.4196 75.5803 75.6065 78.3934L50.6062 103.393C44.7483 109.251 35.2508 109.251 29.393 103.393L4.39335 78.3934C1.58034 75.5803 1.21893e-05 71.7651 1.08118e-05 67.7868L1.28378e-06 40.2685Z" />
         </Flame>
       </FlameContainer>
-      <HiltContainer>
+      <HiltContainer size={size} glowCircle={glowCircle}>
         <svg
           width="149"
           height="406"
