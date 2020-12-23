@@ -23,6 +23,17 @@ const DarkBg = styled.div`
   position: absolute;
   background-color: black;
   z-index: 1;
+
+  animation: fadeInBg 3s ease-in 1;
+
+  @keyframes fadeInBg {
+    0% {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+      background-color: rgba(0, 0, 0, 1);
+    }
+  }
 `;
 
 const HiddenContentWrapper = styled.div`
@@ -57,58 +68,75 @@ const MagnifyingGlassSVG = styled.div`
 `;
 
 function MagnifyingGlass({ glassSize = "40", children }) {
+  const [isActivated, setIsActivated] = useState(false);
   const parent = useRef();
   const hidden = useRef();
   const magGlass = useRef();
+  const torchRef = useRef();
 
   const HandleMouseMove = (e) => {
-    // is it moving within the bounds ?
-    if (
-      e.clientX >= parent.current.getBoundingClientRect().left &&
-      e.clientX < parent.current.getBoundingClientRect().right &&
-      e.clientY >= parent.current.getBoundingClientRect().top &&
-      e.clientY < parent.current.getBoundingClientRect().bottom
+    if (isActivated) {
+      // is it moving within the bounds ?
+      if (
+        e.clientX >= parent.current.getBoundingClientRect().left &&
+        e.clientX < parent.current.getBoundingClientRect().right &&
+        e.clientY >= parent.current.getBoundingClientRect().top &&
+        e.clientY < parent.current.getBoundingClientRect().bottom
+      ) {
+        const x = e.clientX - parent.current.getBoundingClientRect().left;
+        const y = e.clientY - parent.current.getBoundingClientRect().top;
+
+        // Move the clip-path to show part of the hidden content
+        hidden.current.style.setProperty(
+          "clip-path",
+          `circle(${glassSize}px at ${x}px ${y}px)`
+        );
+        // Move the magnifying glass svg so that it is surrounding the clpi-path
+        magGlass.current.style.setProperty(
+          "transform",
+          `translate(${x - glassSize}px, ${y - glassSize}px)`
+        );
+      } else {
+        const centerX =
+          (parent.current.getBoundingClientRect().right -
+            parent.current.getBoundingClientRect().left) /
+          2;
+        const centerY =
+          (parent.current.getBoundingClientRect().bottom -
+            parent.current.getBoundingClientRect().top) /
+          2;
+
+        // Move the clip-path to show part of the hidden content
+        hidden.current.style.setProperty(
+          "clip-path",
+          `circle(${glassSize}px at ${centerX}px ${centerY}px)`
+        );
+        // Move the magnifying glass svg so that it is surrounding the clpi-path
+        magGlass.current.style.setProperty(
+          "transform",
+          `translate(${centerX}px, ${centerY}px)`
+        );
+      }
+    } else if (
+      e.clientX >= torchRef.current.getBoundingClientRect().left &&
+      e.clientX < torchRef.current.getBoundingClientRect().right &&
+      e.clientY >= torchRef.current.getBoundingClientRect().top &&
+      e.clientY < torchRef.current.getBoundingClientRect().bottom
     ) {
-      const x = e.clientX - parent.current.getBoundingClientRect().left;
-      const y = e.clientY - parent.current.getBoundingClientRect().top;
-
-      // Move the clip-path to show part of the hidden content
-      hidden.current.style.setProperty(
-        "clip-path",
-        `circle(${glassSize}px at ${x}px ${y}px)`
-      );
-      // Move the magnifying glass svg so that it is surrounding the clpi-path
-      magGlass.current.style.setProperty(
-        "transform",
-        `translate(${x - glassSize}px, ${y - glassSize}px)`
-      );
-    } else {
-      const centerX =
-        (parent.current.getBoundingClientRect().right -
-          parent.current.getBoundingClientRect().left) /
-        2;
-      const centerY =
-        (parent.current.getBoundingClientRect().bottom -
-          parent.current.getBoundingClientRect().top) /
-        2;
-
-      // Move the clip-path to show part of the hidden content
-      hidden.current.style.setProperty(
-        "clip-path",
-        `circle(${glassSize}px at ${centerX}px ${centerY}px)`
-      );
-      // Move the magnifying glass svg so that it is surrounding the clpi-path
-      magGlass.current.style.setProperty(
-        "transform",
-        `translate(${centerX}px, ${centerY}px)`
-      );
+      console.log("activated");
+      setIsActivated(true);
     }
   };
+
   return (
     <MagnifyingGlassWrapper onMouseMove={HandleMouseMove} ref={parent}>
       <DarkBg />
       <MagnifyingGlassSVG ref={magGlass} glassSize={glassSize}>
-        <Torch glowCircle={glassSize * 2} />
+        <Torch
+          glowCircle={glassSize * 2}
+          forwardedRef={torchRef}
+          isOn={isActivated}
+        />
       </MagnifyingGlassSVG>
       <HiddenContentWrapper ref={hidden}>{children}</HiddenContentWrapper>
     </MagnifyingGlassWrapper>
