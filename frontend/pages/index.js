@@ -15,14 +15,12 @@ const Wrapper = styled.div`
 
 const Index = ({ initialSearchBoxData, suggestedRooms }) => (
   <Wrapper>
-    <MagnifyingGlass glassSize={200}>
-      <Layout>
-        <Dashboard
-          initialSearchBoxData={initialSearchBoxData}
-          suggestedRooms={suggestedRooms}
-        />
-      </Layout>
-    </MagnifyingGlass>
+    <Layout>
+      <Dashboard
+        initialSearchBoxData={initialSearchBoxData}
+        suggestedRooms={suggestedRooms}
+      />
+    </Layout>
   </Wrapper>
 );
 
