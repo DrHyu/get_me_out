@@ -1,18 +1,27 @@
 import PT from "prop-types";
+import styled from "styled-components";
 import Layout from "../src/components/layout/Layout";
 import Dashboard from "../src/components/landing/Dashboard";
 
 import { searchBarData, roomType } from "../src/types";
 
 import { fetchSuggestionData, fetchGamerooms } from "../src/server_side_api";
+import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 2000px;
+`;
 
 const Index = ({ initialSearchBoxData, suggestedRooms }) => (
-  <Layout>
-    <Dashboard
-      initialSearchBoxData={initialSearchBoxData}
-      suggestedRooms={suggestedRooms}
-    />
-  </Layout>
+  <Wrapper>
+    <Layout>
+      <Dashboard
+        initialSearchBoxData={initialSearchBoxData}
+        suggestedRooms={suggestedRooms}
+      />
+    </Layout>
+  </Wrapper>
 );
 
 Index.propTypes = {
