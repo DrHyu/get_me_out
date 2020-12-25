@@ -6,7 +6,7 @@ import Dashboard from "../src/components/landing/Dashboard";
 import { searchBarData, roomType } from "../src/types";
 
 import { fetchSuggestionData, fetchGamerooms } from "../src/server_side_api";
-import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
+// import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
 
 const Wrapper = styled.div`
   width: 100%;

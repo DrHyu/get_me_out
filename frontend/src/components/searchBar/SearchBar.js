@@ -13,18 +13,12 @@ import Router from "next/router";
 import PT from "prop-types";
 
 import { BsSearch } from "react-icons/bs";
-import ListItem from "./AutocompleteListItem";
+import ListItem from "./SearchBarItem";
 import { searchBarData } from "../../types";
 
 import "react-datepicker/dist/react-datepicker.css";
-// .react-datepicker-wrapper {
-//   position: relative;
-//   flex: 1 1 auto;
-//   width: 1%;
-//   min-width: 0;
-//   margin-bottom: 0;
-// }
-const AutoCompleteStyle = styled.div`
+
+const SearchBarStyle = styled.div`
   display: flex;
   justify-content: center;
 
@@ -294,7 +288,7 @@ const updateSuggestions = (initSugg, key) => {
   return composeSuggesitons(updatedSuggestions);
 };
 
-const Autocomplete = ({ initialSearchBoxData }) => {
+const SearchBar = ({ initialSearchBoxData }) => {
   const [suggestionData] = useState(initialSearchBoxData);
   const [suggestions, setSuggestions] = useState(
     composeSuggesitons(initialSearchBoxData)
@@ -345,7 +339,7 @@ const Autocomplete = ({ initialSearchBoxData }) => {
   });
 
   return (
-    <AutoCompleteStyle {...ds.getComboboxProps()} className="">
+    <SearchBarStyle {...ds.getComboboxProps()} className="">
       <div className="wrapper open-search-on-click">
         <SearchField
           className="open-search-on-click"
@@ -427,13 +421,13 @@ const Autocomplete = ({ initialSearchBoxData }) => {
           </button>
         </SubmitButton>
       </div>
-    </AutoCompleteStyle>
+    </SearchBarStyle>
   );
 };
 
-Autocomplete.propTypes = {
+SearchBar.propTypes = {
   initialSearchBoxData: searchBarData.isRequired,
 };
-Autocomplete.defaultProps = {};
+SearchBar.defaultProps = {};
 
-export default Autocomplete;
+export default SearchBar;

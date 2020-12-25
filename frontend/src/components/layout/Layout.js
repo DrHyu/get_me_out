@@ -18,7 +18,7 @@ export default function Layout({ children, title }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <NavBar />
-      <Container>{children}</Container>
+      <Container fluid>{children}</Container>
 
       <footer>I`m here to stay</footer>
     </MainStyle>
