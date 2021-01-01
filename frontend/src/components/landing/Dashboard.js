@@ -3,13 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 
 import styled from "styled-components";
+import Image from "next/image";
 import SearchBar from "../searchBar/SearchBar";
 import DashboardCarousel from "./DashboardCarousel";
 import RoomCabinet from "../roomCabinet/RoomCabinet";
-import RoomEntry from "../shared/RoomEntry";
 
 import Box from "../shared/Box";
-import SplashImg from "../../../public/splash_maze.svg";
 
 import { searchBarData } from "../../types";
 
@@ -27,24 +26,13 @@ const LayoutStyled = styled.div`
 const SplashImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 65vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   z-index: -1000;
-
-  /* svg {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  } */
-
-  img {
-    object-fit: cover;
-    object-position: 50% 50%;
-  }
 `;
 
 const SearchBarWrapper = styled.div`
@@ -70,8 +58,13 @@ function Dashboard({ initialSearchBoxData, suggestedRooms }) {
         <SearchBar initialSearchBoxData={initialSearchBoxData} />
       </SearchBarWrapper>
       <SplashImageWrapper>
-        {/* <SplashImg /> */}
-        <img src="/splash_maze.svg" alt="" />
+        <Image
+          src="/splash_img/splash_maze_1.svg"
+          alt="Splash Maze"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="50% 50%"
+        />
       </SplashImageWrapper>
 
       <Container>
