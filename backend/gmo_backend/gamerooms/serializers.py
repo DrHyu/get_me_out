@@ -7,11 +7,11 @@ from rest_framework import serializers
 from gamerooms import models as gamerooms_models
 
 
-class GameRoomSerializer(serializers.ModelSerializer):
-    """The serializer for the game room model."""
+class CompanySerializer(serializers.ModelSerializer):
+    """The serializer for the company model."""
 
     class Meta:
-        model = gamerooms_models.GameRoom
+        model = gamerooms_models.GameCenter
         fields = '__all__'
 
 
@@ -23,11 +23,12 @@ class GameCenterSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CompanySerializer(serializers.ModelSerializer):
-    """The serializer for the company model."""
+class GameRoomSerializer(serializers.ModelSerializer):
+    """The serializer for the game room model."""
+    #game_center = GameCenterSerializer()
 
     class Meta:
-        model = gamerooms_models.GameCenter
+        model = gamerooms_models.GameRoom
         fields = '__all__'
 
 
@@ -35,9 +36,19 @@ class GameRoomVisitorRecomendationsSerializer(serializers.Serializer):
     country_id = serializers.IntegerField()
 
 
-class GameRoomRecomendationsSerializer(serializers.Serializer):
-    country_id = serializers.IntegerField()
+class GameRoomSmartSearchSerializer(serializers.Serializer):
+    #location_id = serializers.IntegerField(required=False)
+    #location_text = serializers.CharField(max_length=128, required=False)
+    num_players_min = serializers.IntegerField(required=False)
+    num_players_max = serializers.IntegerField(required=False)
 
+    rating_min = serializers.IntegerField(required=False)
+    rating_max = serializers.IntegerField(required=False)
 
-class GameRoomFilterSerializer(serializers.Serializer):
-    pass
+    latitude = serializers.FloatField(required=False)
+    longitude = serializers.FloatField(required=False)
+    max_dist_meters = serializers.IntegerField(required=False)
+
+    class Meta:
+        fields = ('num_players')
+
