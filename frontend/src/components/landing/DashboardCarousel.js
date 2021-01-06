@@ -7,7 +7,6 @@ function DashboardCarousel() {
 
   return (
     <div>
-      <h1>Helo !</h1>
       <Carousel>
         {carouselInfo.map((carousel) => (
           <Carousel.Item key={`${carousel.img}`}>

@@ -33,6 +33,8 @@ const SplashImageWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   z-index: -1000;
+
+  margin-bottom: 5vh;
 `;
 
 const SearchBarWrapper = styled.div`
@@ -75,9 +77,9 @@ function Dashboard({ initialSearchBoxData, suggestedRooms }) {
         </Row>
         <Row>
           <Col>
-            <Box title="Suggestions">
-              <RoomCabinet rooms={suggestedRooms.slice(0, 4)} />
-            </Box>
+            {/* <Box title="Suggestions"> */}
+            <RoomCabinet rooms={suggestedRooms.slice(0, 4)} />
+            {/* </Box> */}
           </Col>
         </Row>
       </Container>

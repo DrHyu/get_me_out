@@ -3,7 +3,7 @@ import {
   RANGE_FILTER,
   CHOICE_FILTER,
   MULT_CHOICE_FILTER,
-} from "../../components/search/Filters";
+} from "../../components/search/filters/";
 
 const INITIAL_STATE = {
   searchResults: [],
