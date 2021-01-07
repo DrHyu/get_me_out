@@ -1,19 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import RoomEntry from "../shared/RoomEntry";
 
-import { fetchData } from "../../store/search/actions";
-
 const SearchShowResults = () => {
-  const searchResults = useSelector((state) => state.search.searchResults);
-  const isValid = useSelector((state) => state.search.isValid);
-  const isFetching = useSelector((state) => state.search.isFetching);
-  const activeFitlers = useSelector((state) => state.search.activeFilters);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchData(activeFitlers));
-  }, [activeFitlers]);
+  const searchResults = [];
+  const isValid = false;
+  const isFetching = false;
 
   if (isFetching) {
     return (

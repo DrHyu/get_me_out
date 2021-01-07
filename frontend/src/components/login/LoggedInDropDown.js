@@ -2,13 +2,11 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 import { Dropdown, FormControl } from "react-bootstrap";
-import { useDispatch } from "react-redux";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import Image from "next/image";
 import PropTypes from "prop-types";
-import { logout } from "../../store/auth/actions";
 
 const TogglStyled = styled.div`
   display: flex;
@@ -104,15 +102,13 @@ CustomMenu.defaultProps = {
 };
 
 function LoggedInDropDown() {
-  const dispatch = useDispatch();
-
   return (
     <Dropdown drop="down" alignRight>
       <Dropdown.Toggle as={CustomToggle}> Hi! </Dropdown.Toggle>
 
       <Dropdown.Menu as={CustomMenu}>
         <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-        <Dropdown.Item href="#/action-2" onClick={() => dispatch(logout())}>
+        <Dropdown.Item href="#/action-2" onClick={() => ({})}>
           Logout
         </Dropdown.Item>
         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>

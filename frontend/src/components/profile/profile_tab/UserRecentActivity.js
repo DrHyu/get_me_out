@@ -1,18 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 import RecentActivityItem from "./RecentActivityItem";
 import Box from "../../shared/Box";
-import { fetchRoomSuggestions } from "../../../store/dashboard/actions";
 
 function UserRecentActivity() {
-  const roomSuggestions = useSelector(
-    (state) => state.dashboard.roomSuggestions
-  );
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchRoomSuggestions());
-  }, []);
+  const roomSuggestions = [];
 
   return (
     <Box title="Recent Activity">

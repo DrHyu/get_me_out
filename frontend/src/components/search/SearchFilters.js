@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
-import { updateFilterValue } from "../../store/search/actions";
 
 import BaseFilter, {
   RANGE_FILTER,
@@ -91,7 +89,6 @@ const filters = [
 
 function SearchFilterAll() {
   const activeFilters = filters;
-  const dispatch = useDispatch();
   /* Transform from filter descriptor to react component */
   return (
     <FilterWrapper>

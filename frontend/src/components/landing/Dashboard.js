@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+
 import { Container, Row, Col } from "react-bootstrap";
 
 import styled from "styled-components";
@@ -8,11 +8,7 @@ import SearchBar from "../searchBar/SearchBar";
 import DashboardCarousel from "./DashboardCarousel";
 import RoomCabinet from "../roomCabinet/RoomCabinet";
 
-import Box from "../shared/Box";
-
 import { searchBarData } from "../../types";
-
-import { fetchRoomSuggestions } from "../../store/dashboard/actions";
 
 const LayoutStyled = styled.div`
   position: relative;
@@ -45,15 +41,6 @@ const SearchBarWrapper = styled.div`
 `;
 
 function Dashboard({ initialSearchBoxData, suggestedRooms }) {
-  const roomSuggestions = useSelector(
-    (state) => state.dashboard.roomSuggestions
-  );
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchRoomSuggestions());
-  }, []);
-
   return (
     <LayoutStyled>
       <SearchBarWrapper>
@@ -77,9 +64,7 @@ function Dashboard({ initialSearchBoxData, suggestedRooms }) {
         </Row>
         <Row>
           <Col>
-            {/* <Box title="Suggestions"> */}
             <RoomCabinet rooms={suggestedRooms.slice(0, 4)} />
-            {/* </Box> */}
           </Col>
         </Row>
       </Container>
