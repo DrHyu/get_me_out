@@ -81,7 +81,7 @@ function LocationListItem({ renderprops, highlighted, item }) {
   );
 }
 
-function AutocompleteListItem(item, selected, highlighted, renderprops) {
+function SearchBarListItem(item, selected, highlighted, renderprops) {
   const props = {
     renderprops,
     highlighted,
@@ -124,4 +124,4 @@ LocationListItem.propTypes = {
   item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
 };
 
-export default AutocompleteListItem;
+export default SearchBarListItem;
