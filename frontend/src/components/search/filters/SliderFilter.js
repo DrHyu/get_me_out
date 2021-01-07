@@ -6,25 +6,6 @@ import Slider, { SliderTooltip, Handle } from "rc-slider";
 
 import "rc-slider/assets/index.css";
 
-// const { createSliderWithTooltip } = Slider;
-// const Range = createSliderWithTooltip(Slider.Range);
-// const { Handle } = Slider;
-
-const handle = (props) => {
-  const { value, dragging, index, ...restProps } = props;
-  return (
-    <SliderTooltip
-      prefixCls="rc-slider-tooltip"
-      overlay={`${value}`}
-      visible={dragging}
-      placement="top"
-      key={index}
-    >
-      <Handle value={value} {...restProps} />
-    </SliderTooltip>
-  );
-};
-
 const SliderFilterStyled = styled.div`
   padding: 8px 24px;
 
@@ -33,7 +14,7 @@ const SliderFilterStyled = styled.div`
 
   .title {
     font-size: 24px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     text-transform: capitalize;
   }
 
@@ -62,7 +43,24 @@ function SliderFilter({
   step,
   marks,
   onChangeCallback,
+  tooltipTemplate,
 }) {
+  const handle = (props) => {
+    // eslint-disable-next-line react/prop-types
+    const { value, dragging, index, ...restProps } = props;
+    return (
+      <SliderTooltip
+        prefixCls="rc-slider-tooltip"
+        overlay={tooltipTemplate(value)}
+        visible={dragging}
+        placement="top"
+        key={index}
+      >
+        <Handle value={value} {...restProps} />
+      </SliderTooltip>
+    );
+  };
+
   return (
     <SliderFilterStyled>
       <span className="title">{title}</span>
@@ -73,7 +71,7 @@ function SliderFilter({
         step={step}
         onChange={onChangeCallback}
         dots={step === undefined ? undefined : true}
-        handle={handle}
+        handle={tooltipTemplate ? handle : undefined}
       />
     </SliderFilterStyled>
   );
@@ -87,6 +85,7 @@ export const SliderFilterPropTypes = {
   step: PT.number,
   marks: PT.shape({}),
   onChangeCallback: PT.func.isRequired,
+  tooltipTemplate: PT.func,
 };
 
 SliderFilter.propTypes = SliderFilterPropTypes;
@@ -94,6 +93,7 @@ SliderFilter.defaultProps = {
   defaultValue: 0,
   step: undefined,
   marks: {},
+  tooltipTemplate: undefined,
 };
 
 export default SliderFilter;

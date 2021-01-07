@@ -12,7 +12,7 @@ const MultipleChoiceFilterStyled = styled.div`
 
   .title {
     font-size: 24px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     text-transform: capitalize;
   }
 
@@ -35,7 +35,7 @@ const MultipleChoiceFilterStyled = styled.div`
     }
     label {
       text-transform: capitalize;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 `;

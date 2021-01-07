@@ -1,29 +1,10 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
 import PT from "prop-types";
 import { Range, SliderTooltip, Handle } from "rc-slider";
 
 import "rc-slider/assets/index.css";
-
-// const { createSliderWithTooltip } = Slider;
-// const Range = createSliderWithTooltip(Slider.Range);
-// const { Handle } = Slider;
-
-const handle = (props) => {
-  const { value, dragging, index, ...restProps } = props;
-  return (
-    <SliderTooltip
-      prefixCls="rc-slider-tooltip"
-      overlay={`${value}`}
-      visible
-      placement="top"
-      key={index}
-    >
-      <Handle value={value} {...restProps} />
-    </SliderTooltip>
-  );
-};
 
 const RangeFilterStyled = styled.div`
   padding: ${({ extraPadding }) =>
@@ -34,7 +15,7 @@ const RangeFilterStyled = styled.div`
 
   .title {
     font-size: 24px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     text-transform: capitalize;
   }
   .rc-slider-handle:active {
@@ -62,10 +43,23 @@ function RangeFilter({
   step,
   marks,
   onChangeCallback,
+  tooltipTemplate,
 }) {
-  const themeContext = useContext(ThemeContext);
-
-  console.log("Current theme: ", themeContext);
+  const handle = (props) => {
+    // eslint-disable-next-line react/prop-types
+    const { value, dragging, index, ...restProps } = props;
+    return (
+      <SliderTooltip
+        prefixCls="rc-slider-tooltip"
+        overlay={tooltipTemplate(value)}
+        visible={dragging}
+        placement="top"
+        key={index}
+      >
+        <Handle value={value} {...restProps} />
+      </SliderTooltip>
+    );
+  };
 
   return (
     /* If 'marks' (anotations for evry point) are passed, 
@@ -79,7 +73,7 @@ function RangeFilter({
         step={step}
         onChange={onChangeCallback}
         dots={step === undefined ? undefined : true}
-        handle={marks === undefined ? handle : undefined}
+        handle={tooltipTemplate ? handle : undefined}
       />
     </RangeFilterStyled>
   );
@@ -93,6 +87,7 @@ export const RangeFilterPropTypes = {
   step: PT.number,
   marks: PT.shape({}),
   onChangeCallback: PT.func.isRequired,
+  tooltipTemplate: PT.func,
 };
 
 RangeFilter.propTypes = RangeFilterPropTypes;
@@ -100,6 +95,7 @@ RangeFilter.defaultProps = {
   defaultValue: 0,
   step: undefined,
   marks: {},
+  tooltipTemplate: undefined,
 };
 
 export default RangeFilter;

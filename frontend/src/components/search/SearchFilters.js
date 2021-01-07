@@ -32,13 +32,14 @@ const FilterSeparator = styled.div`
 
 const filters = [
   {
-    kind: SLIDER_FILTER,
-    title: "rating",
-    filterAttr: "rating",
+    kind: RANGE_FILTER,
+    title: "Price",
+    filterAttr: "price",
     id: 1,
     min: 0,
     max: 100,
     initialValue: 25,
+    tooltipTemplate: (val) => `${val} $`,
   },
   {
     kind: CHOICE_FILTER,
