@@ -1,59 +1,46 @@
 import styled from "styled-components";
-import PT from "prop-types";
+import dynamic from "next/dynamic";
 import Layout from "../src/components/layout/Layout";
-import RoomCabinet from "../src/components/roomCabinet/RoomCabinet";
-import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
-import { roomType } from "../src/types";
-import { fetchGamerooms } from "../src/server_side_api";
 
-import Torch from "../src/components/uifx/Torch";
+import cities from "../src/data/cities.json";
 
 const Wrapper = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-
   background-color: gray;
   width: 100%;
   height: 1000px;
 `;
 
-const HiddenElement = styled.div`
-  width: 30%;
-  height: 30%;
+const Index = () => {
+  const SearchMap = dynamic(
+    () => import("../src/components/searchMap/SearchMapLeaflet"),
+    {
+      ssr: false,
+    }
+  );
 
-  top: 0%;
-  left: 0%;
+  return (
+    <Layout>
+      <Wrapper>
+        <SearchMap markers={cities} />
+      </Wrapper>
+    </Layout>
+  );
+};
 
-  background-color: red;
+// Index.propTypes = { rooms: PT.arrayOf(roomType).isRequired };
 
-  .surpise {
-    font-size: 50px;
-  }
-`;
+// export async function getStaticProps() {
+//   const rooms = await fetchGamerooms();
 
-const Index = () => (
-  <Layout>
-    <Wrapper>
-      <Torch />
-    </Wrapper>
-  </Layout>
-);
+//   if (!rooms) {
+//     return {
+//       notFound: true,
+//     };
+//   }
 
-Index.propTypes = { rooms: PT.arrayOf(roomType).isRequired };
-
-export async function getStaticProps() {
-  const rooms = await fetchGamerooms();
-
-  if (!rooms) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { rooms }, // will be passed to the page component as props
-  };
-}
+//   return {
+//     props: { rooms }, // will be passed to the page component as props
+//   };
+// }
 
 export default Index;
