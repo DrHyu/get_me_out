@@ -1,35 +1,29 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import PT from "prop-types";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
+
 import styled from "styled-components";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 import "react-leaflet-markercluster/dist/styles.min.css";
 
-const StyledMarker = styled.button`
-  & {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  &:focus {
-    outline: none;
-  }
-`;
-
-const SearchMap = ({ markers, onMarkerSelected = null }) => {
+const SearchMap = ({ markers, onMarkerSelected }) => {
   const [viewport] = useState({
     center: [41.3825, 2.1769],
     zoom: 8,
   });
 
   return (
-    <MapContainer {...viewport} scrollWheelZoom>
+    <MapContainer
+      {...viewport}
+      scrollWheelZoom
+      style={{ height: "100%", width: "100%" }}
+    >
       <TileLayer
-        url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        subdomains={["a", "b", "c"]}
       />
       <MarkerClusterGroup showCoverageOnHover={false}>
         {markers.map((mark) => (
@@ -55,4 +49,17 @@ const SearchMap = ({ markers, onMarkerSelected = null }) => {
     </MapContainer>
   );
 };
+
+SearchMap.propTypes = {
+  markers: PT.arrayOf(PT.shape({ lat: PT.number, lng: PT.number })),
+  selectedMarker: PT.shape({ lat: PT.number, lng: PT.number }),
+  onMarkerSelected: PT.func,
+};
+
+SearchMap.defaultProps = {
+  markers: [],
+  selectedMarker: null,
+  onMarkerSelected: () => {},
+};
+
 export default SearchMap;
