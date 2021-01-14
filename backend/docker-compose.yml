@@ -13,13 +13,16 @@ services:
   backend_api:
     container_name: backend_api
     restart: always
-    build: backend/API/
+    build: API/
     ports:
       - 8080:8080
     depends_on:
       - geo_db
-  front:
-    container_name: web
-    build: frontend/
-    ports:
-      - 3000:3000
+#    depends_on:
+#      - db
+#  front:
+#    container_name: web
+#    build: frontend/
+#    ports:
+#      - 3000:3000
+
