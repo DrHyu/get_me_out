@@ -9,7 +9,7 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import "react-leaflet-markercluster/dist/styles.min.css";
 
-const SearchMap = ({ markers, onMarkerSelected }) => {
+const Map = ({ markers, onMarkerSelected, PopUpContent }) => {
   const [viewport] = useState({
     center: [41.3825, 2.1769],
     zoom: 8,
@@ -37,11 +37,7 @@ const SearchMap = ({ markers, onMarkerSelected }) => {
             }}
           >
             <Popup position={[Number(mark.lat), Number(mark.lng)]}>
-              <div>{`Name: ${mark.city}`}</div>
-              <div>{`Name: ${mark.iso2}`}</div>
-              <div>{`Name: ${mark.population}`}</div>
-              <div>{mark.iso2}</div>
-              <div>{mark.population}</div>
+              <PopUpContent {...mark} />
             </Popup>
           </Marker>
         ))}
@@ -50,16 +46,17 @@ const SearchMap = ({ markers, onMarkerSelected }) => {
   );
 };
 
-SearchMap.propTypes = {
+Map.propTypes = {
   markers: PT.arrayOf(PT.shape({ lat: PT.number, lng: PT.number })),
   selectedMarker: PT.shape({ lat: PT.number, lng: PT.number }),
   onMarkerSelected: PT.func,
+  PopUpContent: PT.node.isRequired,
 };
 
-SearchMap.defaultProps = {
+Map.defaultProps = {
   markers: [],
   selectedMarker: null,
   onMarkerSelected: () => {},
 };
 
-export default SearchMap;
+export default Map;

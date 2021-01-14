@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
+
+import PT from "prop-types";
+
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { GiPositionMarker } from "react-icons/gi";
 
 import styled from "styled-components";
+
+const iconWidth = "30px";
+const iconHeight = "30px";
 
 const StyledMarker = styled.button`
   & {
@@ -13,9 +19,25 @@ const StyledMarker = styled.button`
   &:focus {
     outline: none;
   }
+
+  svg {
+    width: ${iconWidth};
+    height: ${iconHeight};
+    /* Make sure the tip of the icon is centered on the spot */
+    transform: translate(-50%, -100%);
+  }
 `;
 
-function SearchMap({ markers }) {
+const StyledPopup = styled(Popup)`
+  transform: translate(0px, ${iconHeight});
+`;
+
+function Map({
+  markers,
+  selectedMarker = null,
+  onMarkerSelected,
+  PopUpContent,
+}) {
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
@@ -23,8 +45,6 @@ function SearchMap({ markers }) {
     longitude: 2.1769,
     zoom: 8,
   });
-
-  const [selectedMarker, setSelectedMarker] = useState(null);
 
   useEffect(() => {
     const listener = (e) => {
@@ -50,6 +70,8 @@ function SearchMap({ markers }) {
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
+      mapStyle="mapbox://styles/getmeout/ckjx70dwn1iga17pjw2pqwpyq"
+      onClick={() => onMarkerSelected(null)}
     >
       {markers.map((mark) => (
         <Marker
@@ -61,28 +83,40 @@ function SearchMap({ markers }) {
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              setSelectedMarker(mark);
+              onMarkerSelected(mark);
             }}
           >
-            <GiPositionMarker style={{ width: "30px", height: "30px" }} />
+            <GiPositionMarker />
           </StyledMarker>
         </Marker>
       ))}
 
       {selectedMarker && (
-        <Popup
+        <StyledPopup
           longitude={Number(selectedMarker.lng)}
           latitude={Number(selectedMarker.lat)}
+          closeButton
+          closeOnClick
+          onClose={() => onMarkerSelected(null)}
         >
-          <div>{`Name: ${selectedMarker.city}`}</div>
-          <div>{`Name: ${selectedMarker.iso2}`}</div>
-          <div>{`Name: ${selectedMarker.population}`}</div>
-          <div>{selectedMarker.iso2}</div>
-          <div>{selectedMarker.population}</div>
-        </Popup>
+          <PopUpContent {...selectedMarker} />
+        </StyledPopup>
       )}
     </ReactMapGL>
   );
 }
 
-export default SearchMap;
+Map.propTypes = {
+  markers: PT.arrayOf(PT.shape({ lat: PT.number, lng: PT.number })),
+  selectedMarker: PT.shape({ lat: PT.number, lng: PT.number }),
+  onMarkerSelected: PT.func,
+  PopUpContent: PT.node.isRequired,
+};
+
+Map.defaultProps = {
+  markers: [],
+  selectedMarker: null,
+  onMarkerSelected: () => {},
+};
+
+export default Map;
