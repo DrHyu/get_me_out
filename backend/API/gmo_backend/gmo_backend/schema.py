@@ -57,12 +57,12 @@ class Query(graphene.ObjectType):
 schema = graphene.Schema(query=Query)
 '''
 
-class GameCenterNode(graphql_geojson.GeoJSONType):
+class GameCenterNode(DjangoObjectType): #graphql_geojson.GeoJSONType
     class Meta:
         model = gamerooms_models.GameCenter
         filter_fields = ["center_id", "center_company", "center_description"]
         interfaces = (relay.Node, )
-        geojson_field = 'center_latlong'
+        #geojson_field = 'center_latlong'
 
 
 class GameRoomNode(DjangoObjectType):
