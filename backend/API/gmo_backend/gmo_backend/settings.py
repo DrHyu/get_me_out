@@ -55,12 +55,14 @@ REST_FRAMEWORK = {
     #),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication'
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
     ),
     "LOGIN_URL": "users/auth/",
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
+
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.FormParser',
@@ -117,9 +119,14 @@ WSGI_APPLICATION = 'gmo_backend.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite', #'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': { # django.contrib.gis.db.backends.postgis
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'postgis',
+        'USER': 'django',
+        'PASSWORD': 'yolo',
+        'HOST': 'geo_db',
+        'PORT': '5432',
+         #'ENGINE': 'django.contrib.gis.db.backends.spatialite', #'ENGINE': 'django.db.backends.sqlite3',
     }
 }
 

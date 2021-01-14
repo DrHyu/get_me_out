@@ -46,27 +46,32 @@ RUN wget http://download.osgeo.org/gdal/3.1.0/gdal-3.1.0.tar.gz && \
     ./configure && \
     make; make install; ldconfig; cd ..
 
-#RUN yum install -y libxml2-devel minizip minizip-devel
-#RUN wget https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0.tar.gz && \
-#    tar -xzf libspatialite-5.0.0.tar.gz && \
-#    cd libspatialite-5.0.0 && \
-#    ./configure --enable-freexl=no && \
-#    make; make install; ldconfig; cd ..
+RUN yum install -y libxml2-devel minizip minizip-devel
+
+
+RUN wget https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0.tar.gz && \
+    tar -xzf libspatialite-5.0.0.tar.gz && \
+    cd libspatialite-5.0.0 && \
+    ./configure --enable-freexl=no  && \
+    make; make install; ldconfig; cd ..
  # --enable-lwgeom=yes --enable-libxml2=yes
 
 WORKDIR /usr/src/app
+
 #RUN yum install -y python37 python37-dev
 #RUN yum install -y python3-devel
 #RUN gdalinfo --version
 
-#RUN python3 -m  pip install GDAL==$(gdal-config --version)
+
 
 # Copy project
-#COPY ./gmo_backend /usr/src/app
-
+COPY ./gmo_backend /usr/src/app
+RUN yum install -y python37 python37-dev python3-devel
+RUN amazon-linux-extras enable postgresql11; yum install -y postgresql postgresql-devel libpq-devel cairo-devel gobject-introspection-devel cairo-gobject-devel
+RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install GDAL==$(gdal-config --version)
 # Set work directory
 
-RUN python3 -m pip install -r requirements.txt
 
 
 

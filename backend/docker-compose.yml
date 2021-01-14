@@ -1,21 +1,28 @@
 version: '3'
 
 services:
-# db:
-#   image: postgres
-#    environment:
-#      - POSTGRES_DB=postgres
-#      - POSTGRES_USER=admin
-#      - POSTGRES_PASSWORD=yolo
+  geo_db:
+    image: postgis/postgis:11-3.1
+    restart: always
+    environment:
+      POSTGRES_DB: postgis
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: yolo
+    ports:
+      - 5432:5432
   backend_api:
     container_name: backend_api
-    build: backend/
+    restart: always
+    build: API/
     ports:
       - 8080:8080
+    depends_on:
+      - geo_db
 #    depends_on:
 #      - db
-  front:
-    container_name: web
-    build: frontend/
-    ports:
-      - 3000:3000
+#  front:
+#    container_name: web
+#    build: frontend/
+#    ports:
+#      - 3000:3000
+

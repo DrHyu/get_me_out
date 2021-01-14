@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.gis.db.models import PointField
 from django.contrib.gis.geos import Point
 #from django.contrib.auth.models import User
-from users.models import User
+#from users.models import User
 # Create your models here.
 
 class Location (models.Model):
@@ -13,10 +13,7 @@ class Location (models.Model):
     location_parent = models.ForeignKey("self", help_text="Direct parent of the category.", on_delete=models.PROTECT,
                                         blank=True, null=True)
 
-    #latitude = models.FloatField(help_text="Latitude of the Location (Float).", default=43.263630)
-    #longitude = models.FloatField(help_text="Longitude of the Location (Float).", default=-2.928082)
-
-    location_latlong = PointField(srid=3857, geography=True, help_text="Latitude and LOngitude of the Location (Float).",
+    location_latlong = PointField(srid=4326, geography=True, help_text="Latitude and LOngitude of the Location (Float).",
                                   default=Point(43.263630, -2.928082))
 
 
@@ -40,7 +37,7 @@ class GameCenter (models.Model):
                                    help_text="Description of the GameCenter.")
     center_location = models.CharField(max_length=256, blank=False, null=False, default="",
                                        help_text="Location of the GameCenter.")
-    center_latlong = PointField(srid=3857, geography=True, help_text="Latitude and Longitude of the Location (Float).",
+    center_latlong = PointField(srid=4326, geography=True, help_text="Latitude and Longitude of the Location (Float).",
                                 default=Point(43.263630, -2.928082))
 
 

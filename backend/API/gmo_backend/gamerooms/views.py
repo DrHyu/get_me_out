@@ -176,7 +176,7 @@ class GameRoomSmartSearchView(APIView):
                 game_rooms = game_rooms.filter(room_rating__gte=serializer.validated_data['rating_max'])
 
             if lat_present:
-                query_latlong = Point(serializer.validated_data['latitude'], serializer.validated_data['longitude'], srid=3857)
+                query_latlong = Point(serializer.validated_data['latitude'], serializer.validated_data['longitude'])
                 #game_rooms = game_rooms.annotate(distance=GeometryDistance('center_latlong', query_latlong))
                 game_rooms = game_rooms.filter(center_latlong__distance_lt=(query_latlong, Distance(km=5)))
 
