@@ -5,6 +5,8 @@ import graphene
 from graphene import relay, AbstractType, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
+import graphql_geojson
+
 # Project Imports
 from gamerooms import models as gamerooms_models
 
@@ -55,20 +57,21 @@ class Query(graphene.ObjectType):
 schema = graphene.Schema(query=Query)
 '''
 
-
-class GameCenterNode(DjangoObjectType):
+class GameCenterNode(DjangoObjectType): #graphql_geojson.GeoJSONType
     class Meta:
         model = gamerooms_models.GameCenter
-        filter_fields = ["center_id", "company", "description", "location"]
+        filter_fields = ["center_id", "center_company", "center_description"]
         interfaces = (relay.Node, )
+        #geojson_field = 'center_latlong'
 
 
 class GameRoomNode(DjangoObjectType):
     class Meta:
         # Assume you have an Animal model defined with the following fields
         model = gamerooms_models.GameRoom
-        filter_fields = ["game_room_id", "name", "description", "img", "rating", "game_center"]
+        filter_fields = ["room_id", "room_name", "room_description", "room_img", "room_rating", "room_game_center"]
         interfaces = (relay.Node, )
+
 
 
 class Query(ObjectType):
