@@ -55,11 +55,6 @@ ipython-genutils==0.2.0
 jedi==0.17.2
 json5==0.9.5
 jsonschema==3.2.0
-jupyter-client==6.1.7
-jupyter-core==4.6.3
-jupyterlab==2.2.9
-jupyterlab-pygments==0.1.2
-jupyterlab-server==1.2.0
 keyring==18.0.1
 launchpadlib==1.10.13
 lazr.restfulclient==0.14.2

@@ -4,8 +4,7 @@
     "fields": {
       "center_id": 1,
       "center_company": 1,
-      "center_description": "Yolo center",
-      "center_location": "Plaza A"
+      "center_description": "Yolo center"
     }
   }
 ]
