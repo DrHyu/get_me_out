@@ -3,41 +3,48 @@ from django.contrib.gis.db.models import PointField
 from django.contrib.gis.geos import Point
 #from django.contrib.auth.models import User
 #from users.models import User
-# Create your models here.
 
-class Location (models.Model):
-    """Describes a Location."""
-    location_name = models.CharField(max_length=128, blank=False, null=False, default="",
-                                     help_text="Name of the Company.")
 
-    location_parent = models.ForeignKey("self", help_text="Direct parent of the category.", on_delete=models.PROTECT,
-                                        blank=True, null=True)
+class Country (models.Model):
+    """Describes a Country."""
+    company_id = models.AutoField(primary_key=True, help_text="Identifier of the Country (Integer).")
+    country_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Country.")
 
-    location_latlong = PointField(srid=4326, geography=True, help_text="Latitude and LOngitude of the Location (Float).",
-                                  default=Point(43.263630, -2.928082))
+
+class State (models.Model):
+    """Describes a State."""
+    state_id = models.AutoField(primary_key=True, help_text="Identifier of the State (Integer).")
+    state_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the State.")
+    state_country = models.ForeignKey(Country, on_delete=models.PROTECT)
+
+
+class City (models.Model):
+    """Describes a City."""
+    city_id = models.AutoField(primary_key=True, help_text="Identifier of the City (Integer).")
+    city_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the City.")
+    city_country = models.ForeignKey(Country, on_delete=models.PROTECT)
+    city_state = models.ForeignKey(State, on_delete=models.PROTECT)
+    city_latlong = PointField(srid=4326, geography=True, help_text="Latitude and Longitude of the City.",
+                              default=Point(43.263630, -2.928082))
 
 
 class Company (models.Model):
     """Describes a Company."""
-    company_id = models.PositiveIntegerField(primary_key=True,
-                                             help_text="Identifier of the Company (Integer).")
-    company_name = models.CharField(max_length=128, blank=False, null=False, default="",
-                            help_text="Name of the Company.")
+    company_id = models.AutoField(primary_key=True, help_text="Identifier of the Company (Integer).")
+    company_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Company.")
     company_description = models.CharField(max_length=256, blank=True, default="",
-                                   help_text="Description of the Company.")
-    company_telephone = models.CharField(max_length=17, blank=True)
+                                           help_text="Description of the Company.")
+    company_telephone = models.CharField(max_length=17, blank=True) #REVISE
 
 
 class GameCenter (models.Model):
     """Describes a GameCenter."""
-    center_id = models.PositiveIntegerField(primary_key=True,
-                                            help_text="Identifier of the GameRoom (Integer).")
-    center_company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    center_id = models.AutoField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
+    center_company = models.ForeignKey(Company, on_delete=models.PROTECT)
     center_description = models.CharField(max_length=256, blank=False, null=False, default="",
-                                   help_text="Description of the GameCenter.")
-    center_location = models.CharField(max_length=256, blank=False, null=False, default="",
-                                       help_text="Location of the GameCenter.")
-    center_latlong = PointField(srid=4326, geography=True, help_text="Latitude and Longitude of the Location (Float).",
+                                          help_text="Description of the GameCenter.")
+    center_city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
+    center_latlong = PointField(srid=4326, geography=True, help_text="Latitude and Longitude of the GameCenter (Float).",
                                 default=Point(43.263630, -2.928082))
 
 
@@ -46,18 +53,18 @@ class Category (models.Model):
     category_name = models.CharField(max_length=128, blank=False, null=False, default="",
                                      help_text="Name of the Category.")
 
+
 class GameRoom (models.Model):
     """Describes a GameRoom."""
-    room_id = models.PositiveIntegerField(primary_key=True,
-                                          help_text="Identifier of the GameRoom (Integer).")
+    room_id = models.PositiveIntegerField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
     room_name = models.CharField(max_length=128, blank=False, null=False, default="",
                             help_text="Name of the GameRoom.")
     room_description = models.CharField(max_length=256, blank=False, null=False, default="",
                                    help_text="Description of the GameRoom.")
     room_img = models.URLField(max_length=200)
     room_rating = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).", default=5)
-    room_open = models.BooleanField(default=True, help_text="Rating of the GameRoom (Integer).")
-    room_game_center = models.ForeignKey(GameCenter, on_delete=models.CASCADE)
+    #room_open = models.BooleanField(default=True, help_text="Rating of the GameRoom (Integer).")
+    room_game_center = models.ForeignKey(GameCenter, on_delete=models.PROTECT)
     room_min_players = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).", default=1)
     room_max_players = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).", default=6)
     related_categories = models.ManyToManyField(Category, through='GameRoomCategory')
