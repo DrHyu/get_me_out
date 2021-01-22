@@ -1,0 +1,9 @@
+[
+  {
+    "model": "gamerooms.Country",
+    "fields": {
+      "country_id": 1,
+      "country_name": "España"
+    }
+  }
+]

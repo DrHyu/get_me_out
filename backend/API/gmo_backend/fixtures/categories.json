@@ -1,0 +1,9 @@
+[
+  {
+    "model": "gamerooms.Category",
+    "fields": {
+      "category_id": 1,
+      "category_name": "Terror"
+    }
+  }
+]

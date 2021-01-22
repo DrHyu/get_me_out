@@ -11,6 +11,13 @@
         }
     },
     {
+        "model": "gamerooms.GameRoomCategory",
+        "fields": {
+            "gameroom": 0,
+            "category": 1
+        }
+    },
+    {
         "model": "gamerooms.GameRoom",
         "fields": {
             "room_id": 1,
