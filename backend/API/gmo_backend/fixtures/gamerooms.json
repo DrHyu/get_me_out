@@ -2,11 +2,11 @@
     {
         "model": "gamerooms.GameRoom",
         "fields": {
-            "room_id": 0,
+            "room_id": 3,
             "room_img": "/media/room_2236.jpg",
             "room_name": "HOTEL OVERLOOK",
             "room_description": "Very fun escape room.",
-            "room_rating": 5,
+            "room_rating": 8,
             "room_game_center": 1
         }
     },
@@ -61,7 +61,7 @@
             "room_name": "LA NAVE DEL CIENT\u00cdFICO LOCO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
-            "room_game_center": 1
+            "room_game_center": 2
         }
     },
     {
@@ -72,7 +72,7 @@
             "room_name": "NAVE ULYSSES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
-            "room_game_center": 1
+            "room_game_center": 2
         }
     },
     {
@@ -83,7 +83,7 @@
             "room_name": "LA MAZMORRA: LA \u00daLTIMA PARTIDA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
-            "room_game_center": 1
+            "room_game_center": 2
         }
     },
     {
