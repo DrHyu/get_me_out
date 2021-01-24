@@ -2,30 +2,12 @@
     {
         "model": "gamerooms.GameRoom",
         "fields": {
-            "room_id": 3,
+            "room_id": 1,
             "room_img": "/media/room_2236.jpg",
             "room_name": "HOTEL OVERLOOK",
             "room_description": "Very fun escape room.",
             "room_rating": 8,
             "room_game_center": 1
-        }
-    },
-    {
-        "model": "gamerooms.GameRoomCategory",
-        "fields": {
-            "gameroom": 0,
-            "category": 1
-        }
-    },
-    {
-        "model": "gamerooms.GameRoom",
-        "fields": {
-            "room_id": 1,
-            "room_img": "/media/room_1123.jpg",
-            "room_name": "ATRINCHERADOS",
-            "room_description": "Very fun escape room.",
-            "room_rating": 5,
-            "room_game_center": 2
         }
     },
     {
@@ -39,6 +21,24 @@
         "model": "gamerooms.GameRoom",
         "fields": {
             "room_id": 2,
+            "room_img": "/media/room_1123.jpg",
+            "room_name": "ATRINCHERADOS",
+            "room_description": "Very fun escape room.",
+            "room_rating": 5,
+            "room_game_center": 2
+        }
+    },
+    {
+        "model": "gamerooms.GameRoomCategory",
+        "fields": {
+            "gameroom": 2,
+            "category": 1
+        }
+    },
+    {
+        "model": "gamerooms.GameRoom",
+        "fields": {
+            "room_id": 3,
             "room_img": "/media/room_758.jpg",
             "room_name": "CATACUMBAS (EN BUSCA DE LA PIEDRA ALQU\u00cdMICA)",
             "room_description": "Very fun escape room.",
@@ -49,7 +49,7 @@
     {
         "model": "gamerooms.GameRoomCategory",
         "fields": {
-            "gameroom": 2,
+            "gameroom": 3,
             "category": 1
         }
     },
