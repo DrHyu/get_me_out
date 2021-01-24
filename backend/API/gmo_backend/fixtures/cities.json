@@ -1,0 +1,12 @@
+[
+  {
+    "model": "gamerooms.City",
+    "fields": {
+      "city_id": 1,
+      "city_country": 1,
+      "city_state": 1,
+      "city_name": "Barcelona",
+      "city_latlong": "POINT (43.263630 -2.928082)"
+    }
+  }
+]

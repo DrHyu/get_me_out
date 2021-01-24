@@ -37,17 +37,18 @@ class GameRoomVisitorRecomendationsSerializer(serializers.Serializer):
 
 
 class GameRoomSmartSearchSerializer(serializers.Serializer):
-    #location_id = serializers.IntegerField(required=False)
-    #location_text = serializers.CharField(max_length=128, required=False)
+    country_id = serializers.IntegerField(required=False)
+    state_id = serializers.IntegerField(required=False)
+    city_id = serializers.IntegerField(required=False)
     num_players_min = serializers.IntegerField(required=False)
     num_players_max = serializers.IntegerField(required=False)
 
     rating_min = serializers.IntegerField(required=False)
     rating_max = serializers.IntegerField(required=False)
 
-    latitude = serializers.FloatField(required=False)
-    longitude = serializers.FloatField(required=False)
-    max_dist_meters = serializers.IntegerField(required=False)
+    #latitude = serializers.FloatField(required=False)
+    #longitude = serializers.FloatField(required=False)
+    #max_dist_meters = serializers.IntegerField(required=False)
 
     class Meta:
         fields = ('num_players')

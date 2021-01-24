@@ -7,7 +7,7 @@ from django.contrib.gis.geos import Point
 
 class Country (models.Model):
     """Describes a Country."""
-    company_id = models.AutoField(primary_key=True, help_text="Identifier of the Country (Integer).")
+    country_id = models.AutoField(primary_key=True, help_text="Identifier of the Country (Integer).")
     country_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Country.")
 
 
