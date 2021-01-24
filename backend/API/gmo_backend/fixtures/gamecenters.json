@@ -4,7 +4,17 @@
     "fields": {
       "center_id": 1,
       "center_company": 1,
-      "center_description": "Yolo center"
+      "center_description": "Yolo center",
+      "center_city": 1
+    }
+  },
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 2,
+      "center_company": 1,
+      "center_description": "Rolf center",
+      "center_city": 1
     }
   }
 ]

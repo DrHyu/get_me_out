@@ -11,6 +11,13 @@
         }
     },
     {
+        "model": "gamerooms.GameRoomCategory",
+        "fields": {
+            "gameroom": 0,
+            "category": 1
+        }
+    },
+    {
         "model": "gamerooms.GameRoom",
         "fields": {
             "room_id": 1,
@@ -18,7 +25,14 @@
             "room_name": "ATRINCHERADOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
-            "room_game_center": 1
+            "room_game_center": 2
+        }
+    },
+    {
+        "model": "gamerooms.GameRoomCategory",
+        "fields": {
+            "gameroom": 1,
+            "category": 1
         }
     },
     {
@@ -29,7 +43,14 @@
             "room_name": "CATACUMBAS (EN BUSCA DE LA PIEDRA ALQU\u00cdMICA)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
-            "room_game_center": 1
+            "room_game_center": 2
+        }
+    },
+    {
+        "model": "gamerooms.GameRoomCategory",
+        "fields": {
+            "gameroom": 2,
+            "category": 1
         }
     },
     {

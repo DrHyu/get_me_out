@@ -150,22 +150,30 @@ class GameRoomSmartSearchView(APIView):
     def post(self, request, format=None):
         serializer = gamerooms_serializers.GameRoomSmartSearchSerializer(data=request.data, partial=True )
         if serializer.is_valid():
-            # Verify Extra Input Errors
-            lat_present = 'latitude' in serializer.validated_data
-            long_present = 'longitude' in serializer.validated_data
-            lat_long_pair_missmatch = (lat_present and not long_present) or (not lat_present and long_present)
-
-            if lat_long_pair_missmatch:
-                raise Http404
 
             # Smart Search
             game_rooms = gamerooms_models.GameRoom.objects.select_related('room_game_center')
-            game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
-                                           'room_max_players', 'room_game_center__center_latlong'
-                                           ).annotate(
-                                            center_latlong=F('room_game_center__center_latlong')
-                                           )
+            #game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
+            #                               'room_max_players', 'room_game_center__center_latlong'
+            #                               ).annotate(
+            #                                center_latlong=F('room_game_center__center_latlong')
+            #                               )
 
+            game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
+                                           'room_max_players', 'room_game_center__center_city__city_country',
+                                           'room_game_center__center_city__city_state',
+                                           'room_game_center__center_city__city_id').annotate(
+                                                country_id=F('room_game_center__center_city__city_country'),
+                                                state_id=F('room_game_center__center_city__city_state'),
+                                                city_id=F('room_game_center__center_city__city_id')
+                                            )
+
+            if 'country_id' in serializer.validated_data:
+                game_rooms = game_rooms.filter(country_id=serializer.validated_data['country_id'])
+            if 'state_id' in serializer.validated_data:
+                game_rooms = game_rooms.filter(state_id=serializer.validated_data['state_id'])
+            if 'city_id' in serializer.validated_data:
+                game_rooms = game_rooms.filter(city_id=serializer.validated_data['city_id'])
             if 'num_players_min' in serializer.validated_data:
                 game_rooms = game_rooms.filter(room_min_players__lte=serializer.validated_data['num_players_min'])
             if 'num_players_max' in serializer.validated_data:
@@ -175,10 +183,10 @@ class GameRoomSmartSearchView(APIView):
             if 'rating_max' in serializer.validated_data:
                 game_rooms = game_rooms.filter(room_rating__gte=serializer.validated_data['rating_max'])
 
-            if lat_present:
-                query_latlong = Point(serializer.validated_data['latitude'], serializer.validated_data['longitude'])
-                #game_rooms = game_rooms.annotate(distance=GeometryDistance('center_latlong', query_latlong))
-                game_rooms = game_rooms.filter(center_latlong__distance_lt=(query_latlong, Distance(km=5)))
+            #if lat_present:
+            #    query_latlong = Point(serializer.validated_data['latitude'], serializer.validated_data['longitude'])
+            #    game_rooms = game_rooms.annotate(distance=GeometryDistance('center_latlong', query_latlong))
+            #    game_rooms = game_rooms.filter(center_latlong__distance_lt=(query_latlong, Distance(km=5)))
 
             #    max_dist = max(5000, serializer.validated_data['max_dist_meters'])
             #    print("IN GEOLOC 3")

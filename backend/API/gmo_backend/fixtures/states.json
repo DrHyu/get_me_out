@@ -1,0 +1,10 @@
+[
+  {
+    "model": "gamerooms.State",
+    "fields": {
+      "state_id": 1,
+      "state_country": 1,
+      "state_name": "España"
+    }
+  }
+]
