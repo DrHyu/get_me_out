@@ -153,11 +153,6 @@ class GameRoomSmartSearchView(APIView):
 
             # Smart Search
             game_rooms = gamerooms_models.GameRoom.objects.select_related('room_game_center')
-            #game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
-            #                               'room_max_players', 'room_game_center__center_latlong'
-            #                               ).annotate(
-            #                                center_latlong=F('room_game_center__center_latlong')
-            #                               )
 
             game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
                                            'room_max_players', 'room_game_center__center_city__city_country',

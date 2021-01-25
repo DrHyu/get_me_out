@@ -4,8 +4,9 @@
     "fields": {
       "center_id": 1,
       "center_company": 1,
-      "center_description": "Yolo center",
-      "center_city": 1
+      "center_description": "Centro Misterio MACRO",
+      "center_city": 1,
+      "center_latlong": "POINT (42.263630 -2.528082)"
     }
   },
   {
@@ -13,8 +14,52 @@
     "fields": {
       "center_id": 2,
       "center_company": 1,
-      "center_description": "Rolf center",
-      "center_city": 1
+      "center_description": "Centro Misterio 1",
+      "center_city": 1,
+      "center_latlong": "POINT (41.263630 -2.328082)"
+    }
+  },
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 3,
+      "center_company": 1,
+      "center_description": "Centro Misterio 2",
+      "center_city": 1,
+      "center_latlong": "POINT (43.263630 -2.328082)"
+    }
+  },
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 4,
+      "center_company": 1,
+      "center_description": "Centro Misterio 3",
+      "center_city": 1,
+      "center_latlong": "POINT (42.463630 -2.728082)"
+    }
+  },
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 5,
+      "center_company": 1,
+      "center_description": "Centro Sagrada Familia",
+      "center_city": 1,
+      "center_latlong": "POINT (43.263630 -2.928082)"
+    }
+  }
+  ,
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 6,
+      "center_company": 1,
+      "center_description": "Maximum Escape 2",
+      "center_city": 1,
+      "center_latlong": "POINT (41.3891604 2.1752644)"
     }
   }
 ]
+
+

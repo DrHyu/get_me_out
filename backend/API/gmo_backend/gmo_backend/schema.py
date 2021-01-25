@@ -61,7 +61,7 @@ schema = graphene.Schema(query=Query)
 class CountryNode(DjangoObjectType):
     class Meta:
         model = gamerooms_models.Country
-        filter_fields = ["company_id", "country_name"]
+        filter_fields = ["country_id", "country_name"]
         interfaces = (relay.Node, )
 
 
