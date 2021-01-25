@@ -89,16 +89,16 @@ function SearchBarListItem(item, selected, highlighted, renderprops) {
     key: renderprops.key,
   };
 
-  switch (item.category) {
-    case "SEPARATOR":
-      return <SeparatorListItem {...props} />;
-    case "ROOM":
-      return <RoomListItem {...props} />;
-    case "LOCATION":
-      return <LocationListItem {...props} />;
-    default:
-      return <li {...props}>{item.name}</li>;
+  if (item.isSeparator) {
+    return <SeparatorListItem {...props} />;
   }
+  if (item.isRoomScape) {
+    return <RoomListItem {...props} />;
+  }
+  if (item.isLocation) {
+    return <LocationListItem {...props} />;
+  }
+  return <li {...props}>{item.name}</li>;
 }
 
 const separatorType = PropTypes.shape({

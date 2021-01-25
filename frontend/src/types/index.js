@@ -12,19 +12,15 @@ import {
 } from "prop-types";
 
 export const roomType = shape({
-  id: oneOfType([string, number]).isRequired,
-  name: string.isRequired,
-  img: string,
-  rating: number,
-  terror_rating: number,
-  description: string,
-  location: string,
-  owner: string,
+  roomId: oneOfType([string, number]).isRequired,
+  roomName: string.isRequired,
+  roomImg: string,
+  roomRating: number,
+  roomDescription: string,
 });
 
 export const searchBarData = arrayOf(
   shape({
-    groupName: string,
     category: string,
     data: arrayOf(roomType),
   })

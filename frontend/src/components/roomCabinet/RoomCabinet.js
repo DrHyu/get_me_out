@@ -291,15 +291,14 @@ const RoomNumbersGroup = styled.div`
 
 const RoomCabinet = ({ rooms }) => {
   const [selectedRoom, setselectedRoom] = useState(0);
-
   return (
-    <Wrapper bgImgUrl={rooms[selectedRoom].img}>
+    <Wrapper bgImgUrl={rooms[selectedRoom].roomImg}>
       <RoomHintsOverflowWrapper>
         <RoomHintsContainer>
           {rooms.map((room, idx) => (
-            <RoomHint key={room.id}>
+            <RoomHint key={room.roomId}>
               <ProgressRing
-                key={room.id}
+                key={room.roomId}
                 radius={48}
                 stroke={4}
                 timerDuration={10000}
@@ -312,7 +311,7 @@ const RoomCabinet = ({ rooms }) => {
                 }
               >
                 <RoomHintImgWrapper>
-                  <img src={room.img} alt="" />
+                  <img src={room.roomImg} alt="" />
                 </RoomHintImgWrapper>
               </ProgressRing>
               {/* <RoomHintAbstract>
@@ -333,12 +332,10 @@ const RoomCabinet = ({ rooms }) => {
         <div className="bg-div-static" />
       </RoomSCBgImage>
       <RoomSCArea>
-        <RoomSCTitle>{rooms[selectedRoom].name}</RoomSCTitle>
+        <RoomSCTitle>{rooms[selectedRoom].roomName}</RoomSCTitle>
         <RoomSCBy>My Mom</RoomSCBy>
         <RoomSCDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et neque
-          necessitatibus facilis provident exercitationem aliquid vel eum
-          ducimus minima impedit?
+          {rooms[selectedRoom].roomDescription}
         </RoomSCDescription>
       </RoomSCArea>
       <RoomSCNumbers>

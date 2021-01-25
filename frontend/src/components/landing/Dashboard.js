@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
 
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -8,7 +9,11 @@ import SearchBar from "../searchBar/SearchBar";
 import DashboardCarousel from "./DashboardCarousel";
 import RoomCabinet from "../roomCabinet/RoomCabinet";
 
-import { searchBarData } from "../../types";
+import {
+  allRoomLocationsQuery,
+  allRoomNamesQuery,
+  suggestedRoomsQuery,
+} from "../../lib/apollo/queries";
 
 const LayoutStyled = styled.div`
   position: relative;
@@ -40,11 +45,31 @@ const SearchBarWrapper = styled.div`
   right: 0px;
 `;
 
-function Dashboard({ initialSearchBoxData, suggestedRooms }) {
+function Dashboard() {
+  const { data: suggestedRooms, loading: suggestedRoomsLoading } = useQuery(
+    suggestedRoomsQuery
+  );
+  const { data: roomLocations } = useQuery(allRoomLocationsQuery);
+  const { data: roomNames } = useQuery(allRoomNamesQuery);
+
   return (
     <LayoutStyled>
       <SearchBarWrapper>
-        <SearchBar initialSearchBoxData={initialSearchBoxData} />
+        <SearchBar
+          categories={[
+            {
+              name: "Room Escapes",
+              data: roomNames.gameRooms.edges.map((edge) => ({
+                name: edge.node.roomName,
+                id: edge.node.roomId,
+              })),
+            },
+            {
+              name: "Locations",
+              data: roomLocations.cities.edges,
+            },
+          ]}
+        />
       </SearchBarWrapper>
       <SplashImageWrapper>
         <Image
@@ -64,7 +89,11 @@ function Dashboard({ initialSearchBoxData, suggestedRooms }) {
         </Row>
         <Row>
           <Col>
-            <RoomCabinet rooms={suggestedRooms.slice(0, 4)} />
+            {!suggestedRoomsLoading && (
+              <RoomCabinet
+                rooms={suggestedRooms.gameRooms.edges.map((edge) => edge.node)}
+              />
+            )}
           </Col>
         </Row>
       </Container>
@@ -72,7 +101,7 @@ function Dashboard({ initialSearchBoxData, suggestedRooms }) {
   );
 }
 
-Dashboard.propTypes = { initialSearchBoxData: searchBarData.isRequired };
+Dashboard.propTypes = {};
 Dashboard.defaultProps = {};
 
 export default Dashboard;
