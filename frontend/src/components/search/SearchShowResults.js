@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { roomType } from "../../types";
 import RoomEntry from "../shared/RoomEntry";
 
-const SearchShowResults = () => {
-  const searchResults = [];
-  const isValid = false;
-  const isFetching = false;
-
+const SearchShowResults = ({ isFetching, searchResults }) => {
   if (isFetching) {
     return (
       <div className="spinner-border" role="status">
@@ -13,16 +10,14 @@ const SearchShowResults = () => {
       </div>
     );
   }
-  if (isValid) {
-    return (
-      <div>
-        {searchResults.map((result) => (
-          <RoomEntry room={result} key={result.id} />
-        ))}
-      </div>
-    );
-  }
-  return <div>Invalid</div>;
+  return (
+    <div>
+      {searchResults.map((result) => (
+        // <RoomEntry room={result} key={result.id} />
+        <div key={result.room_id}>{result.room_name}</div>
+      ))}
+    </div>
+  );
 };
 
 export default SearchShowResults;

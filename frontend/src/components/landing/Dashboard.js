@@ -66,7 +66,10 @@ function Dashboard() {
             },
             {
               name: "Locations",
-              data: roomLocations.cities.edges,
+              data: roomLocations.cities.edges.map((edge) => ({
+                name: edge.node.cityName,
+                id: edge.node.cityId,
+              })),
             },
           ]}
         />

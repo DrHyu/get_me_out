@@ -410,7 +410,14 @@ const SearchBar = ({ categories }) => {
             onClick={(e) => {
               e.preventDefault();
               if (ds.selectedItem) {
-                Router.push(`/room/${ds.selectedItem.id}`);
+                if (ds.selectedItem.isLocation) {
+                  Router.push({
+                    pathname: `/search`,
+                    query: { city: ds.selectedItem.name, date: startDate },
+                  });
+                } else if (ds.selectedItem.isRoomScape) {
+                  Router.push(`/room/${ds.selectedItem.id}`);
+                }
               }
             }}
           >

@@ -6,6 +6,7 @@ export const allRoomLocationsQuery = gql`
       edges {
         node {
           cityName
+          cityId
         }
       }
     }
@@ -41,6 +42,31 @@ export const suggestedRoomsQuery = gql`
   }
 `;
 
+export const roomCategoriesQuery = gql`
+  query {
+    categories {
+      edges {
+        node {
+          categoryName
+          categoryId
+        }
+      }
+    }
+  }
+`;
+
+export const listOfCitiesQuery = gql`
+  {
+    cities {
+      edges {
+        node {
+          cityId
+          cityName
+        }
+      }
+    }
+  }
+`;
 export default {
   allRoomLocationsQuery,
   allRoomNamesQuery,
