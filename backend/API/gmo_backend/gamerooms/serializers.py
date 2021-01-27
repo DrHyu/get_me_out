@@ -42,9 +42,13 @@ class GameRoomSmartSearchSerializer(serializers.Serializer):
     city_id = serializers.IntegerField(required=False)
     num_players_min = serializers.IntegerField(required=False)
     num_players_max = serializers.IntegerField(required=False)
+    rating_min = serializers.FloatField(required=False)
+    rating_max = serializers.FloatField(required=False)
 
-    rating_min = serializers.IntegerField(required=False)
-    rating_max = serializers.IntegerField(required=False)
+    difficulty_levels = serializers.ListField(required=False, min_length=1)
+    categories = serializers.ListField(required=False, min_length=1)
+    price_min = serializers.FloatField(required=False)
+    price_max = serializers.FloatField(required=False)
 
     #latitude = serializers.FloatField(required=False)
     #longitude = serializers.FloatField(required=False)
