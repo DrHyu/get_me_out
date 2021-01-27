@@ -1,26 +1,18 @@
 /* eslint-disable react/prop-types */
-import { Provider } from "react-redux";
-import { persistStore } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
+import { ApolloProvider } from "@apollo/client";
 import { ThemeProvider } from "styled-components";
-import { useStore } from "../src/store/store";
+import { useApollo } from "../src/lib/apollo/apolloClient";
 
 import theme from "../src/utils/theme";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App({ Component, pageProps }) {
-  const store = useStore(pageProps.initialReduxState);
-  const persistor = persistStore(store, {}, () => {
-    persistor.persist();
-  });
-
+  const apolloClient = useApollo(pageProps);
   return (
-    <Provider store={store}>
-      <PersistGate loading={<div>loading</div>} persistor={persistor}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }

@@ -1,54 +1,46 @@
 import PT from "prop-types";
 import styled from "styled-components";
+
 import Layout from "../src/components/layout/Layout";
 import Dashboard from "../src/components/landing/Dashboard";
 
-import { searchBarData, roomType } from "../src/types";
+import {
+  initializeApollo,
+  addApolloState,
+} from "../src/lib/apollo/apolloClient";
 
-import { fetchSuggestionData, fetchGamerooms } from "../src/server_side_api";
-// import MagnifyingGlass from "../src/components/minigames/MagnifyingGlass";
+import {
+  allRoomLocationsQuery,
+  allRoomNamesQuery,
+  suggestedRoomsQuery,
+} from "../src/lib/apollo/queries";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 2000px;
 `;
 
-const Index = ({ initialSearchBoxData, suggestedRooms }) => (
+const Index = () => (
   <Wrapper>
     <Layout>
-      <Dashboard
-        initialSearchBoxData={initialSearchBoxData}
-        suggestedRooms={suggestedRooms}
-      />
+      <Dashboard />
     </Layout>
   </Wrapper>
 );
 
-Index.propTypes = {
-  initialSearchBoxData: searchBarData.isRequired,
-  suggestedRooms: PT.arrayOf(roomType).isRequired,
-};
+Index.propTypes = {};
 
 export async function getStaticProps() {
-  const initialSearchBoxData = await fetchSuggestionData();
+  const apolloClient = initializeApollo();
 
-  if (!initialSearchBoxData) {
-    return {
-      notFound: true,
-    };
-  }
+  await apolloClient.query({ query: allRoomLocationsQuery });
+  await apolloClient.query({ query: allRoomNamesQuery });
+  await apolloClient.query({ query: suggestedRoomsQuery });
 
-  const suggestedRooms = await fetchGamerooms();
-
-  if (!suggestedRooms) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { initialSearchBoxData, suggestedRooms }, // will be passed to the page component as props
-  };
+  return addApolloState(apolloClient, {
+    props: {},
+    revalidate: 1,
+  });
 }
 
 export default Index;

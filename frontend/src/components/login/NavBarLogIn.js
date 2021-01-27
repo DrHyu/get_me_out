@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 import { Form, Button, Col } from "react-bootstrap";
-import { login } from "../../store/auth/actions";
 import validateInput from "../../validations/login";
 import LoggedInDropDown from "./LoggedInDropDown";
 
 function Login() {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
+  const isAuthenticated = true;
   const [isLoading, setisLoading] = useState(false);
   const [identifier, setidentifier] = useState("");
   const [password, setpassword] = useState("");
-  // const [errors, setErrors] = useState({});
-
-  const dispatch = useDispatch();
 
   const isValid = () => {
     const { errors, isValidated } = validateInput({ identifier, password });

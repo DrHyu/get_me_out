@@ -5,8 +5,6 @@ import DatePicker from "react-datepicker";
 import styled from "styled-components";
 import { isEmpty } from "lodash";
 import { matchSorter } from "match-sorter";
-// import { GiPositionMarker } from "react-icons/gi";
-// import { BsCalendar } from "react-icons/bs";
 
 import Router from "next/router";
 
@@ -259,16 +257,21 @@ const ResultsWindow = styled.div`
 
 const itemToString = (item) => (item ? item.name : "");
 
-const composeSuggesitons = (sugg) => {
-  if (isEmpty(sugg)) return [];
+/* Flatten a list of categories (with a list of items inside each category) 
+  into a list of items. 
+  A 'separator' item is added inbetween each set of categoy items.
+*/
+const composeSuggesitons = (categories) => {
+  if (isEmpty(categories)) return [];
 
-  const composedSuggestions = sugg.reduce(
-    (acumulator, suggestionGrp) => [
+  const composedSuggestions = categories.reduce(
+    (acumulator, category) => [
       ...acumulator,
-      { name: suggestionGrp.name, category: "SEPARATOR" },
-      ...suggestionGrp.data.map((room) => ({
-        ...room,
-        category: suggestionGrp.category,
+      { name: category.name, isSeparator: true },
+      ...category.data.map((item) => ({
+        isRoomScape: category.name === "Room Escapes",
+        isLocation: category.name === "Locations",
+        ...item,
       })),
     ],
     []
@@ -288,10 +291,10 @@ const updateSuggestions = (initSugg, key) => {
   return composeSuggesitons(updatedSuggestions);
 };
 
-const SearchBar = ({ initialSearchBoxData }) => {
-  const [suggestionData] = useState(initialSearchBoxData);
+const SearchBar = ({ categories }) => {
+  const [suggestionData] = useState(categories);
   const [suggestions, setSuggestions] = useState(
-    composeSuggesitons(initialSearchBoxData)
+    composeSuggesitons(categories)
   );
   const [startDate, setStartDate] = useState(new Date());
 
@@ -315,11 +318,8 @@ const SearchBar = ({ initialSearchBoxData }) => {
       case useCombobox.stateChangeTypes.ItemClick:
       case useCombobox.stateChangeTypes.InputKeyDownEnter:
         /* Ensure that the 'separator' items cannot be selected */
-        if (
-          changes.selectedItem &&
-          changes.selectedItem.category &&
-          changes.selectedItem.category === "SEPARATOR"
-        ) {
+
+        if (changes?.selectedItem?.isSeparator) {
           /* Return state -> as if no action had been taken */
           /* Open the Date Picker */
           return state;
@@ -410,7 +410,14 @@ const SearchBar = ({ initialSearchBoxData }) => {
             onClick={(e) => {
               e.preventDefault();
               if (ds.selectedItem) {
-                Router.push(`/room/${ds.selectedItem.id}`);
+                if (ds.selectedItem.isLocation) {
+                  Router.push({
+                    pathname: `/search`,
+                    query: { city: ds.selectedItem.name, date: startDate },
+                  });
+                } else if (ds.selectedItem.isRoomScape) {
+                  Router.push(`/room/${ds.selectedItem.id}`);
+                }
               }
             }}
           >
@@ -426,7 +433,7 @@ const SearchBar = ({ initialSearchBoxData }) => {
 };
 
 SearchBar.propTypes = {
-  initialSearchBoxData: searchBarData.isRequired,
+  categories: searchBarData.isRequired,
 };
 SearchBar.defaultProps = {};
 

@@ -1,2 +1,4 @@
-docker build -t gmo_backend .
-docker run -p 8080:8080 -i -t gmo_backend
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker-compose build
+docker-compose up > log.txt

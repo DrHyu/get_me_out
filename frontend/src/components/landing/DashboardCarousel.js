@@ -1,10 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Carousel } from "react-bootstrap";
 
 function DashboardCarousel() {
-  const carouselInfo = useSelector((state) => state.dashboard.carouselInfo);
-
+  const carouselInfo = [];
   return (
     <div>
       <Carousel>

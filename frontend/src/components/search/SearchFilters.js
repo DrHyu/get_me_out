@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 import styled from "styled-components";
-import { updateFilterValue } from "../../store/search/actions";
 
-import BaseFilter, {
-  RANGE_FILTER,
-  SLIDER_FILTER,
-  CHOICE_FILTER,
-  MULT_CHOICE_FILTER,
-} from "./filters";
+import { useQuery } from "@apollo/client";
+import {
+  roomCategoriesQuery,
+  listOfCitiesQuery,
+} from "../../lib/apollo/queries";
+
+import RangeFilter from "./filters/RangeFilter";
+import SliderFilter from "./filters/SliderFilter";
+import RadioFilter from "./filters/RadioFilter";
+import MultipleChoiceFilter from "./filters/MultipleChoiceFilter";
+
+import { FILTER_PARAMS } from "../../lib/axios/queries";
 
 const FilterWrapper = styled.div`
   border-radius: 16px 16px 16px 16px;
@@ -30,82 +34,88 @@ const FilterSeparator = styled.div`
   }
 `;
 
-const filters = [
-  {
-    kind: RANGE_FILTER,
-    title: "Price",
-    filterAttr: "price",
-    id: 1,
-    min: 0,
-    max: 100,
-    initialValue: 25,
-    tooltipTemplate: (val) => `${val} $`,
-  },
-  {
-    kind: CHOICE_FILTER,
-    title: "dummy2",
-    filterAttr: "open",
-    id: 2,
-    options: ["open", "closed"],
-    optionsToAttrMapping: [false, true],
-    optionsToAttrMappingMode: "OR",
-    initialValue: [true, false],
-  },
-  {
-    kind: MULT_CHOICE_FILTER,
-    title: "Difficulty",
-    id: 3,
-    options: ["easy", "medium", "hard"],
-    filterAttr: "difficulty",
-    optionsToAttrMapping: ["easy", "medium", "hard"],
-    optionsToAttrMappingMode: "OR", // vs AND
-    initialValue: [true, true, false],
-  },
-  {
-    kind: RANGE_FILTER,
-    title: "Difficulty",
-    id: 4,
-    options: ["Easy", "Medium", "Hard"],
-    marks: { 0: "easy", 1: "medium", 2: "hard" },
-    min: 0,
-    max: 2,
-    step: null,
-  },
-  {
-    kind: MULT_CHOICE_FILTER,
-    title: "Category",
-    id: 4,
-    options: ["Action", "Adventure", "Sci-Fi", "Terror", "Mistery"],
-    filterAttr: "difficulty",
-    optionsToAttrMapping: [
-      "Action",
-      "Adventure",
-      "Sci-Fi",
-      "Terror",
-      "Mistery",
-    ],
-    optionsToAttrMappingMode: "OR", // vs AND
-    initialValue: [true, true, false, true, false],
-  },
-];
+function SearchFilterAll({ filterUpdatedCallback, ...routerQueries }) {
+  const { data: categories } = useQuery(roomCategoriesQuery);
+  const { data: cities } = useQuery(listOfCitiesQuery);
 
-function SearchFilterAll() {
-  const activeFilters = filters;
-  const dispatch = useDispatch();
   /* Transform from filter descriptor to react component */
   return (
     <FilterWrapper>
-      {activeFilters.map((filter) => (
-        <Fragment key={`${filter.id}_${filter.title}`}>
-          <BaseFilter
-            onChangeCallback={(value) => {
-              // dispatch(updateFilterValue(filter.id, value));
-            }}
-            {...filter}
-          />
-          <FilterSeparator />
-        </Fragment>
-      ))}
+      <RangeFilter
+        title="Price"
+        min={0}
+        max={100}
+        initialValue={25}
+        tooltipTemplate={(val) => `${val} $`}
+        onChangeCallback={([min, max]) => {
+          const updates = {};
+          updates[FILTER_PARAMS.MIN_PRICE] = min;
+          updates[FILTER_PARAMS.MAX_PRICE] = max;
+          filterUpdatedCallback(updates);
+        }}
+      />
+      <FilterSeparator />
+      <RangeFilter
+        title="Difficulty"
+        min={0}
+        max={2}
+        options={["Easy", "Medium", "Hard"]}
+        marks={{ 0: "easy", 1: "medium", 2: "hard" }}
+        step={1}
+        onChangeCallback={([min, max]) => {
+          const updates = {};
+          updates[FILTER_PARAMS.MIN_DIFFICULTY] = min;
+          updates[FILTER_PARAMS.MAX_DIFFICULTY] = max;
+          filterUpdatedCallback(updates);
+        }}
+      />
+      <FilterSeparator />
+      <MultipleChoiceFilter
+        title="Category"
+        options={categories.categories.edges.map(
+          (edge) => edge.node.categoryName
+        )}
+        initialValue={categories.categories.edges.map(() => false)}
+        onChangeCallback={(selected) => {
+          const updates = {};
+          updates[
+            FILTER_PARAMS.CATEGORIES
+          ] = categories.categories.edges
+            .filter((edge, idx) => !selected[idx])
+            .map((edge) => edge.node.categoryName);
+          filterUpdatedCallback(updates);
+        }}
+      />
+      <FilterSeparator />
+      <MultipleChoiceFilter
+        title="Cities"
+        options={cities.cities.edges.map((edge) => edge.node.cityName)}
+        /** If city was passed as a POST/GET parameter, and we have this city, it should start as selected */
+        initialValue={cities.cities.edges.map(
+          (edge) => routerQueries?.city === edge.node.cityName
+        )}
+        onChangeCallback={(selected) => {
+          const updates = {};
+          updates[FILTER_PARAMS.CITY] = cities.cities.edges
+            .filter((edge, idx) => !selected[idx])
+            .map((edge) => edge.node.cityName);
+          // TODO pending api fix
+          // filterUpdatedCallback(updates);
+        }}
+      />
+      <FilterSeparator />
+      <RangeFilter
+        title="Rating"
+        min={0}
+        max={10}
+        tooltipTemplate={(val) => `${val} :)`}
+        onChangeCallback={([min, max]) => {
+          const updates = {};
+          updates[FILTER_PARAMS.MIN_RATING] = min;
+          updates[FILTER_PARAMS.MAX_RATING] = max;
+          filterUpdatedCallback(updates);
+        }}
+      />
     </FilterWrapper>
   );
 }
