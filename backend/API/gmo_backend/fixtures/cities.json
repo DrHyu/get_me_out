@@ -8,5 +8,15 @@
       "city_name": "Barcelona",
       "city_latlong": "POINT (43.263630 -2.928082)"
     }
+  },
+  {
+    "model": "gamerooms.City",
+    "fields": {
+      "city_id": 2,
+      "city_country": 1,
+      "city_state": 2,
+      "city_name": "Madrid",
+      "city_latlong": "POINT (40.4261753 -3.6994577)"
+    }
   }
 ]

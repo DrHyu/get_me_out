@@ -212,8 +212,13 @@ class GameRoomSmartSearchView(APIView):
                                            'room_max_players', 'room_img', 'room_difficulty_level',
                                            'room_price', 'room_related_categories')
 
+
             response = Response(game_rooms)
         else:
             raise Http404
 
         return response
+
+
+
+

@@ -4,11 +4,11 @@
         "fields": {
             "room_id": 1,
             "room_img": "/media/room_2236.jpg",
-            "room_name": "HOTEL OVERLOOK",
-            "room_description": "Very fun escape room.",
-            "room_rating": 8,
+            "room_name": "Sex Dungeon",
+            "room_description": "Bondage in a dark room.",
+            "room_rating": 10,
             "room_difficulty_level":2,
-            "room_game_center": 1
+            "room_game_center": 7
         }
     },
     {

@@ -7,5 +7,14 @@
       "company_description": "Monopoly",
       "company_telephone": 666666666
     }
+  },
+  {
+    "model": "gamerooms.Company",
+    "fields": {
+      "company_id": 2,
+      "company_name": "Fun House",
+      "company_description": "David",
+      "company_telephone": 123456789
+    }
   }
 ]
