@@ -5,5 +5,12 @@
       "category_id": 1,
       "category_name": "Terror"
     }
+  },
+  {
+    "model": "gamerooms.Category",
+    "fields": {
+      "category_id": 2,
+      "category_name": "Horny"
+    }
   }
 ]

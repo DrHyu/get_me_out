@@ -1,0 +1,23 @@
+[
+  {
+    "model": "gamerooms.DifficultyLevel",
+    "fields": {
+      "difficulty_id": 1,
+      "difficulty_name": "Fácil"
+    }
+  },
+  {
+    "model": "gamerooms.DifficultyLevel",
+    "fields": {
+      "difficulty_id": 2,
+      "difficulty_name": "Intermedio"
+    }
+  },
+  {
+    "model": "gamerooms.DifficultyLevel",
+    "fields": {
+      "difficulty_id": 3,
+      "difficulty_name": "Difícil"
+    }
+  }
+]

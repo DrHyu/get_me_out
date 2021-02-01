@@ -48,8 +48,7 @@
       "center_city": 1,
       "center_latlong": "POINT (43.263630 -2.928082)"
     }
-  }
-  ,
+  },
   {
     "model": "gamerooms.GameCenter",
     "fields": {
@@ -58,6 +57,16 @@
       "center_description": "Maximum Escape 2",
       "center_city": 1,
       "center_latlong": "POINT (41.3891604 2.1752644)"
+    }
+  },
+  {
+    "model": "gamerooms.GameCenter",
+    "fields": {
+      "center_id": 7,
+      "center_company": 2,
+      "center_description": "Perversion House",
+      "center_city": 2,
+      "center_latlong": "POINT (40.4261753 -3.6994577)"
     }
   }
 ]

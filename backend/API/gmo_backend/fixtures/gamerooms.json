@@ -4,10 +4,11 @@
         "fields": {
             "room_id": 1,
             "room_img": "/media/room_2236.jpg",
-            "room_name": "HOTEL OVERLOOK",
-            "room_description": "Very fun escape room.",
-            "room_rating": 8,
-            "room_game_center": 1
+            "room_name": "Sex Dungeon",
+            "room_description": "Bondage in a dark room.",
+            "room_rating": 10,
+            "room_difficulty_level":2,
+            "room_game_center": 7
         }
     },
     {
@@ -25,6 +26,7 @@
             "room_name": "ATRINCHERADOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":2,
             "room_game_center": 2
         }
     },
@@ -43,12 +45,14 @@
             "room_name": "CATACUMBAS (EN BUSCA DE LA PIEDRA ALQU\u00cdMICA)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":3,
             "room_game_center": 2
         }
     },
     {
         "model": "gamerooms.GameRoomCategory",
         "fields": {
+            "gameroom": 3,
             "gameroom": 3,
             "category": 1
         }
@@ -61,6 +65,7 @@
             "room_name": "LA NAVE DEL CIENT\u00cdFICO LOCO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":3,
             "room_game_center": 2
         }
     },
@@ -72,6 +77,7 @@
             "room_name": "NAVE ULYSSES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":3,
             "room_game_center": 2
         }
     },
@@ -83,6 +89,7 @@
             "room_name": "LA MAZMORRA: LA \u00daLTIMA PARTIDA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 2
         }
     },
@@ -94,6 +101,7 @@
             "room_name": "GANGSTERS: DINERO, ARMAS Y ALCOHOL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -105,6 +113,7 @@
             "room_name": "HOSPITAL ABANDONADO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -116,6 +125,7 @@
             "room_name": "ARCANUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -127,6 +137,7 @@
             "room_name": "SHERLOCK HOLMES CONTRA EL DIABLO LONDINENSE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -138,6 +149,7 @@
             "room_name": "\u00a1MALDITA FAMA!",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -149,6 +161,7 @@
             "room_name": "MONASTERIUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -160,6 +173,7 @@
             "room_name": "PRISIONEROS DE ALKAB\u00c1N",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -171,6 +185,7 @@
             "room_name": "LA CALLE DE LA MAGIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -182,6 +197,7 @@
             "room_name": "MUTANT X-PERIENCE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -193,6 +209,7 @@
             "room_name": "REFUGIO 27",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -204,6 +221,7 @@
             "room_name": "ABDUCTION 1 LA CA\u00cdDA DEL R\u00c9GIMEN NAZI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -215,6 +233,7 @@
             "room_name": "PROTOCOLO STRANGER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -226,6 +245,7 @@
             "room_name": "EL CASO LAZFER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -237,6 +257,7 @@
             "room_name": "APOPHIS ESCAPE EXPERIENCE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -248,6 +269,7 @@
             "room_name": "LA RESIDENCIA DE LOS RIDDLE - RANDALL'S PARTY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -259,6 +281,7 @@
             "room_name": "EL VIAJE CONTINUA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -270,6 +293,7 @@
             "room_name": "ABDUCTION 4 ENTERPRISES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -281,6 +305,7 @@
             "room_name": "CHERNOBYL 1986",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -292,6 +317,7 @@
             "room_name": "ABDUCTION 2 EL ORFANATO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -303,6 +329,7 @@
             "room_name": "CASA DE CARAMELOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -314,6 +341,7 @@
             "room_name": "PROFANA ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -325,6 +353,7 @@
             "room_name": "LA C\u00daPULA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -336,6 +365,7 @@
             "room_name": "THE DARKNESS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -347,6 +377,7 @@
             "room_name": "GORDON'S FACTORY - RATAS DE CLOACA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -358,6 +389,7 @@
             "room_name": "OPERACI\u00d3N ORPHEUS XXL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -369,6 +401,7 @@
             "room_name": "ORIENT EXPRESS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -380,6 +413,7 @@
             "room_name": "OUIJA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -391,6 +425,7 @@
             "room_name": "ZOMBIE OUTBREAK ROOM ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -402,6 +437,7 @@
             "room_name": "GLADIADORES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -413,6 +449,7 @@
             "room_name": "PURIFICATIO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -424,6 +461,7 @@
             "room_name": "LANZADERA ALIEN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -435,6 +473,7 @@
             "room_name": "PARTE 3 - CAMPING",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -446,6 +485,7 @@
             "room_name": "OPERACI\u00d3N: C\u00d3DIGO ROJO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -457,6 +497,7 @@
             "room_name": "BRUJERIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -468,6 +509,7 @@
             "room_name": "HEIRLOOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -479,6 +521,7 @@
             "room_name": "ROOMANJI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -490,6 +533,7 @@
             "room_name": "JIGSAW",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -501,6 +545,7 @@
             "room_name": "BAJO SEGUNDA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -512,6 +557,7 @@
             "room_name": "SULACO ESTELAR TREK ADVENTURE ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -523,6 +569,7 @@
             "room_name": "ARTIFICIERO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -534,6 +581,7 @@
             "room_name": "MISI\u00d3N S.W.A.T.",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -545,6 +593,7 @@
             "room_name": "LA HISTORIA DE CHARLOTTE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -556,6 +605,7 @@
             "room_name": "THE NARCOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -567,6 +617,7 @@
             "room_name": "LA CAIXA DE PANDORA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -578,6 +629,7 @@
             "room_name": "LA FORTUNA DE LOS ADDAMS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -589,6 +641,7 @@
             "room_name": "AEGIS - LA PESADILLA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -600,6 +653,7 @@
             "room_name": "LA RESIDENCIA DE LOS RIDDLE - EL INVERNADERO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -611,6 +665,7 @@
             "room_name": "PARTE 2 - XPERIMENT",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -622,6 +677,7 @@
             "room_name": "LA MANSI\u00d3N ODISEA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -633,6 +689,7 @@
             "room_name": "BARUM DUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -644,6 +701,7 @@
             "room_name": "KATHARSIS LA HORA DE LAS BESTIAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -655,6 +713,7 @@
             "room_name": "LA JUGUETER\u00cdA MALDITA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -666,6 +725,7 @@
             "room_name": "PETIT PIAF HOTEL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -677,6 +737,7 @@
             "room_name": "TOMB HUNTER: LA LEYENDA DE AKASHA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -688,6 +749,7 @@
             "room_name": "LA CERVESERIA ESCAPE ROOM ESTRELLA DAMM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -699,6 +761,7 @@
             "room_name": "LA MINA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -710,6 +773,7 @@
             "room_name": "FUGITIVOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -721,6 +785,7 @@
             "room_name": "CINDY ESCAPE BOX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -732,6 +797,7 @@
             "room_name": "EL ORFANATO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -743,6 +809,7 @@
             "room_name": "EL SECUESTRO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -754,6 +821,7 @@
             "room_name": "ALIEN EL ORIGEN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -765,6 +833,7 @@
             "room_name": "FUTURA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -776,6 +845,7 @@
             "room_name": "EXPEDICI\u00d3N ZERO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -787,6 +857,7 @@
             "room_name": "JURASSIC LAND",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -798,6 +869,7 @@
             "room_name": "VIKINGOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -809,6 +881,7 @@
             "room_name": "LA CREACI\u00d3N (2018)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -820,6 +893,7 @@
             "room_name": "VENGANZA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -831,6 +905,7 @@
             "room_name": "LA CASA ESCAPE HOUSE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -842,6 +917,7 @@
             "room_name": "FRANKY RESURRECTION",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -853,6 +929,7 @@
             "room_name": "DIA D",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -864,6 +941,7 @@
             "room_name": "ELLEBANNA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -875,6 +953,7 @@
             "room_name": "CAZADORES DE BRUJAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -886,6 +965,7 @@
             "room_name": "SWAT COUNTDOWN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -897,6 +977,7 @@
             "room_name": "AWAKEN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -908,6 +989,7 @@
             "room_name": "CATALEPSIA EXTREME ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -919,6 +1001,7 @@
             "room_name": "MINDHUNTERS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -930,6 +1013,7 @@
             "room_name": "ABDUCTION 3 THE EXAM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -941,6 +1025,7 @@
             "room_name": "OSCURIDAD",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -952,6 +1037,7 @@
             "room_name": "EL DIAMANTE DE ALMAS ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -963,6 +1049,7 @@
             "room_name": "SALA 2 - HOUDINI & DOYLE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -974,6 +1061,7 @@
             "room_name": "INFRAMUNDO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -985,6 +1073,7 @@
             "room_name": "CAZA FANTASMAS (THE MYSTERIOUS ROOM)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -996,6 +1085,7 @@
             "room_name": "LA INICIATIVA ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1007,6 +1097,7 @@
             "room_name": "INMORTUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1018,6 +1109,7 @@
             "room_name": "AEGIS - EL SUE\u00d1O",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1029,6 +1121,7 @@
             "room_name": "LA TREMENTINAIRE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1040,6 +1133,7 @@
             "room_name": "UNTIL DAWN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1051,6 +1145,7 @@
             "room_name": "CIRCUS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1062,6 +1157,7 @@
             "room_name": "LA TOMA DE CONTROL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1073,6 +1169,7 @@
             "room_name": "BAJO ZERO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1084,6 +1181,7 @@
             "room_name": "CREDO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1095,6 +1193,7 @@
             "room_name": "MONKKEY ABBEY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1106,6 +1205,7 @@
             "room_name": "BANDIDOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1117,6 +1217,7 @@
             "room_name": "LA MASIA MALDITA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1128,6 +1229,7 @@
             "room_name": "LA ENTREVISTA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1139,6 +1241,7 @@
             "room_name": "PARTE 1 - EL C\u00d3CTEL DEL DOCTOR",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1150,6 +1253,7 @@
             "room_name": "KIDNAPPED IN BCN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1161,6 +1265,7 @@
             "room_name": "ENDURANCE II",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1172,6 +1277,7 @@
             "room_name": "EL POU (EL POZO)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1183,6 +1289,7 @@
             "room_name": "EL FINAL DEL T\u00daNEL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1194,6 +1301,7 @@
             "room_name": "SEVEN THE GAME",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1205,6 +1313,7 @@
             "room_name": "HORRORLAND 2019 - ELEVATOR EXPRESS ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1216,6 +1325,7 @@
             "room_name": "HOSPITALITZATS (AVENTURES)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1227,6 +1337,7 @@
             "room_name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 2)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1238,6 +1349,7 @@
             "room_name": "SINNER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1249,6 +1361,7 @@
             "room_name": "ESCAPE ROOM LA CATA (EL TAST)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1260,6 +1373,7 @@
             "room_name": "TESORO AZTECA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1271,6 +1385,7 @@
             "room_name": "MALUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1282,6 +1397,7 @@
             "room_name": "EL RESCAT DE LA CORONA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1293,6 +1409,7 @@
             "room_name": "SALA 1 - EL APRENDIZ DE HOUDINI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1304,6 +1421,7 @@
             "room_name": "HOSPITALITZATS (MISTERI)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1315,6 +1433,7 @@
             "room_name": "ATMOSFERA 0",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1326,6 +1445,7 @@
             "room_name": "THE THINKING ROOM MISI\u00d3N 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1337,6 +1457,7 @@
             "room_name": "SALVA LA REBELI\u00d3N",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1348,6 +1469,7 @@
             "room_name": "SHERLOCK: LA HORA FINAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1359,6 +1481,7 @@
             "room_name": "OPERACI\u00d3N DIAMANTE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1370,6 +1493,7 @@
             "room_name": "ROBO AL BANK OF THAQAR (MODO INFANTIL)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1381,6 +1505,7 @@
             "room_name": "LA PUERTA M\u00c1GICA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1392,6 +1517,7 @@
             "room_name": "LA GUARIDA SECRETA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1403,6 +1529,7 @@
             "room_name": "LA PIR\u00c1MIDE (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1414,6 +1541,7 @@
             "room_name": "EXPEDICI\u00d3N ZERO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1425,6 +1553,7 @@
             "room_name": "SPEEDNIGMA - THE EXAM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1436,6 +1565,7 @@
             "room_name": "LA EVASI\u00d3N DEL CAMPO 14",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1447,6 +1577,7 @@
             "room_name": "LAS ESTANCIAS DE LA AMA DE LLAVES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1458,6 +1589,7 @@
             "room_name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 1)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1469,6 +1601,7 @@
             "room_name": "CYBERPUNK",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1480,6 +1613,7 @@
             "room_name": "LA PLAYA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1491,6 +1625,7 @@
             "room_name": "EL POLIZ\u00d3N",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1502,6 +1637,7 @@
             "room_name": "SALVA LA FIESTA - SALA HAWAIANA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1513,6 +1649,7 @@
             "room_name": "PSIC\u00d3PATAS AN\u00d3NIMOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1524,6 +1661,7 @@
             "room_name": "LA CELDA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1535,6 +1673,7 @@
             "room_name": "WOLF",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1546,6 +1685,7 @@
             "room_name": "EL MISTERI DE LA CASA COLL I REG\u00c0S",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1557,6 +1697,7 @@
             "room_name": "BOOM ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1568,6 +1709,7 @@
             "room_name": "OUTLINE (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1579,6 +1721,7 @@
             "room_name": "EL TRONO - SALA MEDIEVAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1590,6 +1733,7 @@
             "room_name": "RECLUTAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1601,6 +1745,7 @@
             "room_name": "LA CATA ESCAPE BOX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1612,6 +1757,7 @@
             "room_name": "CSI BARCELONA ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1623,6 +1769,7 @@
             "room_name": "LA RESIDENCIA DE LOS RIDDLE - EL PADRE (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1634,6 +1781,7 @@
             "room_name": "HORROR MOVIE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1645,6 +1793,7 @@
             "room_name": "EL MISTERIO DE GAUD\u00cd 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1656,6 +1805,7 @@
             "room_name": "ACADEMIA DE MAGIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1667,6 +1817,7 @@
             "room_name": "PESADILLAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1678,6 +1829,7 @@
             "room_name": "TALES OF ESCAPE - COLD AS ICE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1689,6 +1841,7 @@
             "room_name": "IMMERSION ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1700,6 +1853,7 @@
             "room_name": "HORROR SUMMER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1711,6 +1865,7 @@
             "room_name": "EPIDEMIA Z",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1722,6 +1877,7 @@
             "room_name": "AVENTURA MEDIEVAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1733,6 +1889,7 @@
             "room_name": "LA BARCELONETA PECADORA (SIETE PLACERES DEL PECADO)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1744,6 +1901,7 @@
             "room_name": "MISI\u00d3N EN EL MUSEO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1755,6 +1913,7 @@
             "room_name": "BREAKING ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1766,6 +1925,7 @@
             "room_name": "WILLY EL TUERTO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1777,6 +1937,7 @@
             "room_name": "EL PODER DEL FUTURO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1788,6 +1949,7 @@
             "room_name": "LA C\u00c1MARA ACORAZADA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1799,6 +1961,7 @@
             "room_name": "MISI\u00d3N GAUD\u00cd",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1810,6 +1973,7 @@
             "room_name": "NATHAEL (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1821,6 +1985,7 @@
             "room_name": "LA CASA PARANORMAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1832,6 +1997,7 @@
             "room_name": "CASTILLO SANT ANGELO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1843,6 +2009,7 @@
             "room_name": "ESCAPA DE LA MAGIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1854,6 +2021,7 @@
             "room_name": "EL NIGROMANT (EL NIGROMANTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1865,6 +2033,7 @@
             "room_name": "CASINO CLANDESTINO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1876,6 +2045,7 @@
             "room_name": "LAS RELIQUIAS M\u00c1GICAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1887,6 +2057,7 @@
             "room_name": "SIMIOS (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1898,6 +2069,7 @@
             "room_name": "SUPER MUSHROOM ESCAPE (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1909,6 +2081,7 @@
             "room_name": "V\u00cdCTIMA 17",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1920,6 +2093,7 @@
             "room_name": "MISI\u00d3N EUROPA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1931,6 +2105,7 @@
             "room_name": "GAUD\u00cd (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1942,6 +2117,7 @@
             "room_name": "PATENTE J.E.",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1953,6 +2129,7 @@
             "room_name": "EL \u00daLTIMO ROBO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1964,6 +2141,7 @@
             "room_name": "OPERACI\u00d3N ORPHEUS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1975,6 +2153,7 @@
             "room_name": "EL CELLER 1890",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1986,6 +2165,7 @@
             "room_name": "LA HABITACI\u00d3N DE LOS CINCO SENTIDOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -1997,6 +2177,7 @@
             "room_name": "GAME BOX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2008,6 +2189,7 @@
             "room_name": "ATTRACTIONS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2019,6 +2201,7 @@
             "room_name": "TAO ROOM ESCAPE JAPANESE MASSAGE CENTER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2030,6 +2213,7 @@
             "room_name": "PLAYGROUND",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2041,6 +2225,7 @@
             "room_name": "WINNERS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2052,6 +2237,7 @@
             "room_name": "BROKERX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2063,6 +2249,7 @@
             "room_name": "LA BIBLIOTECA M\u00c1GICA (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2074,6 +2261,7 @@
             "room_name": "TORTUGAS MUTANTES ESCAPE ROOM (NO PIZZA, NO NINJA) (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2085,6 +2273,7 @@
             "room_name": "LA LLAMADA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2096,6 +2285,7 @@
             "room_name": "EL SORTEO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2107,6 +2297,7 @@
             "room_name": "ATLANTIS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2118,6 +2309,7 @@
             "room_name": "ESCAPE HALL TV (PROXIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2129,6 +2321,7 @@
             "room_name": "EL RESCAT DEL DIAMANT",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2140,6 +2333,7 @@
             "room_name": "ALICIA EN EL PA\u00cdS DE LAS MARAVILLAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2151,6 +2345,7 @@
             "room_name": "INVITATION",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2162,6 +2357,7 @@
             "room_name": "TALES OF ESCAPE - THE MINE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2173,6 +2369,7 @@
             "room_name": "HIDDEN HILL HOTEL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2184,6 +2381,7 @@
             "room_name": "PESADILLA EN LA CALLE DIPUTACI\u00d3",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2195,6 +2393,7 @@
             "room_name": "EN TU FIESTA ME COL\u00c9 (SALA 2)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2206,6 +2405,7 @@
             "room_name": "DOCUMENTS SECRETS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2217,6 +2417,7 @@
             "room_name": "EL RAPTO DE DO\u00d1A ALMODIS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2228,6 +2429,7 @@
             "room_name": "TNT ESCAPE BOX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2239,6 +2441,7 @@
             "room_name": "ESCUELA DE LADRONES 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2250,6 +2453,7 @@
             "room_name": "EL CAPIT\u00c1N DEL PUERTO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2261,6 +2465,7 @@
             "room_name": "RED RIBBON",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2272,6 +2477,7 @@
             "room_name": "CODICIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2283,6 +2489,7 @@
             "room_name": "LA LEY SECA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2294,6 +2501,7 @@
             "room_name": "AIRBICI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2305,6 +2513,7 @@
             "room_name": "TALES OF ESCAPE - ILLUSION",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2316,6 +2525,7 @@
             "room_name": "TIME (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2327,6 +2537,7 @@
             "room_name": "JUEGO ENIGMA - EL VIRUS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2338,6 +2549,7 @@
             "room_name": "\u00daNETE A LA VENDETTA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2349,6 +2561,7 @@
             "room_name": "LA VAMPIRA DE BARCELONA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2360,6 +2573,7 @@
             "room_name": "EL JOYERO (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2371,6 +2585,7 @@
             "room_name": "SANATORIO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2382,6 +2597,7 @@
             "room_name": "WHITE COLLAR: EL TRAIDOR",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2393,6 +2609,7 @@
             "room_name": "REBELI\u00d3N DE LAS M\u00c1QUINAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2404,6 +2621,7 @@
             "room_name": "EL DIARIO DE MIKO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2415,6 +2633,7 @@
             "room_name": "ALKATRAZ CLASSIC",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2426,6 +2645,7 @@
             "room_name": "LA SOGA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2437,6 +2657,7 @@
             "room_name": "ALIENIGMA ESCAPE BOX",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2448,6 +2669,7 @@
             "room_name": "LA TORRE DE BABEL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2459,6 +2681,7 @@
             "room_name": "VIRUS - CAN FARIGOLA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2470,6 +2693,7 @@
             "room_name": "ESCAPE AL FUTURO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2481,6 +2705,7 @@
             "room_name": "DESTINY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2492,6 +2717,7 @@
             "room_name": "FRANKY RESURRECTION INFANTIL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2503,6 +2729,7 @@
             "room_name": "CABARET",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2514,6 +2741,7 @@
             "room_name": "ATRAPA EL ESP\u00cdA (SALA 1)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2525,6 +2753,7 @@
             "room_name": "MISSION SIGMA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2536,6 +2765,7 @@
             "room_name": "CASINO ROYAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2547,6 +2777,7 @@
             "room_name": "TOLOK",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2558,6 +2789,7 @@
             "room_name": "LOS INFILTRADOS 1",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2569,6 +2801,7 @@
             "room_name": "LA SOSPECHA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2580,6 +2813,7 @@
             "room_name": "TRAS EL ESPEJO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2591,6 +2825,7 @@
             "room_name": "STOKER 2.0 EL MANUSCRITO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2602,6 +2837,7 @@
             "room_name": "CLUEDO - EL TESTAMENTO DE MR COLLINS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2613,6 +2849,7 @@
             "room_name": "EL SECRETO DE SANT JORDI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2624,6 +2861,7 @@
             "room_name": "EN TU FIESTA ME COL\u00c9 (SALA 1)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2635,6 +2873,7 @@
             "room_name": "EL SUBMARINO SOVI\u00c9TICO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2646,6 +2885,7 @@
             "room_name": "LA RECEPTA SECRETA (LA RECETA SECRETA)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2657,6 +2897,7 @@
             "room_name": "EL QUEST VIRTUAL SECUESTRO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2668,6 +2909,7 @@
             "room_name": "BANDIDOS - SALA 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2679,6 +2921,7 @@
             "room_name": "EL ANT\u00cdDOTO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2690,6 +2933,7 @@
             "room_name": "EL QUEST VIRTUAL COSMOS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2701,6 +2945,7 @@
             "room_name": "EL MISTERIO DE LA MANSI\u00d3N (SALA 3)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2712,6 +2957,7 @@
             "room_name": "PROYECTO C",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2723,6 +2969,7 @@
             "room_name": "WHITE & BLACK",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2734,6 +2981,7 @@
             "room_name": "BEERNIGMA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2745,6 +2993,7 @@
             "room_name": "CAVA ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2756,6 +3005,7 @@
             "room_name": "BLASPHEMIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2767,6 +3017,7 @@
             "room_name": "ALICIA KIDS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2778,6 +3029,7 @@
             "room_name": "CASANOVA: LA FUGA DE BARCELONA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2789,6 +3041,7 @@
             "room_name": "SYNERGYK",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2800,6 +3053,7 @@
             "room_name": "L'AMN\u00c8SIA (LA AMNESIA)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2811,6 +3065,7 @@
             "room_name": "AFTER-PARTY (DESPU\u00c9S DE LA FIESTA)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2822,6 +3077,7 @@
             "room_name": "BERMUDAS, EL SECRETO JAM\u00c1S REVELADO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2833,6 +3089,7 @@
             "room_name": "EXORCISMO ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2844,6 +3101,7 @@
             "room_name": "LA OFRENDA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2855,6 +3113,7 @@
             "room_name": "GAUD\u00cd VS ORWELL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2866,6 +3125,7 @@
             "room_name": "VALHALLA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2877,6 +3137,7 @@
             "room_name": "CIBERATAQUE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2888,6 +3149,7 @@
             "room_name": "VICTUS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2899,6 +3161,7 @@
             "room_name": "EL GRAN \u00c9XITO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2910,6 +3173,7 @@
             "room_name": "EL ARCA DE DAL\u00cd",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2921,6 +3185,7 @@
             "room_name": "THE CODE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2932,6 +3197,7 @@
             "room_name": "EL CAPIT\u00c1N PESSOA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2943,6 +3209,7 @@
             "room_name": "TOYS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2954,6 +3221,7 @@
             "room_name": "BOOOMBA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2965,6 +3233,7 @@
             "room_name": "EL RESCATE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2976,6 +3245,7 @@
             "room_name": "HORRORLAND 2019 - FREAK SHOW EXPRESS ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2987,6 +3257,7 @@
             "room_name": "OLIVIA FARMER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -2998,6 +3269,7 @@
             "room_name": "THE HAUNTED PRISON",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3009,6 +3281,7 @@
             "room_name": "LA VAMPIRA DE BARCELONA 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3020,6 +3293,7 @@
             "room_name": "EL MISTERI DE LA LLUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3031,6 +3305,7 @@
             "room_name": "LAS PROFEC\u00cdAS DE EL BOSCO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3042,6 +3317,7 @@
             "room_name": "ENIGMA PUCCINI LICEU",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3053,6 +3329,7 @@
             "room_name": "LA INUNDACI\u00d3N DEL 62",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3064,6 +3341,7 @@
             "room_name": "EL COLECCIONISTA DE ARTE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3075,6 +3353,7 @@
             "room_name": "ABDUCTION RADIO HALL ESCAPE (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3086,6 +3365,7 @@
             "room_name": "FOREST ESCAPE GAME",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3097,6 +3377,7 @@
             "room_name": "VOODOO (ESCAPE HOUSE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3108,6 +3389,7 @@
             "room_name": "HORRORLAND 2019 - TORTURE EXPRESS ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3119,6 +3401,7 @@
             "room_name": "EL COLECCIONISTA DE ALMAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3130,6 +3413,7 @@
             "room_name": "VIRUS - CAN FARIGOLA KIDS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3141,6 +3425,7 @@
             "room_name": "TALES OF ESCAPE - SLEEPY HOLLOW",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3152,6 +3437,7 @@
             "room_name": "GAME BOX KIDS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3163,6 +3449,7 @@
             "room_name": "HOGWARTS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3174,6 +3461,7 @@
             "room_name": "HOPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3185,6 +3473,7 @@
             "room_name": "LAS MARAV\u00cdLLAS DE AGRABAH",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3196,6 +3485,7 @@
             "room_name": "EL ELIXIR DE LA ETERNA JUVENTUD",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3207,6 +3497,7 @@
             "room_name": "MISI\u00d3N ANIMALISTA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3218,6 +3509,7 @@
             "room_name": "PRISI\u00d3N 1",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3229,6 +3521,7 @@
             "room_name": "MANIACS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3240,6 +3533,7 @@
             "room_name": "MAFIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3251,6 +3545,7 @@
             "room_name": "EL MISTERIO DEL ARCHIVO ABANDONADO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3262,6 +3557,7 @@
             "room_name": "CRISYS (CRIME INVESTIGATION SYSTEM)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3273,6 +3569,7 @@
             "room_name": "EL CIRCO DE LOS EXTRA\u00d1OS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3284,6 +3581,7 @@
             "room_name": "KALINIKTA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3295,6 +3593,7 @@
             "room_name": "EL \u00daLTIMO VIKINGO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3306,6 +3605,7 @@
             "room_name": "ANDANA 24",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3317,6 +3617,7 @@
             "room_name": "LA DUCHA FR\u00cdA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3328,6 +3629,7 @@
             "room_name": "WIN OR LOSE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3339,6 +3641,7 @@
             "room_name": "LOS MUNDOS DE ALICIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3350,6 +3653,7 @@
             "room_name": "1961 LA LLAMADA (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3361,6 +3665,7 @@
             "room_name": "SOULBOUND",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3372,6 +3677,7 @@
             "room_name": "HORRORLAND 2019 - SUBWAY EXPRESS ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3383,6 +3689,7 @@
             "room_name": "OPERATIVO 'BOOM'",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3394,6 +3701,7 @@
             "room_name": "BOOM ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3405,6 +3713,7 @@
             "room_name": "VINIGMA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3416,6 +3725,7 @@
             "room_name": "ORIGEN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3427,6 +3737,7 @@
             "room_name": "CHRISTMAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3438,6 +3749,7 @@
             "room_name": "LA VIEJA CARNICER\u00cdA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3449,6 +3761,7 @@
             "room_name": "GOLDEN SILENCE APARTMENT",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3460,6 +3773,7 @@
             "room_name": "EPIDEMIA Z",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3471,6 +3785,7 @@
             "room_name": "ROBO AL BANK OF THAQAR",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3482,6 +3797,7 @@
             "room_name": "CLUB CRIMINAL (DESCUBRE AL ASESINO)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3493,6 +3809,7 @@
             "room_name": "NUNCA JAM\u00c1S (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3504,6 +3821,7 @@
             "room_name": "PSIQUIATRIA 1",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3515,6 +3833,7 @@
             "room_name": "AVENTURA PIRATA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3526,6 +3845,7 @@
             "room_name": "MAZEROOMER (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3537,6 +3857,7 @@
             "room_name": "RECORRIDO BARCELONA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3548,6 +3869,7 @@
             "room_name": "HABITACI\u00d3N N\u00daMERO 13",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3559,6 +3881,7 @@
             "room_name": "CASANOVA: LA FUGA DE BARCELONA (ROMBATE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3570,6 +3893,7 @@
             "room_name": "EL RITUAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3581,6 +3905,7 @@
             "room_name": "LA CABA\u00d1A DE SLUMACH",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3592,6 +3917,7 @@
             "room_name": "PSIQUIATRIA 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3603,6 +3929,7 @@
             "room_name": "ANDANA 9 3/4",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3614,6 +3941,7 @@
             "room_name": "\u00a1\u00bfY EL GATO?!",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3625,6 +3953,7 @@
             "room_name": "WEST",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3636,6 +3965,7 @@
             "room_name": "DELOREAN VAN - ROOM ESCAPE SITGES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3647,6 +3977,7 @@
             "room_name": "ESCAPE ROOM CASTELLGAL\u00cd EL FORAT",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3658,6 +3989,7 @@
             "room_name": "LA MAZMORRA DE HOOD",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3669,6 +4001,7 @@
             "room_name": "SANCTUM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3680,6 +4013,7 @@
             "room_name": "JUEGO ENIGMA - EL ASESINO DE KEYLOCK CITY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3691,6 +4025,7 @@
             "room_name": "CYBERCITY 2049 (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3702,6 +4037,7 @@
             "room_name": "\u00daLTIMA ESPERANZA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3713,6 +4049,7 @@
             "room_name": "ATRAPA EL ESP\u00cdA (SALA 2)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3724,6 +4061,7 @@
             "room_name": "GALER\u00cdA DE CAD\u00c1VERES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3735,6 +4073,7 @@
             "room_name": "LA MILI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3746,6 +4085,7 @@
             "room_name": "REANIMATION Z",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3757,6 +4097,7 @@
             "room_name": "STUDIO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3768,6 +4109,7 @@
             "room_name": "ESCAPE HOUDINI",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3779,6 +4121,7 @@
             "room_name": "DESPIDALIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3790,6 +4133,7 @@
             "room_name": "MISI\u00d3N MONTGR\u00d3S",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3801,6 +4145,7 @@
             "room_name": "KESSLER GALIMANY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3812,6 +4157,7 @@
             "room_name": "SIGNAL LOST",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3823,6 +4169,7 @@
             "room_name": "EL BAR (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3834,6 +4181,7 @@
             "room_name": "EL EQUIPO A (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3845,6 +4193,7 @@
             "room_name": "THE PRISON",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3856,6 +4205,7 @@
             "room_name": "EL CAPIT\u00c1N DEL PUERTO 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3867,6 +4217,7 @@
             "room_name": "LAS CAJAS NEGRAS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3878,6 +4229,7 @@
             "room_name": "LA GUARIDA DE LA MAFIA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3889,6 +4241,7 @@
             "room_name": "EL ASEDIO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3900,6 +4253,7 @@
             "room_name": "LA NUBE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3911,6 +4265,7 @@
             "room_name": "HECHIZADOS (MAGIC ESCAPE ROOM)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3922,6 +4277,7 @@
             "room_name": "BARCELONA SICARIO ESCAPE ROOM",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3933,6 +4289,7 @@
             "room_name": "EL MISTERI DE MONTSERRAT",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3944,6 +4301,7 @@
             "room_name": "MOORDER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3955,6 +4313,7 @@
             "room_name": "LOS INFILTRADOS 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3966,6 +4325,7 @@
             "room_name": "ESCUELA DE LADRONES",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3977,6 +4337,7 @@
             "room_name": "EL LEGADO DE ALBUS",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3988,6 +4349,7 @@
             "room_name": "DISTRITO 111 (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -3999,6 +4361,7 @@
             "room_name": "IN ESCAPE ROOM (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4010,6 +4373,7 @@
             "room_name": "SPACE MONKEY",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4021,6 +4385,7 @@
             "room_name": "EL PROYECTO DE LA BRUJA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4032,6 +4397,7 @@
             "room_name": "THE NW6 BUNKER",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4043,6 +4409,7 @@
             "room_name": "WORM (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4054,6 +4421,7 @@
             "room_name": "BIG FAIF - WANTED",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4065,6 +4433,7 @@
             "room_name": "SPACE ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4076,6 +4445,7 @@
             "room_name": "EL JUEGO DE ARIEL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4087,6 +4457,7 @@
             "room_name": "RESIDENCE ROOM ESCAPE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4098,6 +4469,7 @@
             "room_name": "DRAGON WORLD ESCAPE ROOM (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4109,6 +4481,7 @@
             "room_name": "PRISON BREAK",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4120,6 +4493,7 @@
             "room_name": "CHERN\u00d3BIL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4131,6 +4505,7 @@
             "room_name": "LA \u00daLTIMA FUNCI\u00d3N",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4142,6 +4517,7 @@
             "room_name": "ESCENA DEL CRIMEN",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4153,6 +4529,7 @@
             "room_name": "ALKATRAZ MEDIEVAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4164,6 +4541,7 @@
             "room_name": "EL MISTERIO DE GAUD\u00cd",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4175,6 +4553,7 @@
             "room_name": "SINFONIA MORTAL",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4186,6 +4565,7 @@
             "room_name": "PRISI\u00d3N 2",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4197,6 +4577,7 @@
             "room_name": "G\u00c9NESIS, IN YOUR HEAD",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4208,6 +4589,7 @@
             "room_name": "SECRETOS DE LA ANTIGUA BARCELONA",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4219,6 +4601,7 @@
             "room_name": "AMOR ETERNO",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4230,6 +4613,7 @@
             "room_name": "SAW EXPERIENCE",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4241,6 +4625,7 @@
             "room_name": "LA CONSULTA (IBR MEDICAL)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     },
@@ -4252,6 +4637,7 @@
             "room_name": "KREMATORIUM (PR\u00d3XIMAMENTE)",
             "room_description": "Very fun escape room.",
             "room_rating": 5,
+            "room_difficulty_level":1,
             "room_game_center": 1
         }
     }

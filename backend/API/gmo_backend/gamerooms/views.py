@@ -148,6 +148,7 @@ class GameRoomSmartSearchView(APIView):
     @swagger_auto_schema(request_body=gamerooms_serializers.GameRoomSmartSearchSerializer)
     #@endpoint_error_handling_decorator
     def post(self, request, format=None):
+        print("HIT")
         serializer = gamerooms_serializers.GameRoomSmartSearchSerializer(data=request.data, partial=True )
         if serializer.is_valid():
 
@@ -156,27 +157,46 @@ class GameRoomSmartSearchView(APIView):
 
             game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
                                            'room_max_players', 'room_game_center__center_city__city_country',
-                                           'room_game_center__center_city__city_state',
+                                           'room_game_center__center_city__city_state', 'room_img',
+                                           'room_difficulty_level', 'room_price', 'room_related_categories',
                                            'room_game_center__center_city__city_id').annotate(
                                                 country_id=F('room_game_center__center_city__city_country'),
                                                 state_id=F('room_game_center__center_city__city_state'),
                                                 city_id=F('room_game_center__center_city__city_id')
                                             )
 
+            if 'difficulty_levels' in serializer.validated_data:
+                game_rooms = game_rooms.filter(room_difficulty_level__in=serializer.validated_data['difficulty_levels'])
+
+            if 'categories' in serializer.validated_data:
+                game_rooms = game_rooms.filter(room_related_categories__in=serializer.validated_data['categories'])
+
             if 'country_id' in serializer.validated_data:
                 game_rooms = game_rooms.filter(country_id=serializer.validated_data['country_id'])
+
             if 'state_id' in serializer.validated_data:
                 game_rooms = game_rooms.filter(state_id=serializer.validated_data['state_id'])
+
             if 'city_id' in serializer.validated_data:
                 game_rooms = game_rooms.filter(city_id=serializer.validated_data['city_id'])
+
+            if 'price_min' in serializer.validated_data:
+                game_rooms = game_rooms.filter(room_price__gte=serializer.validated_data['price_min'])
+
+            if 'price_max' in serializer.validated_data:
+                game_rooms = game_rooms.filter(room_price__lte=serializer.validated_data['price_max'])
+
             if 'num_players_min' in serializer.validated_data:
                 game_rooms = game_rooms.filter(room_min_players__lte=serializer.validated_data['num_players_min'])
+
             if 'num_players_max' in serializer.validated_data:
                 game_rooms = game_rooms.filter(room_max_players__gte=serializer.validated_data['num_players_max'])
+
             if 'rating_min' in serializer.validated_data:
-                game_rooms = game_rooms.filter(room_rating__lte=serializer.validated_data['rating_min'])
+                game_rooms = game_rooms.filter(room_rating__gte=serializer.validated_data['rating_min'])
+
             if 'rating_max' in serializer.validated_data:
-                game_rooms = game_rooms.filter(room_rating__gte=serializer.validated_data['rating_max'])
+                game_rooms = game_rooms.filter(room_rating__lte=serializer.validated_data['rating_max'])
 
             #if lat_present:
             #    query_latlong = Point(serializer.validated_data['latitude'], serializer.validated_data['longitude'])
@@ -188,10 +208,17 @@ class GameRoomSmartSearchView(APIView):
             #    game_rooms = game_rooms.filter(distance__lte=max_dist)
             #    print("IN GEOLOC 4")
 
-            game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players', 'room_max_players')
+            game_rooms = game_rooms.values('room_id', 'room_name', 'room_rating', 'room_min_players',
+                                           'room_max_players', 'room_img', 'room_difficulty_level',
+                                           'room_price', 'room_related_categories')
+
 
             response = Response(game_rooms)
         else:
             raise Http404
 
         return response
+
+
+
+

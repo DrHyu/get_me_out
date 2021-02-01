@@ -39,7 +39,7 @@ class Company (models.Model):
 
 class GameCenter (models.Model):
     """Describes a GameCenter."""
-    center_id = models.AutoField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
+    center_id = models.AutoField(primary_key=True, help_text="Identifier of the GameCenter (Integer).")
     center_company = models.ForeignKey(Company, on_delete=models.PROTECT)
     center_description = models.CharField(max_length=256, blank=False, null=False, default="",
                                           help_text="Description of the GameCenter.")
@@ -54,11 +54,16 @@ class Category (models.Model):
                                      help_text="Name of the Category.")
 
 
+class DifficultyLevel (models.Model):
+    difficulty_id = models.AutoField(primary_key=True, help_text="Identifier of the Difficulty Level (Integer).")
+    difficulty_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Difficulty.")
+
+
 class GameRoom (models.Model):
     """Describes a GameRoom."""
-    room_id = models.PositiveIntegerField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
+    room_id = models.AutoField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
     room_name = models.CharField(max_length=128, blank=False, null=False, default="",
-                            help_text="Name of the GameRoom.")
+                                 help_text="Name of the GameRoom.")
     room_description = models.CharField(max_length=256, blank=False, null=False, default="",
                                    help_text="Description of the GameRoom.")
     room_img = models.URLField(max_length=200)
@@ -67,12 +72,16 @@ class GameRoom (models.Model):
     room_game_center = models.ForeignKey(GameCenter, on_delete=models.PROTECT)
     room_min_players = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).", default=1)
     room_max_players = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer).", default=6)
-    related_categories = models.ManyToManyField(Category, through='GameRoomCategory')
+    room_related_categories = models.ManyToManyField(Category, through='GameRoomCategory')
+    room_difficulty_level = models.ForeignKey(DifficultyLevel, on_delete=models.PROTECT)
+    room_price = models.FloatField(default=100, help_text="Price of the GameRoom.")
+    #dificulty = models.
     #completions = models.ManyToManyField(User, through='Completion')
 
     def __str__(self):
         """Returns the model as a string."""
         return str(self.room_id) + ' | ' + self.room_name
+
 
 
 #class Completion (models.Model):
