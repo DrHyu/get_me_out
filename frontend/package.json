@@ -18,5 +18,8 @@
     "url": "https://github.com/DrHyu/get_me_out/issues"
   },
   "homepage": "https://github.com/DrHyu/get_me_out#readme",
-  "workspaces": ["packages/web", "packages/common"]
+  "workspaces": { 
+    "packages" : ["packages/web", "packages/common", "packages/app"]
+  }
+
 }
