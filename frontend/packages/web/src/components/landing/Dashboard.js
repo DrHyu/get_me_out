@@ -5,15 +5,14 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import styled from "styled-components";
 import Image from "next/image";
-import SearchBar from "../searchBar/SearchBar";
-import DashboardCarousel from "./DashboardCarousel";
-import RoomCabinet from "../roomCabinet/RoomCabinet";
-
 import {
   allRoomLocationsQuery,
   allRoomNamesQuery,
   suggestedRoomsQuery,
-} from "../../lib/apollo/queries";
+} from "@getmeout/common";
+import SearchBar from "../searchBar/SearchBar";
+import DashboardCarousel from "./DashboardCarousel";
+import RoomCabinet from "../roomCabinet/RoomCabinet";
 
 const LayoutStyled = styled.div`
   position: relative;

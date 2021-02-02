@@ -3,10 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { useQuery } from "@apollo/client";
-import {
-  roomCategoriesQuery,
-  listOfCitiesQuery,
-} from "../../lib/apollo/queries";
+import { roomCategoriesQuery, listOfCitiesQuery } from "@getmeout/common";
 
 import RangeFilter from "./filters/RangeFilter";
 import SliderFilter from "./filters/SliderFilter";

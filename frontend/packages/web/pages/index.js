@@ -1,6 +1,12 @@
 import PT from "prop-types";
 import styled from "styled-components";
 
+import {
+  allRoomLocationsQuery,
+  allRoomNamesQuery,
+  suggestedRoomsQuery,
+} from "@getmeout/common";
+
 import Layout from "../src/components/layout/Layout";
 import Dashboard from "../src/components/landing/Dashboard";
 
@@ -8,12 +14,6 @@ import {
   initializeApollo,
   addApolloState,
 } from "../src/lib/apollo/apolloClient";
-
-import {
-  allRoomLocationsQuery,
-  allRoomNamesQuery,
-  suggestedRoomsQuery,
-} from "../src/lib/apollo/queries";
 
 const Wrapper = styled.div`
   width: 100%;

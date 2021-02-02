@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Row, Col, Container } from "react-bootstrap";
+import { roomCategoriesQuery, listOfCitiesQuery } from "@getmeout/common";
 import Layout from "../src/components/layout/Layout";
 
 import FilterSearch from "../src/components/search/SearchFilters";
@@ -15,11 +16,6 @@ import {
   initializeApollo,
   addApolloState,
 } from "../src/lib/apollo/apolloClient";
-
-import {
-  roomCategoriesQuery,
-  listOfCitiesQuery,
-} from "../src/lib/apollo/queries";
 
 const routerParamsToFilterState = (routerParams) => {
   const temp = {};
