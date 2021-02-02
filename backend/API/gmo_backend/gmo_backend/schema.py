@@ -111,9 +111,11 @@ class GameRoomNode(DjangoObjectType):
                          "room_min_players", "room_max_players"] #, "related_categories"
         interfaces = (relay.Node, )
 
+
 class GameRoomType(DjangoObjectType):
     class Meta:
         model = gamerooms_models.GameRoom
+
 
 class GameRoomCategoryNode(DjangoObjectType):
     class Meta:
@@ -121,6 +123,12 @@ class GameRoomCategoryNode(DjangoObjectType):
         filter_fields = ["gameroom", "category"]
         interfaces = (relay.Node, )
 
+
+class DifficultyLevelNode(DjangoObjectType):
+    class Meta:
+        model = gamerooms_models.DifficultyLevel
+        filter_fields = ["difficulty_id", "difficulty_name"]
+        interfaces = (relay.Node, )
 
 
 class GameRoomRecomendationMutation(graphene.Mutation):
@@ -220,7 +228,7 @@ class Query(ObjectType):
     game_centers = DjangoFilterConnectionField(GameCenterNode)
     categories = DjangoFilterConnectionField(CategoryNode)
     game_rooms = DjangoFilterConnectionField(GameRoomNode)
-    #game_rooms = DjangoFilterConnectionField(GameRoomNode)
+    difficulty_levels = DjangoFilterConnectionField(DifficultyLevelNode)
 
 
 schema = graphene.Schema(query=Query, mutation=Mutations)
