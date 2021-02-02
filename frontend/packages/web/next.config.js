@@ -13,6 +13,7 @@ module.exports = withTM({
       },
       use: ["@svgr/webpack"],
     });
+    // https://www.npmjs.com/package/next-transpile-modules
     // config.resolve.alias.react = path.resolve(
     //   __dirname,
     //   ".",

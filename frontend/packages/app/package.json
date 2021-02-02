@@ -1,6 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
-  "name": "expo-app",
+  "name": "@getmeout/app",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
