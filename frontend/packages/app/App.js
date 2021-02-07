@@ -1,32 +1,34 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { ApolloProvider } from "@apollo/client";
+
 import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView, TextInput, Platform } from "react-native";
 
+import { createApolloClient } from "./lib/apollo/apolloClient";
 import SearchBar from "./components/searchBar/SearchBar";
+import TestList from "./components/TestList";
 
-import styled from "styled-components";
+// Add this in node_modules/react-dom/index.js
+window.React1 = require("react");
 
-const Root = styled.View`
-  width: 100%;
-  height: 100%;
-  display: flex;
-`;
+// Add this in your component file
+require("react-dom");
+window.React2 = require("react");
+console.log(window.React1 === window.React2);
 
-const Container = styled.View`
-  padding-top: 50px;
-
-  display: flex;
-  flex-direction: column;
-`;
+console.log(window.React1, window.React2);
 
 export default function App() {
+  const apolloClient = createApolloClient();
+
   return (
-    <Root>
-      <Container>
-        <SearchBar />
-      </Container>
-    </Root>
+    <View style={styles.root}>
+      <ApolloProvider client={apolloClient}>
+        <View style={styles.container}>
+          {/* <SearchBar /> */}
+          <TestList />
+        </View>
+      </ApolloProvider>
+    </View>
   );
 }
 
@@ -38,5 +40,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     paddingTop: 100,
+  },
+  root: {
+    width: "100%",
+    height: "100%",
+    flex: 1,
+  },
+  container: {
+    paddingTop: 50,
+    flex: 1,
+    flexDirection: "column",
   },
 });
