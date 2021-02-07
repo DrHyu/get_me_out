@@ -21,16 +21,7 @@
   "workspaces": { 
     "packages" : ["packages/web", "packages/common", "packages/app"],
     "nohoist": [
-      "**/react-native/**",
-      "**/react-native",
-      "**/react-native-scripts",
-      "**/react-native-scripts/**",
-      "**/expo",
-      "**/expo/**",
-      "**/react",
-      "**/react/**",
-      "**/react-*",
-      "**/react-*/**"
+      "**"
     ]
   }
 
