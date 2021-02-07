@@ -124,3 +124,6 @@ webencodings==0.5.1
 websocket-client==0.53.0
 zipp==1.0.0
 drf-yasg==1.20.0
+django-model-mutations
+django-graphql-jwt==0.3.0
+django-graphql-auth

@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_filters',
     'graphene_django',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'graphql_auth',
+    'graphql_jwt.refresh_token.apps.RefreshTokenConfig'
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -56,7 +58,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        "graphql_auth.backends.GraphQLAuthBackend"
     ),
     "LOGIN_URL": "users/auth/",
     'DEFAULT_RENDERER_CLASSES': [
@@ -73,9 +76,18 @@ REST_FRAMEWORK = {
 
 
 GRAPHENE = {
-    'SCHEMA': 'gmo_backend.schema.schema'
+    'SCHEMA': 'gmo_backend.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
 
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+
+    # optional
+    "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+}
 
 LOGIN_URL = 'auth/login'
 LOGOUT_URL = 'auth/logout'

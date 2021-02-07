@@ -1,43 +1,48 @@
+# Base Imports
 import graphene
-from movies.models import *
-from .types import *
 
-'''
-class CreatePerson(graphene.Mutation):
-    class Arguments:
-        name = graphene.String()
+# Third Party Libraries
+import graphql_geojson
+from django_model_mutations import mutations, mixins
+from graphene_django import DjangoObjectType
 
-    ok = graphene.Boolean()
-    person = graphene.Field(lambda: Person)
-
-    def mutate(root, info, name):
-        person = Person(name=name)
-        ok = True
-        return CreatePerson(person=person, ok=ok)
+# Project Imports
+from gamerooms import models as gamerooms_models
+from gamerooms import serializers as gamerooms_serializers
 
 
-class CreateCategoryMutation(graphene.Mutation):
-  class Input:
-    name = graphene.String()
+class CountryType(DjangoObjectType):
+    class Meta:
+        model = gamerooms_models.Country
 
-  @staticmethod
-  def mutate(root, info, **kwargs):
-    name = kwargs.get('name', '').strip()
-    obj = Category.objects.create(name=name)
-    return CreateCategoryMutation(name=obj)
 
-    class CreateMovieMutation(graphene.Mutation):
-  class Input(object):
-    name = graphene.String()
-    year = graphene.Int()
-    rating = graphene.Int()
-    category_id = graphene.Int()  name = graphene.Field(MovieType)  @staticmethod
-  def mutate(root, info, **kwargs):
-    name = kwargs.get('name', '').strip()
-    year = kwargs.get('year', 0)
-    rating = kwargs.get('rating', 0)
-    category_id = kwargs.get('category_id', 0)    obj = Movie.objects.create(name=name,year=year,
-            rating=rating,category_id=category_id)    return CreateMovieMutation(name=obj)class Mutation(graphene.AbstractType):
-  create_category = CreateCategoryMutation.Field()
-  create_movie = CreateMovieMutation.Field()
-'''
+class CityType(DjangoObjectType):
+    class Meta:
+        model = gamerooms_models.City
+        geojson_field = 'city_latlong'
+
+
+class CountryCreateMutation(mutations.CreateModelMutation): #mixins.LoginRequiredMutationMixin,
+    class Meta:
+        serializer_class = gamerooms_serializers.CountrySerializer
+        #permissions = ('your_app.user_permission',) # OPTIONAL: specify user permissions
+
+
+class CountryUpdateMutation(mutations.UpdateModelMutation):
+    class Meta:
+        serializer_class = gamerooms_serializers.CountrySerializer
+
+
+class CountryDeleteMutation(mutations.DeleteModelMutation):
+    class Meta:
+        model = gamerooms_models.Country
+
+
+gameroom_types = [CountryType, CityType]
+
+
+class GameRoomMutations(graphene.ObjectType,  types=gameroom_types): #,
+    country_create = CountryCreateMutation.Field()
+    country_update = CountryUpdateMutation.Field()
+    country_delete = CountryDeleteMutation.Field()
+    pass
