@@ -7,6 +7,14 @@ from rest_framework import serializers
 from gamerooms import models as gamerooms_models
 
 
+class CountrySerializer(serializers.ModelSerializer):
+    """The serializer for the country model."""
+
+    class Meta:
+        model = gamerooms_models.Country
+        fields = '__all__'
+
+
 class CompanySerializer(serializers.ModelSerializer):
     """The serializer for the company model."""
 
