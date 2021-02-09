@@ -7,11 +7,6 @@ import { allRoomNamesQuery } from "@getmeout/common";
 const TestList = () => {
   const { data, loading } = useQuery(allRoomNamesQuery);
 
-  // const data = [];
-  // const loading = true;
-
-  console.log(data);
-
   if (loading)
     return (
       <View>

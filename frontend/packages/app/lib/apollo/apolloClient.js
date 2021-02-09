@@ -11,7 +11,7 @@ import { concatPagination } from "@apollo/client/utilities";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: "http://192.168.1.146:8080/graphql",
+  uri: "http://192.168.1.145:8080/graphql",
   credentials: "same-origin",
 });
 

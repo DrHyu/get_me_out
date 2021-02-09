@@ -6,16 +6,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createApolloClient } from "./lib/apollo/apolloClient";
 import SearchBar from "./components/searchBar/SearchBar";
 import TestList from "./components/TestList";
-
-// Add this in node_modules/react-dom/index.js
-window.React1 = require("react");
-
-// Add this in your component file
-require("react-dom");
-window.React2 = require("react");
-console.log(window.React1 === window.React2);
-
-console.log(window.React1, window.React2);
+import FilterRoomScapes from "./components/roomFilter/FilterRoomScapes";
 
 export default function App() {
   const apolloClient = createApolloClient();
@@ -24,8 +15,8 @@ export default function App() {
     <View style={styles.root}>
       <ApolloProvider client={apolloClient}>
         <View style={styles.container}>
-          {/* <SearchBar /> */}
-          <TestList />
+          <FilterRoomScapes />
+          {/* <TestList /> */}
         </View>
       </ApolloProvider>
     </View>
