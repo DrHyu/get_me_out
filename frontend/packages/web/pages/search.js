@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Row, Col, Container } from "react-bootstrap";
-import { roomCategoriesQuery, listOfCitiesQuery } from "@getmeout/common";
+import {
+  roomCategoriesQuery,
+  listOfCitiesQuery,
+  FILTER_PARAMS,
+  gameRoomSearch,
+} from "@getmeout/common";
+import { useQuery } from "@apollo/client";
 import Layout from "../src/components/layout/Layout";
 
 import FilterSearch from "../src/components/search/SearchFilters";
 import ShowResults from "../src/components/search/SearchShowResults";
-
-import {
-  fetchFilteredRoomScapes,
-  FILTER_PARAMS,
-} from "../src/lib/axios/queries";
 
 import {
   initializeApollo,
@@ -33,39 +34,14 @@ const SearchPage = () => {
   const [filters, setfilters] = useState(
     routerParamsToFilterState(router.query)
   );
-  const [searchResults, setSearchRestuls] = useState([]);
-  const [isFetching, setisFetching] = useState(true);
 
-  /** Run after inital render */
-  useEffect(() => {
-    setisFetching(true);
-    fetchFilteredRoomScapes(filters).then(
-      (results) => {
-        setSearchRestuls(results);
-        setisFetching(false);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    return () => {};
-  }, []);
-
-  /** Run after filters have changed */
-  useEffect(() => {
-    setisFetching(true);
-    fetchFilteredRoomScapes(filters).then(
-      (results) => {
-        setSearchRestuls(results);
-        setisFetching(false);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }, [filters]);
+  const { data: searchResults, loading: isFetching } = useQuery(
+    gameRoomSearch,
+    { variables: filters }
+  );
 
   const filterUpdatedCallback = (updates) => {
+    console.log({ ...filters, ...updates });
     setfilters({ ...filters, ...updates });
   };
 
@@ -82,7 +58,7 @@ const SearchPage = () => {
           <Col sm={9}>
             <ShowResults
               isFetching={isFetching}
-              searchResults={searchResults}
+              searchResults={searchResults?.gameRoomSearch || []}
             />
           </Col>
         </Row>
