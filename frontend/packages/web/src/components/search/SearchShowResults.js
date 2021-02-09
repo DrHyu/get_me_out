@@ -10,11 +10,12 @@ const SearchShowResults = ({ isFetching, searchResults }) => {
       </div>
     );
   }
+
   return (
     <div>
       {searchResults.map((result) => (
         // <RoomEntry room={result} key={result.id} />
-        <div key={result.room_id}>{result.room_name}</div>
+        <div key={result.roomId}>{result.roomName}</div>
       ))}
     </div>
   );
