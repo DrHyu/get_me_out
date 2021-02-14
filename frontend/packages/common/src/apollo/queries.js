@@ -68,6 +68,32 @@ export const listOfCitiesQuery = gql`
   }
 `;
 
+export const allRoomIdsQuery = gql`
+  query {
+    gameRooms {
+      edges {
+        node {
+          roomId
+        }
+      }
+    }
+  }
+`;
+
+export const fetchGameRoomByIdQuery = gql`
+  query {
+    gameRooms(first: 1) {
+      edges {
+        node {
+          roomId
+          roomName
+          roomImg
+        }
+      }
+    }
+  }
+`;
+
 export const FILTER_PARAMS = {
   COUNTRY_ID: "countryId",
   STATE_ID: "stateId",

@@ -9,7 +9,7 @@ const RoomTitleWrapper = styled.div`
 `;
 
 function RoomTitle({ room }) {
-  return <RoomTitleWrapper>{room.name}</RoomTitleWrapper>;
+  return <RoomTitleWrapper>{room.roomName}</RoomTitleWrapper>;
 }
 
 RoomTitle.propTypes = { room: roomType.isRequired };
