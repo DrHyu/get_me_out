@@ -4,23 +4,24 @@ from django.contrib.gis.geos import Point
 #from django.contrib.auth.models import User
 #from users.models import User
 
+#Autofield
 
 class Country (models.Model):
     """Describes a Country."""
-    country_id = models.AutoField(primary_key=True, help_text="Identifier of the Country (Integer).")
+    country_id = models.IntegerField(primary_key=True, help_text="Identifier of the Country (Integer).")
     country_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Country.")
 
 
 class State (models.Model):
     """Describes a State."""
-    state_id = models.AutoField(primary_key=True, help_text="Identifier of the State (Integer).")
+    state_id = models.IntegerField(primary_key=True, help_text="Identifier of the State (Integer).")
     state_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the State.")
     state_country = models.ForeignKey(Country, on_delete=models.PROTECT)
 
 
 class City (models.Model):
     """Describes a City."""
-    city_id = models.AutoField(primary_key=True, help_text="Identifier of the City (Integer).")
+    city_id = models.IntegerField(primary_key=True, help_text="Identifier of the City (Integer).")
     city_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the City.")
     city_country = models.ForeignKey(Country, on_delete=models.PROTECT)
     city_state = models.ForeignKey(State, on_delete=models.PROTECT)
@@ -30,7 +31,7 @@ class City (models.Model):
 
 class Company (models.Model):
     """Describes a Company."""
-    company_id = models.AutoField(primary_key=True, help_text="Identifier of the Company (Integer).")
+    company_id = models.IntegerField(primary_key=True, help_text="Identifier of the Company (Integer).")
     company_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Company.")
     company_description = models.CharField(max_length=256, blank=True, default="",
                                            help_text="Description of the Company.")
@@ -39,7 +40,7 @@ class Company (models.Model):
 
 class GameCenter (models.Model):
     """Describes a GameCenter."""
-    center_id = models.AutoField(primary_key=True, help_text="Identifier of the GameCenter (Integer).")
+    center_id = models.IntegerField(primary_key=True, help_text="Identifier of the GameCenter (Integer).")
     center_company = models.ForeignKey(Company, on_delete=models.PROTECT)
     center_description = models.CharField(max_length=256, blank=False, null=False, default="",
                                           help_text="Description of the GameCenter.")
@@ -55,13 +56,13 @@ class Category (models.Model):
 
 
 class DifficultyLevel (models.Model):
-    difficulty_id = models.AutoField(primary_key=True, help_text="Identifier of the Difficulty Level (Integer).")
+    difficulty_id = models.IntegerField(primary_key=True, help_text="Identifier of the Difficulty Level (Integer).")
     difficulty_name = models.CharField(max_length=128, blank=False, null=False, help_text="Name of the Difficulty.")
 
 
 class GameRoom (models.Model):
     """Describes a GameRoom."""
-    room_id = models.AutoField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
+    room_id = models.IntegerField(primary_key=True, help_text="Identifier of the GameRoom (Integer).")
     room_name = models.CharField(max_length=128, blank=False, null=False, default="",
                                  help_text="Name of the GameRoom.")
     room_description = models.CharField(max_length=256, blank=False, null=False, default="",

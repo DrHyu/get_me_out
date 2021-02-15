@@ -63,6 +63,8 @@ class GameRoomNode(DjangoObjectType):
                          "room_min_players", "room_max_players"] #, "related_categories"
         interfaces = (relay.Node, )
 
+    #room_id = graphene.Int(source='room_id')
+
 
 class GameRoomType(DjangoObjectType):
     class Meta:
