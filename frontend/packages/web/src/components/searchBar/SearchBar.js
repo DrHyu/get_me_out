@@ -296,7 +296,7 @@ const SearchBar = ({ categories }) => {
   const [suggestions, setSuggestions] = useState(
     composeSuggesitons(categories)
   );
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState();
 
   const [isOPenDatePicker, setIsOPenDatePicker] = useState(false);
   const datePickerRef = useRef();
@@ -386,13 +386,18 @@ const SearchBar = ({ categories }) => {
         <DateField isWidgetOpen={isOPenDatePicker} isNeighbourOpen={ds.isOpen}>
           <DatePicker
             ref={datePickerRef}
-            selected={startDate}
+            // selected={startDate}
+            placeholderText="Add Date"
             onChange={(date) => setStartDate(date)}
             customInput={
               // eslint-disable-next-line react/jsx-wrap-multilines
               <div className="item-inner">
                 <span className="item-header">When ?</span>
-                <span className="item-text">Add dates</span>
+                <span className="item-text">
+                  {startDate
+                    ? startDate.toLocaleDateString("en-GB")
+                    : "Add date"}
+                </span>
               </div>
             }
             onCalendarClose={() => setIsOPenDatePicker(false)}

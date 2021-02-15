@@ -20,7 +20,7 @@ const RoomBannerWrapper = styled.div`
 function RoomBanner({ room }) {
   return (
     <RoomBannerWrapper>
-      <img src={room.img} alt={`${room.name} Banner`} />
+      <img src={room.roomImg} alt={`${room.roomName} Banner`} />
     </RoomBannerWrapper>
   );
 }
