@@ -2,15 +2,19 @@ import React from "react";
 
 import styled from "styled-components";
 
+import { range } from "lodash";
+
 import { useQuery } from "@apollo/client";
-import { roomCategoriesQuery, listOfCitiesQuery } from "@getmeout/common";
+import {
+  roomCategoriesQuery,
+  listOfCitiesQuery,
+  FILTER_PARAMS,
+} from "@getmeout/common";
 
 import RangeFilter from "./filters/RangeFilter";
 import SliderFilter from "./filters/SliderFilter";
 import RadioFilter from "./filters/RadioFilter";
 import MultipleChoiceFilter from "./filters/MultipleChoiceFilter";
-
-import { FILTER_PARAMS } from "../../lib/axios/queries";
 
 const FilterWrapper = styled.div`
   border-radius: 16px 16px 16px 16px;
@@ -61,8 +65,7 @@ function SearchFilterAll({ filterUpdatedCallback, ...routerQueries }) {
         step={1}
         onChangeCallback={([min, max]) => {
           const updates = {};
-          updates[FILTER_PARAMS.MIN_DIFFICULTY] = min;
-          updates[FILTER_PARAMS.MAX_DIFFICULTY] = max;
+          updates[FILTER_PARAMS.DIFFICULTY_LEVELS] = range(min + 1, max + 2);
           filterUpdatedCallback(updates);
         }}
       />
@@ -74,17 +77,22 @@ function SearchFilterAll({ filterUpdatedCallback, ...routerQueries }) {
         )}
         initialValue={categories.categories.edges.map(() => false)}
         onChangeCallback={(selected) => {
-          const updates = {};
-          updates[
-            FILTER_PARAMS.CATEGORIES
-          ] = categories.categories.edges
-            .filter((edge, idx) => !selected[idx])
-            .map((edge) => edge.node.categoryName);
-          filterUpdatedCallback(updates);
+          const selectedCategories = categories.categories.edges
+            .filter((edge, idx) => selected[idx])
+            .map((edge) => edge.node.categoryId);
+
+          /** Hacky way ...
+           *  By putting undefined here it will essentially 'erase' the categories filter in the gql querry
+           *  since we no longer want to filter by categories, since there is no category selected.
+           */
+          filterUpdatedCallback({
+            [FILTER_PARAMS.CATEGORIES]:
+              selectedCategories.length > 0 ? selectedCategories : undefined,
+          });
         }}
       />
       <FilterSeparator />
-      <MultipleChoiceFilter
+      <RadioFilter
         title="Cities"
         options={cities.cities.edges.map((edge) => edge.node.cityName)}
         /** If city was passed as a POST/GET parameter, and we have this city, it should start as selected */
@@ -92,12 +100,23 @@ function SearchFilterAll({ filterUpdatedCallback, ...routerQueries }) {
           (edge) => routerQueries?.city === edge.node.cityName
         )}
         onChangeCallback={(selected) => {
-          const updates = {};
-          updates[FILTER_PARAMS.CITY] = cities.cities.edges
+          const selectedCityId = cities.cities.edges
             .filter((edge, idx) => !selected[idx])
-            .map((edge) => edge.node.cityName);
-          // TODO pending api fix
-          // filterUpdatedCallback(updates);
+            .map((edge) => edge.node.cityId);
+
+          if (selectedCityId.length === 1) {
+            filterUpdatedCallback({
+              [FILTER_PARAMS.CITY_ID]: selectedCityId[0],
+            });
+          } else {
+            /** Hacky way ...
+             *  By putting undefined here it will essentially 'erase' the city id filter in the gql querry
+             *  since we no longer want to filter by city, since there is no city selected.
+             */
+            filterUpdatedCallback({
+              [FILTER_PARAMS.CITY_ID]: undefined,
+            });
+          }
         }}
       />
       <FilterSeparator />

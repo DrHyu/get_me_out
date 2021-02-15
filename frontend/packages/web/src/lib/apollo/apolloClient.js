@@ -18,7 +18,7 @@ export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 let apolloClient;
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:8080/graphql",
+  uri: "http://192.168.1.145:8080/graphql",
   credentials: "same-origin",
 });
 

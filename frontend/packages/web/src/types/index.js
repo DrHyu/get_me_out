@@ -21,8 +21,13 @@ export const roomType = shape({
 
 export const searchBarData = arrayOf(
   shape({
-    category: string,
-    data: arrayOf(roomType),
+    name: string.isRequired,
+    data: arrayOf(
+      shape({
+        name: string.isRequired,
+        id: oneOfType([string, number]).isRequired,
+      }).isRequired
+    ),
   })
 );
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
+import PT, { oneOf } from "prop-types";
 
 import { GiPositionMarker } from "react-icons/gi";
 
@@ -101,27 +101,33 @@ function SearchBarListItem(item, selected, highlighted, renderprops) {
   return <li {...props}>{item.name}</li>;
 }
 
-const separatorType = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  category: PropTypes.oneOf(["SEPARATOR"]).isRequired,
-});
-
 SeparatorListItem.propTypes = {
-  renderprops: PropTypes.shape({}).isRequired,
-  highlighted: PropTypes.bool.isRequired,
-  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+  renderprops: PT.shape({}).isRequired,
+  highlighted: PT.bool.isRequired,
+  item: PT.shape({
+    isSeparator: PT.oneOf([true]).isRequired,
+    name: PT.string.isRequired,
+  }).isRequired,
 };
 
 RoomListItem.propTypes = {
-  renderprops: PropTypes.shape({}).isRequired,
-  highlighted: PropTypes.bool.isRequired,
-  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+  renderprops: PT.shape({}).isRequired,
+  highlighted: PT.bool.isRequired,
+  item: PT.shape({
+    isRoomScape: PT.oneOf([true]).isRequired,
+    name: PT.string.isRequired,
+    id: PT.oneOfType([PT.number, PT.string]).isRequired,
+  }).isRequired,
 };
 
 LocationListItem.propTypes = {
-  renderprops: PropTypes.shape({}).isRequired,
-  highlighted: PropTypes.bool.isRequired,
-  item: PropTypes.oneOfType([separatorType, roomType]).isRequired,
+  renderprops: PT.shape({}).isRequired,
+  highlighted: PT.bool.isRequired,
+  item: PT.shape({
+    isLocation: PT.oneOf([true]).isRequired,
+    name: PT.string.isRequired,
+    id: PT.oneOfType([PT.number, PT.string]).isRequired,
+  }).isRequired,
 };
 
 export default SearchBarListItem;

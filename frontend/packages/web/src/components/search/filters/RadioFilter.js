@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import PT from "prop-types";
@@ -44,12 +44,18 @@ function RadioFilter({ title, options, initialValue, onChangeCallback }) {
   const [isChecked, setIsChecked] = useState(initialValue);
 
   const updateValue = (id, value) => {
-    /* Only if not selected -> selected */
-    if (!isChecked[id] && value) {
+    if (!isChecked[id]) {
+      /* If we are turning one element ON, turn OFF all the other elements */
       setIsChecked(isChecked.map((elm, idx) => (idx === id ? value : false)));
-      onChangeCallback(isChecked);
+    } else if (isChecked[id]) {
+      /* If we are turning one element OFF, simply turn it off */
+      setIsChecked(isChecked.map((elm, idx) => (idx === id ? false : elm)));
     }
   };
+
+  useEffect(() => {
+    onChangeCallback(isChecked);
+  }, [isChecked]);
 
   return (
     <RadioFilterStyled>

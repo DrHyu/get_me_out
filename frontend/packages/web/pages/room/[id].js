@@ -3,8 +3,11 @@ import { isEmpty, isNull } from "lodash";
 
 import styled from "styled-components";
 
+import { allRoomIdsQuery, fetchGameRoomByIdQuery } from "@getmeout/common";
+
+import { initializeApollo } from "../../src/lib/apollo/apolloClient";
+
 import Layout from "../../src/components/layout/Layout";
-import { fetchGamerooms, fetchGameroom } from "../../src/server_side_api";
 
 import { roomType } from "../../src/types";
 
@@ -17,12 +20,10 @@ const RoomPageLayout = styled.div`
   grid-template-columns: repeat(12, 1fr);
   gap: 15px;
 `;
-
 const Base = styled.div`
   background-color: white;
   padding: 15px;
 `;
-
 const Title = styled(Base)`
   grid-area: 1 / 1 / 1 / -1;
 `;
@@ -38,7 +39,6 @@ const Attributes = styled(Base)`
 const Calendar = styled(Base)`
   grid-area: 3 / 5 / 3 / -1;
 `;
-
 const Reviews = styled(Base)`
   grid-area: 5 / 1 / 5 / -1;
 `;
@@ -69,23 +69,29 @@ RoomPage.propTypes = {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
-  const room = await fetchGameroom(Number(params.id));
+  const apolloClient = initializeApollo();
+  const { data } = await apolloClient.query({
+    query: fetchGameRoomByIdQuery,
+    variables: { roomId: params.id },
+  });
 
-  if (isNull(room) || isEmpty(room)) {
+  if (data?.gameRooms?.edges.length !== 1) {
     return {
       notFound: true,
     };
   }
 
   // Pass room data to the page via props
-  return { props: { room } };
+  return { props: { room: data.gameRooms.edges[0].node } };
 }
 
 export async function getStaticPaths() {
-  const gameRooms = await fetchGamerooms();
+  const apolloClient = initializeApollo();
+  const { data } = await apolloClient.query({ query: allRoomIdsQuery });
+
   // Get the paths we want to pre-render based on rooms
-  const paths = gameRooms.map((room) => ({
-    params: { id: room.id.toString() },
+  const paths = data.gameRooms.edges.map((edge) => ({
+    params: { id: edge.node.roomId },
   }));
 
   // We'll pre-render only these paths at build time.

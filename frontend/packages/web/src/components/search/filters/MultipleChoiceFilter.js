@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import PT from "prop-types";
@@ -50,8 +50,11 @@ function MultipleChoiceFilter({
 
   const updateValue = (id, value) => {
     setIsChecked(isChecked.map((elm, idx) => (idx === id ? value : elm)));
-    onChangeCallback(isChecked);
   };
+
+  useEffect(() => {
+    onChangeCallback(isChecked);
+  }, [isChecked]);
 
   return (
     <MultipleChoiceFilterStyled>
