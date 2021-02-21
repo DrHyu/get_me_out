@@ -94,6 +94,37 @@ export const fetchGameRoomByIdQuery = gql`
   }
 `;
 
+// gql`
+//   query {
+//     gameRoomRecommendation {
+//       roomId
+//       roomName
+//       roomDescription
+//       roomImg
+//       roomRating
+//       roomMinPlayers
+//       roomMaxPlayers
+//     }
+//   }
+// `;
+export const recomendedRoomsQuery = gql`
+  {
+    gameRooms(first: 50) {
+      edges {
+        node {
+          roomId
+          roomName
+          roomDescription
+          roomImg
+          roomRating
+          roomMinPlayers
+          roomMaxPlayers
+        }
+      }
+    }
+  }
+`;
+
 export const FILTER_PARAMS = {
   COUNTRY_ID: "countryId",
   STATE_ID: "stateId",

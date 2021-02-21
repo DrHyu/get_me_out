@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
+import FilterRoomScapes from "../components/roomFilter/FilterRoomScapes";
+
 const EventFeedScreen = () => {
   return (
     <View>
-      <Text>EventFeedScreen</Text>
+      <FilterRoomScapes></FilterRoomScapes>
     </View>
   );
 };
