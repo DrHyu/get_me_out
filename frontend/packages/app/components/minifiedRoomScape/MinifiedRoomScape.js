@@ -13,7 +13,6 @@ const MinifiedRoomScape = ({
   roomMinPlayers,
   roomMaxPlayers,
 }) => {
-  console.log("http://178.62.72.241" + roomImg);
   return (
     <View style={styles.conatiner}>
       <Image
@@ -83,7 +82,7 @@ const MinifiedRoomScape = ({
           }}
           style={({ pressed }) => ({
             ...styles.actionButton,
-            backgroundColor: pressed ? "#344ceb" : "lightblue",
+            backgroundColor: pressed ? "#344ceb" : "#0085FF",
           })}
         >
           {({ pressed }) => (
@@ -91,7 +90,7 @@ const MinifiedRoomScape = ({
               name="thumbs-up-down"
               style={{
                 ...styles.actionButtonIcon,
-                color: pressed ? "white" : "#3483eb",
+                color: pressed ? "white" : "white",
               }}
               size={28}
             />
@@ -103,7 +102,7 @@ const MinifiedRoomScape = ({
           }}
           style={({ pressed }) => ({
             ...styles.actionButton,
-            backgroundColor: pressed ? "#344ceb" : "lightblue",
+            backgroundColor: pressed ? "#344ceb" : "#0085FF",
           })}
         >
           {({ pressed }) => (
@@ -111,7 +110,7 @@ const MinifiedRoomScape = ({
               name="chevron-right"
               style={{
                 ...styles.actionButtonIcon,
-                color: pressed ? "white" : "#3483eb",
+                color: pressed ? "white" : "white",
               }}
               size={32}
             />
@@ -129,7 +128,7 @@ const smallTextSize = 18;
 const styles = StyleSheet.create({
   conatiner: {
     marginHorizontal: 8,
-    marginVertical: 8,
+    marginVertical: 12,
     borderWidth: 1,
     borderColor: "black",
     borderRadius: 6,
@@ -214,13 +213,20 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 8,
 
-    borderWidth: 2,
-    borderColor: "#3483eb",
-
     borderRadius: 10,
     overflow: "hidden",
 
     alignItems: "center",
     justifyContent: "center",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
 });
