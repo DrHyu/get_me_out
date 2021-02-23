@@ -6,12 +6,16 @@ import Bookmarks from "../components/bookmarkedRS/bookmarkedRS";
 export default function TrackScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.title}>BOOKMARKS</Text>
-        </View>
-        <Bookmarks />
-      </ScrollView>
+      <Bookmarks
+        ListHeaderComponent={
+          // Bookmarks itself is a virtual view and they cannot be nested
+          // The only way to make the header scrollable is to included it in the
+          // ListHeaderComponent of the DraggableFlatList inside Bookmarks
+          <View style={styles.header}>
+            <Text style={styles.title}>BOOKMARKS</Text>
+          </View>
+        }
+      />
     </View>
   );
 }

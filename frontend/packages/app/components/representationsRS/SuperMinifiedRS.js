@@ -1,8 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button, Pressable } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Dimensions } from "react-native";
 
 import { range } from "lodash";
+
+const windowWidth = Dimensions.get("window").width;
 
 const SuperMinifiedRoomScape = ({ roomName, roomImg, order }) => {
   console.log(order);
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   img: {
-    width: "100%",
+    width: Math.floor(windowWidth * 0.95),
     height: 90,
     resizeMode: "cover",
   },
