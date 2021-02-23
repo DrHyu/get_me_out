@@ -4,9 +4,9 @@ import { useQuery } from "@apollo/react-hooks";
 
 import { recomendedRoomsQuery } from "@getmeout/common";
 
-import MinifiedRoomScape from "../representationsRS/MinifiedRoomScape";
+import Bookmark from "../representationsRS/SuperMinifiedRS";
 
-export default function RecomendedRS({ navigation }) {
+export default function BookmarkedRS({ navigation }) {
   const { data, loading, error } = useQuery(recomendedRoomsQuery);
   console.log(data);
   if (loading) {
@@ -14,12 +14,13 @@ export default function RecomendedRS({ navigation }) {
   } else if (!error) {
     return (
       <>
-        {data.gameRooms.edges.map(({ node }) => (
-          <MinifiedRoomScape
+        {data.gameRooms.edges.map(({ node }, idx) => (
+          <Bookmark
             {...node}
             roomDuration={"60"}
             roomRating={node.roomRating / 2}
             key={node.roomId}
+            order={idx}
           />
         ))}
       </>

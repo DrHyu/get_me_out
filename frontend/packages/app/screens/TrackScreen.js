@@ -1,14 +1,37 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 
-const TrackScreen = () => {
+import Bookmarks from "../components/bookmarkedRS/bookmarkedRS";
+
+export default function TrackScreen({ navigation }) {
   return (
-    <View>
-      <Text>TrackScreen</Text>
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.header}>
+          <Text style={styles.title}>BOOKMARKS</Text>
+        </View>
+        <Bookmarks />
+      </ScrollView>
     </View>
   );
-};
+}
 
-export default TrackScreen;
+const styles = StyleSheet.create({
+  container: {
+    // paddingTop: 50,
+    flex: 1,
+    flexDirection: "column",
+  },
+  header: {
+    width: "100%",
+    height: 150,
+    backgroundColor: "#1E272C",
+  },
+  title: {
+    paddingTop: 40,
 
-const styles = StyleSheet.create({});
+    fontSize: 48,
+    color: "#1A76CB",
+    textAlign: "center",
+  },
+});
