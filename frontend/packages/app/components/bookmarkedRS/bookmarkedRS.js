@@ -26,7 +26,6 @@ export default function BookmarkedRS({ navigation, ListHeaderComponent }) {
     return (
       <TouchableOpacity
         style={{
-          // height: 100,
           marginHorizontal: 4,
           backgroundColor: isActive ? "#3F8EBF" : item.backgroundColor,
           borderRadius: 8,
@@ -34,16 +33,12 @@ export default function BookmarkedRS({ navigation, ListHeaderComponent }) {
           justifyContent: "center",
         }}
         onLongPress={drag}
-        onPlaceholderIndexChange
       >
         <Bookmark {...item} order={index} />
       </TouchableOpacity>
     );
   }, []);
 
-  // if (loading) {
-  //   return <Text style={{ paddingTop: 50 }}>Loading ....</Text>;
-  // } else if (!error) {
   return (
     <View style={{ flex: 1 }}>
       <DraggableFlatList
@@ -55,19 +50,5 @@ export default function BookmarkedRS({ navigation, ListHeaderComponent }) {
         onPlaceholderIndexChange={(idx) => console.log(idx)}
       />
     </View>
-    // <>
-    //   {data.gameRooms.edges.map(({ node }, idx) => (
-    //     <Bookmark
-    //       {...node}
-    //       roomDuration={"60"}
-    //       roomRating={node.roomRating / 2}
-    //       key={node.roomId}
-    //       order={idx}
-    //     />
-    //   ))}
-    // </>
   );
-  // } else {
-  //   return <Text style={{ paddingTop: 50 }}>Error ....</Text>;
-  // }
 }

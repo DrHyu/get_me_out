@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 
-import Bookmarks from "../components/bookmarkedRS/bookmarkedRS";
+import Bookmarks from "../components/bookmarkedRS/bookmarkedRS2";
 
 export default function TrackScreen({ navigation }) {
   return (
