@@ -20,7 +20,7 @@ const TestList = () => {
         console.log(edge);
         return <Text key={edge.node.roomName}>{edge.node.roomName} Hi</Text>;
       })}
-      <Text>Hello</Text>
+      <Text>;lkfgajdf;lkajs;lfkjasld;kfj</Text>
     </View>
   );
 };

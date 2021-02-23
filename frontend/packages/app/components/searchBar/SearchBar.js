@@ -6,57 +6,68 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  StyleSheet,
 } from "react-native";
 
-// import styled from "styled-components/native";
-
-import { BsSearch } from "react-icons/bs";
-
-// const Container = styled.View`
-//   width: 100%;
-//   height: 48px;
-
-//   border: 1px solid white;
-//   border-radius: 24px;
-
-//   display: flex;
-//   flex-direction: row;
-// `;
-
-// const InputField = styled.TextInput`
-//   flex: 1 1 0;
-
-//   border: 1px solid black;
-//   border-radius: 24px;
-
-//   background-color: white;
-//   color: gray;
-
-//   text-align: center;
-// `;
-
-// const SearchButton = styled.TouchableOpacity`
-//   width: 48px;
-
-//   border-radius: 24px;
-//   border: none;
-//   background-color: #ff385c;
-
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
-// const LoupeIcon = styled.Image`
-//   width: 50%;
-//   height: 50%;
-// `;
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function SearchBar() {
   return (
-    <View>
-      {" "}
-      <Textarea>Hi</Textarea>
+    <View style={styles.base}>
+      <View style={styles.inputWrapper}>
+        <TextInput
+          style={styles.input}
+          placeholder={"Type location or room name ..."}
+        />
+        <MaterialCommunityIcons name="magnify" style={styles.icon} />
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  base: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  inputWrapper: {
+    // dimensions
+    width: "90%",
+    height: 75,
+
+    // bg
+    backgroundColor: "white",
+    // border
+    borderRadius: 8,
+    borderColor: "gray",
+    borderWidth: 1,
+
+    //padding
+    paddingHorizontal: 10,
+
+    // Shadow
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+
+    // childs
+    flexDirection: "row",
+
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  input: {
+    flex: 1,
+    fontSize: 18,
+  },
+  icon: {
+    fontSize: 48,
+  },
+});
