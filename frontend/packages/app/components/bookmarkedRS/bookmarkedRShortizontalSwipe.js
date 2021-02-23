@@ -24,14 +24,18 @@ if (Platform.OS === "android") {
 }
 const OVERSWIPE_DIST = 20;
 
-const Bookmarks = () => {
+const Bookmarks = ({ ListHeaderComponent }) => {
   const { data: bookmarks, loading, error } = useQuery(recomendedRoomsQuery);
 
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     if (!loading && !error && bookmarks) {
-      setdata(bookmarks.gameRooms.edges.map(({ node }) => node).slice(0, 10));
+      setdata(
+        bookmarks.gameRooms.edges
+          .map(({ node }, idx) => ({ ...node, ranking: idx }))
+          .slice(0, 10)
+      );
     }
   }, [loading, bookmarks, error]);
 
@@ -104,7 +108,7 @@ const Bookmarks = () => {
           }}
           onLongPress={drag}
         >
-          <Bookmark {...item} order={index} />
+          <Bookmark {...item} order={item.ranking} />
         </TouchableOpacity>
       </SwipeableItem>
     );
@@ -117,8 +121,11 @@ const Bookmarks = () => {
         keyExtractor={(item) => "" + item.roomId}
         data={data}
         renderItem={renderItem}
-        onDragEnd={({ data }) => setdata(data)}
+        onDragEnd={({ data }) =>
+          setdata(data.map((item, idx) => ({ ...item, ranking: idx })))
+        }
         activationDistance={20}
+        ListHeaderComponent={ListHeaderComponent}
       />
     </View>
   );
@@ -129,6 +136,7 @@ export default Bookmarks;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#FFFFFF",
   },
   row: {
     flexDirection: "row",
