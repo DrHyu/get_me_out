@@ -1,9 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button, Pressable } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Dimensions } from "react-native";
-
-import { range } from "lodash";
 
 const windowWidth = Dimensions.get("window").width;
 

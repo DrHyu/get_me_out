@@ -44,20 +44,6 @@ export default function App() {
           }}
         >
           <Tab.Screen
-            name="Search"
-            component={HomeScreen}
-            options={{
-              tabBarLabel: "Home",
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons
-                  name="rocket-launch-outline"
-                  color={color}
-                  size={size}
-                />
-              ),
-            }}
-          />
-          <Tab.Screen
             name="Events"
             component={EventFeedScreen}
             options={{
@@ -73,20 +59,6 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name="Track"
-            component={TrackScreen}
-            options={{
-              tabBarLabel: "My List",
-              tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons
-                  name="format-list-numbered"
-                  color={color}
-                  size={size}
-                />
-              ),
-            }}
-          />
-          <Tab.Screen
             name="Profile"
             component={ProfileScreen}
             options={{
@@ -94,6 +66,35 @@ export default function App() {
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
                   name="account-outline"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={HomeScreen}
+            options={{
+              tabBarLabel: "Home",
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="rocket-launch-outline"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Tab.Screen
+            name="Track"
+            component={TrackScreen}
+            options={{
+              tabBarLabel: "My List",
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="format-list-numbered"
                   color={color}
                   size={size}
                 />
