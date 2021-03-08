@@ -12,10 +12,7 @@ const Favourites = () => {
 export default Favourites;
 
 const styles = StyleSheet.create({
-  container: {
-    height: 300,
-    backgroundColor: "red",
-  },
+  container: {},
   title: {
     flex: 1,
     fontSize: 24,

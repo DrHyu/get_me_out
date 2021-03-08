@@ -7,8 +7,11 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Modal,
+  Pressable,
 } from "react-native";
 
+import { centeredFull } from "../style-snipets";
 import TempUsrImg from "../../assets/user-profile-dummy.jpg";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -58,52 +61,63 @@ const Friendlist = () => {
         </TouchableOpacity>
       </View>
       <View style={[styles.row]}>
-        {!expanded && (
-          <ScrollView horizontal={true}>
-            <View style={styles.friendsMiniHorizontalGallery}>
-              {friends
-                .filter((friend, idx) => idx < 6)
-                .map((friend, idx) => (
-                  <View key={friend} style={styles.avatarImageWrapper}>
-                    <Image source={TempUsrImg} style={styles.avatarImage} />
-                  </View>
-                ))}
-              <TouchableOpacity
-                style={[styles.addFriendButton, styles.avatarImageWrapper]}
-              >
-                <MaterialCommunityIcons
-                  name="plus"
-                  style={styles.addFriendButtonIcon}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.addFriendButton, styles.avatarImageWrapper]}
-                onPress={() => setExpanded(true)}
-              >
-                <MaterialCommunityIcons
-                  name="dots-horizontal"
-                  style={styles.dotdotdotButtonIcon}
-                />
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-        )}
-        {expanded && (
-          <ScrollView
-            horizontal={false}
-            style={styles.friendsVerticalGallery}
-            // contentContainerStyle={{ padding: 16 }}
-          >
-            {friends.map((friend) => (
-              <View key={friend} style={styles.friendsVerticalGalleryRow}>
-                <View style={styles.avatarImageWrapper}>
+        <ScrollView horizontal={true}>
+          <View style={styles.friendsMiniHorizontalGallery}>
+            {friends
+              .filter((friend, idx) => idx < 6)
+              .map((friend, idx) => (
+                <View key={friend} style={styles.avatarImageWrapper}>
                   <Image source={TempUsrImg} style={styles.avatarImage} />
                 </View>
-                <Text>Donald J Thumb</Text>
-              </View>
-            ))}
-          </ScrollView>
-        )}
+              ))}
+            <TouchableOpacity
+              style={[styles.addFriendButton, styles.avatarImageWrapper]}
+            >
+              <MaterialCommunityIcons
+                name="plus"
+                style={styles.addFriendButtonIcon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.addFriendButton, styles.avatarImageWrapper]}
+              onPress={() => setExpanded(true)}
+            >
+              <MaterialCommunityIcons
+                name="dots-horizontal"
+                style={styles.dotdotdotButtonIcon}
+              />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={expanded}
+          onRequestClose={() => {
+            setExpanded(false);
+          }}
+        >
+          <View style={centeredFull} onPress={() => setExpanded(false)}>
+            {/* Full screen overlay to catch a press outside the "modal" to close the modal */}
+            <Pressable
+              style={styles.modalOverlay}
+              onPress={() => setExpanded(false)}
+            />
+            <View style={styles.friendsModalGalleryWrapper}>
+              <ScrollView>
+                {friends.map((friend) => (
+                  <View key={friend} style={styles.friendsModalGalleryRow}>
+                    <View style={styles.avatarImageWrapper}>
+                      <Image source={TempUsrImg} style={styles.avatarImage} />
+                    </View>
+                    <Text>Donald J Thumb</Text>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+          </View>
+        </Modal>
       </View>
       <View style={styles.row}></View>
       <Text>Hi</Text>
@@ -147,7 +161,6 @@ const styles = StyleSheet.create({
     fontSize: 60,
     color: "black",
   },
-
   friendsMiniHorizontalGallery: {
     flex: 1,
     flexDirection: "row",
@@ -175,14 +188,23 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  friendsVerticalGallery: {
-    maxHeight: windowHeight * 0.6,
 
-    borderRadius: 16,
-    backgroundColor: "lightblue",
-    padding: 16,
+  modalOverlay: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
   },
-  friendsVerticalGalleryRow: {
+  friendsModalGalleryWrapper: {
+    height: windowHeight * 0.6,
+    width: windowWidth * 0.8,
+    borderRadius: 16,
+    padding: 10,
+    backgroundColor: "white",
+  },
+
+  friendsModalGalleryRow: {
     padding: 8,
     margin: 4,
 
@@ -194,5 +216,5 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  friendsVerticalGalleryFriendName: {},
+  friendsModalGalleryFriendName: {},
 });

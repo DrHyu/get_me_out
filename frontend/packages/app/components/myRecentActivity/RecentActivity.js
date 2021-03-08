@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { useQuery } from "@apollo/react-hooks";
 
@@ -39,6 +40,18 @@ const sortCategories = [
     },
   },
 ];
+
+const renderRecentActivityItem = ({ item }) => {
+  const { node } = item;
+  return (
+    <RecentActivityRS
+      {...node}
+      roomDuration={"60"}
+      roomRating={node.roomRating / 2}
+      key={node.roomId}
+    />
+  );
+};
 
 const RecentActivity = () => {
   const [sortBy, setSortBy] = useState(0);
@@ -94,27 +107,13 @@ const RecentActivity = () => {
           ))}
         </View>
       </View>
-      <ScrollView style={styles.activitiesList}>
-        {!loading &&
-          !error &&
-          data.gameRooms.edges
-            .slice(0, 4)
-            .map(({ node }) => node) /* Unpack */
-            .sort((a, b) =>
-              sortCategories[sortBy].sortFunc(a, b, sortDescending)
-            ) /* Is sort ok in react ? Think not ... TODO*/
-            .map((node) => {
-              console.log(node.roomName);
-              return (
-                <RecentActivityRS
-                  {...node}
-                  roomDuration={"60"}
-                  roomRating={node.roomRating / 2}
-                  key={node.roomId}
-                />
-              );
-            })}
-      </ScrollView>
+      {!loading && !error && (
+        <FlatList
+          data={data.gameRooms.edges.slice(0, 4)}
+          renderItem={renderRecentActivityItem}
+          keyExtractor={(item, index) => item.node.roomId}
+        />
+      )}
     </View>
   );
 };
