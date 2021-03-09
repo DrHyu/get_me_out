@@ -1,34 +1,83 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
-import Favourites from "../components/myFavourites/Favourites";
-import RecentActivity from "../components/myRecentActivity/RecentActivity";
+import useFavourites from "../components/myFavourites/Favourites";
+import RecentActivity from "../components/myRecentActivity/RecentActivityHook";
 import TempUsrImg from "../assets/user-profile-dummy.jpg";
+import MixedFlatList from "../components/misc/MixedFlatList";
+
+import useRecentActivity from "../components/myRecentActivity/RecentActivityHook";
 
 import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const ProfileScreen = ({ userName = "Mr Trump Jr" }) => {
-  return (
-    <View>
-      <View style={styles.header}></View>
-      <View style={styles.avatarRow}>
-        <View style={styles.profilePictureWrapper}>
-          <View style={styles.profilePictureCircle}>
-            <Image source={TempUsrImg} style={styles.profilePicture} />
+  const {
+    headerData: RAHeaderData,
+    itemData: RAItemData,
+    renderHeader: RARenderHeader,
+    renderItem: RARenderItem,
+  } = useRecentActivity();
+
+  const {
+    favouritesData,
+    renderHeader: FAVRenderHeader,
+    renderFavourites,
+  } = useFavourites();
+
+  const renderProfileScreenHeader = () => {
+    return (
+      <View>
+        <View style={styles.header} />
+        <View style={styles.avatarRow}>
+          <View style={styles.profilePictureWrapper}>
+            <View style={styles.profilePictureCircle}>
+              <Image source={TempUsrImg} style={styles.profilePicture} />
+            </View>
           </View>
+          <Text style={styles.userName}>{userName}</Text>
         </View>
-        <Text style={styles.userName}>{userName}</Text>
       </View>
-      <ScrollView>
-        <View style={styles.favouritesWrapper}>
-          <Favourites />
-        </View>
-        <View style={styles.myActivityWrapper}>
-          <RecentActivity />
-        </View>
-      </ScrollView>
+    );
+  };
+
+  const structure = [
+    {
+      data: {},
+      renderFunc: renderProfileScreenHeader,
+      isSticky: true,
+      key: "header0",
+    },
+    {
+      data: {},
+      renderFunc: FAVRenderHeader,
+      isSticky: true,
+      key: "header1",
+    },
+    ...favouritesData.map((node) => ({
+      data: node,
+      renderFunc: renderFavourites,
+      isSticky: false,
+      key: `${node.roomId}2`,
+    })),
+    {
+      data: RAHeaderData,
+      renderFunc: RARenderHeader,
+      isSticky: true,
+      key: "header2",
+    },
+    ...RAItemData.map((node) => ({
+      data: node,
+      renderFunc: RARenderItem,
+      isSticky: false,
+      key: `${node.roomId}`,
+    })),
+  ];
+
+  return (
+    <View style={{ paddingTop: 30 }}>
+      <MixedFlatList data={structure} />
     </View>
   );
 };

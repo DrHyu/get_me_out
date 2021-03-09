@@ -13,6 +13,8 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import RecentActivityRS from "../representationsRS/RecentActivityRS";
 import { recomendedRoomsQuery } from "@getmeout/common";
 
+import MixedFlatList from "../misc/MixedFlatList";
+
 const stringSortFunc = (a, b) => ("" + a).localeCompare(b);
 const sortCategories = [
   {
@@ -52,7 +54,7 @@ const renderRecentActivityItem = ({ item }) => {
   );
 };
 
-const RecentActivity = () => {
+const useRecentActivity = () => {
   const [sortBy, setSortBy] = useState(0);
   const [sortDescending, setsortDescending] = useState(true);
   const [sortedData, setsortedData] = useState([]);
@@ -127,20 +129,55 @@ const RecentActivity = () => {
     );
   };
 
+  return {
+    headerData: sortCategories,
+    itemData: sortedData,
+    renderHeader: renderHeaderComponent,
+    renderItem: renderRecentActivityItem,
+  };
+};
+
+const RecentActivity = () => {
+  const {
+    headerData,
+    itemData,
+    renderHeader,
+    renderItem,
+  } = useRecentActivity();
+
+  const structure = [
+    {
+      data: headerData,
+      renderFunc: renderHeader,
+      isSticky: true,
+      key: "header1",
+    },
+    ...itemData.map((node) => {
+      //   console.log(item);
+      return {
+        data: node,
+        renderFunc: renderItem,
+        isSticky: false,
+        key: `${node.roomId}`,
+      };
+    }),
+  ];
+
   return (
     <View style={styles.container}>
-      <FlatList
-        ListHeaderComponent={renderHeaderComponent}
+      {/* <FlatList
+        ListHeaderComponent={renderHeader}
         stickyHeaderIndices={[0]}
-        data={sortedData}
-        renderItem={renderRecentActivityItem}
+        data={data}
+        renderItem={renderItem}
         keyExtractor={(item, index) => `${item.roomId}`}
-      />
+      /> */}
+      <MixedFlatList data={structure} />
     </View>
   );
 };
 
-export default RecentActivity;
+export default useRecentActivity;
 
 const sortIconSize = 32;
 const styles = StyleSheet.create({
@@ -151,7 +188,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "gray",
+    backgroundColor: "#F3F3F3",
   },
   title: {
     flex: 1,

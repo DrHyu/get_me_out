@@ -8,7 +8,7 @@ import MinifiedRoomScape from "../representationsRS/MinifiedRoomScape";
 
 export default function RecomendedRS({ navigation }) {
   const { data, loading, error } = useQuery(recomendedRoomsQuery);
-  console.log(data);
+
   if (loading) {
     return <Text style={{ paddingTop: 50 }}>Loading ....</Text>;
   } else if (!error) {
