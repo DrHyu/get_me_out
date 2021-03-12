@@ -5,7 +5,7 @@ const Banner = ({ width = 40, height = 60, color = "red", children }) => {
   const styles = createStyles(width, height, color);
 
   return (
-    <View>
+    <View style={styles.positioner}>
       <View style={styles.imgBannerSquare} />
       <View style={styles.imgBannerTriangle} />
       <View style={styles.imgBannerIconWrapper}>{children}</View>
@@ -15,6 +15,11 @@ const Banner = ({ width = 40, height = 60, color = "red", children }) => {
 
 const createStyles = (width, height, color) =>
   StyleSheet.create({
+    positioner: {
+      position: "absolute",
+      top: -5,
+      right: 25,
+    },
     imgBannerSquare: {
       position: "absolute",
       width: width,

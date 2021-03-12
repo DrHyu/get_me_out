@@ -10,12 +10,10 @@ const RecentActivityRS = ({
   roomName,
   roomImg,
   roomRating,
-  roomDescription,
-  roomDuration,
-  roomMinPlayers,
-  roomMaxPlayers,
   completionDate = "Dec 2020",
   commentaryText = "It was ok...",
+  withButtons = false,
+  decoration,
 }) => {
   return (
     <View style={styles.conatiner}>
@@ -24,14 +22,9 @@ const RecentActivityRS = ({
           source={{ uri: "http://178.62.72.241" + roomImg }}
           style={styles.roomImg}
         />
-        <View style={styles.imgBannerWrapper}>
-          <Banner width={40} height={60} color={"goldenrod"}>
-            <MaterialCommunityIcons
-              name="trophy"
-              style={styles.imgBannerIcon}
-            />
-          </Banner>
-        </View>
+        {decoration && (
+          <View style={styles.decorationWrapper}>{decoration}</View>
+        )}
       </View>
 
       <View style={styles.statsBar}>
@@ -76,6 +69,50 @@ const RecentActivityRS = ({
           <Text style={styles.commentaryText}>{commentaryText}</Text>
         </>
       )}
+      {withButtons && (
+        <View style={styles.actionButtonsGrp}>
+          <Pressable
+            onPress={() => {
+              console.log("Pressed");
+            }}
+            style={({ pressed }) => ({
+              ...styles.actionButton,
+              backgroundColor: pressed ? "#344ceb" : "#0085FF",
+            })}
+          >
+            {({ pressed }) => (
+              <MaterialCommunityIcons
+                name="thumbs-up-down"
+                style={{
+                  ...styles.actionButtonIcon,
+                  color: pressed ? "white" : "white",
+                }}
+                size={28}
+              />
+            )}
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              console.log("Pressed");
+            }}
+            style={({ pressed }) => ({
+              ...styles.actionButton,
+              backgroundColor: pressed ? "#344ceb" : "#0085FF",
+            })}
+          >
+            {({ pressed }) => (
+              <MaterialCommunityIcons
+                name="chevron-right"
+                style={{
+                  ...styles.actionButtonIcon,
+                  color: pressed ? "white" : "white",
+                }}
+                size={32}
+              />
+            )}
+          </Pressable>
+        </View>
+      )}
     </View>
   );
 };
@@ -104,6 +141,14 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
 
     elevation: 4,
+  },
+
+  decorationWrapper: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
 
   /* Wrapper arround all the stats of the room */
@@ -140,17 +185,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
 
-  /* Banner hanging from roomscape image */
-  imgBannerWrapper: {
-    position: "absolute",
-    top: -5,
-    right: 20,
-  },
-  imgBannerIcon: {
-    fontSize: 32,
-    color: "black",
-  },
-
   /* Group of number/text + icon */
   starRating: {
     flexDirection: "row",
@@ -177,5 +211,28 @@ const styles = StyleSheet.create({
   commentaryText: {
     paddingHorizontal: 8,
     paddingVertical: 6,
+  },
+  actionButtonsGrp: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+  actionButton: {
+    width: 50,
+    height: 35,
+
+    marginVertical: 8,
+    marginHorizontal: 8,
+
+    borderRadius: 10,
+    overflow: "hidden",
+
+    alignItems: "center",
+    justifyContent: "center",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
 });

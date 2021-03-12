@@ -17,7 +17,6 @@ const MixedFlatList = ({ data, ...rest }) => {
 
   return (
     <FlatList
-      //{...rest}
       data={data}
       renderItem={renderMixedFlatList}
       keyExtractor={(item) => `${item.key}`}

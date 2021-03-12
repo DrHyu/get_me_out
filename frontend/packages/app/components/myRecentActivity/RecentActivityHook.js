@@ -13,6 +13,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import RecentActivityRS from "../representationsRS/RecentActivityRS";
 import { recomendedRoomsQuery } from "@getmeout/common";
 
+import Banner from "../misc/Banner";
 import MixedFlatList from "../misc/MixedFlatList";
 
 const stringSortFunc = (a, b) => ("" + a).localeCompare(b);
@@ -50,6 +51,11 @@ const renderRecentActivityItem = ({ item }) => {
       roomDuration={"60"}
       roomRating={item.roomRating / 2}
       key={item.roomId}
+      decoration={
+        <Banner width={40} height={60} color={"goldenrod"}>
+          <MaterialCommunityIcons name="trophy" size={32} color={"black"} />
+        </Banner>
+      }
     />
   );
 };
@@ -153,7 +159,6 @@ const RecentActivity = () => {
       key: "header1",
     },
     ...itemData.map((node) => {
-      //   console.log(item);
       return {
         data: node,
         renderFunc: renderItem,
@@ -165,13 +170,6 @@ const RecentActivity = () => {
 
   return (
     <View style={styles.container}>
-      {/* <FlatList
-        ListHeaderComponent={renderHeader}
-        stickyHeaderIndices={[0]}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => `${item.roomId}`}
-      /> */}
       <MixedFlatList data={structure} />
     </View>
   );
@@ -186,6 +184,7 @@ const styles = StyleSheet.create({
   },
   headerWrapper: {
     paddingHorizontal: 16,
+    paddingVertical: 4,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#F3F3F3",

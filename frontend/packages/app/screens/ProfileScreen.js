@@ -1,11 +1,9 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
-import useFavourites from "../components/myFavourites/Favourites";
-import RecentActivity from "../components/myRecentActivity/RecentActivityHook";
 import TempUsrImg from "../assets/user-profile-dummy.jpg";
 import MixedFlatList from "../components/misc/MixedFlatList";
-
+import useFavourites from "../components/myFavourites/Favourites";
 import useRecentActivity from "../components/myRecentActivity/RecentActivityHook";
 
 import { Dimensions } from "react-native";
@@ -55,12 +53,12 @@ const ProfileScreen = ({ userName = "Mr Trump Jr" }) => {
       isSticky: true,
       key: "header1",
     },
-    ...favouritesData.map((node) => ({
-      data: node,
+    {
+      data: favouritesData,
       renderFunc: renderFavourites,
       isSticky: false,
-      key: `${node.roomId}2`,
-    })),
+      key: "favourites",
+    },
     {
       data: RAHeaderData,
       renderFunc: RARenderHeader,

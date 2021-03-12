@@ -1,4 +1,3 @@
-import { map } from "lodash";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -46,6 +45,8 @@ const friends = [
   24,
   25,
 ];
+
+export const useFriendList = () => {};
 
 const Friendlist = () => {
   const [expanded, setExpanded] = useState(false);
@@ -119,8 +120,6 @@ const Friendlist = () => {
           </View>
         </Modal>
       </View>
-      <View style={styles.row}></View>
-      <Text>Hi</Text>
     </View>
   );
 };
@@ -135,11 +134,13 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    width: "90%",
+    width: "95%",
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 24,
+    paddingVertical: 4,
+    backgroundColor: "#f3f3f3",
   },
   viewAllButton: {
     flex: 0,
