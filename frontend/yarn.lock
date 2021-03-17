@@ -6517,6 +6517,14 @@ match-sorter@^6.0.0:
     "@babel/runtime" "^7.12.5"
     remove-accents "0.4.2"
 
+match-sorter@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/match-sorter/-/match-sorter-6.3.0.tgz#454a1b31ed218cddbce6231a0ecb5fdc549fed01"
+  integrity sha512-efYOf/wUpNb8FgNY+cOD2EIJI1S5I7YPKsw0LBp7wqPh5pmMS6i/wr3ZWwfwrAw1NvqTA2KUReVRWDX84lUcOQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    remove-accents "0.4.2"
+
 math-expression-evaluator@^1.2.14:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.3.7.tgz#1b62225db86af06f7ea1fd9576a34af605a5b253"
@@ -8248,6 +8256,11 @@ react-native-svg@^12.1.0:
   dependencies:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
+
+react-native-swipeable-item@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-swipeable-item/-/react-native-swipeable-item-1.5.4.tgz#e003c75195689e177b7b01c7ec2381d2cc065e4f"
+  integrity sha512-Ef782l8pQgVotw9ZoOMY8fnCEiQSoiIBhwRQpNkI9DEYJ7Rpv4JglxnurzAq0AcaJqMxnygHChcKmD3Sz2K7PA==
 
 react-native-web@~0.13.12:
   version "0.13.18"
