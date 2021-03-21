@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 
 import RecomendedRS from "../components/recomendedRS/RecomendedRS";
+import DummySearchBar from "../components/searchBar/DummySearchBar";
 import SearchBar from "../components/searchBar/SearchBar";
 export default function HomeScreen({ navigation }) {
+  const [searchBarOpen, setSearchBarOpen] = useState(false);
   return (
     <View style={styles.container}>
+      {searchBarOpen && <SearchBar onBlur={() => setSearchBarOpen(false)} />}
       <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.title}>GET ME OUT</Text>
-        </View>
-        <SearchBar />
+        {!searchBarOpen && (
+          <>
+            <View style={styles.header}>
+              <Text style={styles.title}>GET ME OUT</Text>
+            </View>
+            <DummySearchBar onFocus={() => setSearchBarOpen(true)} />
+          </>
+        )}
         <RecomendedRS />
       </ScrollView>
     </View>
