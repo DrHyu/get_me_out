@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 
+import { SimpleLineIcons } from "@expo/vector-icons";
+
 const BaseButton = ({ icon, text, onClick }) => {
   return (
     <Pressable style={styles.wrapper} onPress={onClick}>
@@ -52,6 +54,24 @@ export const ShareRSButton = ({ link }) => {
     />
   );
 };
+
+export const CopyInivteLinkButton = ({ link }) => {
+  return (
+    <Pressable
+      style={[
+        styles.wrapper,
+        { flexDirection: "row", alignItems: "center", padding: 10 },
+      ]}
+      onPress={() => {}}
+    >
+      <Text style={[styles.text, { fontSize: 28, paddingRight: 14 }]}>
+        Copy Invite Link
+      </Text>
+      <SimpleLineIcons name="share-alt" size={32} color="white" />
+    </Pressable>
+  );
+};
+
 export default [];
 
 const styles = StyleSheet.create({
@@ -59,7 +79,7 @@ const styles = StyleSheet.create({
     margin: 8,
     borderRadius: 8,
     backgroundColor: "#0085FF",
-    // width: 80,
+
     flex: 1,
   },
   iconWrapper: {
