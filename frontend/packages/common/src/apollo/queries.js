@@ -87,7 +87,11 @@ export const fetchGameRoomByIdQuery = gql`
         node {
           roomId
           roomName
+          roomDescription
           roomImg
+          roomRating
+          roomMinPlayers
+          roomMaxPlayers
         }
       }
     }

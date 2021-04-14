@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
 
 import { useQuery } from "@apollo/react-hooks";
 
-import RecentActivityRS from "../representationsRS/RecentActivityRS";
+import RecentActivityRS from "../representationsRS/RecentActivityRSv2";
 import { recomendedRoomsQuery } from "@getmeout/common";
 import FriendDecoration from "./FriendDecoration";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -38,11 +38,11 @@ const FriendsActivity = () => {
   const { data, renderFriendActivityItem } = useFriendsActivity();
 
   return (
-    <ScrollView>
-      {data.map((item) => {
-        return renderFriendActivityItem({ item });
-      })}
-    </ScrollView>
+    <FlatList
+      data={data}
+      renderItem={renderFriendActivityItem}
+      keyExtractor={(node) => `${node.roomId}`}
+    />
   );
 };
 

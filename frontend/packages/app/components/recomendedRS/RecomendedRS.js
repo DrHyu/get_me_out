@@ -20,6 +20,7 @@ export default function RecomendedRS({ navigation }) {
             roomDuration={"60"}
             roomRating={node.roomRating / 2}
             key={node.roomId}
+            navigation={navigation}
           />
         ))}
       </>

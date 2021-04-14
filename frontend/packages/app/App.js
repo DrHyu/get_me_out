@@ -3,6 +3,7 @@ import { ApolloProvider } from "@apollo/client";
 import { createApolloClient } from "./lib/apollo/apolloClient";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { StyleSheet, Text, View } from "react-native";
@@ -11,9 +12,11 @@ import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import TrackScreen from "./screens/TrackScreen";
 import EventFeedScreen from "./screens/EventFeedScreen";
+import RoomEscapeScreen from "./screens/RoomEscapeScreen";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
+
 export default function App() {
   const apolloClient = createApolloClient();
 
@@ -74,7 +77,7 @@ export default function App() {
           />
           <Tab.Screen
             name="Search"
-            component={HomeScreen}
+            component={HomeScreenStackNav}
             options={{
               tabBarLabel: "Home",
               tabBarIcon: ({ color, size }) => (
@@ -106,6 +109,25 @@ export default function App() {
     </ApolloProvider>
   );
 }
+
+const HomeStack = createStackNavigator();
+
+const HomeScreenStackNav = () => {
+  return (
+    <HomeStack.Navigator initialRouteName="Home">
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="RoomEscapeScreen"
+        component={RoomEscapeScreen}
+        options={{}}
+      />
+    </HomeStack.Navigator>
+  );
+};
 
 const styles = StyleSheet.create({
   background: {

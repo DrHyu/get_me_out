@@ -12,6 +12,7 @@ const MinifiedRoomScape = ({
   roomDuration,
   roomMinPlayers,
   roomMaxPlayers,
+  navigation,
 }) => {
   return (
     <View style={styles.conatiner}>
@@ -98,7 +99,7 @@ const MinifiedRoomScape = ({
         </Pressable>
         <Pressable
           onPress={() => {
-            console.log("Pressed");
+            navigation.navigate("RoomEscapeScreen");
           }}
           style={({ pressed }) => ({
             ...styles.actionButton,
