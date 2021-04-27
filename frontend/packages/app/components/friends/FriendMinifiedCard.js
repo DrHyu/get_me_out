@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AvatarNoBorder from "../misc/AvatarNoBorder";
 
-import SimpleOptionsModal from "../misc/SimpleOptionsModal";
+import BasicModal from "../misc/BasicModal";
 
 const FriendMinifiedCard = ({ friendName = "Bob The Fisher", style }) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
@@ -31,7 +31,7 @@ const FriendMinifiedCard = ({ friendName = "Bob The Fisher", style }) => {
             }
           />
         </Pressable>
-        <SimpleOptionsModal
+        <BasicModal
           isOpen={isOptionsOpen}
           onRequestClose={() => setIsOptionsOpen(false)}
         >
@@ -49,7 +49,7 @@ const FriendMinifiedCard = ({ friendName = "Bob The Fisher", style }) => {
               <Text style={styles.optionsText}>Remove</Text>
             </Pressable>
           </View>
-        </SimpleOptionsModal>
+        </BasicModal>
       </View>
     </View>
   );

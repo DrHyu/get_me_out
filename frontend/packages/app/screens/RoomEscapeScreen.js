@@ -1,5 +1,12 @@
-import React from "react";
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 
 import { useQuery } from "@apollo/react-hooks";
 
@@ -7,6 +14,8 @@ import { fetchGameRoomByIdQuery } from "@getmeout/common";
 
 import RoomStatsCard from "../components/representationsRS/RoomStatsCard";
 import Bar5StarRater from "../components/ratings/Bar5StarRater";
+
+import ReviewModal from "../components/review/ReviewModal";
 
 import {
   GoToRSWebButton,
@@ -20,7 +29,8 @@ import ReviewCard from "../components/review/ReviewCard";
 const RoomEscapeScreen = ({ roomId }) => {
   const { data, error, loading } = useQuery(fetchGameRoomByIdQuery);
 
-  console.log(data);
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
+  console.log(isReviewOpen);
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {!loading && !error && data && (
@@ -49,7 +59,7 @@ const RoomEscapeScreen = ({ roomId }) => {
           </View>
           <View style={styles.row}>
             <GoToRSWebButton />
-            <ReviewRSButton />
+            <ReviewRSButton onPress={() => setIsReviewOpen(true)} />
             <BookmarkRSButton />
             <ShareRSButton />
           </View>
@@ -68,6 +78,11 @@ const RoomEscapeScreen = ({ roomId }) => {
           <View style={[styles.row]}>
             <ReviewCard />
           </View>
+
+          <ReviewModal
+            isOpen={isReviewOpen}
+            onRequestClose={() => setIsReviewOpen(false)}
+          />
         </>
       )}
     </ScrollView>

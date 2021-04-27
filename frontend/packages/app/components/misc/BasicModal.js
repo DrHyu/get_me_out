@@ -2,12 +2,13 @@ import React from "react";
 import { StyleSheet, Pressable, View, Modal } from "react-native";
 
 import { centeredFull } from "../style-snipets";
-const SimpleOptionsModal = ({
+const BasicModal = ({
   isOpen = false,
   animationType = undefined,
   onRequestClose,
   children,
   containerStyle = {},
+  backgroundColor = "#ffffff00",
 }) => {
   return (
     <Modal
@@ -16,7 +17,7 @@ const SimpleOptionsModal = ({
       visible={isOpen}
       onRequestClose={onRequestClose}
     >
-      <View style={centeredFull}>
+      <View style={[centeredFull, { backgroundColor: backgroundColor }]}>
         {/* Full screen overlay to catch a press outside the "modal" to close the modal */}
         <Pressable
           style={styles.modalOverlay}
@@ -29,7 +30,7 @@ const SimpleOptionsModal = ({
   );
 };
 
-export default SimpleOptionsModal;
+export default BasicModal;
 
 const styles = StyleSheet.create({
   modalOverlay: {

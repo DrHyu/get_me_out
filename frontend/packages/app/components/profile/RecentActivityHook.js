@@ -13,6 +13,9 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import RecentActivityRS from "../representationsRS/RecentActivityRS";
 import { recomendedRoomsQuery } from "@getmeout/common";
 
+import Banner from "../misc/Banner";
+import MixedFlatList from "../misc/MixedFlatList";
+
 const stringSortFunc = (a, b) => ("" + a).localeCompare(b);
 const sortCategories = [
   {
@@ -48,11 +51,16 @@ const renderRecentActivityItem = ({ item }) => {
       roomDuration={"60"}
       roomRating={item.roomRating / 2}
       key={item.roomId}
+      decoration={
+        <Banner width={40} height={60} color={"goldenrod"}>
+          <MaterialCommunityIcons name="trophy" size={32} color={"black"} />
+        </Banner>
+      }
     />
   );
 };
 
-const RecentActivity = () => {
+const useRecentActivity = () => {
   const [sortBy, setSortBy] = useState(0);
   const [sortDescending, setsortDescending] = useState(true);
   const [sortedData, setsortedData] = useState([]);
@@ -127,31 +135,60 @@ const RecentActivity = () => {
     );
   };
 
+  return {
+    headerData: sortCategories,
+    itemData: sortedData,
+    renderHeader: renderHeaderComponent,
+    renderItem: renderRecentActivityItem,
+  };
+};
+
+const RecentActivity = () => {
+  const {
+    headerData,
+    itemData,
+    renderHeader,
+    renderItem,
+  } = useRecentActivity();
+
+  const structure = [
+    {
+      data: headerData,
+      renderFunc: renderHeader,
+      isSticky: true,
+      key: "header1",
+    },
+    ...itemData.map((node) => {
+      return {
+        data: node,
+        renderFunc: renderItem,
+        isSticky: false,
+        key: `${node.roomId}`,
+      };
+    }),
+  ];
+
   return (
     <View style={styles.container}>
-      <FlatList
-        ListHeaderComponent={renderHeaderComponent}
-        stickyHeaderIndices={[0]}
-        data={sortedData}
-        renderItem={renderRecentActivityItem}
-        keyExtractor={(item, index) => `${item.roomId}`}
-      />
+      <MixedFlatList data={structure} />
     </View>
   );
 };
 
-export default RecentActivity;
+export default useRecentActivity;
 
 const sortIconSize = 32;
 const styles = StyleSheet.create({
   container: {
     height: "100%",
+    backgroundColor: "#E7E7E7",
   },
   headerWrapper: {
     paddingHorizontal: 16,
+    paddingVertical: 4,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "gray",
+    backgroundColor: "#E7E7E7",
   },
   title: {
     flex: 1,
