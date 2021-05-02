@@ -15,11 +15,27 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class CitySerializer(serializers.ModelSerializer):
+    """The serializer for the country model."""
+
+    class Meta:
+        model = gamerooms_models.City
+        fields = '__all__'
+
+
+class StateSerializer(serializers.ModelSerializer):
+    """The serializer for the country model."""
+
+    class Meta:
+        model = gamerooms_models.State
+        fields = '__all__'
+
+
 class CompanySerializer(serializers.ModelSerializer):
     """The serializer for the company model."""
 
     class Meta:
-        model = gamerooms_models.GameCenter
+        model = gamerooms_models.Company
         fields = '__all__'
 
 
@@ -31,12 +47,37 @@ class GameCenterSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class CategorySerializer(serializers.ModelSerializer):
+    """The serializer for the game center model."""
+
+    class Meta:
+        model = gamerooms_models.Category
+        fields = '__all__'
+
+
+class DifficultyLevelSerializer(serializers.ModelSerializer):
+    """The serializer for the game center model."""
+
+    class Meta:
+        model = gamerooms_models.DifficultyLevel
+        fields = '__all__'
+
+
 class GameRoomSerializer(serializers.ModelSerializer):
     """The serializer for the game room model."""
     #game_center = GameCenterSerializer()
 
     class Meta:
         model = gamerooms_models.GameRoom
+        fields = '__all__'
+
+
+class GameRoomCategorySerializer(serializers.ModelSerializer):
+    """The serializer for the game room model."""
+    #game_center = GameCenterSerializer()
+
+    class Meta:
+        model = gamerooms_models.GameRoomCategory
         fields = '__all__'
 
 

@@ -2,9 +2,9 @@ from django.db import models
 from django.contrib.gis.db.models import PointField
 from django.contrib.gis.geos import Point
 #from django.contrib.auth.models import User
-#from users.models import User
 
 #Autofield
+
 
 class Country (models.Model):
     """Describes a Country."""
@@ -76,6 +76,7 @@ class GameRoom (models.Model):
     room_related_categories = models.ManyToManyField(Category, through='GameRoomCategory')
     room_difficulty_level = models.ForeignKey(DifficultyLevel, on_delete=models.PROTECT)
     room_price = models.FloatField(default=100, help_text="Price of the GameRoom.")
+    game_room_url = models.URLField(max_length=200, default="")
     #dificulty = models.
     #completions = models.ManyToManyField(User, through='Completion')
 
@@ -83,6 +84,10 @@ class GameRoom (models.Model):
         """Returns the model as a string."""
         return str(self.room_id) + ' | ' + self.room_name
 
+
+class GameRoomCategory (models.Model):
+    gameroom = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
 #class Completion (models.Model):
@@ -92,6 +97,3 @@ class GameRoom (models.Model):
 #    general_score = models.PositiveIntegerField(help_text="Rating of the GameRoom (Integer) made by the user.")
 
 
-class GameRoomCategory (models.Model):
-    gameroom = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
