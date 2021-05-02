@@ -11,7 +11,8 @@ from graphql_auth.schema import UserQuery, MeQuery
 
 # Project Imports
 from gamerooms import models as gamerooms_models
-
+from users.queries import ReviewNode, LikedReviewNode, BookmarkedEscapeRoomNode, UserStatsNode, FriendshipNode, FriendRequestNode
+#UserNode,
 
 class CountryNode(DjangoObjectType):
     class Meta:
@@ -94,6 +95,14 @@ class GameRoomQuery(UserQuery, MeQuery, ObjectType):
     categories = DjangoFilterConnectionField(CategoryNode)
     game_rooms = DjangoFilterConnectionField(GameRoomNode)
     difficulty_levels = DjangoFilterConnectionField(DifficultyLevelNode)
+    reviews = DjangoFilterConnectionField(ReviewNode)
+    liked_reviews = DjangoFilterConnectionField(LikedReviewNode)
+    bookmarked_escape_room = DjangoFilterConnectionField(BookmarkedEscapeRoomNode)
+    #users = DjangoFilterConnectionField(UserNode)
+    user_stats = DjangoFilterConnectionField(UserStatsNode)
+    friendships = DjangoFilterConnectionField(FriendshipNode)
+    friendship_request = DjangoFilterConnectionField(FriendRequestNode)
+
     game_room_recommendation = graphene.List(GameRoomType)
     game_room_search = graphene.List(GameRoomType,
                                      country_id=graphene.Int(required=False),

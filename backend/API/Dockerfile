@@ -65,10 +65,8 @@ WORKDIR /usr/src/app
 
 
 # Copy project
-COPY ./gmo_backend /usr/src/app
 RUN yum install -y python37 python37-dev python3-devel
 RUN amazon-linux-extras enable postgresql11; yum install -y postgresql postgresql-devel libpq-devel cairo-devel gobject-introspection-devel cairo-gobject-devel
-RUN python3 -m pip install -r requirements.txt
 RUN python3 -m pip install GDAL==$(gdal-config --version)
 # Set work directory
 
@@ -76,6 +74,9 @@ RUN python3 -m pip install GDAL==$(gdal-config --version)
 
 
 # Add Entrypoint
+COPY ./gmo_backend /usr/src/app
+RUN python3 -m pip install -r requirements.txt
+
 COPY script/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
