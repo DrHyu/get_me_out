@@ -5,7 +5,6 @@ import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 
 const SuperMinifiedRoomScape = ({ roomName, roomImg, order }) => {
-  console.log(order);
   return (
     <View style={styles.conatiner}>
       <Image

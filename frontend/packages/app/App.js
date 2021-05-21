@@ -11,8 +11,10 @@ import { StyleSheet, Text, View } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import TrackScreen from "./screens/TrackScreen";
-import EventFeedScreen from "./screens/EventFeedScreen";
+import SocialScreen from "./screens/SocialScreen";
 import RoomEscapeScreen from "./screens/RoomEscapeScreen";
+import LoginScreen from "./screens/LoginScreen";
+
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
@@ -36,7 +38,6 @@ export default function App() {
                 iconName = focused ? "ios-list-box" : "ios-list";
               }
 
-              // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />;
             },
           })}
@@ -47,23 +48,22 @@ export default function App() {
           }}
         >
           <Tab.Screen
-            name="Events"
-            component={EventFeedScreen}
+            name="Search"
+            component={HomeScreenStackNav}
             options={{
-              tabBarLabel: "Updates",
+              tabBarLabel: "Search",
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
-                  name="bell-outline"
+                  name="rocket-launch-outline"
                   color={color}
                   size={size}
                 />
               ),
-              tabBarBadge: 3,
             }}
           />
           <Tab.Screen
             name="Profile"
-            component={ProfileScreen}
+            component={ProfileScreenStackNav}
             options={{
               tabBarLabel: "Me",
               tabBarIcon: ({ color, size }) => (
@@ -76,23 +76,23 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name="Search"
-            component={HomeScreenStackNav}
+            name="Social"
+            component={SocialScreenStackNav}
             options={{
-              tabBarLabel: "Home",
+              tabBarLabel: "Social",
               tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons
-                  name="rocket-launch-outline"
+                  name="bell-outline"
                   color={color}
                   size={size}
                 />
               ),
+              tabBarBadge: 3,
             }}
           />
-
           <Tab.Screen
             name="Track"
-            component={TrackScreen}
+            component={RSTrackStackNav}
             options={{
               tabBarLabel: "My List",
               tabBarIcon: ({ color, size }) => (
@@ -125,7 +125,89 @@ const HomeScreenStackNav = () => {
         component={RoomEscapeScreen}
         options={{}}
       />
+      <HomeStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
+  );
+};
+
+const SocialStack = createStackNavigator();
+
+const SocialScreenStackNav = () => {
+  return (
+    <SocialStack.Navigator initialRouteName="SocialScreen">
+      <SocialStack.Screen
+        name="SocialScreen"
+        component={SocialScreen}
+        options={{ headerShown: false }}
+      />
+      <SocialStack.Screen
+        name="RoomEscapeScreen"
+        component={RoomEscapeScreen}
+        options={{}}
+      />
+      <SocialStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{}}
+      />
+      <SocialStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+    </SocialStack.Navigator>
+  );
+};
+
+const RSTrackStack = createStackNavigator();
+
+const RSTrackStackNav = () => {
+  return (
+    <RSTrackStack.Navigator initialRouteName="TrackScreen">
+      <RSTrackStack.Screen
+        name="TrackScreen"
+        component={TrackScreen}
+        options={{ headerShown: false }}
+      />
+      <RSTrackStack.Screen
+        name="RoomEscapeScreen"
+        component={RoomEscapeScreen}
+        options={{}}
+      />
+      <RSTrackStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+    </RSTrackStack.Navigator>
+  );
+};
+
+const ProfileStack = createStackNavigator();
+
+const ProfileScreenStackNav = () => {
+  return (
+    <ProfileStack.Navigator initialRouteName="LoginScreen">
+      <ProfileStack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <ProfileStack.Screen
+        name="RoomEscapeScreen"
+        component={RoomEscapeScreen}
+        options={{}}
+      />
+      <ProfileStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+    </ProfileStack.Navigator>
   );
 };
 

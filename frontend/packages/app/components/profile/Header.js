@@ -7,7 +7,7 @@ import { recomendedRoomsQuery } from "@getmeout/common";
 
 import TempUsrImg from "../../assets/user-profile-dummy.jpg";
 
-const useHeader = () => {
+const useHeader = (userId) => {
   const { data, loading, error } = useQuery(recomendedRoomsQuery);
 
   const [loadedData, setloadedData] = useState([]);

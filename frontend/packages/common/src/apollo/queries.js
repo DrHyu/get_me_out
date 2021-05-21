@@ -98,19 +98,6 @@ export const fetchGameRoomByIdQuery = gql`
   }
 `;
 
-// gql`
-//   query {
-//     gameRoomRecommendation {
-//       roomId
-//       roomName
-//       roomDescription
-//       roomImg
-//       roomRating
-//       roomMinPlayers
-//       roomMaxPlayers
-//     }
-//   }
-// `;
 export const recomendedRoomsQuery = gql`
   {
     gameRooms(first: 50) {
@@ -123,6 +110,50 @@ export const recomendedRoomsQuery = gql`
           roomRating
           roomMinPlayers
           roomMaxPlayers
+        }
+      }
+    }
+  }
+`;
+
+export const bookmarkedRoomsQuery = gql`
+  query ($userId: ID!) {
+    bookmarkedEscapeRoom(user: $userId) {
+      edges {
+        node {
+          id
+          bookmarkIndex
+          escapeRoom {
+            roomId
+            roomName
+            roomDescription
+            roomImg
+            roomRating
+            roomMinPlayers
+            roomMaxPlayers
+          }
+        }
+      }
+    }
+  }
+`;
+export const reviewsQuery = gql`
+  query ($userId: ID!) {
+    reviews(user: $userId) {
+      edges {
+        node {
+          id
+          reviewText
+          generalScore
+          gameroom {
+            roomId
+            roomName
+            roomDescription
+            roomImg
+            roomRating
+            roomMinPlayers
+            roomMaxPlayers
+          }
         }
       }
     }

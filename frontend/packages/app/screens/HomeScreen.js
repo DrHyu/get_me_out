@@ -5,10 +5,6 @@ import RecomendedRS from "../components/recomendedRS/RecomendedRS";
 import DummySearchBar from "../components/searchBar/DummySearchBar";
 import SearchBar from "../components/searchBar/SearchBar";
 
-import { createStackNavigator } from "@react-navigation/stack";
-
-const Stack = createStackNavigator();
-
 export default function HomeScreen({ navigation }) {
   const [searchBarOpen, setSearchBarOpen] = useState(false);
   return (

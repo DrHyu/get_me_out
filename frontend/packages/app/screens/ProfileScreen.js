@@ -10,21 +10,19 @@ import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const ProfileScreen = ({ userName = "Mr Trump Jr" }) => {
+const ProfileScreen = ({ route, navigation }) => {
+  const { userId } = route.params;
+
   const {
     headerData: RAHeaderData,
     itemData: RAItemData,
     renderHeader: RARenderHeader,
     renderItem: RARenderItem,
-  } = useRecentActivity();
+  } = useRecentActivity(userId);
 
-  const {
-    favouritesData,
+  const { favouritesData, renderFavourites } = useFavourites(userId);
 
-    renderFavourites,
-  } = useFavourites();
-
-  const { renderProfileHeader } = useHeader();
+  const { renderProfileHeader } = useHeader(userId);
 
   const structure = [
     {
@@ -49,7 +47,7 @@ const ProfileScreen = ({ userName = "Mr Trump Jr" }) => {
       data: node,
       renderFunc: RARenderItem,
       isSticky: false,
-      key: `${node.roomId}`,
+      key: `${node.gameroom.roomId}`,
     })),
   ];
 

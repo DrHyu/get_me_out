@@ -7,23 +7,25 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { concatPagination } from "@apollo/client/utilities";
 import { setContext } from "@apollo/client/link/context";
+import { getToken } from "../../utils/asyncStorage";
 
 const httpLink = createHttpLink({
-  uri: "http://178.62.72.241:8080/graphql",
+  // uri: "http://178.62.72.241:8080/graphql",
+  uri: "http://ec2-54-246-79-54.eu-west-1.compute.amazonaws.com:8000/graphql/",
   credentials: "same-origin",
 });
 
-const authLink = setContext((_, { headers }) =>
-  // return the headers to the context so httpLink can read them
-  ({
+const authLink = setContext(async (_, { headers }) => {
+  const { authToken, refreshToken } = await getToken();
+
+  return {
     headers: {
       ...headers,
-      // authorization: token ? `Bearer ${token}` : "",
+      authorization: authToken ? `Bearer ${authToken}` : null,
     },
-  })
-);
+  };
+});
 
 const errorCatchLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)

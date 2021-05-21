@@ -11,7 +11,7 @@ const RecentActivityRS = ({
   roomImg,
   roomRating,
   completionDate = "Dec 2020",
-  commentaryText = "It was ok...",
+  reviewText,
   withButtons = false,
   decoration,
 }) => {
@@ -63,10 +63,10 @@ const RecentActivityRS = ({
         </View>
       </View>
       <Text style={styles.title}>{roomName}</Text>
-      {commentaryText && (
+      {reviewText && (
         <>
           <View style={styles.separator}></View>
-          <Text style={styles.commentaryText}>{commentaryText}</Text>
+          <Text style={styles.reviewText}>{reviewText}</Text>
         </>
       )}
       {withButtons && (
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  commentaryText: {
+  reviewText: {
     paddingHorizontal: 8,
     paddingVertical: 6,
   },

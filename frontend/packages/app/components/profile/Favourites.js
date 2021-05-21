@@ -3,19 +3,26 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { useQuery } from "@apollo/react-hooks";
 
-import { recomendedRoomsQuery } from "@getmeout/common";
+import { bookmarkedRoomsQuery } from "@getmeout/common";
 
 import MinifiedRoomScape from "../representationsRS/MinifiedRoomScape";
 import TopRoomScape from "../representationsRS/FavouriteRS";
 
-const useFavourites = () => {
-  const { data, loading, error } = useQuery(recomendedRoomsQuery);
+const useFavourites = (userId) => {
+  console.log(userId);
+  const { data, loading, error } = useQuery(bookmarkedRoomsQuery, {
+    variables: { userId },
+  });
 
   const [loadedData, setloadedData] = useState([]);
 
   useEffect(() => {
     if (!loading && !error) {
-      setloadedData(data.gameRooms.edges.slice(0, 4).map(({ node }) => node));
+      console.log(data);
+      const temp = []
+        .concat(data.bookmarkedEscapeRoom.edges)
+        .sort((a, b) => (a.node.bookmarkIndex > b.node.bookmarkIndex ? 1 : -1));
+      setloadedData(temp.slice(0, 4).map((edge) => edge.node.escapeRoom));
     }
   }, [data, loading, error]);
 

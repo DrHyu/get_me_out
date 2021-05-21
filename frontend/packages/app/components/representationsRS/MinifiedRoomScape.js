@@ -76,7 +76,7 @@ const MinifiedRoomScape = ({
       <View style={styles.horizontalSeparator} />
       <Text style={styles.description}>{roomDescription}</Text>
 
-      <View style={styles.actionButtonsGrp}>
+      {/* <View style={styles.actionButtonsGrp}>
         <Pressable
           onPress={() => {
             console.log("Pressed");
@@ -117,7 +117,7 @@ const MinifiedRoomScape = ({
             />
           )}
         </Pressable>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 10,
     marginHorizontal: 4,
+    paddingBottom: 10,
   },
   learnMoreButton: {
     width: 10,

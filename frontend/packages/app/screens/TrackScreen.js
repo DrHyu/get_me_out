@@ -7,6 +7,7 @@ export default function TrackScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Bookmarks
+        navigation={navigation}
         ListHeaderComponent={
           // Bookmarks itself is a virtual view and they cannot be nested
           // The only way to make the header scrollable is to included it in the

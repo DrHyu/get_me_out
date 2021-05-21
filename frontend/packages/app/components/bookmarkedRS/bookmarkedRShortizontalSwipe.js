@@ -10,9 +10,9 @@ import {
   UIManager,
 } from "react-native";
 import Animated from "react-native-reanimated";
-import SwipeableItem, { UnderlayParams } from "react-native-swipeable-item";
+import SwipeableItem, { OpenDirection } from "react-native-swipeable-item";
 import DraggableFlatList from "react-native-draggable-flatlist";
-const { multiply, sub } = Animated;
+const { multiply, sub, max } = Animated;
 
 import { useQuery } from "@apollo/react-hooks";
 import { recomendedRoomsQuery } from "@getmeout/common";
@@ -24,14 +24,16 @@ if (Platform.OS === "android") {
 }
 const OVERSWIPE_DIST = 20;
 
-const Bookmarks = ({ ListHeaderComponent }) => {
+const Bookmarks = ({ navigation, ListHeaderComponent }) => {
   const { data: bookmarks, loading, error } = useQuery(recomendedRoomsQuery);
 
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
+
+  console.log(data.map((d) => d.roomName));
 
   useEffect(() => {
     if (!loading && !error && bookmarks) {
-      setdata(
+      setData(
         bookmarks.gameRooms.edges
           .map(({ node }, idx) => ({ ...node, ranking: idx }))
           .slice(0, 10)
@@ -39,13 +41,11 @@ const Bookmarks = ({ ListHeaderComponent }) => {
     }
   }, [loading, bookmarks, error]);
 
-  // const itemRefs = new Map();
-
   const deleteItem = (item) => {
     const updatedData = data.filter((d) => d !== item);
     // Animate list to close gap when item is deleted
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-    setdata(updatedData);
+    // LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    setData(updatedData);
   };
 
   const renderUnderlayLeft = ({ item, percentOpen }) => (
@@ -59,20 +59,24 @@ const Bookmarks = ({ ListHeaderComponent }) => {
   );
 
   const renderUnderlayRight = ({ item, percentOpen, open, close }) => (
-    <View style={[styles.row, styles.underlayRight]}>
-      <Animated.View
-        style={[
-          {
-            opacity: percentOpen,
-            transform: [{ translateX: multiply(sub(1, percentOpen), -100) }], // Translate from left on open
-          },
-        ]}
-      >
-        <TouchableOpacity onPressOut={close}>
-          <Text style={[styles.text]}>CLOSE</Text>
-        </TouchableOpacity>
-      </Animated.View>
-    </View>
+    <Animated.View
+      style={[
+        styles.row,
+        styles.underlayRight,
+        {
+          opacity: percentOpen,
+          transform: [
+            {
+              translateX: multiply(sub(1, percentOpen), -100),
+            },
+          ], // Translate from left on open
+        },
+      ]}
+    >
+      <TouchableOpacity onPressOut={close}>
+        <Text style={[styles.text]}>CLOSE</Text>
+      </TouchableOpacity>
+    </Animated.View>
   );
 
   const renderItem = useCallback(({ item, index, drag, isActive }) => {
@@ -80,33 +84,28 @@ const Bookmarks = ({ ListHeaderComponent }) => {
       <SwipeableItem
         key={"" + item.roomId}
         item={item}
-        // ref={(ref) => {
-        //   if (ref && !itemRefs.get(item.key)) {
-        //     itemRefs.set(item.key, ref);
-        //   }
-        // }}
-        // onChange={({ open }) => {
-        //   if (open) {
-        //     // Close all other open items
-        //     [...itemRefs.entries()].forEach(([key, ref]) => {
-        //       if (key !== item.key && ref) ref.close();
-        //     });
-        //   }
-        // }}
         overSwipe={OVERSWIPE_DIST}
         renderUnderlayLeft={renderUnderlayLeft}
         renderUnderlayRight={renderUnderlayRight}
         snapPointsLeft={[150]}
         snapPointsRight={[175]}
+        onChange={({ open, snapPoint }) => {
+          if (open === OpenDirection.RIGHT) {
+            navigation.navigate("RoomEscapeScreen");
+          }
+        }}
       >
         <TouchableOpacity
           style={{
             marginHorizontal: 4,
-            borderRadius: 8,
             alignItems: "center",
             justifyContent: "center",
+            backgroundColor: "#fefefe",
           }}
           onLongPress={drag}
+          onPress={() => {
+            navigation.navigate("RoomEscapeScreen");
+          }}
         >
           <Bookmark {...item} order={item.ranking} />
         </TouchableOpacity>
@@ -122,7 +121,7 @@ const Bookmarks = ({ ListHeaderComponent }) => {
         data={data}
         renderItem={renderItem}
         onDragEnd={({ data }) =>
-          setdata(data.map((item, idx) => ({ ...item, ranking: idx })))
+          setData(data.map((item, idx) => ({ ...item, ranking: idx })))
         }
         activationDistance={20}
         ListHeaderComponent={ListHeaderComponent}
@@ -136,7 +135,7 @@ export default Bookmarks;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fefefe",
   },
   row: {
     flexDirection: "row",

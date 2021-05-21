@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, Share } from "react-native";
 
 import { SimpleLineIcons } from "@expo/vector-icons";
 
@@ -60,6 +60,25 @@ export const ShareRSButton = ({ link, onPress = () => {} }) => {
 };
 
 export const CopyInivteLinkButton = ({ link, onPress = () => {} }) => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: "Invite Link HERE",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <Pressable
       style={[
@@ -67,7 +86,7 @@ export const CopyInivteLinkButton = ({ link, onPress = () => {} }) => {
 
         { flexDirection: "row", alignItems: "center", padding: 10 },
       ]}
-      onPress={onPress}
+      onPress={onShare}
     >
       <Text style={[styles.text, { fontSize: 28, paddingRight: 14 }]}>
         Copy Invite Link

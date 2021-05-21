@@ -11,7 +11,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import RecentActivityRS from "../representationsRS/RecentActivityRS";
-import { recomendedRoomsQuery } from "@getmeout/common";
+import { reviewsQuery } from "@getmeout/common";
 
 import Banner from "../misc/Banner";
 import MixedFlatList from "../misc/MixedFlatList";
@@ -22,15 +22,19 @@ const sortCategories = [
     icon: "star-outline",
     defaultSortDescending: true,
     iconEmptySpacePct: 5,
-    sortFunc: (a, b, reverse) => (reverse ? !(a < b) : a < b),
+    sortFunc: (a, b, reverse) =>
+      reverse
+        ? !(a.gameroom.roomRating < b.gameroom.roomRating)
+        : a.gameroom.roomRating < b.gameroom.roomRating,
   },
   {
     icon: "timer-sand",
     defaultSortDescending: false,
     iconEmptySpacePct: 25,
     sortFunc: (a, b, reverse) => {
-      if (reverse) return -1 * stringSortFunc(a.roomName, b.roomName);
-      return stringSortFunc(a.roomName, b.roomName);
+      if (reverse)
+        return -1 * stringSortFunc(a.gameroom.roomName, b.gameroom.roomName);
+      return stringSortFunc(a.gameroom.roomName, b.gameroom.roomName);
     },
   },
   {
@@ -38,8 +42,9 @@ const sortCategories = [
     defaultSortDescending: false,
     iconEmptySpacePct: 0,
     sortFunc: (a, b, reverse) => {
-      if (reverse) return -1 * stringSortFunc(a.roomName, b.roomName);
-      return stringSortFunc(a.roomName, b.roomName);
+      if (reverse)
+        return -1 * stringSortFunc(a.gameroom.roomName, b.gameroom.roomName);
+      return stringSortFunc(a.gameroom.roomName, b.gameroom.roomName);
     },
   },
 ];
@@ -47,10 +52,11 @@ const sortCategories = [
 const renderRecentActivityItem = ({ item }) => {
   return (
     <RecentActivityRS
-      {...item}
+      {...item.gameroom}
+      reviewText={item.reviewText}
       roomDuration={"60"}
-      roomRating={item.roomRating / 2}
-      key={item.roomId}
+      roomRating={item.gameroom.roomRating / 2}
+      key={item.gameroom.roomId}
       decoration={
         <Banner width={40} height={60} color={"goldenrod"}>
           <MaterialCommunityIcons name="trophy" size={32} color={"black"} />
@@ -60,12 +66,14 @@ const renderRecentActivityItem = ({ item }) => {
   );
 };
 
-const useRecentActivity = () => {
+const useRecentActivity = (userId) => {
   const [sortBy, setSortBy] = useState(0);
   const [sortDescending, setsortDescending] = useState(true);
   const [sortedData, setsortedData] = useState([]);
 
-  const { data, loading, error } = useQuery(recomendedRoomsQuery);
+  const { data, loading, error } = useQuery(reviewsQuery, {
+    variables: { userId },
+  });
 
   const sortData = (data) => {
     return []
@@ -75,9 +83,7 @@ const useRecentActivity = () => {
 
   useEffect(() => {
     if (!loading && !error) {
-      const newData = sortData(
-        data.gameRooms.edges.slice(0, 6).map(({ node }) => node)
-      );
+      const newData = sortData(data.reviews.edges.map((edge) => edge.node));
       setsortedData(newData);
     } else {
       setsortedData([]);
@@ -142,14 +148,10 @@ const useRecentActivity = () => {
     renderItem: renderRecentActivityItem,
   };
 };
-
-const RecentActivity = () => {
-  const {
-    headerData,
-    itemData,
-    renderHeader,
-    renderItem,
-  } = useRecentActivity();
+// NOT UP TO DATE -- NOT USED -- TODO
+const RecentActivity = (userId) => {
+  const { headerData, itemData, renderHeader, renderItem } =
+    useRecentActivity(userId);
 
   const structure = [
     {
@@ -163,7 +165,7 @@ const RecentActivity = () => {
         data: node,
         renderFunc: renderItem,
         isSticky: false,
-        key: `${node.roomId}`,
+        key: `${node.gameroom.roomId}`,
       };
     }),
   ];
